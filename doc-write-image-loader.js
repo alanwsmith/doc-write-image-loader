@@ -52,3 +52,9 @@ ImgTagBuilder.prototype.callHeight = function() {
 ImgTagBuilder.prototype.callWidth = function() {
   return this.displayWidth() * this._multiplier;
 };
+
+ImgTagBuilder.prototype.ratio= function() {
+  return this._maxHeight / this._maxWidth;
+};
+
+

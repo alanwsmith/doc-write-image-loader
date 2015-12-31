@@ -70,6 +70,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip.callWidth(), 1600);
   assert.equal(ip.callHeight(), 1000);
   assert.equal(ip.quality(), 85);
+  assert.equal(ip.ratio(), 0.625);
   assert.equal(ip._multiplier, 2);
 
 });
