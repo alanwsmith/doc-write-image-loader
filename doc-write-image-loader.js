@@ -9,7 +9,7 @@ var ImgTagBuilder = function(config) {
 };
 
 ImgTagBuilder.prototype.displayHeight = function() {
-  return this.sourceHeight() / this._multiplier;
+  return this.callHeight() / this._multiplier;
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
@@ -18,7 +18,7 @@ ImgTagBuilder.prototype.displayWidth = function() {
 
 ImgTagBuilder.prototype.url = function() {
   // TODO: Consider making this configurable. 
-  return 'http://res.cloudinary.com/demo/image/upload/c_fill,q_' + this.quality() + ',w_' + this.callWidth() + ',h_' + this.sourceHeight() + '/' + this._image;
+  return 'http://res.cloudinary.com/demo/image/upload/c_fill,q_' + this.quality() + ',w_' + this.callWidth() + ',h_' + this.callHeight() + '/' + this._image;
 };
 
 ImgTagBuilder.prototype.imgTag = function() {
@@ -43,7 +43,7 @@ ImgTagBuilder.prototype.quality = function() {
   return this._config.styles[this._style]['breakPoints'][0]['quality'] ? this._config.styles[this._style]['breakPoints'][0]['quality'] : 80;
 }
 
-ImgTagBuilder.prototype.sourceHeight = function() {
+ImgTagBuilder.prototype.callHeight = function() {
   return this.callWidth() * this._ratio;
 };
 
