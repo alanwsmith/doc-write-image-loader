@@ -69,5 +69,6 @@ TODO
 - Determine browser support and decide on extent of fallbacks.
 - Add test page with lots of images calls.
 - Add comparison test pages with other ways to call images to test against.
+- Setup the config options so it doesn't matter what order the image sizes are defined.
 - Lots more...
 
