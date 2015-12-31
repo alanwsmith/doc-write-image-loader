@@ -29,6 +29,7 @@ Concepts
 --------
 
 - The area the image will occupy is defined explicitly. There's no need to redraw the page or resize the image. It's effectively the same as if a server side process had provided a custom page based on the browsers parameters. Instead of relying on the server to do that work, it's pushed back to the client via the document.write call. Because it blocks, it effectively happens at the initial load. The hypothesis is that JavaScript in modern browsers is fast enough to make this a minimal performance hit and hopefully less than other options. 
+- The object pulls the viewport and devicePixelRatio into local variables. This is done so that QUnit can override them for testing differnet sizes and ratios on a single device/page.
 
 
 
