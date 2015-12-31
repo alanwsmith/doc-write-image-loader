@@ -60,5 +60,7 @@ TODO
 - Create minified version of the script.
 - Ability to limit image size so it fits in the `winner.innerHeight` as well. 
 - Determine browser support and decide on extent of fallbacks.
+- Add test page with lots of images calls.
+- Add comparison test pages with other ways to call images to test against.
 - Lots more...
 
