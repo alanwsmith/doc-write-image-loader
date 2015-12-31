@@ -46,8 +46,6 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   //////////
   // When
 
-  // TODO: Switch over to using Cloudinary sample images
-  // TODO: Pass `sourceHeight` and use it to calculate ratio so it can be removed from here.
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000, ratio: 0.625});
 
 
