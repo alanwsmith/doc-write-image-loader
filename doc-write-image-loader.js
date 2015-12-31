@@ -3,7 +3,7 @@ var ImgTagBuilder = function(config) {
   this._alt = ""; 
   this._config = config;
   this._image = undefined;
-  this._maxSourceWidth = undefined;
+  this._sourceWidth = undefined;
   this._ratio = undefined;
   this._style = undefined; 
 };
@@ -33,7 +33,7 @@ ImgTagBuilder.prototype.prep = function(params) {
   this._alt = params['alt']; 
   this._image = params['image'];
   this._ratio = params['ratio'];
-  this._maxSourceWidth = params['maxSourceWidth'];
+  this._sourceWidth = params['sourceWidth'];
   this._style = params['style'];
   return this;
 };
