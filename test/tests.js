@@ -48,14 +48,14 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   // TODO: Switch over to using Cloudinary sample images
   // TODO: Pass `sourceHeight` and use it to calculate ratio so it can be removed from here.
-  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", maxWidth: 1600, ratio: 0.625});
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, ratio: 0.625});
 
 
   //////////
   // Then
 
-  assert.equal(ip._alt, "lightning");
-  assert.equal(ip._image, "aws-20120802--1811-01a-lightning.jpg");
+  assert.equal(ip._alt, "some horses");
+  assert.equal(ip._image, "horses.jpg");
   assert.equal(ip._maxWidth, 1600);
   assert.equal(ip._ratio, 0.625);
   assert.equal(ip._style, "main");
@@ -64,8 +64,8 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip._config.styles['main']['breakPoints'][0]['maxImageDisplayWidth'], 800);
 
 
-  assert.equal(ip.imgTag(),'<img alt="lightning" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg">'); 
-  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg'); 
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">'); 
+  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg'); 
   assert.equal(ip.displayWidth(), 800);
   assert.equal(ip.displayHeight(), 500);
   assert.equal(ip.callWidth(), 1600);
