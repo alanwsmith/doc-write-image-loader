@@ -46,7 +46,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   //////////
   // When
   
-  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", maxSourceWidth: 1600, ratio: 0.625});
+  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", sourceWidth: 1600, ratio: 0.625});
 
 
   //////////
@@ -54,7 +54,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   assert.equal(ip._alt, "lightning");
   assert.equal(ip._image, "aws-20120802--1811-01a-lightning.jpg");
-  assert.equal(ip._maxSourceWidth, 1600);
+  assert.equal(ip._sourceWidth, 1600);
   assert.equal(ip._ratio, 0.625);
   assert.equal(ip._style, "main");
   
@@ -66,8 +66,8 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg'); 
   assert.equal(ip.displayWidth(), 800);
   assert.equal(ip.displayHeight(), 500);
-  assert.equal(ip.sourceWidth(), 1600);
-  assert.equal(ip.sourceHeight(), 1000);
+  assert.equal(ip.callWidth(), 1600);
+  assert.equal(ip.callHeight(), 1000);
   assert.equal(ip.quality(), 85);
   assert.equal(ip._multiplier, 2);
 
