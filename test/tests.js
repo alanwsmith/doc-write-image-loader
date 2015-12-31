@@ -44,6 +44,9 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   ip._multiplier = 2; // Force to '2' so testing works across devices.
   assert.equal(ip._multiplier, 2);
 
+  // TODO: Force window size so test works regarless of actual browser size.
+
+
   //////////
   // When
 
