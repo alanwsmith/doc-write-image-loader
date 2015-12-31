@@ -45,8 +45,10 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   //////////
   // When
-  
-  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", sourceWidth: 1600, ratio: 0.625});
+
+  // TODO: Switch over to using Cloudinary sample images
+  // TODO: Pass `sourceHeight` and use it to calculate ratio so it can be removed from here.
+  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", maxWidth: 1600, ratio: 0.625});
 
 
   //////////
@@ -54,7 +56,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   assert.equal(ip._alt, "lightning");
   assert.equal(ip._image, "aws-20120802--1811-01a-lightning.jpg");
-  assert.equal(ip._sourceWidth, 1600);
+  assert.equal(ip._maxWidth, 1600);
   assert.equal(ip._ratio, 0.625);
   assert.equal(ip._style, "main");
   
