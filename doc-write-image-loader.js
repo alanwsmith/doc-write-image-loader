@@ -5,7 +5,6 @@ var ImgTagBuilder = function(config) {
   this._image = undefined;
   this._maxHeight= undefined;
   this._maxWidth = undefined;
-  this._ratio = undefined;
   this._style = undefined; 
 };
 
@@ -33,7 +32,6 @@ ImgTagBuilder.prototype.place = function() {
 ImgTagBuilder.prototype.prep = function(params) {
   this._alt = params['alt']; 
   this._image = params['image'];
-  this._ratio = params['ratio'];
   this._maxHeight= params['maxHeight'];
   this._maxWidth = params['maxWidth'];
   this._style = params['style'];
@@ -46,7 +44,7 @@ ImgTagBuilder.prototype.quality = function() {
 }
 
 ImgTagBuilder.prototype.callHeight = function() {
-  return this.callWidth() * this._ratio;
+  return this.callWidth() * this.ratio();
 };
 
 ImgTagBuilder.prototype.callWidth = function() {

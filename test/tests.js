@@ -56,7 +56,6 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip._image, "horses.jpg");
   assert.equal(ip._maxWidth, 1600);
   assert.equal(ip._maxHeight, 1000);
-  assert.equal(ip._ratio, 0.625);
   assert.equal(ip._style, "main");
   
   // TODO: Figure out how to move this out so it's called dynamically.
