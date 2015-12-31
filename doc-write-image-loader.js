@@ -3,6 +3,7 @@ var ImgTagBuilder = function(config) {
   this._alt = ""; 
   this._config = config;
   this._image = undefined;
+  this._maxHeight= undefined;
   this._maxWidth = undefined;
   this._ratio = undefined;
   this._style = undefined; 
@@ -33,6 +34,7 @@ ImgTagBuilder.prototype.prep = function(params) {
   this._alt = params['alt']; 
   this._image = params['image'];
   this._ratio = params['ratio'];
+  this._maxHeight= params['maxHeight'];
   this._maxWidth = params['maxWidth'];
   this._style = params['style'];
   return this;
