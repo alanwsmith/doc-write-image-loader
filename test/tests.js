@@ -8,7 +8,7 @@
 
 - Setup test to check for empty alt text and make sure it returns properly. 
 
-- Add quality feature
+- Add test to check default quality value. 
 
 - Add actual style references and calculations. 
 
@@ -45,30 +45,31 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   //////////
   // When
-  
-  ip.prep({ image: "aws-20120802--1811-01a-lightning.jpg", alt: "lightning",  style: "main", sourceWidth: 1600, ratio: 0.625});
+
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
 
   //////////
   // Then
 
-  assert.equal(ip._alt, "lightning");
-  assert.equal(ip._image, "aws-20120802--1811-01a-lightning.jpg");
-  assert.equal(ip._sourceWidth, 1600);
-  assert.equal(ip._ratio, 0.625);
+  assert.equal(ip._alt, "some horses");
+  assert.equal(ip._image, "horses.jpg");
+  assert.equal(ip._maxWidth, 1600);
+  assert.equal(ip._maxHeight, 1000);
   assert.equal(ip._style, "main");
   
   // TODO: Figure out how to move this out so it's called dynamically.
   assert.equal(ip._config.styles['main']['breakPoints'][0]['maxImageDisplayWidth'], 800);
 
 
-  assert.equal(ip.imgTag(),'<img alt="lightning" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg">'); 
-  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg'); 
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">'); 
+  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg'); 
   assert.equal(ip.displayWidth(), 800);
   assert.equal(ip.displayHeight(), 500);
   assert.equal(ip.callWidth(), 1600);
   assert.equal(ip.callHeight(), 1000);
   assert.equal(ip.quality(), 85);
+  assert.equal(ip.ratio(), 0.625);
   assert.equal(ip._multiplier, 2);
 
 });
