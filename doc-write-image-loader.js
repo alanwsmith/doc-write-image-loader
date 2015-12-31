@@ -18,7 +18,7 @@ ImgTagBuilder.prototype.displayWidth = function() {
 
 ImgTagBuilder.prototype.url = function() {
   // TODO: Consider making this configurable. 
-  return 'http://res.cloudinary.com/demo/image/upload/c_fill,q_' + this.quality() + ',w_' + this.sourceWidth() + ',h_' + this.sourceHeight() + '/' + this._image;
+  return 'http://res.cloudinary.com/demo/image/upload/c_fill,q_' + this.quality() + ',w_' + this.callWidth() + ',h_' + this.sourceHeight() + '/' + this._image;
 };
 
 ImgTagBuilder.prototype.imgTag = function() {
@@ -44,9 +44,9 @@ ImgTagBuilder.prototype.quality = function() {
 }
 
 ImgTagBuilder.prototype.sourceHeight = function() {
-  return this.sourceWidth() * this._ratio;
+  return this.callWidth() * this._ratio;
 };
 
-ImgTagBuilder.prototype.sourceWidth = function() {
+ImgTagBuilder.prototype.callWidth = function() {
   return this.displayWidth() * this._multiplier;
 };

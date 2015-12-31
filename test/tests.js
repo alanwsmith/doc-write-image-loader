@@ -66,7 +66,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/aws-20120802--1811-01a-lightning.jpg'); 
   assert.equal(ip.displayWidth(), 800);
   assert.equal(ip.displayHeight(), 500);
-  assert.equal(ip.sourceWidth(), 1600);
+  assert.equal(ip.callWidth(), 1600);
   assert.equal(ip.sourceHeight(), 1000);
   assert.equal(ip.quality(), 85);
   assert.equal(ip._multiplier, 2);
