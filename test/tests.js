@@ -46,7 +46,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   //////////
   // When
 
-  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000, ratio: 0.625});
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
 
   //////////
