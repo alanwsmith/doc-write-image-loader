@@ -8,7 +8,7 @@
 
 - Setup test to check for empty alt text and make sure it returns properly. 
 
-- Add quality feature
+- Add test to check default quality value. 
 
 - Add actual style references and calculations. 
 
