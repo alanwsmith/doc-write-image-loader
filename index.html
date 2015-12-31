@@ -3,10 +3,28 @@
 <head> 
   <meta charset="utf-8" /> 
   <title>document.write Image Loader</title>
+
+  <!--
+    The script is called externally in this example to accommodate 
+    development and testing on GitHub. The original concept was
+    to embed it directly to save the HTTP call. It's designed to
+    work either way.
+  -->
+  <script src="/doc-write-image-loader.js"></script>
+
+
+  <!-- One time configuration for the page -->
+  <script type="text/javascript">
+    var imageBuilder = new ImgTagBuilder({ styles: { main: { breakPoints: [ { maxImageDisplayWidth: 400, quality: 80 } ] } } });
+  </script>
+
 </head> 
 <body>
-<h1>document.write Image Loader</title>
+<h1>document.write Image Loader</h1>
 
+<script type="text/javascript">
+imageBuilder.prep({ image: "sample.jpg", alt: "Sample Image",  style: "main", maxSourceWidth: 1600, ratio: 0.6675}).place();
+</script>
+<noscript>It appears that JavaScript is turned off in your browser. This page uses needs that in order to load images properly.</noscript>
 </body>
 </html>
-
