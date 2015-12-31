@@ -54,6 +54,8 @@ The second way avoids the HTTP call. It's the original approach I had in mind.
 TODO
 ----
 
+- Pass max height instead of ratio and use that to calculate the ratio. (It'll be easier to determine and necessary anyway to make sure images aren't enlarged.)
+- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
 - Provide dynamic image sizes based on a percentage of `window.innerWidth`.
 - Create minified version of the script.
 - Ability to limit image size so it fits in the `winner.innerHeight` as well. 
