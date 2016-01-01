@@ -20,27 +20,27 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   // Then
 
   // This is the key requirement. Everything else supports it.
-  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">'); 
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
 
   // Verify config details are ingested.
-  assert.equal(ip._alt, "some horses");
-  assert.equal(ip._image, "horses.jpg");
-  assert.equal(ip._maxHeight, 1000);
-  assert.equal(ip._maxWidth, 1600);
-  assert.equal(ip._devicePixelRatio, 2);
-  assert.equal(ip._style, "main");
+  assert.equal(ip._alt, "some horses", "_alt");
+  assert.equal(ip._image, "horses.jpg", "_image");
+  assert.equal(ip._maxHeight, 1000, "_maxHeight");
+  assert.equal(ip._maxWidth, 1600, "_maxWidth");
+  assert.equal(ip._devicePixelRatio, 2, "_devidePixelRatio");
+  assert.equal(ip._style, "main", "_style");
   
   // TODO: Figure out how to move this out so it's called dynamically.
-  assert.equal(ip._config.styles['main']['breakPoints'][0]['maxImageDisplayWidth'], 800);
+  assert.equal(ip._config.styles['main']['breakPoints'][0]['maxImageDisplayWidth'], 800, "maxImageDisplayWidth");
 
   // Method verification 
-  assert.equal(ip.callHeight(), 1000);
-  assert.equal(ip.callWidth(), 1600);
-  assert.equal(ip.displayHeight(), 500);
-  assert.equal(ip.displayWidth(), 800);
-  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg'); 
-  assert.equal(ip.quality(), 85);
-  assert.equal(ip.ratio(), 0.625);
+  assert.equal(ip.callHeight(), 1000, "callHeight()");
+  assert.equal(ip.callWidth(), 1600, "callWidth()");
+  assert.equal(ip.displayHeight(), 500, "displayHeight()");
+  assert.equal(ip.displayWidth(), 800, "displayWidth()");
+  assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg', "url()"); 
+  assert.equal(ip.quality(), 85, "quality()");
+  assert.equal(ip.ratio(), 0.625, "ratio()");
 
 });
 
