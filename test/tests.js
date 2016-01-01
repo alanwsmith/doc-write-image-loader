@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
-QUnit.test("Basic test with 2x high-res image call.", function(assert) {
+QUnit.test("2x high-res image call.", function(assert) {
 
   //////////
   // Given
@@ -61,7 +61,7 @@ QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
   //////////
   // Then
 
-  assert.equal(ip._devicePixelRatio, window.devicePixelRatio);
+  assert.equal(ip._devicePixelRatio, window.devicePixelRatio, "_devicePixelRatio");
 
 });
 
@@ -93,7 +93,7 @@ QUnit.test("Test against multiple size options and use the second one.", functio
   // Then
 
   // This is the key requirement. Everything else supports it.
-  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">'); 
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag"); 
 
 
 });
