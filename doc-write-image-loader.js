@@ -23,9 +23,11 @@ ImgTagBuilder.prototype.displayHeight = function() {
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
-//  for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints']; breakIndex < breakCount; breakIndex++) {
-    
-//  }
+
+  // TODO: Move this loop out so it's only called once after you get it working.
+  for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints'].length; breakIndex < breakCount; breakIndex++) {
+     console.log(this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth']);    
+  }
   return this._config.styles[this._style]['breakPoints'][0]['maxImageDisplayWidth'];
 };
 
