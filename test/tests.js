@@ -106,7 +106,7 @@ QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
 
 // TODO: Duplicate this test setup but target the larger viewport.  
 
-QUnit.test("Test against multiple size options", function(assert) {
+QUnit.test("Test against multiple size options and use the second one.", function(assert) {
 
   //////////
   // Given
@@ -114,12 +114,11 @@ QUnit.test("Test against multiple size options", function(assert) {
   var breakAlpha = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
   var breakBeta  = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
 
-  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBeta ] } } });
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakBeta, breakAlpha, breakBeta ] } } });
 
   //////////
   // When
 
-  ip._innerWidth = 500;
   ip._multiplier = 2; // Force to '2' so testing works across devices.
 
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
@@ -129,9 +128,7 @@ QUnit.test("Test against multiple size options", function(assert) {
   // Then
 
   // This is the key requirement. Everything else supports it.
-  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="400" height="250" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_800,h_500/horses.jpg">'); 
-
-  assert.equal(ip._innerWidth, 500);
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">'); 
 
 
 });
