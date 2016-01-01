@@ -16,26 +16,59 @@
   <!-- One time configuration for the page -->
   <script type="text/javascript">
     var breakAlpha = { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 80 };
-    var breakBeta= { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 };
-    var imageBuilder = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBeta ] } } });
+    var breakBravo = { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 80 };
+    var breakCharlie = { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 };
+    var imageBuilder = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBravo, breakCharlie] } } });
   </script>
 
   <style type="text/css">
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
     img.main { border: 2px solid black; }
+    .table { border-collapse: collapse; border-spacing: 0; }
+    .table th { vertical-align: top; border-bottom: 1px solid #aaa; padding:4px 14px; }
+    .table td { vertical-align: top; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding:4px 14px; }
+    .table tr:last-child td { vertical-align: top; border-top: 1px solid #eee; border-bottom: 1px solid #aaa; padding:4px 14px;}
+    .center { text-align: center; }
   </style>
 
 </head> 
 <body>
+  <p>| Example | <a href="test/">QUnit Test Results</a> |</p>
   <h1>document.write Image Loader</h1>
 
   <div>
     <script type="text/javascript">
       imageBuilder.prep({ image: "horses.jpg", alt: "Sample Image",  style: "main", maxWidth: 1600, maxHeight: 1000 }).place();
     </script>
-    <noscript>It appears that JavaScript is turned off in your browser. This page uses needs that in order to load images properly.</noscript>
+    <noscript>A fallback &lt;img&gt; would go here in a production web page.</noscript>
   </div>
 
-  <p><a href="test/">View test results</a></p>
+  <p>
+  <table class="table">
+    <tr>
+      <th colspan="3">Image Size Rendering Chart</th>
+    </tr>
+    <tr>
+      <td><strong>window.innerWidth</strong></td>
+      <td><strong>1x and Visual Width</strong></td>
+      <td><strong>2x DevicePixelRatio Width</strong></td>
+    </tr>
+    <tr>
+      <td>0-499 px</td>
+      <td class="center">200 px</td>
+      <td class="center">400 px</td>
+    </tr>
+    <tr>
+      <td>500-899 px</td>
+      <td class="center">300 px</td>
+      <td class="center">600 px</td>
+    </tr>
+    <tr>
+      <td>900+ px</td>
+      <td class="center">400 px</td>
+      <td class="center">800 px</td>
+    </tr>
+  </table>
 
 </body>
 </html>
