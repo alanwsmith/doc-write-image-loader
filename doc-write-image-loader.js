@@ -1,5 +1,5 @@
 var ImgTagBuilder = function(config) {
-  this._multiplier = window.devicePixelRatio; // TODO: add check to make sure this exists. 
+  this._devicePixelRatio = window.devicePixelRatio; // TODO: add check to make sure this exists. 
   this._innerWidth = window.innerWidth;
   this._alt = ""; 
   this._config = config;
@@ -14,11 +14,11 @@ ImgTagBuilder.prototype.callHeight = function() {
 };
 
 ImgTagBuilder.prototype.callWidth = function() {
-  return this.displayWidth() * this._multiplier;
+  return this.displayWidth() * this._devicePixelRatio;
 };
 
 ImgTagBuilder.prototype.displayHeight = function() {
-  return this.callHeight() / this._multiplier;
+  return this.callHeight() / this._devicePixelRatio;
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
