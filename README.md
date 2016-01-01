@@ -90,6 +90,7 @@ Possible Future Features
 - Ability to limit image size so it fits in the `winner.innerHeight` as well. 
 - Minified version of the script.
 - Comparison test pages with other ways to call images to test against.
+- Breakpoint config generator tool.
 
 
 
