@@ -33,7 +33,10 @@
 
 </head> 
 <body>
-  <p>| Example | <a href="test/">QUnit Test Results</a> |</p>
+  <p>&middot; <strong>Example</strong> &middot; <a href="test/">QUnit Test Results</a> &middot; <a href="https://github.com/alanwsmith/doc-write-image-loader">Documentation and GitHub Repo</a> &middot;</p>
+
+  <hr>
+
   <h1>document.write Image Loader</h1>
 
   <div>
@@ -52,6 +55,8 @@
   <script type="text/javascript">
     document.getElementById("theImgTag").innerHTML = imageBuilder.imgTag().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');
   </script>
+
+  <p>Resize the browser and refresh the page to generate a different size.</p>
 
   <hr>
 
