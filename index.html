@@ -38,10 +38,22 @@
 
   <div>
     <script type="text/javascript">
-      imageBuilder.prep({ image: "horses.jpg", alt: "Sample Image",  style: "main", maxWidth: 1600, maxHeight: 1000 }).place();
+      imageBuilder.prep({ image: "horses.jpg", alt: "Grazing Horses",  style: "main", maxWidth: 1600, maxHeight: 1000 }).place();
     </script>
     <noscript>A fallback &lt;img&gt; would go here in a production web page.</noscript>
   </div>
+
+  <hr> 
+
+  <h3>Notes</h3>
+
+  <p>Dynamically generated &lt;img&gt; tag:</p>
+  <div id="theImgTag"></div>
+  <script type="text/javascript">
+    document.getElementById("theImgTag").innerHTML = imageBuilder.imgTag().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');
+  </script>
+
+  <hr>
 
   <p>
   <table class="table">

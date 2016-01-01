@@ -67,16 +67,18 @@ This approach sacrafices the ability to display images if JavaScript is turned o
 Roadmap TODOs
 -------------
 
-- Test against different breakpoints. 
+- (all the TODOs in the code comments)
+- Setup the config options so it doesn't matter what order the image sizes are defined.
 - Make sure all dimensions are converted to integers. 
 - Slice off extra pixels when division doesn't results in an integer.
-- Check against hitting the max source height and refining the parameters if that happens. 
-- Check a vertical images. 
+- Test hitting the max source height and refining the parameters if that happens. 
+- Test vertical images. 
 - Determine browser support and decide on extent of fallbacks.
 - Test page with lots of images calls.
-- Setup the config options so it doesn't matter what order the image sizes are defined.
 - Test to check for empty alt text and make sure it returns properly. 
 - Test to check default quality value. 
+- Test 1 and 1.3 devicePixelRatios. 
+
 
 
 
