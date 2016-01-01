@@ -85,6 +85,7 @@ Roadmap TODOs
 Possible Future Features
 ------------------------
 
+- Move example site to its own domain.
 - Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
 - Dynamic image sizes based on a percentage of `window.innerWidth`.
 - Ability to limit image size so it fits in the `winner.innerHeight` as well. 
