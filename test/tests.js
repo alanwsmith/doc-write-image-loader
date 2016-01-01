@@ -14,8 +14,6 @@
 
 - Make sure you slice off extra pixels when division doesn't results in an integer.
 
-- Add tests where you override the viewport dimensions
-
 - Put a note to make sure to use a `noscript` tag when writing the docs.
 
 - Check against hitting the max source height and refining the parameters if that happens. 
@@ -40,15 +38,11 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
 
   var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { maxImageDisplayWidth: 800, quality: 85 } ] } } });
   
-  // Force environemnt for test.
-  ip._multiplier = 2; // Force to '2' so testing works across devices.
-  assert.equal(ip._multiplier, 2);
-
-  // TODO: Force window size so test works regarless of actual browser size.
-
-
   //////////
   // When
+
+  ip._multiplier = 2; // Force to '2' so testing works across devices.
+  ip.innerWidth = 1000; // Force for testing regardless of device. 
 
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
@@ -64,6 +58,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   assert.equal(ip._image, "horses.jpg");
   assert.equal(ip._maxHeight, 1000);
   assert.equal(ip._maxWidth, 1600);
+  assert.equal(ip._multiplier, 2);
   assert.equal(ip._style, "main");
   
   // TODO: Figure out how to move this out so it's called dynamically.
@@ -120,6 +115,7 @@ QUnit.test("Test against multiple size options and use the second one.", functio
   // When
 
   ip._multiplier = 2; // Force to '2' so testing works across devices.
+  ip.innerWidth = 1000; // Force for testing regardless of device. 
 
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
