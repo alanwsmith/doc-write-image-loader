@@ -25,6 +25,13 @@ This project isn't ready for prime time. For example,
 
 That said, the conceptual framework is in place. There's enough to use as a starting point if you'd like to experiment as well. 
 
+Concepts
+--------
+
+- The area the image will occupy is defined explicitly. There's no need to redraw the page or resize the image. It's effectively the same as if a server side process had provided a custom page based on the browsers parameters. Instead of relying on the server to do that work, it's pushed back to the client via the document.write call. Because it blocks, it effectively happens at the initial load. The hypothesis is that JavaScript in modern browsers is fast enough to make this a minimal performance hit and hopefully less than other options. 
+- The object pulls the viewport and devicePixelRatio into local variables. This is done so that QUnit can override them for testing differnet sizes and ratios on a single device/page.
+
+
 
 Serving Images
 --------------
@@ -51,17 +58,36 @@ The first way will save a little bandwidth via caching.
 The second way avoids the HTTP call. It's the original approach I had in mind.
 
 
-TODO
-----
+`<noscript>` Fallback 
+---------------------
 
+This approach sacrafices the ability to display images if JavaScript is turned off. While that only impacts a small number of poeple, a fallback should be provided to maintain as universal a page as possible. The recommended approach is to add a `<noscript>` with a static version of the `<img>` tag behind each embedded `<script>` call.  
+
+
+Roadmap TODOs
+-------------
+
+- Test against different breakpoints. 
 - Make sure all dimensions are converted to integers. 
-- Pass max height instead of ratio and use that to calculate the ratio. (It'll be easier to determine and necessary anyway to make sure images aren't enlarged.)
-- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
-- Provide dynamic image sizes based on a percentage of `window.innerWidth`.
-- Create minified version of the script.
-- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
+- Slice off extra pixels when division doesn't results in an integer.
+- Check against hitting the max source height and refining the parameters if that happens. 
+- Check a vertical images. 
 - Determine browser support and decide on extent of fallbacks.
-- Add test page with lots of images calls.
-- Add comparison test pages with other ways to call images to test against.
-- Lots more...
+- Test page with lots of images calls.
+- Setup the config options so it doesn't matter what order the image sizes are defined.
+- Test to check for empty alt text and make sure it returns properly. 
+- Test to check default quality value. 
+
+
+
+Possible Future Features
+------------------------
+
+- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
+- Dynamic image sizes based on a percentage of `window.innerWidth`.
+- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
+- Minified version of the script.
+- Comparison test pages with other ways to call images to test against.
+
+
 
