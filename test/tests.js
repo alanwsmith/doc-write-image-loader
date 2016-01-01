@@ -5,7 +5,7 @@ QUnit.test("Basic test with 2x high-res image call.", function(assert) {
   //////////
   // Given
 
-  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { maxImageDisplayWidth: 800, quality: 85 } ] } } });
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { minViewportWidth: 0, maxImageDisplayWidth: 800, quality: 85 } ] } } });
   
   //////////
   // When
