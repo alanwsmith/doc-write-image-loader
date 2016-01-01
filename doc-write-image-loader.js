@@ -1,9 +1,10 @@
 var ImgTagBuilder = function(config) {
-  this._multiplier = window.devicePixelRatio; // TODO: add check to make sure this exists. 
-  this._innerWidth = window.innerWidth;
-  this._alt = ""; 
   this._config = config;
+
+  this._alt = ""; 
+  this._devicePixelRatio = window.devicePixelRatio; 
   this._image = undefined;
+  this._innerWidth = window.innerWidth;
   this._maxHeight= undefined;
   this._maxWidth = undefined;
   this._style = undefined; 
@@ -14,15 +15,25 @@ ImgTagBuilder.prototype.callHeight = function() {
 };
 
 ImgTagBuilder.prototype.callWidth = function() {
-  return this.displayWidth() * this._multiplier;
+  return this.displayWidth() * this._devicePixelRatio;
 };
 
 ImgTagBuilder.prototype.displayHeight = function() {
-  return this.callHeight() / this._multiplier;
+  return this.callHeight() / this._devicePixelRatio;
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
-  return this._config.styles[this._style]['breakPoints'][0]['maxImageDisplayWidth'];
+
+  // TODO: Move this loop out so it's only called once after you get it working.
+
+  for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints'].length; breakIndex < breakCount; breakIndex++) {
+  	if (this._innerWidth > this._config.styles[this._style]['breakPoints'][breakIndex]['minViewportWidth']) {
+  		console.log(this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth']);
+      return this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth'];
+      break;
+    }
+  }
+
 };
 
 ImgTagBuilder.prototype.imgTag = function() {
