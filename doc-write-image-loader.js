@@ -34,8 +34,6 @@ ImgTagBuilder.prototype.displayWidth = function() {
     }
   }
 
-  return this._config.styles[this._style]['breakPoints'][0]['maxImageDisplayWidth'];
-
 };
 
 ImgTagBuilder.prototype.imgTag = function() {
