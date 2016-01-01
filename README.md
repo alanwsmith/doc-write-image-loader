@@ -58,18 +58,36 @@ The first way will save a little bandwidth via caching.
 The second way avoids the HTTP call. It's the original approach I had in mind.
 
 
-TODO
-----
+`<noscript>` Fallback 
+---------------------
 
+This approach sacrafices the ability to display images if JavaScript is turned off. While that only impacts a small number of poeple, a fallback should be provided to maintain as universal a page as possible. The recommended approach is to add a `<noscript>` with a static version of the `<img>` tag behind each embedded `<script>` call.  
+
+
+Roadmap TODOs
+-------------
+
+- Test against different breakpoints. 
 - Make sure all dimensions are converted to integers. 
-- Pass max height instead of ratio and use that to calculate the ratio. (It'll be easier to determine and necessary anyway to make sure images aren't enlarged.)
-- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
-- Provide dynamic image sizes based on a percentage of `window.innerWidth`.
-- Create minified version of the script.
-- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
+- Slice off extra pixels when division doesn't results in an integer.
+- Check against hitting the max source height and refining the parameters if that happens. 
+- Check a vertical images. 
 - Determine browser support and decide on extent of fallbacks.
-- Add test page with lots of images calls.
-- Add comparison test pages with other ways to call images to test against.
+- Test page with lots of images calls.
 - Setup the config options so it doesn't matter what order the image sizes are defined.
-- Lots more...
+- Test to check for empty alt text and make sure it returns properly. 
+- Test to check default quality value. 
+
+
+
+Possible Future Features
+------------------------
+
+- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
+- Dynamic image sizes based on a percentage of `window.innerWidth`.
+- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
+- Minified version of the script.
+- Comparison test pages with other ways to call images to test against.
+
+
 

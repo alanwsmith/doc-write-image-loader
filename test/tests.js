@@ -4,23 +4,6 @@
 
 /*
 
-- Test against different breakpoints. 
-
-- Setup test to check for empty alt text and make sure it returns properly. 
-
-- Add test to check default quality value. 
-
-- Add actual style references and calculations. 
-
-- Make sure you slice off extra pixels when division doesn't results in an integer.
-
-- Put a note to make sure to use a `noscript` tag when writing the docs.
-
-- Check against hitting the max source height and refining the parameters if that happens. 
-
-- Check a vertical images. 
-
-- Consider a version that adjust width completely dynamically based on widow width instead of just a breakpoints. 
 
 */
 
