@@ -1,5 +1,6 @@
 var ImgTagBuilder = function(config) {
   this._multiplier = window.devicePixelRatio; // TODO: add check to make sure this exists. 
+  this._innerWidth = window.innerWidth;
   this._alt = ""; 
   this._config = config;
   this._image = undefined;
