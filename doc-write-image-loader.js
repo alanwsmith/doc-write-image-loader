@@ -25,10 +25,17 @@ ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
 
   // TODO: Move this loop out so it's only called once after you get it working.
+
   for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints'].length; breakIndex < breakCount; breakIndex++) {
-     console.log(this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth']);    
+  	if (this._innerWidth > this._config.styles[this._style]['breakPoints'][breakIndex]['minViewportWidth']) {
+  		console.log(this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth']);
+      return this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth'];
+      break;
+    }
   }
+
   return this._config.styles[this._style]['breakPoints'][0]['maxImageDisplayWidth'];
+
 };
 
 ImgTagBuilder.prototype.imgTag = function() {
