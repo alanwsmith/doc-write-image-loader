@@ -68,17 +68,15 @@ QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Duplicate this test setup but target the larger viewport.  
-
-QUnit.test("Test against multiple size options and use the second one.", function(assert) {
+QUnit.test("Pick the larger of two config options (in decending order) based on innerWidth", function(assert) {
 
   //////////
   // Given
 
-  var breakAlpha = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
-  var breakBravo  = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
+  var breakAlpha = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
+  var breakBravo = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
 
-  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakBravo, breakAlpha, breakBravo ] } } });
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBravo ] } } });
 
   //////////
   // When
