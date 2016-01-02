@@ -157,3 +157,55 @@ QUnit.test("Make sure order of breakpoints in config doesn't matter", function(a
 
 });
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+QUnit.test("Run lots of variaitions for QA", function(assert) {
+
+  // TODO: Setup a test framework where you can pass lots of variables for different tests for sanity checks.
+
+  //////////
+  // Given
+
+  var ip = new ImgTagBuilder( { 
+    styles: { 
+      main: { 
+        breakPoints: [ 
+          { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 },
+          { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 },
+          { minViewportWidth: 700, maxImageDisplayWidth: 600, quality: 85 },
+        ] 
+      } 
+    } 
+  }); 
+
+
+  //////////
+  // When
+  
+  ip._devicePixelRatio = 2;
+  ip._innerWidth = 1000
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
+
+
+  //////////
+  // Then
+
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag"); 
+
+
+  //////////
+  // When
+  
+  ip._devicePixelRatio = 2;
+  ip._innerWidth = 800
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
+
+
+  //////////
+  // Then
+
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="600" height="375" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1200,h_750/horses.jpg">', "Target `img` tag"); 
+
+});
+
