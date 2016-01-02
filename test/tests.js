@@ -76,9 +76,9 @@ QUnit.test("Test against multiple size options and use the second one.", functio
   // Given
 
   var breakAlpha = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
-  var breakBeta  = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
+  var breakBravo  = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
 
-  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakBeta, breakAlpha, breakBeta ] } } });
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakBravo, breakAlpha, breakBravo ] } } });
 
   //////////
   // When
