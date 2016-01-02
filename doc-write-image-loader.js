@@ -1,8 +1,6 @@
 var ImgTagBuilder = function(config) {
   this._config = config;
 
-
-
   this._alt = ""; 
   this._devicePixelRatio = window.devicePixelRatio; 
   this._image = undefined;
