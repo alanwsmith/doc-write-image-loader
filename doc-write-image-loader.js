@@ -1,6 +1,8 @@
 var ImgTagBuilder = function(config) {
   this._config = config;
 
+
+
   this._alt = ""; 
   this._devicePixelRatio = window.devicePixelRatio; 
   this._image = undefined;
@@ -23,6 +25,13 @@ ImgTagBuilder.prototype.displayHeight = function() {
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
+
+  // Sort the breakpoints into decending order.
+  this._config.styles['main']['breakPoints'].sort(function(a,b) {
+    if (a.maxImageDisplayWidth > b.maxImageDisplayWidth) { return -1; }
+    if (a.maxImageDisplayWidth < b.maxImageDisplayWidth) { return 1; }
+    return 0; // In case they are equal.
+  });
 
   // TODO: Move this loop out so it's only called once after you get it working.
   for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints'].length; breakIndex < breakCount; breakIndex++) {

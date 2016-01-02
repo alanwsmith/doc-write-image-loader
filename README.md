@@ -68,7 +68,6 @@ Roadmap TODOs
 -------------
 
 - (all the TODOs in the code comments)
-- Setup the config options so it doesn't matter what order the image sizes are defined.
 - Make sure all dimensions are converted to integers. 
 - Slice off extra pixels when division doesn't results in an integer.
 - Test hitting the max source height and refining the parameters if that happens. 
