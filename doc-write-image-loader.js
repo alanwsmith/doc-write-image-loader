@@ -24,6 +24,7 @@ ImgTagBuilder.prototype.displayHeight = function() {
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
 
+  // TODO: Move this sort and the loop out so it's only called once after you get it working.
   // Sort the breakpoints into decending order.
   this._config.styles[this._style]['breakPoints'].sort(function(a,b) {
     if (a.maxImageDisplayWidth > b.maxImageDisplayWidth) { return -1; }
@@ -31,7 +32,6 @@ ImgTagBuilder.prototype.displayWidth = function() {
     return 0; // In case they are equal.
   });
 
-  // TODO: Move this loop out so it's only called once after you get it working.
   for (var breakIndex = 0, breakCount = this._config.styles[this._style]['breakPoints'].length; breakIndex < breakCount; breakIndex++) {
   	if (this._innerWidth > this._config.styles[this._style]['breakPoints'][breakIndex]['minViewportWidth']) {
       return this._config.styles[this._style]['breakPoints'][breakIndex]['maxImageDisplayWidth'];
