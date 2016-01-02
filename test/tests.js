@@ -82,7 +82,7 @@ QUnit.test("Pick the larger of two config options (in decending order) based on 
   // When
 
   ip._devicePixelRatio = 2; // Force to '2' so testing works across devices.
-  ip.innerWidth = 1000; // Force for testing regardless of device. 
+  ip._innerWidth = 1000; // Force for testing regardless of device. 
 
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
@@ -97,4 +97,34 @@ QUnit.test("Pick the larger of two config options (in decending order) based on 
 });
 
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+QUnit.test("Pick the smaller of two config options (in decending order) based on innerWidth", function(assert) {
+
+  //////////
+  // Given
+
+  var breakAlpha = { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 };
+  var breakBravo = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
+
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBravo ] } } });
+  
+
+  //////////
+  // When
+
+  ip._devicePixelRatio = 2; // Force to '2' so testing works across devices.
+  ip._innerWidth = 700; // Force for testing regardless of device. 
+
+  ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
+
+
+  //////////
+  // Then
+
+  // This is the key requirement. Everything else supports it.
+  assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="400" height="250" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_800,h_500/horses.jpg">', "Target `img` tag"); 
+
+});
 
