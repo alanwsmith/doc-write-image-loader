@@ -184,6 +184,11 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     {
       _devicePixelRatio: 2,
       _innerWidth: 1000,
+      prepImage: "horses.jpg",
+      prepAlt: "some horses",
+      prepStyle: "main",
+      prepMaxWidth: 1600,
+      prepMaxHeight: 1000,
     }
 
   ];
@@ -195,7 +200,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   	var testData = testSets[testIndex];
     ip._devicePixelRatio = testData._devicePixelRatio;
     ip._innerWidth = testData._innerWidth; 
-    ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
+    ip.prep({ image: testData.prepImage, alt: testData.prepAlt,  style: testData.prepStyle, maxWidth: testData.prepMaxWidth, maxHeight: testData.prepMaxHeight });
  
     //////////
     // Then
