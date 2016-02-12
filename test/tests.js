@@ -182,6 +182,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
 
   var testSets = [
     {
+    	description: "Basline test",
       _devicePixelRatio: 2,
       _innerWidth: 1000,
       prepImage: "horses.jpg",
@@ -223,7 +224,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
         imageString = imageString.replace(/finalUrlWidth/, testData.finalUrlWidth);
         imageString = imageString.replace(/finalUrlHeight/, testData.finalUrlHeight);
 
-    assert.equal(ip.imgTag(), imageString, "Target `img` tag"); 
+    assert.equal(ip.imgTag(), imageString, testData.description); 
 
   }
 
