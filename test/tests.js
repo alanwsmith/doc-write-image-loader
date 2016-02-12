@@ -157,3 +157,76 @@ QUnit.test("Make sure order of breakpoints in config doesn't matter", function(a
 
 });
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+QUnit.test("Run lots of variaitions for QA", function(assert) {
+
+  // TODO: Setup a test framework where you can pass lots of variables for different tests for sanity checks.
+
+  //////////
+  // Given
+
+  var ip = new ImgTagBuilder( { 
+    styles: { 
+      main: { 
+        breakPoints: [ 
+          // These are intentionally out of order to make sure sorting works properly.
+          { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 },
+          { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 },
+          { minViewportWidth: 700, maxImageDisplayWidth: 600, quality: 85 },
+        ] 
+      } 
+    } 
+  }); 
+
+  var testSets = [
+    {
+    	description: "Basline test",
+      _devicePixelRatio: 2,
+      _innerWidth: 1000,
+      prepImage: "horses.jpg",
+      prepAlt: "some horses",
+      prepStyle: "main",
+      prepMaxWidth: 1600,
+      prepMaxHeight: 1000,
+      finalAttWidth: 800,
+      finalAttHeight: 500,
+      finalUrlQuality: 85,
+      finalUrlWidth: 1600,
+      finalUrlHeight: 1000,
+    }
+
+  ];
+
+  //////////
+  // When
+
+  for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
+  	var testData = testSets[testIndex];
+    ip._devicePixelRatio = testData._devicePixelRatio;
+    ip._innerWidth = testData._innerWidth; 
+    ip.prep({ image: testData.prepImage, alt: testData.prepAlt,  style: testData.prepStyle, maxWidth: testData.prepMaxWidth, maxHeight: testData.prepMaxHeight });
+ 
+    //////////
+    // Then
+
+    var imageString  = '<img alt="prepAlt" class="prepStyle" ';
+        imageString += 'width="finalAttWidth" height="finalAttHeight" ';
+        imageString += 'src="http://res.cloudinary.com/demo/image/upload/c_fill,q_finalUrlQuality,w_finalUrlWidth,h_finalUrlHeight/prepImage">';  
+
+        imageString = imageString.replace(/prepAlt/, testData.prepAlt);
+        imageString = imageString.replace(/prepStyle/, testData.prepStyle);
+        imageString = imageString.replace(/prepImage/, testData.prepImage);
+        imageString = imageString.replace(/finalAttWidth/, testData.finalAttWidth);
+        imageString = imageString.replace(/finalAttHeight/, testData.finalAttHeight);
+        imageString = imageString.replace(/finalUrlQuality/, testData.finalUrlQuality);
+        imageString = imageString.replace(/finalUrlWidth/, testData.finalUrlWidth);
+        imageString = imageString.replace(/finalUrlHeight/, testData.finalUrlHeight);
+
+    assert.equal(ip.imgTag(), imageString, testData.description); 
+
+  }
+
+});
+
