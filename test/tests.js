@@ -191,7 +191,8 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   // When
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
-    ip._devicePixelRatio = 2;
+  	var testData = testSets[testIndex];
+    ip._devicePixelRatio = testData._devicePixelRatio;
     ip._innerWidth = 1000
     ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
   
