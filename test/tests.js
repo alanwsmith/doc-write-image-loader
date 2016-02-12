@@ -179,7 +179,6 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     } 
   }); 
 
-
   var testSets = [
     {
       _devicePixelRatio: 2,
@@ -196,8 +195,12 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     ip._devicePixelRatio = testData._devicePixelRatio;
     ip._innerWidth = testData._innerWidth; 
     ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
-  
+ 
+    //////////
+    // Then
+    
     assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag"); 
+
   }
 
 });
