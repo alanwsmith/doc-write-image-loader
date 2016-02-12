@@ -167,6 +167,12 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   //////////
   // Given
 
+  // var defaultTestEnvironment = {
+  //   _devicePixelRatio: 2,
+  //   _innerWidth: 1000,
+  // };
+
+
   var ip = new ImgTagBuilder( { 
     styles: { 
       main: { 
