@@ -191,6 +191,9 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       prepMaxHeight: 1000,
       finalAttWidth: 800,
       finalAttHeight: 500,
+      finalUrlQuality: 85,
+      finalUrlWidth: 1600,
+      finalUrlHeight: 1000,
     }
 
   ];
@@ -209,13 +212,16 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
 
     var imageString  = '<img alt="prepAlt" class="prepStyle" ';
         imageString += 'width="finalAttWidth" height="finalAttHeight" ';
-        imageString += 'src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/prepImage">';  
+        imageString += 'src="http://res.cloudinary.com/demo/image/upload/c_fill,q_finalUrlQuality,w_finalUrlWidth,h_finalUrlHeight/prepImage">';  
 
         imageString = imageString.replace(/prepAlt/, testData.prepAlt);
         imageString = imageString.replace(/prepStyle/, testData.prepStyle);
         imageString = imageString.replace(/prepImage/, testData.prepImage);
         imageString = imageString.replace(/finalAttWidth/, testData.finalAttWidth);
         imageString = imageString.replace(/finalAttHeight/, testData.finalAttHeight);
+        imageString = imageString.replace(/finalUrlQuality/, testData.finalUrlQuality);
+        imageString = imageString.replace(/finalUrlWidth/, testData.finalUrlWidth);
+        imageString = imageString.replace(/finalUrlHeight/, testData.finalUrlHeight);
 
     assert.equal(ip.imgTag(), imageString, "Target `img` tag"); 
 
