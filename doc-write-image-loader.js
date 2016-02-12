@@ -68,7 +68,7 @@ ImgTagBuilder.prototype.ratio= function() {
 };
 
 ImgTagBuilder.prototype.url = function() {
-  // TODO: Consider making this configurable. 
+  // TODO: Make this configurable via a template. 
   return 'http://res.cloudinary.com/demo/image/upload/c_fill,q_' + this.quality() + ',w_' + this.callWidth() + ',h_' + this.callHeight() + '/' + this._image;
 };
 
