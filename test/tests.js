@@ -171,6 +171,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     styles: { 
       main: { 
         breakPoints: [ 
+          // These are intentionally out of order to make sure sorting works properly.
           { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 },
           { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 },
           { minViewportWidth: 700, maxImageDisplayWidth: 600, quality: 85 },
