@@ -63,6 +63,11 @@ The second way avoids the HTTP call. It's the original approach I had in mind.
 
 This approach sacrafices the ability to display images if JavaScript is turned off. While that only impacts a small number of poeple, a fallback should be provided to maintain as universal a page as possible. The recommended approach is to add a `<noscript>` with a static version of the `<img>` tag behind each embedded `<script>` call.  
 
+Less Blinking
+-------------
+
+Early resuts show there images don't flash/blink in some browsers with this approach they way they do with other JavaScript loaders.
+
 
 Roadmap TODOs
 -------------
