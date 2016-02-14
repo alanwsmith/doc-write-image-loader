@@ -206,17 +206,17 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       finalUrlWidth:    400,   finalUrlHeight:    250
     },
 
-/*   {
+    {
     	description: "2x device pixel ratio that results in odd height and fraction dimension.",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
       _devicePixelRatio: 2, finalUrlQuality: 85,
       
       _innerWidth:      800,   _innerHeight:      600,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    400,   finalAttHeight:    250,
-      finalUrlWidth:    800,   finalUrlHeight:    500 
+      finalAttWidth:    300,   finalAttHeight:    187.5,
+      finalUrlWidth:    600,   finalUrlHeight:    375 
     },
-*/
+
   ];
 
 
