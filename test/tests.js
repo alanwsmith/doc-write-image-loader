@@ -1,5 +1,31 @@
 ////////////////////////////////////////////////////////////////////////////////
 
+QUnit.test("Ensure local variabes are set properly", function(assert) {
+	
+	//////////
+	// Give
+
+  var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { minViewportWidth: 0, maxImageDisplayWidth: 800, quality: 85 } ] } } });
+
+  //////////
+  // When
+
+
+  //////////
+  // Then
+
+  assert.equal(ip._innerWidth, window.innerWidth);
+
+
+});
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
 QUnit.test("2x high-res image call", function(assert) {
 
   //////////
