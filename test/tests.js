@@ -170,9 +170,9 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     styles: { 
       main: { 
         breakPoints: [ 
-          { minViewportWidth: 0,    maxImageDisplayWidth: 400,  quality: 85 },
-          { minViewportWidth: 700,  maxImageDisplayWidth: 600,  quality: 85 },
-          { minViewportWidth: 900,  maxImageDisplayWidth: 800,  quality: 85 },
+          { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 85 },
+          { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 85 }, 
+          { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 85 }
         ] 
       } 
     } 
@@ -186,8 +186,8 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       
       _innerWidth:     1024,   _innerHeight:      768,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    800,   finalAttHeight:    500,
-      finalUrlWidth:   1600,   finalUrlHeight:   1000
+      finalAttWidth:    400,   finalAttHeight:    250,
+      finalUrlWidth:    800,   finalUrlHeight:    500
     },
 
     {
@@ -197,23 +197,21 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       
       _innerWidth:     1024,   _innerHeight:      768,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    800,   finalAttHeight:    500,
-      finalUrlWidth:    800,   finalUrlHeight:    500
+      finalAttWidth:    400,   finalAttHeight:    250,
+      finalUrlWidth:    400,   finalUrlHeight:    250
     },
-/*
 
-    {
+/*   {
     	description: "2x device pixel ratio that results in odd height and fraction dimension.",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
       _devicePixelRatio: 2, finalUrlQuality: 85,
       
-      _innerWidth:     800,   _innerHeight:      600,
+      _innerWidth:      800,   _innerHeight:      600,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    600,   finalAttHeight:    375,
-      finalUrlWidth:    600,   finalUrlHeight:    375
+      finalAttWidth:    400,   finalAttHeight:    250,
+      finalUrlWidth:    800,   finalUrlHeight:    500 
     },
 */
-
   ];
 
 
