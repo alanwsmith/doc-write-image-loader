@@ -18,7 +18,18 @@
     var breakAlpha = { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 80 };
     var breakBravo = { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 80 };
     var breakCharlie = { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 };
-    var imageBuilder = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBravo, breakCharlie] } } });
+    var imageBuilder = new ImgTagBuilder(
+      { 
+        styles: { 
+          main: { 
+            breakPoints: [ 
+              { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 },
+              { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 80 }, 
+              { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 80 }
+            ]
+          } 
+        } 
+      });
   </script>
 
   <style type="text/css">
