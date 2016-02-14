@@ -179,6 +179,11 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   }); 
 
   var testSets = [
+
+    // TODO: Add test set to make see if innerWidth is affected by devicePixelRatio.
+    //       e.g. make setup break points on either side of innerWidth / devicePixelRatio
+    //       and make sure they end up with the same output. 
+
     {
     	description: "Basline test",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
