@@ -1,5 +1,23 @@
 ////////////////////////////////////////////////////////////////////////////////
 
+QUnit.skip("Make sure device pixel math doesn't create on pixel differences", function(assert) {
+
+  /* 
+  
+    For example, if the image height url gets called at 25, and the device pixel
+    ratio is 2, the height attribute will be 12 (based on making an 12.5 an integer). 
+
+    Doubling that for a 2x device pixel ratio gets to 24 pixels instead of 25. 
+
+    I expect most browsers will handle that, but it would be better to have
+    everything divid into integers from the start. 
+
+  */
+
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
 QUnit.test("Ensure local variabes are set properly", function(assert) {
 	
 	//////////
