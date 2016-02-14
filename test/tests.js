@@ -211,7 +211,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     },
 
     {
-    	description: "Make sure final height is integer (i.e. 187) instead of float (i.e. 187.5)",
+    	description: "Make sure final attribute height is integer (i.e. 187) instead of float (i.e. 187.5)",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
       _devicePixelRatio: 2, finalUrlQuality: 85,
       
