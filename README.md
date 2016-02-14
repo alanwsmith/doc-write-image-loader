@@ -3,7 +3,7 @@ document.write Image Loader
 
 A plain-old JavaScript, resolution aware, responsive image loader. 
 
-Live example: [http://alanwsmith.github.io/doc-write-image-loader/](http://alanwsmith.github.io/doc-write-image-loader/)
+Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://alanwsmith.github.io/document.write-image-loader/)
 
 Overview
 --------
