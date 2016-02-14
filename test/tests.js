@@ -184,6 +184,10 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     //       e.g. make setup break points on either side of innerWidth / devicePixelRatio
     //       and make sure they end up with the same output. 
 
+    // TODO: Setup test with 2x devicePixelRatio and image that has an odd height. 
+    //       Make sure the URL calls and attributes stay integers. 
+    // TODO: Do the same test with an odd number for the source width. 
+
     {
     	description: "Basline test",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
