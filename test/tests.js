@@ -11,8 +11,9 @@ QUnit.test("Ensure local variabes are set properly", function(assert) {
   //////////
   // Then
 
-  assert.equal(ip._innerWidth, window.innerWidth);
-  assert.equal(ip._innerHeight, window.innerHeight);
+  assert.equal(ip._innerWidth, window.innerWidth, "_innerWidth");
+  assert.equal(ip._innerHeight, window.innerHeight, "_innerHeight");
+  assert.equal(ip._devicePixelRatio, window.devicePixelRatio, "_devicePixelRatio");
 
 });
 
@@ -61,27 +62,6 @@ QUnit.test("2x high-res image call", function(assert) {
   assert.equal(ip.url(),'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg', "url()"); 
   assert.equal(ip.quality(), 85, "quality()");
   assert.equal(ip.ratio(), 0.625, "ratio()");
-
-});
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
-
-	// The other tests force an override to ensure the math works regardless of 
-	// the browser being tested. This one just makes sure the data is loaded 
-	// normally. 
-  
-  ///////////
-  // Given
-
-  var ip = new ImgTagBuilder({});
-
-  //////////
-  // Then
-
-  assert.equal(ip._devicePixelRatio, window.devicePixelRatio, "_devicePixelRatio");
 
 });
 
