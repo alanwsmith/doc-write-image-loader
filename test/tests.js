@@ -182,7 +182,6 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   var testSets = [
     {
     	description: "Basline test",
-
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
       _devicePixelRatio: 2, finalUrlQuality: 85,
       
@@ -190,6 +189,16 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
       finalAttWidth:    800,   finalAttHeight:    500,
       finalUrlWidth:   1600,   finalUrlHeight:   1000,
+    },
+    {
+    	description: "1x device pixel ratio",
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 1, finalUrlQuality: 85,
+      
+      _innerWidth:     1024,   _innerHeight:      768,
+      prepMaxWidth:    1600,   prepMaxHeight:    1000,
+      finalAttWidth:    800,   finalAttHeight:    500,
+      finalUrlWidth:    800,   finalUrlHeight:    500
     }
 
   ];
