@@ -15,6 +15,7 @@ QUnit.test("Ensure local variabes are set properly", function(assert) {
   // Then
 
   assert.equal(ip._innerWidth, window.innerWidth);
+  assert.equal(ip._innerHeight, window.innerHeight);
 
 
 });
