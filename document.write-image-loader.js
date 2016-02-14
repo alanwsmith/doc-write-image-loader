@@ -5,6 +5,7 @@ var ImgTagBuilder = function(config) {
   this._devicePixelRatio = window.devicePixelRatio; 
   this._image = undefined;
   this._innerWidth = window.innerWidth;
+  this._innerHeight = window.innerHeight;
   this._maxHeight= undefined;
   this._maxWidth = undefined;
   this._style = undefined; 
