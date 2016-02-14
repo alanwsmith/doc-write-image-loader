@@ -182,18 +182,23 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   var testSets = [
     {
     	description: "Basline test",
-      _devicePixelRatio: 2,
-      _innerWidth: 1024,
-      prepImage: "horses.jpg",
-      prepAlt: "some horses",
-      prepStyle: "main",
-      prepMaxWidth: 1600,
-      prepMaxHeight: 1000,
-      finalAttWidth: 800,
-      finalAttHeight: 500,
-      finalUrlQuality: 85,
-      finalUrlWidth: 1600,
-      finalUrlHeight: 1000,
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 2, finalUrlQuality: 85,
+      
+      _innerWidth:     1024,   _innerHeight:      768,
+      prepMaxWidth:    1600,   prepMaxHeight:    1000,
+      finalAttWidth:    800,   finalAttHeight:    500,
+      finalUrlWidth:   1600,   finalUrlHeight:   1000
+    },
+    {
+    	description: "1x device pixel ratio",
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 1, finalUrlQuality: 85,
+      
+      _innerWidth:     1024,   _innerHeight:      768,
+      prepMaxWidth:    1600,   prepMaxHeight:    1000,
+      finalAttWidth:    800,   finalAttHeight:    500,
+      finalUrlWidth:    800,   finalUrlHeight:    500
     }
 
   ];
@@ -206,6 +211,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
   	var testData = testSets[testIndex];
     ip._devicePixelRatio = testData._devicePixelRatio;
     ip._innerWidth = testData._innerWidth; 
+    ip._innerHeight = testData._innerHeight; 
     ip.prep({ image: testData.prepImage, alt: testData.prepAlt,  style: testData.prepStyle, maxWidth: testData.prepMaxWidth, maxHeight: testData.prepMaxHeight });
  
  
