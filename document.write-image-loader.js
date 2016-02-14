@@ -12,7 +12,7 @@ var ImgTagBuilder = function(config) {
 };
 
 ImgTagBuilder.prototype.callHeight = function() {
-  return this.callWidth() * this.ratio();
+  return Math.floor(this.callWidth() * this.ratio());
 };
 
 ImgTagBuilder.prototype.callWidth = function() {

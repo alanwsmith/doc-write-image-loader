@@ -221,6 +221,17 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       finalUrlWidth:    600,   finalUrlHeight:    375 
     },
 
+    {
+    	description: "Make sure final url height is integer (i.e. 265) instead of float (i.e. 265.7807....)",
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 1, finalUrlQuality: 85,
+      
+      _innerWidth:     1024,   _innerHeight:      768,
+      prepMaxWidth:    1505,   prepMaxHeight:    1000,
+      finalAttWidth:    400,   finalAttHeight:    265,
+      finalUrlWidth:    400,   finalUrlHeight:    265 
+    },
+
   ];
 
 
