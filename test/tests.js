@@ -7,9 +7,6 @@ QUnit.test("Ensure local variabes are set properly", function(assert) {
 
   var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { minViewportWidth: 0, maxImageDisplayWidth: 800, quality: 85 } ] } } });
 
-  //////////
-  // When
-
 
   //////////
   // Then
@@ -17,15 +14,10 @@ QUnit.test("Ensure local variabes are set properly", function(assert) {
   assert.equal(ip._innerWidth, window.innerWidth);
   assert.equal(ip._innerHeight, window.innerHeight);
 
-
 });
 
 
-
-
-
 ////////////////////////////////////////////////////////////////////////////////
-
 
 QUnit.test("2x high-res image call", function(assert) {
 
@@ -33,6 +25,7 @@ QUnit.test("2x high-res image call", function(assert) {
   // Given
 
   var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ { minViewportWidth: 0, maxImageDisplayWidth: 800, quality: 85 } ] } } });
+  
   
   //////////
   // When
@@ -71,6 +64,7 @@ QUnit.test("2x high-res image call", function(assert) {
 
 });
 
+
 ////////////////////////////////////////////////////////////////////////////////
 
 QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
@@ -78,7 +72,6 @@ QUnit.test("Verify window.devicePixelRatio is pulled in", function(assert) {
 	// The other tests force an override to ensure the math works regardless of 
 	// the browser being tested. This one just makes sure the data is loaded 
 	// normally. 
-
   
   ///////////
   // Given
@@ -105,6 +98,7 @@ QUnit.test("Pick the larger of two config options (in decending order) based on 
 
   var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakAlpha, breakBravo ] } } });
 
+
   //////////
   // When
 
@@ -120,9 +114,7 @@ QUnit.test("Pick the larger of two config options (in decending order) based on 
   // This is the key requirement. Everything else supports it.
   assert.equal(ip.imgTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag"); 
 
-
 });
-
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -155,6 +147,7 @@ QUnit.test("Pick the smaller of two config options (in decending order) based on
 
 });
 
+
 ////////////////////////////////////////////////////////////////////////////////
 
 QUnit.test("Make sure order of breakpoints in config doesn't matter", function(assert) {
@@ -166,6 +159,7 @@ QUnit.test("Make sure order of breakpoints in config doesn't matter", function(a
   var breakBravo = { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 };
 
   var ip = new ImgTagBuilder({ styles: { main: { breakPoints: [ breakBravo, breakAlpha] } } });
+
 
   //////////
   // When
@@ -188,8 +182,6 @@ QUnit.test("Make sure order of breakpoints in config doesn't matter", function(a
 ////////////////////////////////////////////////////////////////////////////////
 
 QUnit.test("Run lots of variaitions for QA", function(assert) {
-
-  // TODO: Setup a test framework where you can pass lots of variables for different tests for sanity checks.
 
   //////////
   // Given
@@ -226,6 +218,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
 
   ];
 
+
   //////////
   // When
 
@@ -234,6 +227,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     ip._devicePixelRatio = testData._devicePixelRatio;
     ip._innerWidth = testData._innerWidth; 
     ip.prep({ image: testData.prepImage, alt: testData.prepAlt,  style: testData.prepStyle, maxWidth: testData.prepMaxWidth, maxHeight: testData.prepMaxHeight });
+ 
  
     //////////
     // Then
