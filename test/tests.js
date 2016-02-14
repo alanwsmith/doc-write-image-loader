@@ -188,7 +188,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       _innerWidth:     1024,   _innerHeight:      768,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
       finalAttWidth:    800,   finalAttHeight:    500,
-      finalUrlWidth:   1600,   finalUrlHeight:   1000,
+      finalUrlWidth:   1600,   finalUrlHeight:   1000
     },
     {
     	description: "1x device pixel ratio",
