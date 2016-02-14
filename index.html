@@ -66,6 +66,15 @@
   <script type="text/javascript">
     document.getElementById("theImgTag").innerHTML = imageBuilder.imgTag().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');
   </script>
+  
+  <p>
+    The innerWidth and innerHeight for this page are:<br>
+    <div id="theDimensions"></div>
+    <script type="text/javascript">
+      document.getElementById("theDimensions").innerHTML = window.innerWidth.toString() + " x " + window.innerHeight.toString();
+    </script>
+  </p>
+
 
   <p>Resize the browser and refresh the page to generate a different size.</p>
 
