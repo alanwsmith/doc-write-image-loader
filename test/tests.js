@@ -37,7 +37,7 @@ QUnit.test("2x high-res image call", function(assert) {
   // When
 
   ip._devicePixelRatio = 2; // Force to '2' so testing works across devices.
-  ip.innerWidth = 1000; // Force for testing regardless of device. 
+  ip._innerWidth = 1000; // Force for testing regardless of device. 
 
   ip.prep({ image: "horses.jpg", alt: "some horses",  style: "main", maxWidth: 1600, maxHeight: 1000 });
 
