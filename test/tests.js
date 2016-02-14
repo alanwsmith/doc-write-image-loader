@@ -184,7 +184,7 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     {
     	description: "Basline test",
       _devicePixelRatio: 2,
-      _innerWidth: 1000,
+      _innerWidth: 1024,
       prepImage: "horses.jpg",
       prepAlt: "some horses",
       prepStyle: "main",
