@@ -11,16 +11,17 @@ Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
 end
 
-Given(/^a source image that's (\d+)x(\d+)$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
+  @i.source_width = width
+  @i.source_height = height
 end
 
-Then(/^the source image width should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the source image width should be (\d+)$/) do |width|
+  expect(@i.source_width).to eq(width)
 end
 
-Then(/^the source image height should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the source image height should be (\d+)$/) do |height|
+  expect(@i.source_height).to eq(height)
 end
 
 Then(/^the image call width should be (\d+)$/) do |arg1|
