@@ -13,6 +13,7 @@ Feature: Image Tag Builder Object Prototype
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
     And a viewport that's <portW>x<portH>
+    And a window.devicePixelRatio of 1
 
     Scenarios: Validation Details
       | srcW | srcH | DPR | portW | portH | class | callW | callH | atrW | atrH |
