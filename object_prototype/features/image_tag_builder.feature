@@ -15,27 +15,15 @@ Feature: Image Tag Builder Object Prototype
     And a viewport that's <portW>x<portH>
     And a window.devicePixelRatio of <DPR>
     And a type of <type>
-    Then the source image width should be 800
-    And the source image height should be 600
-    And the image call width should be 800
-    And the image call height should be 600
-    And the width attribute should be 800
-    And the height attribute should be 600
+    Then the source image width should be <srcW> 
+    And the source image height should be <srcH>
+    And the image call width should be <callW>
+    And the image call height should be <callH>
+    And the width attribute should be <atrW>
+    And the height attribute should be <atrH>
 
     Scenarios: Validation Details
       | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |  1024 |   768 | basic |   800 |   600 |  800 | 600  |
-
-
-  Scenario: Basic test with 2x devicePixelRatio
-    Given I have an ImageTagBuilder
-    Given a source image that's 1600x1200
-    And a window.devicePixelRatio of 2
-    And a window.innerWidth of 1024
-    Then the source image width should be 1600
-    And the source image height should be 1200
-    And the image call width should be 1600
-    And the image call height should be 1200
-    And the width attribute should be 800
-    And the height attribute should be 600
+      |  800 |  600 |  1  |  1024 |   768 | basic |   800 |   600 |  800 |  600 |
+      | 1600 | 1200 |  2  |  1024 |   768 | basic |  1600 |  1200 |  800 |  600 |
 
