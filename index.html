@@ -15,9 +15,6 @@
 
   <!-- One time configuration for the page -->
   <script type="text/javascript">
-    var breakAlpha = { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 80 };
-    var breakBravo = { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 80 };
-    var breakCharlie = { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 };
     var imageBuilder = new ImgTagBuilder(
       { 
         styles: { 
@@ -75,6 +72,12 @@
     </script>
   </p>
 
+  <p>
+    The devicePixelRatio for this page is:<br>
+    <div id="theRatio"></div>
+    <script type="text/javascript">
+      document.getElementById("theRatio").innerHTML = window.devicePixelRatio.toString();
+    </script>
 
   <p>Resize the browser and refresh the page to generate a different size.</p>
 

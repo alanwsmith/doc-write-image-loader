@@ -1,5 +1,23 @@
 ////////////////////////////////////////////////////////////////////////////////
 
+QUnit.skip("Make sure device pixel math doesn't create on pixel differences", function(assert) {
+
+  /* 
+  
+    For example, if the image height url gets called at 25, and the device pixel
+    ratio is 2, the height attribute will be 12 (based on making an 12.5 an integer). 
+
+    Doubling that for a 2x device pixel ratio gets to 24 pixels instead of 25. 
+
+    I expect most browsers will handle that, but it would be better to have
+    everything divid into integers from the start. 
+
+  */
+
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
 QUnit.test("Ensure local variabes are set properly", function(assert) {
 	
 	//////////
@@ -170,16 +188,24 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
     styles: { 
       main: { 
         breakPoints: [ 
-          // These are intentionally out of order to make sure sorting works properly.
-          { minViewportWidth: 900, maxImageDisplayWidth: 800, quality: 85 },
-          { minViewportWidth: 0, maxImageDisplayWidth: 400, quality: 85 },
-          { minViewportWidth: 700, maxImageDisplayWidth: 600, quality: 85 },
+          { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 85 },
+          { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 85 }, 
+          { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 85 }
         ] 
       } 
     } 
   }); 
 
   var testSets = [
+
+    // TODO: Add test set to make see if innerWidth is affected by devicePixelRatio.
+    //       e.g. make setup break points on either side of innerWidth / devicePixelRatio
+    //       and make sure they end up with the same output. 
+
+    // TODO: Setup test with 2x devicePixelRatio and image that has an odd height. 
+    //       Make sure the URL calls and attributes stay integers. 
+    // TODO: Do the same test with an odd number for the source width. 
+
     {
     	description: "Basline test",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
@@ -187,9 +213,10 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       
       _innerWidth:     1024,   _innerHeight:      768,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    800,   finalAttHeight:    500,
-      finalUrlWidth:   1600,   finalUrlHeight:   1000
+      finalAttWidth:    400,   finalAttHeight:    250,
+      finalUrlWidth:    800,   finalUrlHeight:    500
     },
+
     {
     	description: "1x device pixel ratio",
       prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
@@ -197,9 +224,31 @@ QUnit.test("Run lots of variaitions for QA", function(assert) {
       
       _innerWidth:     1024,   _innerHeight:      768,
       prepMaxWidth:    1600,   prepMaxHeight:    1000,
-      finalAttWidth:    800,   finalAttHeight:    500,
-      finalUrlWidth:    800,   finalUrlHeight:    500
-    }
+      finalAttWidth:    400,   finalAttHeight:    250,
+      finalUrlWidth:    400,   finalUrlHeight:    250
+    },
+
+    {
+    	description: "Make sure final attribute height is integer (i.e. 187) instead of float (i.e. 187.5)",
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 2, finalUrlQuality: 85,
+      
+      _innerWidth:      800,   _innerHeight:      600,
+      prepMaxWidth:    1600,   prepMaxHeight:    1000,
+      finalAttWidth:    300,   finalAttHeight:    187,
+      finalUrlWidth:    600,   finalUrlHeight:    375 
+    },
+
+    {
+    	description: "Make sure final url height is integer (i.e. 265) instead of float (i.e. 265.7807....)",
+      prepStyle: "main", prepImage: "horses.jpg", prepAlt: "some horses",
+      _devicePixelRatio: 1, finalUrlQuality: 85,
+      
+      _innerWidth:     1024,   _innerHeight:      768,
+      prepMaxWidth:    1505,   prepMaxHeight:    1000,
+      finalAttWidth:    400,   finalAttHeight:    265,
+      finalUrlWidth:    400,   finalUrlHeight:    265 
+    },
 
   ];
 

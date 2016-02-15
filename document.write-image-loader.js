@@ -12,7 +12,7 @@ var ImgTagBuilder = function(config) {
 };
 
 ImgTagBuilder.prototype.callHeight = function() {
-  return this.callWidth() * this.ratio();
+  return Math.floor(this.callWidth() * this.ratio());
 };
 
 ImgTagBuilder.prototype.callWidth = function() {
@@ -20,7 +20,7 @@ ImgTagBuilder.prototype.callWidth = function() {
 };
 
 ImgTagBuilder.prototype.displayHeight = function() {
-  return this.callHeight() / this._devicePixelRatio;
+  return Math.floor(this.callHeight() / this._devicePixelRatio);
 };
 ImgTagBuilder.prototype.displayWidth = function() {
   // TODO: Add check to make sure the max source image size will support this display width. Reduce it here if not.
