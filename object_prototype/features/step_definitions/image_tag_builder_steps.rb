@@ -1,4 +1,4 @@
-Given(/^I use configuration (\d+)$/) do |arg1|
+Given(/^I use configuration (\d+)$/) do |height|
   @i = ImageTagBuilder.new
 
 end
@@ -24,19 +24,19 @@ Then(/^the source image height should be (\d+)$/) do |height|
   expect(@i.source_height).to eq(height)
 end
 
-Then(/^the image call width should be (\d+)$/) do |arg1|
+Then(/^the image call width should be (\d+)$/) do |width|
+  expect(@i.image_call_width).to eq(width)
+end
+
+Then(/^the image call height should be (\d+)$/) do |height|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^the image call height should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the width attribute should be (\d+)$/) do |width|
+  expect(@i.image_call_width).to eq(width)
 end
 
-Then(/^the width attribute should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the height attribute should be (\d+)$/) do |arg1|
+Then(/^the height attribute should be (\d+)$/) do |height|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
