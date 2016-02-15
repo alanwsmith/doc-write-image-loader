@@ -1,5 +1,5 @@
 Given(/^I have an ImageTagBuilder$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+ @i = ImageTagBuilder.new 
 end
 
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|

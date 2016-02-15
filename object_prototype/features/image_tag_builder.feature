@@ -9,6 +9,14 @@ Feature: Image Tag Builder Object Prototype
   the rest of the values. max height may or
   may not be developed later. 
 
+  Scenario Outline: Validate Critial Parameters
+    Given I have an ImageTagBuilder
+
+    Scenarios: Validation Details
+      | srcW | srcH | DPR | portW | portH | class | callW | callH | atrW | atrH |
+      | 1600 | 1200 | 1   | 1024  | 768   | basic | 1600  | 1200  | 1600 | 1200 |
+
+
 
   Scenario: Most Basic Call
     Given a source image that's 800x600
