@@ -3,7 +3,6 @@ Given(/^I have an ImageTagBuilder$/) do
 end
 
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
-  @i = ImageTagBuilder.new
   @i.source_width = width.to_i
   @i.source_height = height.to_i
 end
