@@ -34,6 +34,14 @@ Feature: Image Tag Builder Object Prototype
     And the width attribute should be 800
     And the height attribute should be 600
 
+  Scenario: Check max widths based on innerWidth
+    Given I have an ImageTagBuilder
+    And a window.innerWidth of 1024
+    And a window.devicePixelRatio of 1
+    When I request a "main" image
+    Then the max visual width should be 800
+
+
 #  Scenario: 1x with reduced image since because of innerWidth 
 #    Given a source image that's 1600x1200
 #    And a window.devicePixelRatio of 1

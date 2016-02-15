@@ -1,3 +1,7 @@
+Given(/^I have an ImageTagBuilder$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
   @i = ImageTagBuilder.new
   @i.source_width = width.to_i
@@ -14,6 +18,14 @@ end
 
 Given(/^an image type of "([^"]*)"$/) do |image_type|
   @i.image_type = image_type
+end
+
+When(/^I request a "([^"]*)" image$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the max visual width should be (\d+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^the source image width should be (\d+)$/) do |width|
