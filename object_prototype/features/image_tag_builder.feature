@@ -18,7 +18,7 @@ Feature: Image Tag Builder Object Prototype
 
     Scenarios: Validation Details
       | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      | 1600 | 1200 | 1   | 1024  | 768   | basic | 1600  | 1200  | 1600 | 1200 |
+      | 1600 | 1200 | 1   | 1024  | 768   | basic | 800   | 600   | 800  | 600  |
 
 
 
