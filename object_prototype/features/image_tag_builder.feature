@@ -1,4 +1,5 @@
-Feature: Object to prototype document.writer logic
+Feature: Image Tag Builder Object Prototype
+
   Using Ruby to build an object prototype to solidify
   the logic since it's easier to work with and test
   than JavaScript. 
