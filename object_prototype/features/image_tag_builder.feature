@@ -12,6 +12,7 @@ Feature: Image Tag Builder Object Prototype
   Scenario Outline: Validate Critial Parameters
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
+    And a viewport that's <portW>x<portH>
 
     Scenarios: Validation Details
       | srcW | srcH | DPR | portW | portH | class | callW | callH | atrW | atrH |
@@ -20,6 +21,7 @@ Feature: Image Tag Builder Object Prototype
 
 
   Scenario: Most Basic Call
+    Given I have an ImageTagBuilder
     Given a source image that's 800x600
     And a window.devicePixelRatio of 1
     And a window.innerWidth of 1024
@@ -32,6 +34,7 @@ Feature: Image Tag Builder Object Prototype
     And the height attribute should be 600
 
   Scenario: Basic test with 2x devicePixelRatio
+    Given I have an ImageTagBuilder
     Given a source image that's 1600x1200
     And a window.devicePixelRatio of 2
     And a window.innerWidth of 1024
