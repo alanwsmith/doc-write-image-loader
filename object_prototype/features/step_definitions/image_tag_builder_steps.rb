@@ -16,6 +16,10 @@ Given(/^a window\.devicePixelRatio of (\d+)$/) do |ratio|
   @i.window_device_pixel_ratio = ratio.to_i
 end
 
+Given(/^a type of (.*?)$/) do |type|
+  @i.image_type = type
+end
+
 Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
 end
