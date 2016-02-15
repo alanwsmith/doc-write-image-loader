@@ -7,5 +7,17 @@ class ImageTagBuilder
     source_width
   end
 
+  def image_call_height
+    source_height
+  end
+
+  def attribute_width
+    source_width
+  end
+
+  def attribute_height
+    source_height
+  end
+
 end
 
