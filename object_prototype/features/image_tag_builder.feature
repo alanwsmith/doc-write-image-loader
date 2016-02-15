@@ -11,6 +11,7 @@ Feature: Image Tag Builder Object Prototype
 
   Scenario Outline: Validate Critial Parameters
     Given I have an ImageTagBuilder
+    And a source image that's <srcW>x<srcH>
 
     Scenarios: Validation Details
       | srcW | srcH | DPR | portW | portH | class | callW | callH | atrW | atrH |
