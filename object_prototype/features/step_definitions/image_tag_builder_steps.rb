@@ -1,6 +1,7 @@
-Given(/^I use configuration (\d+)$/) do |height|
+Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
   @i = ImageTagBuilder.new
-
+  @i.source_width = width.to_i
+  @i.source_height = height.to_i
 end
 
 Given(/^a window\.devicePixelRatio of (\d+)$/) do |ratio|
@@ -9,11 +10,6 @@ end
 
 Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
-end
-
-Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
-  @i.source_width = width.to_i
-  @i.source_height = height.to_i
 end
 
 Then(/^the source image width should be (\d+)$/) do |width|
