@@ -4,6 +4,12 @@ Feature: Image Tag Builder Object Prototype
   the logic since it's easier to work with and test
   than JavaScript. 
 
+  The idea here is to determine max widths
+  via the config and use that to determine
+  the rest of the values. max height may or
+  may not be developed later. 
+
+
   Scenario: Most Basic Call
     Given a source image that's 800x600
     And a window.devicePixelRatio of 1
