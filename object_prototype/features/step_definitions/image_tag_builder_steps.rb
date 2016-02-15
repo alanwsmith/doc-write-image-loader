@@ -29,14 +29,14 @@ Then(/^the image call width should be (\d+)$/) do |width|
 end
 
 Then(/^the image call height should be (\d+)$/) do |height|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@i.image_call_height).to eq(height)
 end
 
 Then(/^the width attribute should be (\d+)$/) do |width|
-  expect(@i.image_call_width).to eq(width)
+  expect(@i.attribute_width).to eq(width)
 end
 
 Then(/^the height attribute should be (\d+)$/) do |height|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@i.attribute_height).to eq(height)
 end
 
