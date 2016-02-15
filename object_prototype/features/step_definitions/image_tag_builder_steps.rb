@@ -12,31 +12,31 @@ Given(/^a window\.innerWidth of (\d+)$/) do |width|
 end
 
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
-  @i.source_width = width
-  @i.source_height = height
+  @i.source_width = width.to_i
+  @i.source_height = height.to_i
 end
 
 Then(/^the source image width should be (\d+)$/) do |width|
-  expect(@i.source_width).to eq(width)
+  expect(@i.source_width).to eq(width.to_i)
 end
 
 Then(/^the source image height should be (\d+)$/) do |height|
-  expect(@i.source_height).to eq(height)
+  expect(@i.source_height).to eq(height.to_i)
 end
 
 Then(/^the image call width should be (\d+)$/) do |width|
-  expect(@i.image_call_width).to eq(width)
+  expect(@i.image_call_width).to eq(width.to_i)
 end
 
 Then(/^the image call height should be (\d+)$/) do |height|
-  expect(@i.image_call_height).to eq(height)
+  expect(@i.image_call_height).to eq(height.to_i)
 end
 
 Then(/^the width attribute should be (\d+)$/) do |width|
-  expect(@i.attribute_width).to eq(width)
+  expect(@i.attribute_width).to eq(width.to_i)
 end
 
 Then(/^the height attribute should be (\d+)$/) do |height|
-  expect(@i.attribute_height).to eq(height)
+  expect(@i.attribute_height).to eq(height.to_i)
 end
 
