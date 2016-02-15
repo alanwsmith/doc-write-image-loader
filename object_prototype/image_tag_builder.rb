@@ -12,11 +12,11 @@ class ImageTagBuilder
   end
 
   def attribute_width
-    source_width
+    source_width / window_device_pixel_ratio
   end
 
   def attribute_height
-    source_height
+    source_height / window_device_pixel_ratio
   end
 
 end
