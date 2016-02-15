@@ -24,10 +24,6 @@ Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
 end
 
-Given(/^an image type of "([^"]*)"$/) do |image_type|
-  @i.image_type = image_type
-end
-
 When(/^I request a "([^"]*)" image$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
