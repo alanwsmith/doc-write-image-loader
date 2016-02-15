@@ -12,6 +12,10 @@ Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
 end
 
+Given(/^an image type of "([^"]*)"$/) do |image_type|
+  @i.image_type = image_type
+end
+
 Then(/^the source image width should be (\d+)$/) do |width|
   expect(@i.source_width).to eq(width.to_i)
 end
