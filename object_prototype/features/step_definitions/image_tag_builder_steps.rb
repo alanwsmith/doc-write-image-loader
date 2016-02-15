@@ -7,6 +7,11 @@ Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
   @i.source_height = height.to_i
 end
 
+Given(/^a viewport that's (\d+)x(\d+)$/) do |width, height|
+  @i.window_inner_width = width.to_i
+  @i.window_inner_height= height.to_i
+end
+
 Given(/^a window\.devicePixelRatio of (\d+)$/) do |ratio|
   @i.window_device_pixel_ratio = ratio.to_i
 end
