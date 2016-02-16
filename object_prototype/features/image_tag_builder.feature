@@ -9,7 +9,7 @@ Feature: Image Tag Builder Object Prototype
   available "type"'s are defined and setup. The 
   configuration can be examined directly for reference.
 
-  Scenario Outline: Integraion Tests 
+  Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
     And a viewport that's <portW>x<portH>
