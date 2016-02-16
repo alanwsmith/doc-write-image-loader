@@ -1,15 +1,15 @@
 Feature: Image Tag Builder Object Prototype
 
-  Using Ruby to build an object prototype to solidify
-  the logic since it's easier to work with and test
-  than JavaScript. 
+  This is an integration test suite for the ImageTagBuilder
+  Prototype. It focusing on the public inputs and the
+  expected corresponding outputs. 
 
-  The idea here is to determine max widths
-  via the config and use that to determine
-  the rest of the values. max height may or
-  may not be developed later. 
+  All tests are run against a specific configuration 
+  that's built into the test suites. That's where the
+  available "type"'s are defined and setup. The 
+  configuration can be examined directly for reference.
 
-  Scenario Outline: Validate Critial Parameters
+  Scenario Outline: Integraion Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
     And a viewport that's <portW>x<portH>
