@@ -9,6 +9,12 @@ Feature: Image Tag Builder Object Prototype
   available "type"'s are defined and setup. The 
   configuration can be examined directly for reference.
 
+  Tartets for a test with 1600 x 1200 source image: 
+
+  - width:   0-499 = 200x150 visual ( 400 x  300 2x URL)
+  - width: 500-899 = 400x300 visual ( 800 x  600 2x URL)
+  - width: 900+    = 800x600 visual (1600 x 1200 2x URL)
+
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
