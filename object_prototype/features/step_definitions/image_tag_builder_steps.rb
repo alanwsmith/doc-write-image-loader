@@ -1,19 +1,35 @@
+Given(/^I have an ImageTagBuilder$/) do
+  @i = ImageTagBuilder.new 
+end
+
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
-  @i = ImageTagBuilder.new
   @i.source_width = width.to_i
   @i.source_height = height.to_i
+end
+
+Given(/^a viewport that's (\d+)x(\d+)$/) do |width, height|
+  @i.window_inner_width = width.to_i
+  @i.window_inner_height= height.to_i
 end
 
 Given(/^a window\.devicePixelRatio of (\d+)$/) do |ratio|
   @i.window_device_pixel_ratio = ratio.to_i
 end
 
+Given(/^a type of (.*?)$/) do |type|
+  @i.image_type = type
+end
+
 Given(/^a window\.innerWidth of (\d+)$/) do |width|
   @i.window_inner_width = width.to_i
 end
 
-Given(/^an image type of "([^"]*)"$/) do |image_type|
-  @i.image_type = image_type
+When(/^I request a "([^"]*)" image$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^the max visual width should be (\d+)$/) do |arg1|
+  pending # Write code here that turns the phrase above into concrete actions
 end
 
 Then(/^the source image width should be (\d+)$/) do |width|
