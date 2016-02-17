@@ -12,9 +12,11 @@ Feature: Image Tag Builder Object Prototype
   Tartets for a test with 1600x1200 source image and
   diffrent viewport sizes.
 
-  - w:   0-499 - vp:  480 x 640 - 200x150 visual ( 400 x  300 2x URL)
-  - w: 500-899 - vp:  800 x 600 - 400x300 visual ( 800 x  600 2x URL)
-  - w: 900+    - vp: 1024 x 768 - 800x600 visual (1600 x 1200 2x URL)
+  |  ViewPort  | WidthMatch | Attr/Visual | 1xCall    | 2xCall      |
+  |------------|------------|-------------|-----------|-------------|
+  | 1024 x 768 |   900+     |  800 x 600  | 800 x 600 | 1600 x 1200 |
+  |  800 x 600 |   500-899  |  400 x 300  | 400 x 300 |  800 x  600 |
+  |  480 x 360 |     0-499  |  200 x 150  | 200 x 150 |  400 x  300 |
 
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
