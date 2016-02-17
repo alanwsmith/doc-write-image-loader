@@ -21,7 +21,7 @@ Feature: Image Tag Builder Object Prototype
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
-    And a viewport that's <portW>x<portH>
+    And a viewport that's <iWidth>x<iHeight>
     And a window.devicePixelRatio of <DPR>
     And a type of <type>
     Then the source image width should be <srcW> 
@@ -32,9 +32,9 @@ Feature: Image Tag Builder Object Prototype
     And the height attribute should be <atrH>
 
     Scenarios: Baseline Sanity Check with most basic math
-      | srcW | srcH | DPR | portW | portH | type  | atrW | atrH | callW | callH |
-      |  800 |  600 |  1  |  1024 |   768 | basic |  800 |  600 |   800 |   600 |
-      | 1600 | 1200 |  2  |  1024 |   768 | basic |  800 |  600 |  1600 |  1200 |
+      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  1  |  800 |  600 | basic |  800 |  600 |   800 |   600 |
+      |  1024  |   768   |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
 #    Scenarios: Tests with 800x600 view port and reduced sizesTests 
 #     | srcW | srcH | DPR | portW | portH | type  | atrW | atrH | callW | callH |
