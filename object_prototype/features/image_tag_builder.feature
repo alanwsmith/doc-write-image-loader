@@ -36,3 +36,5 @@ Feature: Image Tag Builder Object Prototype
 
     Scenarios: Tests with 800x600 view port and reduced sizesTests 
       | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
+      | 1600 | 1200 |  2  |   800 |   600 | basic |     0 |     0 |    0 |    0 |
+
