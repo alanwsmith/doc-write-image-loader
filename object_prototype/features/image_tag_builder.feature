@@ -34,3 +34,6 @@ Feature: Image Tag Builder Object Prototype
       |  800 |  600 |  1  |  1024 |   768 | basic |   800 |   600 |  800 |  600 |
       | 1600 | 1200 |  2  |  1024 |   768 | basic |  1600 |  1200 |  800 |  600 |
 
+    Scenarios: Logic Tests 
+      | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
+      |  800 |  600 |  1  |  800  |   600 | basic |   400 |   600 |  800 |  600 |
