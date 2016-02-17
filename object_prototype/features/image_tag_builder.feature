@@ -36,4 +36,4 @@ Feature: Image Tag Builder Object Prototype
 
     Scenarios: Logic Tests 
       | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |  800  |   600 | basic |   400 |   600 |  800 |  600 |
+      |  800 |  600 |  1  |  800  |   600 | basic |   400 |   300 |  400 |  300 |
