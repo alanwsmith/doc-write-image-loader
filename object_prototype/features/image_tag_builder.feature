@@ -39,3 +39,11 @@ Feature: Image Tag Builder Object Prototype
       |  800 |  600 |  1  |   800 |   600 | basic |  400 |  300 |   400 |   300 |
 #     | 1600 | 1200 |  2  |   800 |   600 | basic |  800 |  600 |  1600 |  1200 |
 
+  Scenario: Temporary Prep Test for adding one thing at a time 
+    Given I have an ImageTagBuilder
+    And a source image that's 1600x1200 
+    And a viewport that's 800x600
+    And a window.devicePixelRatio of 2
+    And a type of basic
+    Then the source image width should be 1600 
+    And the source image height should be 1200
