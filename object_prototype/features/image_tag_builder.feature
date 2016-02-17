@@ -49,7 +49,7 @@ Feature: Image Tag Builder Object Prototype
     And a type of basic
     Then the source image width should be 1600 
     And the source image height should be 1200
-#    And the width attribute should be 800 
+    And the width attribute should be 800 
 #    And the height attribute should be <atrH>
 #    And the image call width should be <callW>
 #    And the image call height should be <callH>
