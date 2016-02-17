@@ -49,14 +49,26 @@ Then(/^the image call width should be (\d+)$/) do |width|
 end
 
 Then(/^the image call height should be (\d+)$/) do |height|
-  expect(@i.image_call_height).to eq(height.to_i)
+  if height.to_i == 0
+  	pending
+  else 
+    expect(@i.image_call_height).to eq(height.to_i)
+  end
 end
 
 Then(/^the width attribute should be (\d+)$/) do |width|
-  expect(@i.attribute_width).to eq(width.to_i)
+  if width.to_i == 0
+  	pending
+  else 
+    expect(@i.attribute_width).to eq(width.to_i)
+  end
 end
 
 Then(/^the height attribute should be (\d+)$/) do |height|
-  expect(@i.attribute_height).to eq(height.to_i)
+  if height.to_i == 0
+  	pending
+  else 
+    expect(@i.attribute_height).to eq(height.to_i)
+  end
 end
 
