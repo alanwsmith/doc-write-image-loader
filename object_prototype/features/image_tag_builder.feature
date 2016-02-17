@@ -30,12 +30,12 @@ Feature: Image Tag Builder Object Prototype
     And the height attribute should be <atrH>
 
     Scenarios: Baseline Sanity Check with most basic math
-      | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |  1024 |   768 | basic |   800 |   600 |  800 |  600 |
-      | 1600 | 1200 |  2  |  1024 |   768 | basic |  1600 |  1200 |  800 |  600 |
+      | srcW | srcH | DPR | portW | portH | type  | atrW | atrH | callW | callH |
+      |  800 |  600 |  1  |  1024 |   768 | basic |  800 |  600 |   800 |   600 |
+      | 1600 | 1200 |  2  |  1024 |   768 | basic |  800 |  600 |  1600 |  1200 |
 
     Scenarios: Tests with 800x600 view port and reduced sizesTests 
-      | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |   800 |   600 | basic |   400 |   300 |  400 |  300 |
-      | 1600 | 1200 |  2  |   800 |   600 | basic |     0 |     0 |    0 |    0 |
+      | srcW | srcH | DPR | portW | portH | type  | atrW | atrH | callW | callH |
+      |  800 |  600 |  1  |   800 |   600 | basic |  400 |  300 |   400 |   300 |
+      | 1600 | 1200 |  2  |   800 |   600 | basic |    0 |    0 |     0 |     0 |
 
