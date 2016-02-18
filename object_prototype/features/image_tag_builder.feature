@@ -18,6 +18,19 @@ Feature: Image Tag Builder Object Prototype
   |  800 x 600 |   500-899  |  400 x 300  | 400 x 300 |  800 x  600 |
   |  480 x 360 |     0-499  |  200 x 150  | 200 x 150 |  400 x  300 |
 
+  Scenario: Temporary Prep Test for adding one thing at a time 
+    Given I have an ImageTagBuilder
+    And a viewport that's 1024x768 
+    And a window.devicePixelRatio of 1
+    And a type of basic
+    And a source image that's 1600x1200 
+    Then the source image width should be 1600 
+    And the source image height should be 1200
+    And the width attribute should be 800 
+    And the height attribute should be 600 
+#    And the image call width should be 800 
+#    And the image call height should be <callH>
+
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
@@ -41,16 +54,4 @@ Feature: Image Tag Builder Object Prototype
 #     | 1600 | 1200 |  1  |   800 |   600 | basic |  400 |  300 |   400 |   300 |
 #     | 1600 | 1200 |  2  |   800 |   600 | basic |  800 |  600 |  1600 |  1200 |
 
-  Scenario: Temporary Prep Test for adding one thing at a time 
-    Given I have an ImageTagBuilder
-    And a source image that's 1600x1200 
-    And a viewport that's 800x600
-    And a window.devicePixelRatio of 1
-    And a type of basic
-    Then the source image width should be 1600 
-    And the source image height should be 1200
-    And the width attribute should be 800 
-    And the height attribute should be 600 
-#    And the image call width should be 800 
-#    And the image call height should be <callH>
 
