@@ -12,11 +12,11 @@ Feature: Image Tag Builder Object Prototype
   Tartets for a test with 1600x1200 source image and
   diffrent viewport sizes.
 
-  |  ViewPort  | WidthMatch | Attr/Visual | 1xCall    | 2xCall      |
-  |------------|------------|-------------|-----------|-------------|
-  | 1024 x 768 |   900+     |  800 x 600  | 800 x 600 | 1600 x 1200 |
-  |  800 x 600 |   500-899  |  400 x 300  | 400 x 300 |  800 x  600 |
-  |  480 x 360 |     0-499  |  200 x 150  | 200 x 150 |  400 x  300 |
+  |  ViewPort  | WidthMatch | Source    | Attr/Visual | 1xCall    | 2xCall      |
+  |------------|------------|-----------|-------------|-----------|-------------|
+  | 1024 x 768 |   900+     | 1600x1200 |  800 x 600  | 800 x 600 | 1600 x 1200 |
+  |  800 x 600 |   500-899  | 1600x1200 |  400 x 300  | 400 x 300 |  800 x  600 |
+  |  480 x 360 |     0-499  | 1600x1200 |  200 x 150  | 200 x 150 |  400 x  300 |
 
   Scenario: Temporary Prep Test for adding one thing at a time 
     Given I have an ImageTagBuilder
