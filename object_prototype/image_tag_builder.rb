@@ -5,7 +5,7 @@ class ImageTagBuilder
   attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
 
   def image_call_width
-    adjust_size(source_width)
+    attribute_width * window_device_pixel_ratio
   end
 
   def image_call_height
