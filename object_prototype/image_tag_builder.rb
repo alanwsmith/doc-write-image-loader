@@ -13,7 +13,11 @@ class ImageTagBuilder
   end
 
   def attribute_width
-    adjust_size(source_width / window_device_pixel_ratio)
+    if adjust_size(source_width / window_device_pixel_ratio) > 800
+    	800
+    else 
+      adjust_size(source_width / window_device_pixel_ratio)
+    end
   end
 
   def attribute_height
