@@ -50,8 +50,7 @@ Feature: Image Tag Builder Object Prototype
       |  1024  |   768   |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
 #    Scenarios: Tests with 800x600 view port and reduced sizesTests 
-#     | srcW | srcH | DPR | portW | portH | type  | atrW | atrH | callW | callH |
-#     | 1600 | 1200 |  1  |   800 |   600 | basic |  400 |  300 |   400 |   300 |
-#     | 1600 | 1200 |  2  |   800 |   600 | basic |  800 |  600 |  1600 |  1200 |
-
+#     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+#     |   800  |    600  |  1  | 1600 | 1200 | basic |  400 |  300 |   400 |   300 |
+#     |   800  |    600  |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
