@@ -11,15 +11,6 @@ class ImageTagBuilder
   def max_attribute_height
     600
   end
-#  def max_attribute_width
-#    if window_inner_width > 900
-#    	800
-#    elseif window_inner_width > 500
-#      400
-#    else
-#      200
-#    end
-#  end
 
   def image_call_width
     attribute_width * window_device_pixel_ratio
