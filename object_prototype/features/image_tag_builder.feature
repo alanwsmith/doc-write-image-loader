@@ -42,5 +42,7 @@ Feature: Image Tag Builder Object Prototype
 
     Scenarios: 800x600 view port and 1 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
-     |   800  |    600  |  1  |  400 |  300 | basic |   -1 |   -1 |    -1 |    -1 |
+     |   800  |    600  |  1  |  800 |  600 | basic |  400 |  300 |   400 |   300 |
+
+# TODO: Add test for 800x600, 1DPR, with source 400x300.
 
