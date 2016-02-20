@@ -44,13 +44,5 @@ class ImageTagBuilder
     end
   end
 
-  def adjust_size number
-    if window_inner_width < 900
-      number / 2
-    else
-      number
-    end
-
-  end
 end
 
