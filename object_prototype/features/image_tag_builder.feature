@@ -17,6 +17,12 @@ Feature: Image Tag Builder Object Prototype
   | 1024 x 768 |   900+     | 1600x1200 |  800 x 600  | 800 x 600 | 1600 x 1200 |
   |  800 x 600 |   500-899  | 1600x1200 |  400 x 300  | 400 x 300 |  800 x  600 |
   |  480 x 360 |     0-499  | 1600x1200 |  200 x 150  | 200 x 150 |  400 x  300 |
+  
+  For the first version, there won't be any checks to make sure the source
+  image isn't being upscaled. The idea being that with this process, the
+  source image will generally be as big or bigger than the call
+  and the position it's going to fill. 
+  
 
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
@@ -43,9 +49,23 @@ Feature: Image Tag Builder Object Prototype
     Scenarios: 800x600 view port and 1 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   800  |    600  |  1  |  800 |  600 | basic |  400 |  300 |   400 |   300 |
+     |   800  |    600  |  1  | 1600 | 1200 | basic |  400 |  300 |   400 |   300 |
 
 # TODO: Add test for 800x600, 1DPR, with source 400x300.
 
     Scenarios: 800x600 view port and 2 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   800  |    600  |  2  |  800 |  600 | basic |  400 |  300 |  800  |  600  |
+     |   800  |    600  |  2  | 1600 | 1200 | basic |  400 |  300 |  800  |  600  |
+
+
+    Scenarios: 480x360 view port and 1 DPR 
+     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     |   480  |    360  |  1  |  800 |  600 | basic |  200 |  150 |   200 |   150 |
+     |   480  |    360  |  1  | 1600 | 1200 | basic |  200 |  150 |   200 |   150 |
+
+    Scenarios: 480x360 view port and 2 DPR 
+     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
+     |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
+

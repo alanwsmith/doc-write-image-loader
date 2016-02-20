@@ -7,16 +7,20 @@ class ImageTagBuilder
   def max_attribute_width
     if window_inner_width > 900
     	800
-    else
+    elsif window_inner_width > 500
     	400
+    else
+    	200
     end
   end
 
   def max_attribute_height
     if window_inner_width > 900
     	600
-    else
+    elsif window_inner_width > 500
     	300
+    else
+    	150
     end
   end
 
