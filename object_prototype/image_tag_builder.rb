@@ -3,12 +3,23 @@ class ImageTagBuilder
   attr_accessor :image_type
   attr_accessor :source_height, :source_width
   attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
-  attr_accessor :max_attribute_width, :max_attribute_height
 
-  def initialize
-    @max_attribute_width = 800
-    @max_attribute_height = 600
+  def max_attribute_width
+    800
   end
+
+  def max_attribute_height
+    600
+  end
+#  def max_attribute_width
+#    if window_inner_width > 900
+#    	800
+#    elseif window_inner_width > 500
+#      400
+#    else
+#      200
+#    end
+#  end
 
   def image_call_width
     attribute_width * window_device_pixel_ratio
