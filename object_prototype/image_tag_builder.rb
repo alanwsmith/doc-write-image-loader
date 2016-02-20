@@ -29,10 +29,10 @@ class ImageTagBuilder
   end
 
   def attribute_width
-    if adjust_size(source_width / window_device_pixel_ratio) > max_attribute_width 
+    if (source_width / window_device_pixel_ratio) > max_attribute_width
     	max_attribute_width
     else 
-      adjust_size(source_width / window_device_pixel_ratio)
+    	source_width / window_device_pixel_ratio
     end
   end
 
