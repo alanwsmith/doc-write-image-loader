@@ -40,35 +40,35 @@ Then(/^the source image height should be (\d+)$/) do |height|
   expect(@i.source_height).to eq(height.to_i)
 end
 
-Then(/^the image call width should be (-?\d+)$/) do |width|
-  if width.to_i < 0
-  	1
-  else
+Then(/^the image call width should be (x?)(\d+)$/) do |skip, width|
+  unless skip.eql? "x"
     expect(@i.image_call_width).to eq(width.to_i)
+  else
+  	1
   end
 end
 
-Then(/^the image call height should be (-?\d+)$/) do |height|
-  if height.to_i < 0
-  	1
-  else
+Then(/^the image call height should be (x?)(\d+)$/) do |skip, height|
+  unless skip.eql? "x"
     expect(@i.image_call_height).to eq(height.to_i)
+  else
+  	1
   end
 end
 
-Then(/^the width attribute should be (-?\d+)$/) do |width|
-  if width.to_i < 0
-  	1
-  else
+Then(/^the width attribute should be (x?)(\d+)$/) do |skip, width|
+  unless skip.eql? "x"
     expect(@i.attribute_width).to eq(width.to_i)
+  else
+  	1
   end
 end
 
-Then(/^the height attribute should be (-?\d+)$/) do |height|
-  if height.to_i < 0
-  	1
-  else
+Then(/^the height attribute should be (x?)(\d+)$/) do |skip, height|
+  unless skip.eql? "x"
     expect(@i.attribute_height).to eq(height.to_i)
+  else
+  	1
   end
 end
 
