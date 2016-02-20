@@ -12,14 +12,16 @@ Feature: Image Tag Builder Object Prototype
   Tartets for a test with 1600x1200 source image and
   diffrent viewport sizes.
 
-  - w:   0-499 - vp:  480 x 640 - 200x150 visual ( 400 x  300 2x URL)
-  - w: 500-899 - vp:  800 x 600 - 400x300 visual ( 800 x  600 2x URL)
-  - w: 900+    - vp: 1024 x 768 - 800x600 visual (1600 x 1200 2x URL)
+  |  ViewPort  | WidthMatch | Source    | Attr/Visual | 1xCall    | 2xCall      |
+  |------------|------------|-----------|-------------|-----------|-------------|
+  | 1024 x 768 |   900+     | 1600x1200 |  800 x 600  | 800 x 600 | 1600 x 1200 |
+  |  800 x 600 |   500-899  | 1600x1200 |  400 x 300  | 400 x 300 |  800 x  600 |
+  |  480 x 360 |     0-499  | 1600x1200 |  200 x 150  | 200 x 150 |  400 x  300 |
 
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
     And a source image that's <srcW>x<srcH>
-    And a viewport that's <portW>x<portH>
+    And a viewport that's <iWidth>x<iHeight>
     And a window.devicePixelRatio of <DPR>
     And a type of <type>
     Then the source image width should be <srcW> 
@@ -30,12 +32,16 @@ Feature: Image Tag Builder Object Prototype
     And the height attribute should be <atrH>
 
     Scenarios: Baseline Sanity Check with most basic math
-      | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |  1024 |   768 | basic |   800 |   600 |  800 |  600 |
-      | 1600 | 1200 |  2  |  1024 |   768 | basic |  1600 |  1200 |  800 |  600 |
+      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  1  |  800 |  600 | basic |  800 |  600 |   800 |   600 |
+      |  1024  |   768   |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
-    Scenarios: Tests with 800x600 view port and reduced sizesTests 
-      | srcW | srcH | DPR | portW | portH | type  | callW | callH | atrW | atrH |
-      |  800 |  600 |  1  |   800 |   600 | basic |   400 |   300 |  400 |  300 |
-      | 1600 | 1200 |  2  |   800 |   600 | basic |     0 |     0 |    0 |    0 |
+    Scenarios: 1024x768 view port and 1 DPR
+     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     |  1024  |   768   |  1  | 1600 | 1200 | basic |  800 |  600 |  800  |  600  |
+
+#    Scenarios: Tests with 800x600 view port and reduced sizesTests 
+#     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+#     |   800  |    600  |  1  | 1600 | 1200 | basic |  400 |  300 |   400 |   300 |
+#     |   800  |    600  |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
