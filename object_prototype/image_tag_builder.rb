@@ -37,10 +37,10 @@ class ImageTagBuilder
   end
 
   def attribute_height
-    if adjust_size(source_height / window_device_pixel_ratio) > max_attribute_height 
+    if (source_height / window_device_pixel_ratio) > max_attribute_height 
       max_attribute_height	
     else
-    	adjust_size(source_height / window_device_pixel_ratio)
+    	source_height / window_device_pixel_ratio
     end
   end
 
