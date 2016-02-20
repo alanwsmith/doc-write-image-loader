@@ -5,7 +5,11 @@ class ImageTagBuilder
   attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
 
   def max_attribute_width
-    800
+    if window_inner_width > 900
+    	800
+    else
+    	400
+    end
   end
 
   def max_attribute_height
