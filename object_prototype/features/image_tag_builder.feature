@@ -17,6 +17,12 @@ Feature: Image Tag Builder Object Prototype
   | 1024 x 768 |   900+     | 1600x1200 |  800 x 600  | 800 x 600 | 1600 x 1200 |
   |  800 x 600 |   500-899  | 1600x1200 |  400 x 300  | 400 x 300 |  800 x  600 |
   |  480 x 360 |     0-499  | 1600x1200 |  200 x 150  | 200 x 150 |  400 x  300 |
+  
+  For the first version, there won't be any checks to make sure the source
+  image isn't being upscaled. The idea being that with this process, the
+  source image will generally be as big or bigger than the call
+  and the position it's going to fill. 
+  
 
   Scenario Outline: Integration Tests 
     Given I have an ImageTagBuilder
