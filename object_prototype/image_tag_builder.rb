@@ -9,7 +9,7 @@ class ImageTagBuilder
   end
 
   def image_call_height
-    adjust_size(source_height)
+    attribute_height * window_device_pixel_ratio
   end
 
   def attribute_width
