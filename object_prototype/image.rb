@@ -24,9 +24,5 @@ class Image
     @call_width = width * device_pixel_ratio
   end
 
-  def request params
-    @call_width = params[:width] * device_pixel_ratio
-  end
-  
 end
 
