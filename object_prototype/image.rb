@@ -24,7 +24,7 @@ class Image
   end
   
   def request_height height
-    @call_width = (height * source_width) / source_height
+    @call_width = ((height * source_width) / source_height) * device_pixel_ratio
   end
 
   def request_width width
