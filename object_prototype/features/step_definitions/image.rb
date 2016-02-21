@@ -12,7 +12,7 @@ When(/^I request an image with width (\d+)$/) do |width|
 end
 
 When(/^a DPR of (\d+)$/) do |dpr|
-  @i.device_pixel_ratio = dpr
+  @i.device_pixel_ratio = dpr.to_i
 end
 
 Then(/^the source_width should be (\d+)$/) do |width|

@@ -9,15 +9,15 @@ class Image
   end
 
   def attribute_height
-    source_height
+    call_height / device_pixel_ratio
   end
 
   def attribute_width
-    source_width
+    call_width / device_pixel_ratio
   end
 
   def request params
-    @call_width = params[:width] 
+    @call_width = params[:width] * device_pixel_ratio
   end
 
 end

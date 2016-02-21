@@ -20,3 +20,12 @@ Feature: Image Processing
     And the attribute height should be 600
 
     
+  Scenario: Request with 2x DPR 
+    Given I have an image
+    When the source is 1600x1200 
+    And a DPR of 2
+    And I request an image with width 800
+    Then the call width should be 1600
+    And the call height should be 1200
+    And the attribute width should be 800
+    And the attribute height should be 600
