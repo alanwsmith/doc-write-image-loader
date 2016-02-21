@@ -8,7 +8,7 @@ When(/^the source is (\d+)x(\d+)$/) do |width, height|
 end
 
 When(/^I request an image with width (\d+)$/) do |width|
-  @i.request(width: width.to_i)
+  @i.request_width(width.to_i)
 end
 
 When(/^a DPR of (\d+)$/) do |dpr|
