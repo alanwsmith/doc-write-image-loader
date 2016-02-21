@@ -53,10 +53,9 @@ Feature: Image Processing
     Given I have an image
     When the source is 800x600 
     And a DPR of 1
-    And I request an image with heigth 600
+    And I request an image with height 600
     Then the call width should be 800
     And the call height should be 600
     And the attribute width should be 800
     And the attribute height should be 600
-
 
