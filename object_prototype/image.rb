@@ -7,7 +7,7 @@ class Image
 
 
   def call_height
-    source_height
+    source_width * ( source_height.to_f / source_width.to_f )
   end
 
   def attribute_height
