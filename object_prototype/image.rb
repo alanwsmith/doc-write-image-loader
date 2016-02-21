@@ -1,5 +1,10 @@
 class Image
-  
+
+  # The approach is to base everything off the call width. 
+  # Even when a height is requested, it's translated into a
+  # base call_width so the rest of the math only has
+  # to be done in one way.
+
   attr_accessor :call_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
