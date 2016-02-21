@@ -1,8 +1,6 @@
 class Image
   
-  attr_accessor :source_width, :source_height
-  attr_accessor :device_pixel_ratio
-  attr_reader :call_width
+  attr_accessor :call_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
     call_height / device_pixel_ratio
