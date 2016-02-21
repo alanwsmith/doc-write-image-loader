@@ -16,7 +16,7 @@ class Image
   end
 
   def call_height
-    source_width * ratio 
+    call_width * ratio 
   end
 
   def ratio
