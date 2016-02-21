@@ -7,6 +7,10 @@ When(/^the source is (\d+)x(\d+)$/) do |width, height|
   @i.source_height = height.to_i
 end
 
+When(/^I request an image with heigth (\d+)$/) do |height|
+  @i.request_height(height.to_i)
+end
+
 When(/^I request an image with width (\d+)$/) do |width|
   @i.request_width(width.to_i)
 end
