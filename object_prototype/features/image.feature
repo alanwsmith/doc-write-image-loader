@@ -29,7 +29,7 @@ Feature: Image Processing
     And the attribute width should be 800
     And the attribute height should be 600
 
-  Scenario: 1x request w/ call smaller than source. 
+  Scenario: 1x request w/ call smaller than source
     Given I have an image
     When the source is 1600x1200 
     And a DPR of 1
