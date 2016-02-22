@@ -20,8 +20,8 @@ Feature: Image Processing
     And the attribute height should be <att_h>
 
     Scenarios:
-    | req_w | src_w | src_h | dpr | call_w | call_h | att_w | att_h |
-    |   800 |   800 |   600 |   1 |    800 |    600 |   800 |   600 |
+    | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
+    |   800 |   600 |   1 |   800 |    800 |    600 |   800 |   600 |
 
 
   Scenario: Request with 2x DPR 
