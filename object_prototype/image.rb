@@ -40,7 +40,7 @@ class Image
   end
   
   def request_height height
-    @attribute_width = [(height * source_width / source_height), source_width].min
+    @attribute_width = [(height * source_width / source_height), (source_width / device_pixel_ratio)].min
   end
 
   def request_width width

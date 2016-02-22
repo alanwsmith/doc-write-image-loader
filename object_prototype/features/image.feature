@@ -58,6 +58,7 @@ Feature: Image Processing
     Scenarios: Request via height and reduce return value
     | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |  1200 |    800 |    600 |   800 |   600 |
+    |   800 |   600 |   2 |   600 |    800 |    600 |   400 |   300 |
 
   @wip
   Scenario: Work in progress test
