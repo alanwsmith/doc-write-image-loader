@@ -44,14 +44,14 @@ Feature: Image Tag Builder Object Prototype
 
     Scenarios: 1024x768 view port and 1 DPR
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     |  1024  |   768   |  1  |  800 |  600 | basic |  800 |  600 |  800  |  600  |
      |  1024  |   768   |  1  | 1600 | 1200 | basic |  800 |  600 |  800  |  600  |
+#     |  1024  |   768   |  1  | 1600 | 1000 | basic |  800 |  500 |  800  |  500  |
 
     Scenarios: 800x600 view port and 1 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   800  |    600  |  1  |  800 |  600 | basic |  400 |  300 |   400 |   300 |
      |   800  |    600  |  1  | 1600 | 1200 | basic |  400 |  300 |   400 |   300 |
-
-# TODO: Add test for 800x600, 1DPR, with source 400x300.
 
     Scenarios: 800x600 view port and 2 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
