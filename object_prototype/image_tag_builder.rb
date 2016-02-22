@@ -5,6 +5,7 @@ class ImageTagBuilder
 
   def initialize
     @image = Image.new()
+    @size_finder = SizeFinder.new()
   end
 
   def source_height= height
@@ -27,6 +28,17 @@ class ImageTagBuilder
     @image.device_pixel_ratio = dpr
     @window_device_pixel_ratio = dpr
   end
+
+  def window_inner_width= width
+    @window_inner_width = width
+    @size_finder.window_inner_width = width
+  end
+
+  def window_inner_height= height
+    @window_inner_height = height
+    @size_finder.window_inner_height = height
+  end
+
 
   def max_attribute_width
     if window_inner_width > 900
