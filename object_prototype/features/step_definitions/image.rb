@@ -2,6 +2,10 @@ Given(/^I have an image$/) do
   @i = Image.new
 end
 
+Given(/^I initizlie an image with source (\d+)x(\d+) and DPR (\d+)$/) do |width, height, dpr|
+  @i = Image.new_with({source_width: width, source_height: height, device_pixel_ratio: dpr})
+end
+
 When(/^the source is (\d+)x(\d+)$/) do |width, height|
   @i.source_width  = width.to_i
   @i.source_height = height.to_i
@@ -25,6 +29,10 @@ end
 
 Then(/^the source_height should be (\d+)$/) do |height|
   expect(@i.source_height).to eq(height.to_i)
+end
+
+Then(/^the image DPR should be (\d+)$/) do |dpr|
+  expect(@i.device_pixel_ratio).to eq(dpr.to_i)
 end
 
 Then(/^the call width should be (\d+)$/) do |width|
