@@ -10,6 +10,13 @@ class Image
   # "601". This way, a simple crop can be applied to the source
   # pixels instead of upsizing by one pixel. 
 
+  # Because everything is based of width, requests for height
+  # somtimes have 1 less pixel. (That's because the initial
+  # height to width conversion may create an float which gets
+  # rounded down to an integer. When the ratio is applied again
+  # the height may have lost a pixel. I think it should only be
+  # one at the most.
+
   attr_accessor :attribute_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
