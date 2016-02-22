@@ -25,8 +25,10 @@ class SizeFinder
   def request_width style
     if window_inner_width.to_i > 900
       @styles[style][2][:image_width]
-    elsif window_inner_width.to_i > 400
+    elsif window_inner_width.to_i > 500
       @styles[style][1][:image_width]
+    else 
+      @styles[style][0][:image_width]
     end
   end
 
