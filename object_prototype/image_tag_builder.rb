@@ -33,22 +33,14 @@ class ImageTagBuilder
     end
   end
 
-  def max_attribute_height
-    if window_inner_width > 900
-    	600
-    elsif window_inner_width > 500
-    	300
-    else
-    	150
-    end
-  end
-
   def image_call_width
-    attribute_width * window_device_pixel_ratio
+    @image.request_width(max_attribute_width)
+    @image.call_width
   end
 
   def image_call_height
-    attribute_height * window_device_pixel_ratio
+    @image.request_width(max_attribute_width)
+    @image.call_height
   end
 
   def attribute_width
@@ -57,11 +49,8 @@ class ImageTagBuilder
   end
 
   def attribute_height
-    if (source_height / window_device_pixel_ratio) > max_attribute_height 
-      max_attribute_height	
-    else
-    	source_height / window_device_pixel_ratio
-    end
+    @image.request_width(max_attribute_width)
+    @image.attribute_height
   end
 
 end
