@@ -19,7 +19,7 @@ Feature: Image Processing
     And the attribute width should be <att_w>
     And the attribute height should be <att_h>
 
-    Scenarios:
+    Scenarios: Calling via width
     | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   800 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   1 |   800 |    800 |    600 |   800 |   600 |
