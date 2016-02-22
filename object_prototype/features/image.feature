@@ -45,16 +45,16 @@ Feature: Image Processing
     | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
+    |  1600 |  1200 |   1 |   602 |    802 |    601 |   802 |   601 |
 
   @wip
   Scenario: Work in progress test
     Given I have an image
-    When the source is 1604x1202 
-    And a DPR of 2
-    And I request an image with width 801
-    Then the attribute width should be 801
-    And the attribute height should be 600
-    And the call width should be 1602 
-    And the call height should be 1200
-
+    When the source is 1600x1200 
+    And a DPR of 1
+    And I request an image with height 602
+    Then the attribute width should be 802
+    And the attribute height should be 601
+    And the call width should be 802 
+    And the call height should be 601 
 
