@@ -1,7 +1,6 @@
 class ImageTagBuilder
  
   attr_accessor :image_type
-  attr_accessor :source_height, :source_width
   attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
 
   def initialize
@@ -10,12 +9,18 @@ class ImageTagBuilder
 
   def source_height= height
     @image.source_height = height
-    @source_height = height 
+  end
+
+  def source_height
+    @image.source_height
   end
 
   def source_width= width
     @image.source_width = width
-    @source_width = width
+  end
+  
+  def source_width
+    @image.source_width
   end
 
   def window_device_pixel_ratio= dpr
