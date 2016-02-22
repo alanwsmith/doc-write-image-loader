@@ -13,7 +13,7 @@ class Image
   attr_accessor :attribute_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
-    call_height / device_pixel_ratio
+    (attribute_width * ratio).to_i
   end
 
   def call_height
