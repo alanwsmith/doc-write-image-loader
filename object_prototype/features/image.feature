@@ -67,14 +67,4 @@ Feature: Image Processing
 #    And the source_height should be 600
 #    And the image DPR should be 1
 
-  @wip
-  Scenario: Work in progress test
-    Given I have an image
-    When the source is 800x600 
-    And a DPR of 1
-    And I request an image with width 1600
-    Then the attribute width should be 800
-    And the attribute height should be 600
-    And the call width should be 800
-    And the call height should be 600 
 
