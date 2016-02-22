@@ -5,6 +5,11 @@ class Image
   # base call_width so the rest of the math only has
   # to be done in one way.
 
+  # Values are always retured as integers using a "floor" mechanic
+  # instead of rounding. (e.g. "600.75" becomes "600" instead of
+  # "601". This way, a simple crop can be applied to the source
+  # pixels instead of upsizing by one pixel. 
+
   attr_accessor :call_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
