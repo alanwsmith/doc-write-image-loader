@@ -1,10 +1,12 @@
 class ImageTagBuilder
  
   attr_accessor :image_type
-  attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
+  attr_accessor :window_device_pixel_ratio 
 
   def initialize
     @image = Image.new()
+    @size_finder = SizeFinder.new()
+    @size_finder.load_basic_tests
   end
 
   def source_height= height
@@ -28,14 +30,16 @@ class ImageTagBuilder
     @window_device_pixel_ratio = dpr
   end
 
+  def window_inner_width= width
+    @size_finder.window_inner_width = width
+  end
+
+  def window_inner_height= height
+    @size_finder.window_inner_height = height
+  end
+
   def max_attribute_width
-    if window_inner_width > 900
-    	800
-    elsif window_inner_width > 500
-    	400
-    else
-    	200
-    end
+    @size_finder.request_width "basic"
   end
 
   def image_call_width
