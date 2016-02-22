@@ -11,13 +11,10 @@ class Image
   # pixels instead of upsizing by one pixel. 
 
   attr_accessor :call_width, :device_pixel_ratio, :source_width, :source_height
+  attr_accessor :attribute_width
 
   def attribute_height
     call_height / device_pixel_ratio
-  end
-
-  def attribute_width
-    call_width / device_pixel_ratio
   end
 
   def call_height
@@ -29,10 +26,12 @@ class Image
   end
   
   def request_height height
+    @attribute_width = (height * source_width) / source_height 
     @call_width = ((height * source_width) / source_height) * device_pixel_ratio
   end
 
   def request_width width
+    @attribute_width = width
     @call_width = width * device_pixel_ratio
   end
 

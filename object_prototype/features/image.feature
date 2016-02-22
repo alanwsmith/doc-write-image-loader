@@ -26,6 +26,7 @@ Feature: Image Processing
     |  1600 |  1200 |   2 |   800 |   1600 |   1200 |   800 |   600 |
     |  1600 |  1200 |   2 |   400 |    800 |    600 |   400 |   300 |
     |  1600 |  1200 |   1 |   801 |    801 |    600 |   801 |   600 |
+#    |  1604 |  1204 |   2 |   801 |   1602 |   1200 |   801 |   600 |
 
   Scenario Outline: Request via width
     Given I have an image
