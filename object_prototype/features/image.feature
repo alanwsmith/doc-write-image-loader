@@ -31,10 +31,10 @@ Feature: Image Processing
     |  1604 |  1202 |   2 |   801 |   1602 |   1200 |   801 |   600 |
     |  1604 |  1204 |   2 |   801 |   1602 |   1202 |   801 |   601 |
 
-
     Scenarios: Calling via width and reduce size
     | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |  1600 |    800 |    600 |   800 |   600 |
+    |   800 |   600 |   2 |   800 |    800 |    600 |   400 |   300 |
 
   Scenario Outline: Request via width
     Given I have an image

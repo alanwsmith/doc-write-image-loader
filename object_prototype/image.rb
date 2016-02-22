@@ -21,7 +21,6 @@ class Image
   # can get altered. Once the full feature list is implemented,
   # requests that are larger than the source will also to reduced.
 
-
   attr_accessor :attribute_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
@@ -46,7 +45,7 @@ class Image
 
   def request_width width
     # Recude size to source width if the quest is too big.
-    @attribute_width = [width, source_width].min
+    @attribute_width = [width, source_width / device_pixel_ratio ].min
   end
 
 end
