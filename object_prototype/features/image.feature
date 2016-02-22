@@ -43,3 +43,15 @@ Feature: Image Processing
     |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
 
+  @wip
+  Scenario: Work in progress test
+    Given I have an image
+    When the source is 1604x1204 
+    And a DPR of 1
+    And I request an image with width 801
+    Then the attribute width should be 801
+    And the attribute height should be 601
+    And the call width should be 801 
+    And the call height should be 601
+
+

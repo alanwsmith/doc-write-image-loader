@@ -17,7 +17,7 @@ class Image
   end
 
   def call_height
-    (call_width * ratio).to_i
+    attribute_height * device_pixel_ratio
   end
 
   def call_width
