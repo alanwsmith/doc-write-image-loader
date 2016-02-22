@@ -10,6 +10,10 @@ class SizeFinder
     	  	break_point: 0,
     	  	image_width: 200
     	  },
+    	  {
+    	  	break_point: 500,
+    	  	image_width: 400
+        },
         {
         	break_point: 900,
         	image_width: 800
@@ -19,7 +23,11 @@ class SizeFinder
   end
 
   def request_width style
-    @styles[style][1][:image_width]
+    if window_inner_width.to_i > 900
+      @styles[style][2][:image_width]
+    elsif window_inner_width.to_i > 400
+      @styles[style][1][:image_width]
+    end
   end
 
 end
