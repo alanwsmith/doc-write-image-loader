@@ -45,7 +45,12 @@ Feature: Image Processing
     | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
+    |  1600 |  1200 |   1 |   601 |    801 |    600 |   801 |   600 |
     |  1600 |  1200 |   1 |   602 |    802 |    601 |   802 |   601 |
+
+# TODO: Add 2x tests for odd size height calls.
+
+
 
   @wip
   Scenario: Work in progress test
