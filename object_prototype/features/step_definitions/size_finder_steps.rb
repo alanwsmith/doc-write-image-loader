@@ -12,5 +12,5 @@ When(/^the window size is (\d+)x(\d+)$/) do |width, height|
 end
 
 Then(/^the request width returned by '(.*?)' should be (\d+)px\.$/) do |style, pixels|
-  expect(@sf.request_width).to eq(pixels.to_i)
+  expect(@sf.request_width style).to eq(pixels.to_i)
 end

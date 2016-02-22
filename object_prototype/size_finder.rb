@@ -14,8 +14,8 @@ class SizeFinder
     }
   end
 
-  def request_width
-    @styles["basic"][0][:image_width]
+  def request_width style
+    @styles[style][0][:image_width]
   end
 
 end
