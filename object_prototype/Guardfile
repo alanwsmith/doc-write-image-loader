@@ -15,7 +15,7 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-guard "cucumber" do
+guard "cucumber", :cmd_additional_args => '--format pretty' do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { "features" }
 
