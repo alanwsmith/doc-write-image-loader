@@ -17,6 +17,11 @@ class Image
   # the height may have lost a pixel. I think it should only be
   # one at the most.
 
+  # Worth pointing out that height isn't the only thing that
+  # can get altered. Once the full feature list is implemented,
+  # requests that are larger than the source will also to reduced.
+
+
   attr_accessor :attribute_width, :device_pixel_ratio, :source_width, :source_height
 
   def attribute_height
