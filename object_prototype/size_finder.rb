@@ -9,14 +9,6 @@ class SizeFinder
         {
         	break_point: 900,
         	image_width: 800
-        },
-        {
-        	break_point: 500,
-        	image_width: 400
-        },
-        {
-        	break_point: 0,
-        	image_width: 200
         }
     	]
     }
