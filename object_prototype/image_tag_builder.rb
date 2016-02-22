@@ -1,7 +1,7 @@
 class ImageTagBuilder
  
   attr_accessor :image_type
-  attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
+  attr_accessor :window_device_pixel_ratio 
 
   def initialize
     @image = Image.new()
@@ -31,12 +31,10 @@ class ImageTagBuilder
   end
 
   def window_inner_width= width
-    @window_inner_width = width
     @size_finder.window_inner_width = width
   end
 
   def window_inner_height= height
-    @window_inner_height = height
     @size_finder.window_inner_height = height
   end
 
