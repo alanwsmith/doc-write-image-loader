@@ -19,7 +19,7 @@ Feature: Image Processing
     And the attribute width should be <att_w>
     And the attribute height should be <att_h>
 
-    Scenarios:
+    Scenarios: Calling via width
     | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   800 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   1 |   800 |    800 |    600 |   800 |   600 |
@@ -31,6 +31,11 @@ Feature: Image Processing
     |  1604 |  1202 |   2 |   801 |   1602 |   1200 |   801 |   600 |
     |  1604 |  1204 |   2 |   801 |   1602 |   1202 |   801 |   601 |
 
+    Scenarios: Calling via width and reduce size
+    | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
+    |   800 |   600 |   1 |  1600 |    800 |    600 |   800 |   600 |
+    |   800 |   600 |   2 |   800 |    800 |    600 |   400 |   300 |
+
   Scenario Outline: Request via width
     Given I have an image
     When the source is <src_w>x<src_h>
@@ -41,20 +46,28 @@ Feature: Image Processing
     And the attribute width should be <att_w>
     And the attribute height should be <att_h>
 
-    Scenarios:
+    Scenarios: Request via height
     | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
+    |  1600 |  1200 |   1 |   601 |    801 |    600 |   801 |   600 |
+    |  1600 |  1200 |   1 |   602 |    802 |    601 |   802 |   601 |
+
+# TODO: Add 2x tests for odd size height calls.
+
+    Scenarios: Request via height and reduce return value
+    | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
+    |   800 |   600 |   1 |  1200 |    800 |    600 |   800 |   600 |
+    |   800 |   600 |   2 |   600 |    800 |    600 |   400 |   300 |
 
   @wip
   Scenario: Work in progress test
     Given I have an image
-    When the source is 1604x1202 
-    And a DPR of 2
-    And I request an image with width 801
-    Then the attribute width should be 801
+    When the source is 800x600 
+    And a DPR of 1
+    And I request an image with width 1600
+    Then the attribute width should be 800
     And the attribute height should be 600
-    And the call width should be 1602 
-    And the call height should be 1200
-
+    And the call width should be 800
+    And the call height should be 600 
 
