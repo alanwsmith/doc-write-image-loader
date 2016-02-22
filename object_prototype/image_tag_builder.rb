@@ -6,6 +6,7 @@ class ImageTagBuilder
   def initialize
     @image = Image.new()
     @size_finder = SizeFinder.new()
+    @size_finder.load_basic_tests
   end
 
   def source_height= height
@@ -39,15 +40,8 @@ class ImageTagBuilder
     @size_finder.window_inner_height = height
   end
 
-
   def max_attribute_width
-    if window_inner_width > 900
-    	800
-    elsif window_inner_width > 500
-    	400
-    else
-    	200
-    end
+    @size_finder.request_width "basic"
   end
 
   def image_call_width
