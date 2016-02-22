@@ -4,6 +4,25 @@ class ImageTagBuilder
   attr_accessor :source_height, :source_width
   attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height 
 
+  def initialize
+    @image = Image.new()
+  end
+
+  def source_height= height
+    @image.source_height = height
+    @source_height = height 
+  end
+
+  def source_width= width
+    @image.source_width = width
+    @source_width = width
+  end
+
+  def window_device_pixel_ratio= dpr
+    @image.device_pixel_ratio = dpr
+    @window_device_pixel_ratio = dpr
+  end
+
   def max_attribute_width
     if window_inner_width > 900
     	800
@@ -33,11 +52,8 @@ class ImageTagBuilder
   end
 
   def attribute_width
-    if (source_width / window_device_pixel_ratio) > max_attribute_width
-    	max_attribute_width
-    else 
-    	source_width / window_device_pixel_ratio
-    end
+    @image.request_width(max_attribute_width)
+    @image.attribute_width
   end
 
   def attribute_height
