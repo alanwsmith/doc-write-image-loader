@@ -22,17 +22,9 @@ Feature: Image Processing
     Scenarios:
     | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   800 |    800 |    600 |   800 |   600 |
+    |  1600 |  1200 |   2 |   800 |   1600 |   1200 |   800 |   600 |
 
 
-  Scenario: Request with 2x DPR 
-    Given I have an image
-    When the source is 1600x1200 
-    And a DPR of 2
-    And I request an image with width 800
-    Then the call width should be 1600
-    And the call height should be 1200
-    And the attribute width should be 800
-    And the attribute height should be 600
 
   Scenario: 1x request w/ call smaller than source
     Given I have an image
