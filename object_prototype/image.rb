@@ -45,7 +45,8 @@ class Image
   end
 
   def request_width width
-    @attribute_width = width
+    # Recude size to source width if the quest is too big.
+    @attribute_width = [width, source_width].min
   end
 
 end

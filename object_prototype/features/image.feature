@@ -50,16 +50,14 @@ Feature: Image Processing
 
 # TODO: Add 2x tests for odd size height calls.
 
-
-
   @wip
   Scenario: Work in progress test
     Given I have an image
-    When the source is 1600x1200 
+    When the source is 800x600 
     And a DPR of 1
-    And I request an image with height 602
-    Then the attribute width should be 802
-    And the attribute height should be 601
-    And the call width should be 802 
-    And the call height should be 601 
+    And I request an image with width 1600
+    Then the attribute width should be 800
+    And the attribute height should be 600
+    And the call width should be 800
+    And the call height should be 600 
 
