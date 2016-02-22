@@ -23,13 +23,13 @@ class SizeFinder
   end
 
   def request_width style
-    if window_inner_width.to_i > 900
-      @styles[style][2][:image_width]
-    elsif window_inner_width.to_i > 500
-      @styles[style][1][:image_width]
-    else 
-      @styles[style][0][:image_width]
+    attr_width = 0
+    @styles[style].each do |config|
+      if window_inner_width.to_i > config[:break_point]
+        attr_width = config[:image_width]
+      end
     end
+    attr_width
   end
 
 end
