@@ -9,15 +9,20 @@ Feature: Image Processing
     Then the source_width should be 1600
     And  the source_height should be 1200
 
-  Scenario: Basic Width Request
+  Scenario Outline: Request via width
     Given I have an image
-    When the source is 800x600 
-    And a DPR of 1
-    And I request an image with width 800
-    Then the call width should be 800
-    And the call height should be 600
-    And the attribute width should be 800
-    And the attribute height should be 600
+    When the source is <src_w>x<src_h>
+    And a DPR of <dpr>
+    And I request an image with width <req_w>
+    Then the call width should be <call_w> 
+    And the call height should be <call_h> 
+    And the attribute width should be <att_w>
+    And the attribute height should be <att_h>
+
+    Scenarios:
+    | req_w | src_w | src_h | dpr | call_w | call_h | att_w | att_h |
+    |   800 |   800 |   600 |   1 |    800 |    600 |   800 |   600 |
+
 
   Scenario: Request with 2x DPR 
     Given I have an image
