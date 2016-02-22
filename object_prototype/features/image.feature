@@ -25,7 +25,7 @@ Feature: Image Processing
     |  1600 |  1200 |   1 |   800 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   800 |   1600 |   1200 |   800 |   600 |
     |  1600 |  1200 |   2 |   400 |    800 |    600 |   400 |   300 |
-
+    |   800 |   600 |   1 |   801 |    801 |    600 |   801 |   600 |
 
   Scenario Outline: Request via width
     Given I have an image
@@ -41,5 +41,4 @@ Feature: Image Processing
     | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
     |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
-
 
