@@ -27,23 +27,19 @@ Feature: Image Processing
     |  1600 |  1200 |   2 |   400 |    800 |    600 |   400 |   300 |
 
 
-  Scenario: 1x reqeust via height 
+  Scenario Outline: Request via width
     Given I have an image
-    When the source is 800x600 
-    And a DPR of 1
-    And I request an image with height 600
-    Then the call width should be 800
-    And the call height should be 600
-    And the attribute width should be 800
-    And the attribute height should be 600
+    When the source is <src_w>x<src_h>
+    And a DPR of <dpr>
+    And I request an image with height <req_h>
+    Then the call width should be <call_w> 
+    And the call height should be <call_h> 
+    And the attribute width should be <att_w>
+    And the attribute height should be <att_h>
 
-  Scenario: 2x request via height 
-    Given I have an image
-    When the source is 1600x1200 
-    And a DPR of 2
-    And I request an image with height 600
-    Then the call width should be 1600
-    And the call height should be 1200
-    And the attribute width should be 800
-    And the attribute height should be 600
+    Scenarios:
+    | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
+    |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
+    |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
+
 
