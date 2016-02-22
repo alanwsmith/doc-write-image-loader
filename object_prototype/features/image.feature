@@ -55,6 +55,10 @@ Feature: Image Processing
 
 # TODO: Add 2x tests for odd size height calls.
 
+    Scenarios: Request via height and reduce return value
+    | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
+    |   800 |   600 |   1 |  1200 |    800 |    600 |   800 |   600 |
+
   @wip
   Scenario: Work in progress test
     Given I have an image
