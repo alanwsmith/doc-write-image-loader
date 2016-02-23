@@ -1,11 +1,3 @@
-Given(/^I have a SizeFinder$/) do
-  @sf = SizeFinder.new
-end
-
-Given(/^A SizeFinder with a (\d+)x(\d+) viewport and a (\d+) DPR$/) do |width, height, dpr|
-  @sf = SizeFinder.new_with(window_inner_width: width.to_i, window_inner_height: height.to_i, window_device_pixel_ratio: dpr)
-end
-
 Given(/^SizeFinder - Viewport: (\d+)x(\d+) \- DPR: (\d+) \- Source: (\d+)x(\d+)$/) do |view_width, view_height, dpr, source_width, source_height|
   @sf= SizeFinder.new_with(
     window_inner_width: view_width.to_i, 

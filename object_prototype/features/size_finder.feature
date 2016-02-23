@@ -12,27 +12,27 @@ Feature: Size Finder
   |  480 x 360 |  200  |
 
   Scenario: Baseline test
-    Given A SizeFinder with a 1024x768 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'basic' should be 800px
 
   Scenario: Mid size window
-    Given A SizeFinder with a 800x600 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 800x600 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'basic' should be 400px 
     
   Scenario: Small size window
-    Given A SizeFinder with a 480x360 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 480x360 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'basic' should be 200px 
 
   Scenario: 1024 percentage test 
-    Given A SizeFinder with a 1024x768 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'by_pct' should be 614px 
 
   Scenario: 800 percentage test 
-    Given A SizeFinder with a 800x600 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 800x600 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'by_pct' should be 560px 
 
   Scenario: 480 percentage test 
-    Given A SizeFinder with a 480x360 viewport and a 1 DPR
+    Given SizeFinder - Viewport: 480x360 - DPR: 1 - Source: 1600x1200
     Then the request width returned by 'by_pct' should be 384px 
 
   Scenario: Get width via height at 1024x768
