@@ -3,16 +3,8 @@ Feature: Image Processing
   Test the image object to make sure it 
   responds properly. 
 
-  Scenario: Baseline test
-    Given I have an image
-    When the source is 1600x1200
-    Then the source_width should be 1600
-    And  the source_height should be 1200
-
   Scenario Outline: Request via width
-    Given I have an image
-    When the source is <src_w>x<src_h>
-    And a DPR of <dpr>
+    Given I initizlie an image with source <src_w>x<src_h> and DPR <dpr> 
     And I request an image with width <req_w>
     Then the call width should be <call_w> 
     And the call height should be <call_h> 
@@ -35,12 +27,5 @@ Feature: Image Processing
     | src_w | src_h | dpr | req_w | call_w | call_h | att_w | att_h |
     |   800 |   600 |   1 |  1600 |    800 |    600 |   800 |   600 |
     |   800 |   600 |   2 |   800 |    800 |    600 |   400 |   300 |
-
-
-  Scenario: Initilize with data
-    Given I initizlie an image with source 800x600 and DPR 1
-    Then the source_width should be 800 
-    And the source_height should be 600
-    And the image DPR should be 1
 
 
