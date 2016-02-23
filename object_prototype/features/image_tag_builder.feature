@@ -27,7 +27,6 @@ Feature: Image Tag Builder Object Prototype
   Scenario Outline: Integration Tests 
     Given I have a <iWidth>x<iHeight> viewport and a <DPR> DPR
     And a source image that's <srcW>x<srcH>
-    And a viewport that's <iWidth>x<iHeight>
     And a window.devicePixelRatio of <DPR>
     And a type of <type>
     Then the source image width should be <srcW> 
