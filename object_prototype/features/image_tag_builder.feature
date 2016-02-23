@@ -25,14 +25,9 @@ Feature: Image Tag Builder Object Prototype
   
 
   Scenario Outline: Integration Tests 
-    Given I have an ImageTagBuilder
-    And a source image that's <srcW>x<srcH>
-    And a viewport that's <iWidth>x<iHeight>
-    And a window.devicePixelRatio of <DPR>
+    Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
     And a type of <type>
-    Then the source image width should be <srcW> 
-    And the source image height should be <srcH>
-    And the image call width should be <callW>
+    Then the image call width should be <callW>
     And the image call height should be <callH>
     And the width attribute should be <atrW>
     And the height attribute should be <atrH>
@@ -57,7 +52,6 @@ Feature: Image Tag Builder Object Prototype
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   800  |    600  |  2  |  800 |  600 | basic |  400 |  300 |  800  |  600  |
      |   800  |    600  |  2  | 1600 | 1200 | basic |  400 |  300 |  800  |  600  |
-
 
     Scenarios: 480x360 view port and 1 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |

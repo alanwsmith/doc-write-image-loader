@@ -60,11 +60,10 @@ Feature: Image Processing
     |   800 |   600 |   1 |  1200 |    800 |    600 |   800 |   600 |
     |   800 |   600 |   2 |   600 |    800 |    600 |   400 |   300 |
 
-## Might not need this
-#  Scenario: Initilize with data
-#    Given I initizlie an image with source 800x600 and DPR 1
-#    Then the source_width should be 800 
-#    And the source_height should be 600
-#    And the image DPR should be 1
+  Scenario: Initilize with data
+    Given I initizlie an image with source 800x600 and DPR 1
+    Then the source_width should be 800 
+    And the source_height should be 600
+    And the image DPR should be 1
 
 
