@@ -26,40 +26,40 @@ Feature: Image Tag Builder Object Prototype
 
   Scenario Outline: Integration Tests 
     Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
-    And a type of <type>
+    And a style of <style>
     Then the image call width should be <callW>
     And the image call height should be <callH>
     And the width attribute should be <atrW>
     And the height attribute should be <atrH>
 
     Scenarios: Baseline Sanity Check with most basic math
-      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+      | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
       |  1024  |   768   |  1  |  800 |  600 | basic |  800 |  600 |   800 |   600 |
       |  1024  |   768   |  2  | 1600 | 1200 | basic |  800 |  600 |  1600 |  1200 |
 
     Scenarios: 1024x768 view port and 1 DPR
-     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |  1024  |   768   |  1  |  800 |  600 | basic |  800 |  600 |  800  |  600  |
      |  1024  |   768   |  1  | 1600 | 1200 | basic |  800 |  600 |  800  |  600  |
      |  1024  |   768   |  1  | 1600 | 1000 | basic |  800 |  500 |  800  |  500  |
 
     Scenarios: 800x600 view port and 1 DPR 
-     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |   800  |    600  |  1  |  800 |  600 | basic |  400 |  300 |   400 |   300 |
      |   800  |    600  |  1  | 1600 | 1200 | basic |  400 |  300 |   400 |   300 |
 
     Scenarios: 800x600 view port and 2 DPR 
-     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |   800  |    600  |  2  |  800 |  600 | basic |  400 |  300 |  800  |  600  |
      |   800  |    600  |  2  | 1600 | 1200 | basic |  400 |  300 |  800  |  600  |
 
     Scenarios: 480x360 view port and 1 DPR 
-     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |   480  |    360  |  1  |  800 |  600 | basic |  200 |  150 |   200 |   150 |
      |   480  |    360  |  1  | 1600 | 1200 | basic |  200 |  150 |   200 |   150 |
 
     Scenarios: 480x360 view port and 2 DPR 
-     | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
+     | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
      |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
 

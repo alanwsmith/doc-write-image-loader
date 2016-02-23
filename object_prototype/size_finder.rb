@@ -33,7 +33,7 @@ class SizeFinder
     }
   end
 
-  def request_width style
+  def request_width_for_style style
     attr_width = 0
     @styles[style].each do |config|
       if window_inner_width.to_i > config[:break_point]

@@ -24,5 +24,5 @@ Then(/^the window_inner_width should be (\d+)$/) do |width|
 end
 
 Then(/^the request width returned by '(.*?)' should be (\d+)px\.$/) do |style, pixels|
-  expect(@sf.request_width style).to eq(pixels.to_i)
+  expect(@sf.request_width_for_style style).to eq(pixels.to_i)
 end

@@ -12,8 +12,8 @@ class ImageTagBuilder
     forerunner
   end
 
-  def set_image_type type
-    @image.set_requested_width(@size_finder.request_width type)
+  def set_image_style style
+    @image.set_requested_width(@size_finder.request_width_for_style style)
   end
 
   def image_call_width
