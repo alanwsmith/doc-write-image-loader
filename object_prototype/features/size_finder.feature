@@ -12,25 +12,30 @@ Feature: Size Finder
   |  480 x 360 |  200  |
 
   Scenario: Baseline test
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 1024x768
-    Then the request width returned by 'basic' should be 800px. 
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'basic' should be 800px
 
   Scenario: Mid size window
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 800x600 
-    Then the request width returned by 'basic' should be 400px. 
+    Given SizeFinder - Viewport: 800x600 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'basic' should be 400px 
     
   Scenario: Small size window
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 480x360 
-    Then the request width returned by 'basic' should be 200px. 
+    Given SizeFinder - Viewport: 480x360 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'basic' should be 200px 
 
-  Scenario: Initialize with params
-    Given A SizeFinder with a 1024x768 viewport and a 1 DPR
-    Then the window_inner_width should be 1024
-    And the window_inner_height should be 768
+  Scenario: 1024 percentage test 
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'by_pct' should be 614px 
+
+  Scenario: 800 percentage test 
+    Given SizeFinder - Viewport: 800x600 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'by_pct' should be 560px 
+
+  Scenario: 480 percentage test 
+    Given SizeFinder - Viewport: 480x360 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'by_pct' should be 384px 
+
+  Scenario: Get width via height at 1024x768
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'by_height' should be 800px
 

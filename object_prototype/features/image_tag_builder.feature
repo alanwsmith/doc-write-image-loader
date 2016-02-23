@@ -27,10 +27,10 @@ Feature: Image Tag Builder Object Prototype
   Scenario Outline: Integration Tests 
     Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
     And a style of <style>
-    Then the image call width should be <callW>
-    And the image call height should be <callH>
-    And the width attribute should be <atrW>
+    Then the width attribute should be <atrW>
     And the height attribute should be <atrH>
+    And the image call width should be <callW>
+    And the image call height should be <callH>
 
     Scenarios: Baseline Sanity Check with most basic math
       | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
@@ -62,4 +62,14 @@ Feature: Image Tag Builder Object Prototype
      | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
      |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
      |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
+
+    Scenarios: 1024x768 - 1 DPR - Percentage based
+      | iWidth | iHeight | DPR | srcW | srcH | style  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  1  |  800 |  600 | by_pct |  614 |  460 |   614 |   460 |
+
+    Scenarios: 1024x768 - 2 DPR - Percentage based
+      | iWidth | iHeight | DPR | srcW | srcH | style  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  2  | 1600 | 1200 | by_pct |  614 |  460 |  1228 |   920 |
+
+
 
