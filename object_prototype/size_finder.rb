@@ -3,6 +3,17 @@ class SizeFinder
   attr_accessor :window_inner_width, :window_inner_height
   attr_accessor :styles
 
+  def initialize_with params
+    @window_inner_width = params[:window_inner_width]
+    @window_inner_height = params[:window_inner_height]
+  end
+
+  def self.new_with params
+    forerunner = allocate
+    forerunner.send(:initialize_with, params)
+    forerunner 
+  end
+
   def load_basic_tests
     @styles = {
     	"basic" => [
