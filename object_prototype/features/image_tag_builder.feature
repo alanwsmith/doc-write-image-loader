@@ -27,10 +27,10 @@ Feature: Image Tag Builder Object Prototype
   Scenario Outline: Integration Tests 
     Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
     And a style of <style>
-    Then the image call width should be <callW>
-    And the image call height should be <callH>
-    And the width attribute should be <atrW>
+    Then the width attribute should be <atrW>
     And the height attribute should be <atrH>
+    And the image call width should be <callW>
+    And the image call height should be <callH>
 
     Scenarios: Baseline Sanity Check with most basic math
       | iWidth | iHeight | DPR | srcW | srcH | style | atrW | atrH | callW | callH |
