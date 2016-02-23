@@ -13,7 +13,7 @@ Given(/^Viewport: (\d+)x(\d+) \- DPR: (\d+) \- Source: (\d+)x(\d+)$/) do |view_w
 end
 
 Given(/^a type of (.*?)$/) do |type|
-  @img_tag_builder.image_type = type
+  @img_tag_builder.set_image_type(type)
 end
 
 Then(/^the width attribute should be (x?)(\d+)$/) do |skip, width|
