@@ -27,28 +27,27 @@ class ImageTagBuilder
     forerunner
   end
 
-
   def max_attribute_width
     @size_finder.request_width "basic"
   end
 
   def image_call_width
-    @image.request_width(max_attribute_width)
+    @image.set_requested_width(max_attribute_width)
     @image.call_width
   end
 
   def image_call_height
-    @image.request_width(max_attribute_width)
+    @image.set_requested_width(max_attribute_width)
     @image.call_height
   end
 
   def attribute_width
-    @image.request_width(max_attribute_width)
+    @image.set_requested_width(max_attribute_width)
     @image.attribute_width
   end
 
   def attribute_height
-    @image.request_width(max_attribute_width)
+    @image.set_requested_width(max_attribute_width)
     @image.attribute_height
   end
 

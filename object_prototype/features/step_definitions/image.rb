@@ -12,11 +12,11 @@ When(/^the source is (\d+)x(\d+)$/) do |width, height|
 end
 
 When(/^I request an image with height (\d+)$/) do |height|
-  @i.request_height(height.to_i)
+  @i.set_requested_height(height.to_i)
 end
 
 When(/^I request an image with width (\d+)$/) do |width|
-  @i.request_width(width.to_i)
+  @i.set_requested_width(width.to_i)
 end
 
 When(/^a DPR of (\d+)$/) do |dpr|
