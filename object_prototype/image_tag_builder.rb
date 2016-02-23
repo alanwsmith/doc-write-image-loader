@@ -14,17 +14,13 @@ class ImageTagBuilder
     )
 
     @image.device_pixel_ratio = params[:window_device_pixel_ratio].to_i
-    @image.set_requested_width(max_attribute_width)
+    @image.set_requested_width(@size_finder.request_width "basic")
   end
 
   def self.new_with params
     forerunner = allocate
     forerunner.send(:initialize_with, params)
     forerunner
-  end
-
-  def max_attribute_width
-    @size_finder.request_width "basic"
   end
 
   def image_call_width
