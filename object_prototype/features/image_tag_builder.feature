@@ -26,7 +26,6 @@ Feature: Image Tag Builder Object Prototype
   
   Scenario Outline: Integration Tests 
     Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
-    And a source image that's <srcW>x<srcH>
     And a type of <type>
     Then the image call width should be <callW>
     And the image call height should be <callH>
