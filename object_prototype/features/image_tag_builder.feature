@@ -72,3 +72,4 @@ Feature: Image Tag Builder Object Prototype
       |  1024  |   768   |  2  | 1600 | 1200 | by_pct |  614 |  460 |  1228 |   920 |
 
 
+
