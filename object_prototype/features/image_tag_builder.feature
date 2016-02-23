@@ -25,7 +25,7 @@ Feature: Image Tag Builder Object Prototype
   
 
   Scenario Outline: Integration Tests 
-    Given I have an ImageTagBuilder
+    Given I have a <iWidth>x<iHeight> viewport and a <DPR> DPR
     And a source image that's <srcW>x<srcH>
     And a viewport that's <iWidth>x<iHeight>
     And a window.devicePixelRatio of <DPR>
