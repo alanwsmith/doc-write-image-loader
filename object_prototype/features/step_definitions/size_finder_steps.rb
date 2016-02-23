@@ -19,6 +19,6 @@ Then(/^the window_inner_width should be (\d+)$/) do |width|
   expect(@sf.window_inner_width).to eq(width.to_i)
 end
 
-Then(/^the request width returned by '(.*?)' should be (\d+)px\.$/) do |style, pixels|
+Then(/^the request width returned by '(.*?)' should be (\d+)px$/) do |style, pixels|
   expect(@sf.request_width_for_style style).to eq(pixels.to_i)
 end
