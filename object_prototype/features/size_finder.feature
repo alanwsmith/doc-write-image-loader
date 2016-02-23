@@ -12,21 +12,15 @@ Feature: Size Finder
   |  480 x 360 |  200  |
 
   Scenario: Baseline test
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 1024x768
+    Given A SizeFinder with a 1024x768 viewport and a 1 DPR
     Then the request width returned by 'basic' should be 800px. 
 
   Scenario: Mid size window
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 800x600 
+    Given A SizeFinder with a 800x600 viewport and a 1 DPR
     Then the request width returned by 'basic' should be 400px. 
     
   Scenario: Small size window
-    Given I have a SizeFinder
-    And I load the base test styles
-    When the window size is 480x360 
+    Given A SizeFinder with a 480x360 viewport and a 1 DPR
     Then the request width returned by 'basic' should be 200px. 
 
   Scenario: Initialize with params

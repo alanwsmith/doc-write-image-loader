@@ -2,7 +2,6 @@ class ImageTagBuilder
  
   def initialize_with params
     @size_finder = SizeFinder.new_with(params)
-    @size_finder.load_basic_tests
     @image = Image.new_with(params)
   end
 

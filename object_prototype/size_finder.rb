@@ -6,31 +6,20 @@ class SizeFinder
   def initialize_with params
     @window_inner_width = params[:window_inner_width]
     @window_inner_height = params[:window_inner_height]
+    
+    @styles = {
+    	"basic" => [
+    	  { break_point: 0, image_width: 200 },
+    	  { break_point: 500, image_width: 400},
+        { break_point: 900, image_width: 800 }
+    	]
+    }
   end
 
   def self.new_with params
     forerunner = allocate
     forerunner.send(:initialize_with, params)
     forerunner 
-  end
-
-  def load_basic_tests
-    @styles = {
-    	"basic" => [
-    	  { 
-    	  	break_point: 0,
-    	  	image_width: 200
-    	  },
-    	  {
-    	  	break_point: 500,
-    	  	image_width: 400
-        },
-        {
-        	break_point: 900,
-        	image_width: 800
-        }
-    	]
-    }
   end
 
   def request_width_for_style style
