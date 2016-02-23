@@ -31,3 +31,8 @@ Feature: Size Finder
     Given A SizeFinder with a 800x600 viewport and a 1 DPR
     Then the request width returned by 'by_pct' should be 560px 
 
+  Scenario: 480 percentage test 
+    Given A SizeFinder with a 480x360 viewport and a 1 DPR
+    Then the request width returned by 'by_pct' should be 384px 
+
+
