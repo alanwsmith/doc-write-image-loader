@@ -7,11 +7,7 @@ class ImageTagBuilder
     @size_finder = SizeFinder.new_with(params)
     @size_finder.load_basic_tests
 
-    @image = Image.new_with(
-      source_width: params[:source_width].to_i, 
-      source_height: params[:source_height].to_i, 
-      device_pixel_ratio: params[:device_pixel_ratio].to_i
-    )
+    @image = Image.new_with(params)
 
     @image.set_requested_width(@size_finder.request_width "basic")
   end
