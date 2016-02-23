@@ -14,6 +14,14 @@ class ImageTagBuilder
     @window_inner_width = params[:window_inner_width]
     @window_inner_height = params[:window_inner_height]
     @window_device_pixel_ratio = params[:window_device_pixel_ratio]
+
+    @size_finder = SizeFinder.new_with(
+      window_inner_width: params[:window_inner_width].to_i, 
+      window_inner_height: params[:window_inner_height].to_i, 
+      window_device_pixel_ratio: params[:window_device_pixel_ratio].to_i
+    )
+
+    @size_finder.load_basic_tests
   end
 
   def self.new_with params
