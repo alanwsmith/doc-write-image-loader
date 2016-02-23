@@ -10,9 +10,14 @@ class SizeFinder
     @styles = {
     	"basic" => [
     	  { break_point: 0, image_width: 200 },
-    	  { break_point: 500, image_width: 400},
+    	  { break_point: 500, image_width: 400 },
         { break_point: 900, image_width: 800 }
-    	]
+    	],
+#    	"by_pct" => [
+#    	  { break_point: 0, image_width: "80%" },
+#    	  { break_point: 500, image_width: "70%" },
+#        { break_point: 900, image_width: "40%" }
+#    	]
     }
   end
 
