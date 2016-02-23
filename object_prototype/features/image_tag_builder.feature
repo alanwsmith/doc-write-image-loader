@@ -63,3 +63,12 @@ Feature: Image Tag Builder Object Prototype
      |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
      |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
 
+    Scenarios: 1024x768 - 1 DPR - Percentage based
+      | iWidth | iHeight | DPR | srcW | srcH | style  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  1  |  800 |  600 | by_pct |  614 |  460 |   614 |   460 |
+
+    Scenarios: 1024x768 - 2 DPR - Percentage based
+      | iWidth | iHeight | DPR | srcW | srcH | style  | atrW | atrH | callW | callH |
+      |  1024  |   768   |  2  | 1600 | 1200 | by_pct |  614 |  460 |  1228 |   920 |
+
+
