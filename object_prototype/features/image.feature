@@ -36,29 +36,6 @@ Feature: Image Processing
     |   800 |   600 |   1 |  1600 |    800 |    600 |   800 |   600 |
     |   800 |   600 |   2 |   800 |    800 |    600 |   400 |   300 |
 
-  Scenario Outline: Request via width
-    Given I have an image
-    When the source is <src_w>x<src_h>
-    And a DPR of <dpr>
-    And I request an image with height <req_h>
-    Then the call width should be <call_w> 
-    And the call height should be <call_h> 
-    And the attribute width should be <att_w>
-    And the attribute height should be <att_h>
-
-    Scenarios: Request via height
-    | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
-    |   800 |   600 |   1 |   600 |    800 |    600 |   800 |   600 |
-    |  1600 |  1200 |   2 |   600 |   1600 |   1200 |   800 |   600 |
-    |  1600 |  1200 |   1 |   601 |    801 |    600 |   801 |   600 |
-    |  1600 |  1200 |   1 |   602 |    802 |    601 |   802 |   601 |
-
-# TODO: Add 2x tests for odd size height calls.
-
-    Scenarios: Request via height and reduce return value
-    | src_w | src_h | dpr | req_h | call_w | call_h | att_w | att_h |
-    |   800 |   600 |   1 |  1200 |    800 |    600 |   800 |   600 |
-    |   800 |   600 |   2 |   600 |    800 |    600 |   400 |   300 |
 
   Scenario: Initilize with data
     Given I initizlie an image with source 800x600 and DPR 1
