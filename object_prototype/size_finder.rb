@@ -13,11 +13,11 @@ class SizeFinder
     	  { break_point: 500, image_width: 400 },
         { break_point: 900, image_width: 800 }
     	],
-#    	"by_pct" => [
-#    	  { break_point: 0, image_width: "80%" },
-#    	  { break_point: 500, image_width: "70%" },
-#        { break_point: 900, image_width: "40%" }
-#    	]
+    	"by_pct" => [
+    	  { break_point: 0, image_width: "80%" },
+    	  { break_point: 500, image_width: "70%" },
+        { break_point: 900, image_width: "40%" }
+    	]
     }
   end
 
@@ -31,7 +31,11 @@ class SizeFinder
     attr_width = 0
     @styles[style].each do |config|
       if window_inner_width.to_i > config[:break_point]
-        attr_width = config[:image_width]
+        if config[:image_width] =~ /\%/
+        	attr_width = config[:image_width].sub(/\%/, "").to_i * window_inner_width / 100
+        else
+          attr_width = config[:image_width]
+        end
       end
     end
     attr_width
