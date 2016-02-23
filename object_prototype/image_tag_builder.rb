@@ -13,7 +13,6 @@ class ImageTagBuilder
       device_pixel_ratio: params[:window_device_pixel_ratio].to_i
     )
 
-    @image.device_pixel_ratio = params[:window_device_pixel_ratio].to_i
     @image.set_requested_width(@size_finder.request_width "basic")
   end
 
