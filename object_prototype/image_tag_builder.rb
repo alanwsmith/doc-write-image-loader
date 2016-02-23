@@ -28,14 +28,6 @@ class ImageTagBuilder
   end
 
 
-  def window_inner_width= width
-    @size_finder.window_inner_width = width
-  end
-
-  def window_inner_height= height
-    @size_finder.window_inner_height = height
-  end
-
   def max_attribute_width
     @size_finder.request_width "basic"
   end
