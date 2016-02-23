@@ -20,6 +20,8 @@ class ImageTagBuilder
     )
 
     @size_finder.load_basic_tests
+
+    @image.device_pixel_ratio = params[:window_device_pixel_ratio].to_i
   end
 
   def self.new_with params
@@ -43,11 +45,6 @@ class ImageTagBuilder
   
   def source_width
     @image.source_width
-  end
-
-  def window_device_pixel_ratio= dpr
-    @image.device_pixel_ratio = dpr
-    @window_device_pixel_ratio = dpr
   end
 
   def window_inner_width= width
