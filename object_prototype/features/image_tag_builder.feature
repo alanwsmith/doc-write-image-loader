@@ -23,7 +23,7 @@ Feature: Image Tag Builder Object Prototype
   source image will generally be as big or bigger than the call
   and the position it's going to fill. 
   
-  
+
   Scenario Outline: Integration Tests 
     Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
     And a type of <type>
@@ -52,7 +52,6 @@ Feature: Image Tag Builder Object Prototype
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   800  |    600  |  2  |  800 |  600 | basic |  400 |  300 |  800  |  600  |
      |   800  |    600  |  2  | 1600 | 1200 | basic |  400 |  300 |  800  |  600  |
-
 
     Scenarios: 480x360 view port and 1 DPR 
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
