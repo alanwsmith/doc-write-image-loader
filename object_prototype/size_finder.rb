@@ -16,7 +16,7 @@ class SizeFinder
     	"by_pct" => [
     	  { break_point: 0, image_width: "80%" },
     	  { break_point: 500, image_width: "70%" },
-        { break_point: 900, image_width: "40%" }
+        { break_point: 900, image_width: "60%" }
     	]
     }
   end

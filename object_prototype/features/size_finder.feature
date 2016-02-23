@@ -25,5 +25,9 @@ Feature: Size Finder
 
   Scenario: 1024 percentage test 
     Given A SizeFinder with a 1024x768 viewport and a 1 DPR
-    Then the request width returned by 'by_pct' should be 409px 
+    Then the request width returned by 'by_pct' should be 614px 
+
+  Scenario: 800 percentage test 
+    Given A SizeFinder with a 800x600 viewport and a 1 DPR
+    Then the request width returned by 'by_pct' should be 560px 
 
