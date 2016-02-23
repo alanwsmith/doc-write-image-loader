@@ -10,7 +10,7 @@ class ImageTagBuilder
     @image = Image.new_with(
       source_width: params[:source_width].to_i, 
       source_height: params[:source_height].to_i, 
-      device_pixel_ratio: params[:window_device_pixel_ratio].to_i
+      device_pixel_ratio: params[:device_pixel_ratio].to_i
     )
 
     @image.set_requested_width(@size_finder.request_width "basic")

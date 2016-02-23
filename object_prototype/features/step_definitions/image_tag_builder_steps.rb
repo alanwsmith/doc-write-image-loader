@@ -6,7 +6,7 @@ Given(/^Viewport: (\d+)x(\d+) \- DPR: (\d+) \- Source: (\d+)x(\d+)$/) do |view_w
   @img_tag_builder = ImageTagBuilder.new_with(
     window_inner_width: view_width.to_i, 
     window_inner_height: view_height.to_i, 
-    window_device_pixel_ratio: dpr.to_i,
+    device_pixel_ratio: dpr.to_i,
     source_width: source_width.to_i,
     source_height: source_height.to_i
   )
