@@ -23,8 +23,3 @@ Feature: Size Finder
     Given A SizeFinder with a 480x360 viewport and a 1 DPR
     Then the request width returned by 'basic' should be 200px. 
 
-  Scenario: Initialize with params
-    Given A SizeFinder with a 1024x768 viewport and a 1 DPR
-    Then the window_inner_width should be 1024
-    And the window_inner_height should be 768
-
