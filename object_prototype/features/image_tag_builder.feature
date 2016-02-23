@@ -69,3 +69,12 @@ Feature: Image Tag Builder Object Prototype
      |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
      |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
 
+  @wip
+  Scenario: Test Initializer
+    Given I have a 1024x768 viewport and a 1 DPR
+    Then the inner width should be 1024
+    And the inner height should be 768
+    And the DPR should be 1
+
+
+

@@ -1,13 +1,27 @@
 class ImageTagBuilder
  
   attr_accessor :image_type
-  attr_accessor :window_device_pixel_ratio 
+  attr_accessor :window_device_pixel_ratio, :window_inner_width, :window_inner_height
 
   def initialize
     @image = Image.new()
     @size_finder = SizeFinder.new()
     @size_finder.load_basic_tests
   end
+
+  def initialize_with params
+    initialize
+    @window_inner_width = params[:window_inner_width]
+    @window_inner_height = params[:window_inner_height]
+    @window_device_pixel_ratio = params[:window_device_pixel_ratio]
+  end
+
+  def self.new_with params
+    forerunner = allocate
+    forerunner.send(:initialize_with, params)
+    forerunner
+  end
+
 
   def source_height= height
     @image.source_height = height
