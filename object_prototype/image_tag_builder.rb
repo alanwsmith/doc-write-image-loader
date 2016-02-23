@@ -28,22 +28,6 @@ class ImageTagBuilder
   end
 
 
-  def source_height= height
-    @image.source_height = height
-  end
-
-  def source_height
-    @image.source_height
-  end
-
-  def source_width= width
-    @image.source_width = width
-  end
-  
-  def source_width
-    @image.source_width
-  end
-
   def window_inner_width= width
     @size_finder.window_inner_width = width
   end
