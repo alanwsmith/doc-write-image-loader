@@ -5,8 +5,6 @@ class ImageTagBuilder
 
   def initialize
     @image = Image.new()
-    @size_finder = SizeFinder.new()
-    @size_finder.load_basic_tests
   end
 
   def initialize_with params
