@@ -35,4 +35,7 @@ Feature: Size Finder
     Given A SizeFinder with a 480x360 viewport and a 1 DPR
     Then the request width returned by 'by_pct' should be 384px 
 
+  Scenario: Get width via height at 1024x768
+    Given SizeFinder - Viewport: 1024x768 - DPR: 1 - Source: 1600x1200
+    Then the request width returned by 'by_height' should be 800px
 
