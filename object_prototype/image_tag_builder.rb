@@ -19,6 +19,7 @@ class ImageTagBuilder
     )
 
     @image.device_pixel_ratio = params[:window_device_pixel_ratio].to_i
+    @image.set_requested_width(max_attribute_width)
   end
 
   def self.new_with params
@@ -32,22 +33,18 @@ class ImageTagBuilder
   end
 
   def image_call_width
-    @image.set_requested_width(max_attribute_width)
     @image.call_width
   end
 
   def image_call_height
-    @image.set_requested_width(max_attribute_width)
     @image.call_height
   end
 
   def attribute_width
-    @image.set_requested_width(max_attribute_width)
     @image.attribute_width
   end
 
   def attribute_height
-    @image.set_requested_width(max_attribute_width)
     @image.attribute_height
   end
 
