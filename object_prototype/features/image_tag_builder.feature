@@ -23,9 +23,9 @@ Feature: Image Tag Builder Object Prototype
   source image will generally be as big or bigger than the call
   and the position it's going to fill. 
   
-
+  
   Scenario Outline: Integration Tests 
-    Given I have a <iWidth>x<iHeight> viewport and a <DPR> DPR
+    Given Viewport: <iWidth>x<iHeight> - DPR: <DPR> - Source: <srcW>x<srcH>
     And a source image that's <srcW>x<srcH>
     And a type of <type>
     Then the source image width should be <srcW> 
@@ -66,12 +66,4 @@ Feature: Image Tag Builder Object Prototype
      | iWidth | iHeight | DPR | srcW | srcH | type  | atrW | atrH | callW | callH |
      |   480  |    360  |  2  |  800 |  600 | basic |  200 |  150 |   400 |   300 |
      |   480  |    360  |  2  | 1600 | 1200 | basic |  200 |  150 |   400 |   300 |
-
-  Scenario: Test Initializer
-    Given I have a 1024x768 viewport and a 1 DPR
-    Then the inner width should be 1024
-    And the inner height should be 768
-    And the DPR should be 1
-
-
 
