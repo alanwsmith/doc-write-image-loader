@@ -21,4 +21,8 @@ class ImageTagBuilder
     attribute_width * dpr
   end
 
+  def requested_width_in_pct= pct
+    @requested_width_in_pixels = 512
+  end
+
 end

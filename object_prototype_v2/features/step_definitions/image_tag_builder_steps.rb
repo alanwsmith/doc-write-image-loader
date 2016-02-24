@@ -20,6 +20,10 @@ When(/^I set the width to (\d+)px$/) do |pixels|
   @itb.requested_width_in_pixels = pixels.to_i
 end
 
+When(/^I request a width of (\d+)%$/) do |pct|
+  @itb.requested_width_in_pct = pct.to_i
+end
+
 Then(/^the attribute width should be (\d+)$/) do |width|
   expect(@itb.attribute_width).to eq(width.to_i)
 end
