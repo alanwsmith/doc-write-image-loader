@@ -20,7 +20,7 @@ Feature: Image Tag Builder
     And a DPR of 1
     When I set the width to 400px 
     Then the attribute width should be 400
-#    And the attribute height should be 300
+    And the attribute height should be 300
 #    And the call width should be 400
 #    And the call height should be 300
 
