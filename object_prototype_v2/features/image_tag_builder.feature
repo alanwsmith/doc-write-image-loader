@@ -41,6 +41,10 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     |   800x600 | 1024x768 |   2 |          800 |   400 |   300 |    800 |    600 |
 
+    Scenarios: 2 DPR Make sure height stays an integer. 
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |          350 |   350 |   262 |    700 |    524 |
+
   Scenario Outline: Request Width in Percentage Tests
     Given I have an Image Tag Builder with standard config
     And a source image that's <source>
@@ -59,4 +63,7 @@ Feature: Image Tag Builder
     Scenarios: 2 DPR Basic via %
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   2 |           50 |   512 |   384 |   1024 |    768 |
+
+
+
 
