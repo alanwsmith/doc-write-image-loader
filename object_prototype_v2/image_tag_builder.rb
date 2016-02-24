@@ -6,11 +6,11 @@ class ImageTagBuilder
   attr_accessor :requested_width_in_pixels
 
   def attribute_height
-    requested_width_in_pixels * source_height / source_width 
+    attribute_width * source_height / source_width 
   end
   
   def attribute_width
-    requested_width_in_pixels 
+    [requested_width_in_pixels, source_width].min
   end
  
   def call_height
