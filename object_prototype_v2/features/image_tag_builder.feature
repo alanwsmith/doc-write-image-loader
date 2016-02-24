@@ -13,7 +13,7 @@ Feature: Image Tag Builder
     And a source image that's 1600x1200
     And a viewport that's 1024x768
     And a DPR of 1
-    When I set the width to 800px 
+    When I request a width of 800px 
     Then the attribute width should be 800
     And the attribute height should be 600
     And the call width should be 800
@@ -24,7 +24,7 @@ Feature: Image Tag Builder
     And a source image that's 1600x1200
     And a viewport that's 1024x768
     And a DPR of 1
-    When I set the width to 400px 
+    When I request a width of 400px 
     Then the attribute width should be 400
     And the attribute height should be 300
     And the call width should be 400
@@ -35,7 +35,7 @@ Feature: Image Tag Builder
     And a source image that's 400x300
     And a viewport that's 1024x768
     And a DPR of 1
-    When I set the width to 800px 
+    When I request a width of 800px 
     Then the attribute width should be 400
     And the attribute height should be 300
     And the call width should be 400
@@ -46,7 +46,7 @@ Feature: Image Tag Builder
     And a source image that's 1600x1200
     And a viewport that's 1024x768
     And a DPR of 2
-    When I set the width to 800px 
+    When I request a width of 800px 
     Then the attribute width should be 800
     And the attribute height should be 600
     And the call width should be 1600
@@ -57,7 +57,7 @@ Feature: Image Tag Builder
     And a source image that's 1600x1200
     And a viewport that's 1024x768
     And a DPR of 2
-    When I set the width to 400px 
+    When I request a width of 400px 
     Then the attribute width should be 400
     And the attribute height should be 300
     And the call width should be 800
@@ -68,7 +68,7 @@ Feature: Image Tag Builder
     And a source image that's 800x600
     And a viewport that's 1024x768
     And a DPR of 2
-    When I set the width to 800px 
+    When I request a width of 800px 
     Then the attribute width should be 400
     And the attribute height should be 300
     And the call width should be 800
@@ -95,5 +95,4 @@ Feature: Image Tag Builder
     And the attribute height should be 384
     And the call width should be 1024 
     And the call height should be 768
-
 

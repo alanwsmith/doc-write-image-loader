@@ -16,7 +16,7 @@ Given(/^a DPR of (\d+)$/) do |dpr|
   @itb.dpr = dpr.to_i
 end
 
-When(/^I set the width to (\d+)px$/) do |pixels|
+When(/^I request a width of (\d+)px$/) do |pixels|
   @itb.requested_width_in_pixels = pixels.to_i
 end
 
