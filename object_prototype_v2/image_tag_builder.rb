@@ -10,7 +10,7 @@ class ImageTagBuilder
   end
   
   def attribute_width
-    [requested_width_in_pixels, source_width].min
+    [requested_width_in_pixels, (source_width / dpr)].min
   end
  
   def call_height
