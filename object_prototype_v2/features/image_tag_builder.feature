@@ -41,7 +41,7 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     |   800x600 | 1024x768 |   2 |          800 |   400 |   300 |    800 |    600 |
 
-  Scenario Outline: Request Width in Pixels Tests
+  Scenario Outline: Request Width in Percentage Tests
     Given I have an Image Tag Builder with standard config
     And a source image that's <source>
     And a viewport that's <viewport>
