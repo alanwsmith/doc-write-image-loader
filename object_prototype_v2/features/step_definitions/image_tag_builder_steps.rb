@@ -3,13 +3,13 @@ Given(/^I have an Image Tag Builder with standard config$/) do
 end
 
 Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
-  @itb.source_width = width
-  @itb.source_height = height
+  @itb.source_width = width.to_i
+  @itb.source_height = height.to_i
 end
 
 Given(/^a viewport that's (\d+)x(\d+)$/) do |width, height|
-  @itb.viewport_width = width
-  @itb.viewport_height = height
+  @itb.viewport_width = width.to_i
+  @itb.viewport_height = height.to_i
 end
 
 Given(/^a DPR of (\d+)$/) do |dpr|
@@ -17,7 +17,7 @@ Given(/^a DPR of (\d+)$/) do |dpr|
 end
 
 When(/^I set the width to (\d+)px$/) do |pixels|
-  @itb.requested_with_in_pixels = pixels
+  @itb.requested_with_in_pixels = pixels.to_i
 end
 
 Then(/^the attribute width should be (\d+)$/) do |width|
