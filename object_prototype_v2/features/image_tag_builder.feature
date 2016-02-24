@@ -4,9 +4,10 @@ Feature: Image Tag Builder
 
   TODO:
 
-  - pixel requests with odd number
-  - percentage request with odd number
-  - make sure integers are always returned. 
+  - Pixel requests with odd number
+  - Ppercentage request with odd number
+  - Make sure integers are always returned. 
+  - Check the proposed value against source height too.
 
   Scenario Outline: Request Width in Pixels Tests
     Given I have an Image Tag Builder with standard config
@@ -68,6 +69,11 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
     | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
+
+    Scenarios: Make sure down sizing works 
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
+    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
 
 
 
