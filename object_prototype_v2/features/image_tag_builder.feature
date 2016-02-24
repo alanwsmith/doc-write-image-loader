@@ -4,7 +4,7 @@ Feature: Image Tag Builder
 
   Scenario: 
     Given I have an Image Tag Builder with standard config
-    And a source image that's 800x600
+    And a source image that's 1600x1200
     And a viewport that's 1024x768
     And a DPR of 1
     When I set the width to 800px 
