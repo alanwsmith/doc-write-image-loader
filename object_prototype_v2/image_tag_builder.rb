@@ -10,7 +10,7 @@ class ImageTagBuilder
   end
   
   def attribute_width
-    800
+    requested_with_in_pixels 
   end
  
   def call_height
