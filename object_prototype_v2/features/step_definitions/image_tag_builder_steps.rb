@@ -13,7 +13,7 @@ Given(/^a viewport that's (\d+)x(\d+)$/) do |width, height|
 end
 
 Given(/^a DPR of (\d+)$/) do |dpr|
-  @itb.dpr = dpr
+  @itb.dpr = dpr.to_i
 end
 
 When(/^I set the width to (\d+)px$/) do |pixels|
