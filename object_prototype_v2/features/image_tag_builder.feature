@@ -22,6 +22,7 @@ Feature: Image Tag Builder
     Scenarios: Some tests
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |          800 |   800 |   600 |    800 |    600 |
+    | 1600x1200 | 1024x768 |   1 |          400 |   400 |   300 |    400 |    300 |
 
 
   Scenario: 1 DPR smaller image test. 
