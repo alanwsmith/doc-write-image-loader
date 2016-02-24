@@ -19,7 +19,7 @@ Feature: Image Tag Builder
     And the call width should be <call_w>
     And the call height should be <call_h>
 
-    Scenarios: 1DPR Basic
+    Scenarios: 1 DPR Basic
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |          800 |   800 |   600 |    800 |    600 |
     | 1600x1200 | 1024x768 |   1 |          400 |   400 |   300 |    400 |    300 |
@@ -28,16 +28,10 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     |   400x300 | 1024x768 |   1 |          800 |   400 |   300 |    400 |    300 |
 
-  Scenario: 2 DPR basic test 
-    Given I have an Image Tag Builder with standard config
-    And a source image that's 1600x1200
-    And a viewport that's 1024x768
-    And a DPR of 2
-    When I request a width of 800px 
-    Then the attribute width should be 800
-    And the attribute height should be 600
-    And the call width should be 1600
-    And the call height should be 1200
+    Scenarios: 2 DPR Basic
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |          800 |   800 |   600 |   1600 |   1200 |
+
 
   Scenario: 2 DPR smaller image test. 
     Given I have an Image Tag Builder with standard config
