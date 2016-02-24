@@ -14,11 +14,11 @@ class ImageTagBuilder
   end
  
   def call_height
-    600 * dpr 
+    attribute_height * dpr 
   end
 
   def call_width
-    800 * dpr
+    attribute_width * dpr
   end
 
 end

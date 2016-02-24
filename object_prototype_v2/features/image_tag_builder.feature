@@ -21,8 +21,8 @@ Feature: Image Tag Builder
     When I set the width to 400px 
     Then the attribute width should be 400
     And the attribute height should be 300
-#    And the call width should be 400
-#    And the call height should be 300
+    And the call width should be 400
+    And the call height should be 300
 
   Scenario: 2 DPR basic test 
     Given I have an Image Tag Builder with standard config
