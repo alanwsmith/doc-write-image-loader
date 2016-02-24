@@ -19,12 +19,12 @@ Feature: Image Tag Builder
     And the call width should be <call_w>
     And the call height should be <call_h>
 
-    Scenarios: Baisc size tests
+    Scenarios: 1DPR Basic
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |          800 |   800 |   600 |    800 |    600 |
     | 1600x1200 | 1024x768 |   1 |          400 |   400 |   300 |    400 |    300 |
 
-    Scenarios: Downsize image if necessary.  
+    Scenarios: 1 DPR Downsize
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     |   400x300 | 1024x768 |   1 |          800 |   400 |   300 |    400 |    300 |
 
