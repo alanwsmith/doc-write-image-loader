@@ -17,7 +17,7 @@ Given(/^a DPR of (\d+)$/) do |dpr|
 end
 
 When(/^I set the width to (\d+)px$/) do |pixels|
-  @itb.requested_with_in_pixels = pixels.to_i
+  @itb.requested_width_in_pixels = pixels.to_i
 end
 
 Then(/^the attribute width should be (\d+)$/) do |width|
