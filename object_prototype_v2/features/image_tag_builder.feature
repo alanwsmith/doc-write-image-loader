@@ -2,6 +2,12 @@ Feature: Image Tag Builder
   The prototype for a JavaScript object to 
   use in the document.write-image-loader.
 
+  TODO:
+
+  - pixel requests with odd number
+  - percentage request with odd number
+  - make sure integers are always returned. 
+
   Scenario: Basic test 
     Given I have an Image Tag Builder with standard config
     And a source image that's 1600x1200
