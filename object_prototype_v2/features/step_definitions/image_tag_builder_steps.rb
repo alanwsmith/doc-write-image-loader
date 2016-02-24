@@ -2,35 +2,37 @@ Given(/^I have an Image Tag Builder with standard config$/) do
   @itb = ImageTagBuilder.new
 end
 
-Given(/^a source image that's (\d+)x(\d+)$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^a source image that's (\d+)x(\d+)$/) do |width, height|
+  @itb.source_width = width
+  @itb.source_height = height
 end
 
-Given(/^a viewport that's (\d+)x(\d+)$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^a viewport that's (\d+)x(\d+)$/) do |width, height|
+  @itb.viewport_width = width
+  @itb.viewport_height = height
 end
 
-Given(/^a DPR of (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Given(/^a DPR of (\d+)$/) do |dpr|
+  @itb.dpr = dpr
 end
 
-When(/^I set the width to (\d+)px$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I set the width to (\d+)px$/) do |pixels|
+  @itb.requested_with_in_pixels = pixels
 end
 
-Then(/^the attribute width should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the attribute width should be (\d+)$/) do |width|
+  expect(@itb.attribute_width).to eq(width.to_i)
 end
 
-Then(/^the attribute height should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the attribute height should be (\d+)$/) do |height|
+  expect(@itb.attribute_height).to eq (height.to_i)
 end
 
-Then(/^the call width should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the call width should be (\d+)$/) do |width|
+  expect(@itb.call_width).to eq (width.to_i)
 end
 
-Then(/^the call height should be (\d+)$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^the call height should be (\d+)$/) do |height|
+  expect(@itb.call_height).to eq (height.to_i)
 end
 
