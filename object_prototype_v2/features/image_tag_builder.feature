@@ -52,14 +52,7 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |           50 |   512 |   384 |    512 |    384 |
 
-  Scenario: 2 DPR test with width % request 
-    Given I have an Image Tag Builder with standard config
-    And a source image that's 1600x1200
-    And a viewport that's 1024x768
-    And a DPR of 2
-    When I request a width of 50% 
-    Then the attribute width should be 512
-    And the attribute height should be 384
-    And the call width should be 1024 
-    And the call height should be 768
+    Scenarios: 2 DPR Basic via %
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |           50 |   512 |   384 |   1024 |    768 |
 
