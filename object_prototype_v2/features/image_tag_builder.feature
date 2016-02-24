@@ -31,18 +31,7 @@ Feature: Image Tag Builder
     Scenarios: 2 DPR Basic
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   2 |          800 |   800 |   600 |   1600 |   1200 |
-
-
-  Scenario: 2 DPR smaller image test. 
-    Given I have an Image Tag Builder with standard config
-    And a source image that's 1600x1200
-    And a viewport that's 1024x768
-    And a DPR of 2
-    When I request a width of 400px 
-    Then the attribute width should be 400
-    And the attribute height should be 300
-    And the call width should be 800
-    And the call height should be 600
+    | 1600x1200 | 1024x768 |   2 |          400 |   400 |   300 |    800 |    600 |
 
   Scenario: 2 DPR downsize image 
     Given I have an Image Tag Builder with standard config
