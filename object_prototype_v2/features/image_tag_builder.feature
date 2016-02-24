@@ -8,16 +8,21 @@ Feature: Image Tag Builder
   - percentage request with odd number
   - make sure integers are always returned. 
 
-  Scenario: Basic test 
+  Scenario Outline: Request Width in Pixels Tests
     Given I have an Image Tag Builder with standard config
-    And a source image that's 1600x1200
-    And a viewport that's 1024x768
-    And a DPR of 1
-    When I request a width of 800px 
-    Then the attribute width should be 800
-    And the attribute height should be 600
-    And the call width should be 800
-    And the call height should be 600
+    And a source image that's <source>
+    And a viewport that's <viewport>
+    And a DPR of <dpr>
+    When I request a width of <request_w_px>px 
+    Then the attribute width should be <att_w>
+    And the attribute height should be <att_h>
+    And the call width should be <call_w>
+    And the call height should be <call_h>
+
+    Scenarios: Some tests
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |          800 |   800 |   600 |    800 |    600 |
+
 
   Scenario: 1 DPR smaller image test. 
     Given I have an Image Tag Builder with standard config
