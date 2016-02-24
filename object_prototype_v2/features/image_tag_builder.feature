@@ -64,6 +64,11 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   2 |           50 |   512 |   384 |   1024 |    768 |
 
+    Scenarios: 1 DPR Basic via % ensure integers
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |           51 |   522 |   391 |    522 |    391 |
+    | 1600x1200 | 1024x768 |   2 |           51 |   522 |   391 |   1044 |    782 |
+
 
 
 
