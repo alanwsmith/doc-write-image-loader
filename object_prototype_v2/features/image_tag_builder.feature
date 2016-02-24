@@ -50,24 +50,24 @@ Feature: Image Tag Builder
     And a source image that's <source>
     And a viewport that's <viewport>
     And a DPR of <dpr>
-    When I request a width of <request_w_px>% 
+    When I request a width of <request_w_pct>% 
     Then the attribute width should be <att_w>
     And the attribute height should be <att_h>
     And the call width should be <call_w>
     And the call height should be <call_h>
 
     Scenarios: 1 DPR Basic via %
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |           50 |   512 |   384 |    512 |    384 |
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
 
     Scenarios: 2 DPR Basic via %
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |           50 |   512 |   384 |   1024 |    768 |
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
 
     Scenarios: 1 DPR Basic via % ensure integers
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |           51 |   522 |   391 |    522 |    391 |
-    | 1600x1200 | 1024x768 |   2 |           51 |   522 |   391 |   1044 |    782 |
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
+    | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
 
 
 
