@@ -28,19 +28,35 @@ When(/^I request a height of (\d+)%$/) do |pct|
   @itb.requested_height_in_pct = pct.to_i
 end
 
-Then(/^the attribute width should be (\d+)$/) do |width|
-  expect(@itb.attribute_width).to eq(width.to_i)
+Then(/^the attribute width should be (-?)(\d+)$/) do |skip, width|
+  if skip == "-"
+  	1
+  else 
+    expect(@itb.attribute_width).to eq(width.to_i)
+  end
 end
 
-Then(/^the attribute height should be (\d+)$/) do |height|
-  expect(@itb.attribute_height).to eq (height.to_i)
+Then(/^the attribute height should be (-?)(\d+)$/) do |skip, height|
+  if skip == "-"
+  	1
+  else 
+    expect(@itb.attribute_height).to eq (height.to_i)
+  end
 end
 
-Then(/^the call width should be (\d+)$/) do |width|
-  expect(@itb.call_width).to eq (width.to_i)
+Then(/^the call width should be (-?)(\d+)$/) do |skip, width|
+  if skip == "-"
+  	1
+  else 
+    expect(@itb.call_width).to eq (width.to_i)
+  end
 end
 
-Then(/^the call height should be (\d+)$/) do |height|
-  expect(@itb.call_height).to eq (height.to_i)
+Then(/^the call height should be (-?)(\d+)$/) do |skip, height|
+  if skip == "-"
+  	1
+  else 
+    expect(@itb.call_height).to eq (height.to_i)
+  end
 end
 

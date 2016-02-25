@@ -89,5 +89,5 @@ Feature: Image Tag Builder
     Scenarios: 1 DPR Basic via %
     | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
     | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
-
+    | 1000x4000 |  500x500 |   1 |            50 |    -1 |    -1 |     -1 |     -1 |
 
