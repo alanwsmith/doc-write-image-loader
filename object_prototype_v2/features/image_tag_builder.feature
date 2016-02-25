@@ -86,8 +86,12 @@ Feature: Image Tag Builder
     And the call width should be <call_w>
     And the call height should be <call_h>
 
-    Scenarios: 1 DPR Basic via %
+    Scenarios: 1 DPR via height %
     | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-#    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
-    | 1000x4000 |  800x800 |   1 |            50 |    -1 |   400 |     -1 |     -1 |
+    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
+    | 1000x4000 |  800x800 |   1 |            50 |   100 |   400 |    100 |    400 |
+
+    Scenarios: 1 DPR via height % and downsized   
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 100x200   |  800x800 |   1 |            50 |   100 |   200 |    100 |    200 |
 
