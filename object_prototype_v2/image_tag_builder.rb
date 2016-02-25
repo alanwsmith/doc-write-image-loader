@@ -25,4 +25,7 @@ class ImageTagBuilder
     @requested_width_in_pixels = viewport_width * pct / 100
   end
 
+  def requested_height_in_pct= pct
+    @requested_width_in_pixels = [(viewport_height * pct / 100 * source_width / source_height), viewport_width].min
+  end
 end
