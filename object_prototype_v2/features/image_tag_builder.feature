@@ -75,6 +75,19 @@ Feature: Image Tag Builder
     |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
     |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
 
+  Scenario Outline: Request Height in Percentage Tests
+    Given I have an Image Tag Builder with standard config
+    And a source image that's <source>
+    And a viewport that's <viewport>
+    And a DPR of <dpr>
+    When I request a height of <request_h_pct>% 
+    Then the attribute width should be <att_w>
+    And the attribute height should be <att_h>
+    And the call width should be <call_w>
+    And the call height should be <call_h>
 
+    Scenarios: 1 DPR Basic via %
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
 
 
