@@ -95,3 +95,7 @@ Feature: Image Tag Builder
     | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
     | 100x200   |  800x800 |   1 |            50 |   100 |   200 |    100 |    200 |
 
+    Scenarios: 2 DPR via height %
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
+    | 1000x4000 |  800x800 |   2 |            50 |   100 |   400 |    200 |    800 |
