@@ -12,7 +12,7 @@ QUnit.test("Check environmental variables", function(assert) {
 });
 
 
-QUnit.test("Override environmental vars for testing", function(assert) {
+QUnit.test("Verify variable override", function(assert) {
 
   // Given 
   var itb = imageTagBuilder({});
@@ -23,7 +23,8 @@ QUnit.test("Override environmental vars for testing", function(assert) {
   // Then
   assert.equal(itb.innerWidth, 4000, "Override innerWidth");
   assert.equal(itb.innerHeight, 5000, "Override innerHeight");
-  assert.equal(itb.dpr, 9, "Override device pixel ratioa");
+  assert.equal(itb.dpr, 9, "Override device pixel ratio");
+
 
 });
 
@@ -41,7 +42,7 @@ QUnit.test("Target test", function(assert) {
 });
 
 
-QUnit.test("Set Attribute Width", function(assert) {
+QUnit.test("Set attribute width via `requestWidth`", function(assert) {
   
   // Given 
   var itb = imageTagBuilder({});
