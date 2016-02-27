@@ -6,7 +6,9 @@ var imageTagBuilder = function() {
   // Set defaults
   that.innerWidth = window.innerWidth;
   that.innerHeight = window.innerHeight;
+  that.dpr = window.devicePixelRatio;
 
+  
 
 
   return that;

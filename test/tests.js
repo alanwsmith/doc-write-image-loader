@@ -5,4 +5,6 @@ QUnit.test("Check environmental variables.", function(assert) {
 
   assert.equal(itb.innerWidth, window.innerWidth, "Load innerWidth");
   assert.equal(itb.innerHeight, window.innerHeight, "Load innerHeight");
+  assert.equal(itb.dpr, window.devicePixelRatio, "Load innerHeight");
+
 });
