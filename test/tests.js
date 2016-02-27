@@ -134,12 +134,15 @@ QUnit.test("Request width via pixel checks", function(assert) {
   	var params = testSets[testIndex].split(/ \| /);
     
     // When
-    itb.prep({ sourceWidth: params[0], sourceHeight: params[1]});
-    itb.innerWidth = params[2];
-    itb.innerHeight = params[3];
-    itb.dpr = params[4];
-
-    assert.equal(1, 1, params[0]);
+    itb.prep({ sourceWidth: params[0], sourceHeight: parseInt(params[1], 10)});
+    itb.innerWidth = parseInt(params[2], 10);
+    itb.innerHeight = parseInt(params[3], 10);
+    itb.dpr = parseInt(params[4], 10);
+    
+    assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
+    assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
+    assert.equal(itb.callWidth(), parseInt(params[8], 10), "callWidth");
+    assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
   }
 
 
