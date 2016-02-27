@@ -151,6 +151,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
           "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
           "1600 | 1200 | 1024   | 768    | 1   | 400    | 400  | 300  | 400   | 300   ",
+          "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
         ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
