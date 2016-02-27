@@ -100,3 +100,24 @@ QUnit.test("Parse `maxSize` param", function(assert) {
 
 });
 
+
+QUnit.test("Check call width and height", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({});
+
+  // When 
+  itb.dpr = 2;
+  itb.setAttributeWidth(800);
+  itb.setSourceWidth(1600);
+  itb.setSourceHeight(1200);
+
+  // Then
+  assert.equal(itb.callWidth(), 1600);
+  assert.equal(itb.callHeight(), 1200);
+
+});
+
+
+
+  
