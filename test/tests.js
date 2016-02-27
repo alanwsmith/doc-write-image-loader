@@ -33,7 +33,7 @@ QUnit.test("Target test", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
-  itb.requestWidth(800);
+  itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", maxSize: "1600x1000"}); 
 
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="main" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
@@ -49,7 +49,7 @@ QUnit.test("Set Attribute Width", function(assert) {
   // When
   itb.requestWidth(800);
 
-  //Then
+  // Then
   assert.equal(itb.attributeWidth(), 800);
 
 });
