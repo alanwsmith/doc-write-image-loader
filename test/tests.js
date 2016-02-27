@@ -152,6 +152,24 @@ QUnit.test("Request width via pixel checks", function(assert) {
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
           "1600 | 1200 | 1024   | 768    | 1   | 400    | 400  | 300  | 400   | 300   ",
           "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
+/*
+    Scenarios: 1 DPR Make sure height stays an integer. 
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |          350 |   350 |   262 |    350 |    262 |
+
+    Scenarios: 2 DPR Basic
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |          800 |   800 |   600 |   1600 |   1200 |
+    | 1600x1200 | 1024x768 |   2 |          400 |   400 |   300 |    800 |    600 |
+
+    Scenarios: 2 DPR Downsize
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    |   800x600 | 1024x768 |   2 |          800 |   400 |   300 |    800 |    600 |
+
+    Scenarios: 2 DPR Make sure height stays an integer. 
+    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |          350 |   350 |   262 |    700 |    524 |
+*/
         ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
@@ -174,3 +192,58 @@ QUnit.test("Request width via pixel checks", function(assert) {
 
 
 });
+
+
+
+//////////
+
+/*
+
+    Scenarios: 1 DPR Basic via width %
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
+
+    Scenarios: 2 DPR Basic via %
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
+
+    Scenarios: 1 DPR Basic via % ensure integers
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
+    | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
+
+    Scenarios: Make sure down sizing works 
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
+    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
+*/
+
+/*
+
+    Scenarios: 1 DPR via height %
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
+    | 1000x4000 |  800x800 |   1 |            50 |   100 |   400 |    100 |    400 |
+
+    Scenarios: 1 DPR via height % and downsized   
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 100x200   |  800x800 |   1 |            50 |   100 |   200 |    100 |    200 |
+
+    Scenarios: 2 DPR via height %
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
+    | 1000x4000 |  800x800 |   2 |            50 |   100 |   400 |    200 |    800 |
+
+    Scenarios: 2 DPR via height % and downsized   
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 100x200   |  800x800 |   2 |            50 |    50 |   100 |    100 |    200 |
+
+    Scenarios: 1 DPR via height % that reduces because of viewport width
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1000x1000 | 500x1000 |   1 |           100 |   500 |   500 |    500 |    500 |
+
+    Scenarios: 2 DPR via height % that reduces because of viewport width
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1000x1000 | 500x1000 |   2 |           100 |   500 |   500 |   1000 |   1000 |
+ */
+
