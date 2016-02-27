@@ -25,7 +25,6 @@ QUnit.test("Verify variable override", function(assert) {
   assert.equal(itb.innerHeight, 5000, "Override innerHeight");
   assert.equal(itb.dpr, 9, "Override device pixel ratio");
 
-
 });
 
 QUnit.test("Target test", function(assert) {
