@@ -50,6 +50,7 @@ QUnit.test("Set attribute width via `requestWidth`", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
+  itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
   itb.requestWidth(800);
 
   // Then
@@ -121,6 +122,24 @@ QUnit.test("Check call width and height", function(assert) {
 
 });
 
+
+QUnit.test("Make sure image isn't larger than the source", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({});
+
+  // When
+  itb.dpr = 1;
+  itb.prep({ sourceWidth: 400, sourceHeight: 400 });
+  itb.requestWidth(800);
+
+  // Then
+  assert.equal(itb.attributeWidth(), 400, "Reduced width");
+  assert.equal(itb.attributeHeight(), 400, "Reduced height");
+  
+
+
+});
 
 QUnit.test("Request width via pixel checks", function(assert) {
 
