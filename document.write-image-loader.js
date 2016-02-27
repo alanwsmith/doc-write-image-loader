@@ -8,7 +8,6 @@ var imageTagBuilder = function() {
   that.innerHeight = window.innerHeight;
   that.dpr = window.devicePixelRatio;
 
-  
 
 
   return that;
