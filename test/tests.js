@@ -84,3 +84,19 @@ QUnit.test("Verify attribute height", function(assert) {
   assert.equal(itb.attributeHeight(), 500, "attributeHeight()");
 
 });
+
+
+QUnit.test("Parse `maxSize` param", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({});
+
+  // When
+  itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
+
+  // Then 
+  assert.equal(itb.sourceWidth(), 1600, "Source width");
+  assert.equal(itb.sourceHeight(), 1000, "Source height");
+
+});
+

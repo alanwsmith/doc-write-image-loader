@@ -22,10 +22,13 @@ var imageTagBuilder = function() {
   };
 
   that.imageTag = function() {
+  	//  return '<img alt="some horses" class="main" width="' + that.attributeWidth() + '" height="' + that.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">';
   	return '<img alt="some horses" class="main" width="' + that.attributeWidth() + '" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">';
   };
 
   that.prep = function(params) {
+   	that.setSourceWidth(params["sourceWidth"]);
+   	that.setSourceHeight(params["sourceHeight"]);
     that.requestWidth(800); 
   };
 
