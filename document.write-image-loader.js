@@ -14,7 +14,7 @@ var imageTagBuilder = function() {
   // Define methods
 
   that.attributeHeight = function() {
-    return attributeWidth * that.sourceHeight() / that.sourceWidth();
+    return parseInt( attributeWidth * that.sourceHeight() / that.sourceWidth() , 10);
   };
 
   that.attributeWidth = function() {

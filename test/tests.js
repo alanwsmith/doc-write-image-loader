@@ -157,7 +157,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
           "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
           
         // 1 DPR Make sure height stays an integer
-       //   "1600 | 1200 | 1024   | 768    | 1   | 350    | 350  | 262  | 350   | 262   ",
+          "1600 | 1200 | 1024   | 768    | 1   | 350    | 350  | 262  | 350   | 262   ",
 
         // Basic 2 DPR tests
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
