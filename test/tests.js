@@ -153,6 +153,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
     // - make sure 'attributeHeight' at 1.3 DPR is in integer. 
     // - make sure 'callWidth' at 1.3 DPR is in integer. 
     // - make sure 'callHeight' at 1.3 DPR is in integer. 
+    // - make sure 'reqeustWidth' is converted to integer with 1.3 DPR.
 
         // srcW | srcH | innerW | innerH | dpr | reqPxW | attW | attH | callW | callH 
 
@@ -170,11 +171,10 @@ QUnit.test("Request width via pixel checks", function(assert) {
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
           "1600 | 1200 | 1024   | 768    | 2   | 400    | 400  | 300  | 800   | 600   ",
 
+        // 2 DPR Downsize
+          "800  |  600 | 1024   | 768    | 2   | 800    | 400  | 300  | 800   | 600  ", 
 /*
 
-    Scenarios: 2 DPR Downsize
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    |   800x600 | 1024x768 |   2 |          800 |   400 |   300 |    800 |    600 |
 
     Scenarios: 2 DPR Make sure height stays an integer. 
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
