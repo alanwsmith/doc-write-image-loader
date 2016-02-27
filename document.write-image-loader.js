@@ -11,6 +11,11 @@ var imageTagBuilder = function() {
   that.dpr = window.devicePixelRatio;
 
   // Define methods
+
+  that.attributeHeight = function() {
+    return 500;
+  };
+
   that.attributeWidth = function() {
   	return attributeWidth;
   };

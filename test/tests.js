@@ -70,3 +70,18 @@ QUnit.test("Set source dimensions", function(assert) {
   assert.equal(itb.sourceHeight(), 1000, "Source height");
 
 });
+
+QUnit.test("Verify attribute height", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({});
+
+  // When
+  itb.setSourceWidth(1600);
+  itb.setSourceHeight(1000);
+  itb.requestWidth(800);
+
+  // Then 
+  assert.equal(itb.attributeHeight(), 500, "attributeHeight()");
+
+});
