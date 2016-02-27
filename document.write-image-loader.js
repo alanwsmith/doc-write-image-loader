@@ -38,7 +38,7 @@ var imageTagBuilder = function() {
    	that.setSourceHeight(params["sourceHeight"]);
 
    	// TODO: Replace this with style parsing.
-    that.requestWidth(800); 
+//     that.requestWidth(800); 
   };
 
   that.requestWidth = function(width) {

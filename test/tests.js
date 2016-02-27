@@ -35,6 +35,9 @@ QUnit.test("Target test", function(assert) {
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
 
+  // TODO: Move requestWidth into style processing 
+  itb.requestWidth(800);
+
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="basic" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
 
