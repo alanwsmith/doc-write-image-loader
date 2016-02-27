@@ -168,12 +168,9 @@ QUnit.test("Request width via pixel checks", function(assert) {
 
         // Basic 2 DPR tests
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
+          "1600 | 1200 | 1024   | 768    | 2   | 400    | 400  | 300  | 800   | 600   ",
 
 /*
-    Scenarios: 2 DPR Basic
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |          800 |   800 |   600 |   1600 |   1200 |
-    | 1600x1200 | 1024x768 |   2 |          400 |   400 |   300 |    800 |    600 |
 
     Scenarios: 2 DPR Downsize
     | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
