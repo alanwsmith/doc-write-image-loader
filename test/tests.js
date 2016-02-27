@@ -172,14 +172,11 @@ QUnit.test("Request width via pixel checks", function(assert) {
           "1600 | 1200 | 1024   | 768    | 2   | 400    | 400  | 300  | 800   | 600   ",
 
         // 2 DPR Downsize
-          "800  |  600 | 1024   | 768    | 2   | 800    | 400  | 300  | 800   | 600  ", 
-/*
-
-
-    Scenarios: 2 DPR Make sure height stays an integer. 
-    | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |          350 |   350 |   262 |    700 |    524 |
-*/
+          "800  | 600  | 1024   | 768    | 2   | 800    | 400  | 300  | 800   | 600  ", 
+    
+        // 2 DPR Make sure height stays an integer. 
+          "1600 | 1200 | 1024   | 768    | 2   | 350    | 350  | 262  | 700   | 524  ",
+        
         ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
