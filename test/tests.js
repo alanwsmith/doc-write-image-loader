@@ -147,6 +147,13 @@ QUnit.test("Request width via pixel checks", function(assert) {
   var itb = imageTagBuilder({});
 
   var testSets = [
+
+    // TESTS TO ADD
+    // - make sure 'attributeWidth' at 1.3 DPR is in integer. 
+    // - make sure 'attributeHeight' at 1.3 DPR is in integer. 
+    // - make sure 'callWidth' at 1.3 DPR is in integer. 
+    // - make sure 'callHeight' at 1.3 DPR is in integer. 
+
         // srcW | srcH | innerW | innerH | dpr | reqPxW | attW | attH | callW | callH 
 
         // Basic 1 DPR tests
