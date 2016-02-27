@@ -35,6 +35,9 @@ QUnit.test("Target test", function(assert) {
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
 
+  // TODO: Move requestWidth into style processing 
+  itb.requestWidth(800);
+
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="basic" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
 
@@ -47,6 +50,7 @@ QUnit.test("Set attribute width via `requestWidth`", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
+  itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
   itb.requestWidth(800);
 
   // Then
@@ -119,6 +123,24 @@ QUnit.test("Check call width and height", function(assert) {
 });
 
 
+QUnit.test("Make sure image isn't larger than the source", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({});
+
+  // When
+  itb.dpr = 1;
+  itb.prep({ sourceWidth: 400, sourceHeight: 400 });
+  itb.requestWidth(800);
+
+  // Then
+  assert.equal(itb.attributeWidth(), 400, "Reduced width");
+  assert.equal(itb.attributeHeight(), 400, "Reduced height");
+  
+
+
+});
+
 QUnit.test("Request width via pixel checks", function(assert) {
 
   // Given
@@ -128,6 +150,8 @@ QUnit.test("Request width via pixel checks", function(assert) {
         // srcW | srcH | innerW | innerH | dpr | reqPxW | attW | attH | callW | callH 
           "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
           "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
+          "1600 | 1200 | 1024   | 768    | 1   | 400    | 400  | 300  | 400   | 300   ",
+          "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
         ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
@@ -139,6 +163,8 @@ QUnit.test("Request width via pixel checks", function(assert) {
     itb.innerWidth = parseInt(params[2], 10);
     itb.innerHeight = parseInt(params[3], 10);
     itb.dpr = parseInt(params[4], 10);
+
+    itb.requestWidth(params[5]);
     
     assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
     assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");

@@ -36,13 +36,10 @@ var imageTagBuilder = function() {
   that.prep = function(params) {
    	that.setSourceWidth(params["sourceWidth"]);
    	that.setSourceHeight(params["sourceHeight"]);
-
-   	// TODO: Replace this with style parsing.
-    that.requestWidth(800); 
   };
 
   that.requestWidth = function(width) {
-  	that.setAttributeWidth(width);
+  	that.setAttributeWidth(Math.min(width, sourceWidth));
   };
 
   that.setAttributeWidth= function(width) {
