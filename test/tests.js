@@ -119,5 +119,32 @@ QUnit.test("Check call width and height", function(assert) {
 });
 
 
+QUnit.test("Request width via pixel checks", function(assert) {
 
-  
+  // Given
+  var itb = imageTagBuilder({});
+
+  var testSets = [
+        // srcW | srcH | innerW | innerH | dpr | reqPxW | attW | attH | callW | callH 
+          "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
+          "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
+        ];
+
+  for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
+
+  	var params = testSets[testIndex].split(/ \| /);
+    
+    // When
+    itb.prep({ sourceWidth: params[0], sourceHeight: parseInt(params[1], 10)});
+    itb.innerWidth = parseInt(params[2], 10);
+    itb.innerHeight = parseInt(params[3], 10);
+    itb.dpr = parseInt(params[4], 10);
+    
+    assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
+    assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
+    assert.equal(itb.callWidth(), parseInt(params[8], 10), "callWidth");
+    assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
+  }
+
+
+});
