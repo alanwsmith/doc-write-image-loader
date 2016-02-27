@@ -2,7 +2,8 @@ var imageTagBuilder = function() {
 
 	// Initialize
   var that = {};
-  var attributeWidth;
+  var attributeWidth, sourceWidth, sourceHeight;
+
 
   // Set defaults
   that.innerWidth = window.innerWidth;
@@ -25,6 +26,22 @@ var imageTagBuilder = function() {
   that.requestWidth = function(width) {
     attributeWidth = width;
   };
+
+  that.setSourceHeight = function(height) {
+  	sourceHeight = height;
+  }
+
+  that.setSourceWidth = function(width) {
+    sourceWidth = width;
+  }
+
+  that.sourceHeight = function() {
+  	return sourceHeight;
+  }
+
+  that.sourceWidth = function() {
+    return sourceWidth ;
+  }
 
   return that;
 }
