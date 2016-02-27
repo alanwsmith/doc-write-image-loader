@@ -10,6 +10,7 @@ var imageTagBuilder = function() {
   that.innerHeight = window.innerHeight;
   that.dpr = window.devicePixelRatio;
 
+
   // Define methods
 
   that.attributeHeight = function() {
@@ -29,9 +30,13 @@ var imageTagBuilder = function() {
   };
 
   that.requestWidth = function(width) {
-    attributeWidth = width;
+  	that.setAttributeWidth(width);
   };
 
+  that.setAttributeWidth= function(width) {
+    attributeWidth = width;
+  };
+  
   that.setSourceHeight = function(height) {
   	sourceHeight = height;
   }
