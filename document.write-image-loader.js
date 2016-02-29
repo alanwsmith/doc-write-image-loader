@@ -39,7 +39,7 @@ var imageTagBuilder = function() {
   };
 
   that.requestHeightViaPercentage = function(pct) {
-    that.setAttributeWidth(400);
+    that.setAttributeWidth(that.innerHeight * pct / 100 * that.sourceWidth() / that.sourceHeight());
   }
 
   that.requestWidthViaPercentage = function(pct) {
