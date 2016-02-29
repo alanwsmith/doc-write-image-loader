@@ -35,8 +35,8 @@ QUnit.test("Target test", function(assert) {
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
 
-  // TODO: Move requestWidth into style processing 
-  itb.requestWidth(800);
+  // TODO: Move requestWidthViaPixels into style processing 
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="basic" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
@@ -44,14 +44,14 @@ QUnit.test("Target test", function(assert) {
 });
 
 
-QUnit.test("Set attribute width via `requestWidth`", function(assert) {
+QUnit.test("Set attribute width via `requestWidthViaPixels`", function(assert) {
   
   // Given 
   var itb = imageTagBuilder({});
 
   // When
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.attributeWidth(), 800);
@@ -82,7 +82,7 @@ QUnit.test("Verify attribute height", function(assert) {
   // When
   itb.setSourceWidth(1600);
   itb.setSourceHeight(1000);
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then 
   assert.equal(itb.attributeHeight(), 500, "attributeHeight()");
@@ -131,7 +131,7 @@ QUnit.test("Make sure image isn't larger than the source", function(assert) {
   // When
   itb.dpr = 1;
   itb.prep({ sourceWidth: 400, sourceHeight: 400 });
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.attributeWidth(), 400, "Reduced width");
@@ -187,7 +187,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
     itb.innerHeight = parseInt(params[3], 10);
     itb.dpr = parseInt(params[4], 10);
 
-    itb.requestWidth(params[5]);
+    itb.requestWidthViaPixels(params[5]);
     
     assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
     assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
