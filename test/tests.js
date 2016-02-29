@@ -195,7 +195,6 @@ QUnit.test("Request width via pixel checks", function(assert) {
     assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
   }
 
-
 });
 
 
