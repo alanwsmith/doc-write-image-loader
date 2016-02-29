@@ -231,8 +231,8 @@ QUnit.test("Request width via percentage checks", function(assert) {
 
     //  Request via % and ensure integers
       "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
+      "1600 | 1200 | 1024   | 768    | 2   | 51      | 522  | 391  | 1044  | 782   ",
 
-    // | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
 /*
 
 
