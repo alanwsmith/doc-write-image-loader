@@ -136,8 +136,6 @@ QUnit.test("Make sure image isn't larger than the source", function(assert) {
   // Then
   assert.equal(itb.attributeWidth(), 400, "Reduced width");
   assert.equal(itb.attributeHeight(), 400, "Reduced height");
-  
-
 
 });
 
