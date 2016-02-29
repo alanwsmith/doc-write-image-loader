@@ -38,12 +38,16 @@ var imageTagBuilder = function() {
    	that.setSourceHeight(params["sourceHeight"]);
   };
 
-  that.requestWidth = function(width) {
-  	that.setAttributeWidth(Math.min(width, sourceWidth / that.dpr));
+  that.requestWidthViaPercentage = function(pct) {
+    that.setAttributeWidth(that.innerWidth * pct / 100);
+  }
+
+  that.requestWidthViaPixels = function(width) {
+  	that.setAttributeWidth(width);
   };
 
   that.setAttributeWidth= function(width) {
-    attributeWidth = width;
+    attributeWidth = parseInt(Math.min(width, (sourceWidth / that.dpr)), 10);
   };
   
   that.setSourceHeight = function(height) {

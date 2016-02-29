@@ -1,4 +1,3 @@
-
 QUnit.test("Check environmental variables", function(assert) {
 
   // Given 
@@ -35,8 +34,8 @@ QUnit.test("Target test", function(assert) {
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
 
-  // TODO: Move requestWidth into style processing 
-  itb.requestWidth(800);
+  // TODO: Move requestWidthViaPixels into style processing 
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="basic" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 
@@ -44,14 +43,14 @@ QUnit.test("Target test", function(assert) {
 });
 
 
-QUnit.test("Set attribute width via `requestWidth`", function(assert) {
+QUnit.test("Set attribute width via `requestWidthViaPixels`", function(assert) {
   
   // Given 
   var itb = imageTagBuilder({});
 
   // When
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.attributeWidth(), 800);
@@ -82,7 +81,7 @@ QUnit.test("Verify attribute height", function(assert) {
   // When
   itb.setSourceWidth(1600);
   itb.setSourceHeight(1000);
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then 
   assert.equal(itb.attributeHeight(), 500, "attributeHeight()");
@@ -112,9 +111,9 @@ QUnit.test("Check call width and height", function(assert) {
 
   // When 
   itb.dpr = 2;
-  itb.setAttributeWidth(800);
   itb.setSourceWidth(1600);
   itb.setSourceHeight(1200);
+  itb.setAttributeWidth(800);
 
   // Then
   assert.equal(itb.callWidth(), 1600);
@@ -131,13 +130,11 @@ QUnit.test("Make sure image isn't larger than the source", function(assert) {
   // When
   itb.dpr = 1;
   itb.prep({ sourceWidth: 400, sourceHeight: 400 });
-  itb.requestWidth(800);
+  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.attributeWidth(), 400, "Reduced width");
   assert.equal(itb.attributeHeight(), 400, "Reduced height");
-  
-
 
 });
 
@@ -189,7 +186,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
     itb.innerHeight = parseInt(params[3], 10);
     itb.dpr = parseInt(params[4], 10);
 
-    itb.requestWidth(params[5]);
+    itb.requestWidthViaPixels(params[5]);
     
     assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
     assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
@@ -197,33 +194,71 @@ QUnit.test("Request width via pixel checks", function(assert) {
     assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
   }
 
-
 });
 
 
+QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(assert) {
+  
+  // Given 
+  var itb = imageTagBuilder({});
 
+  // When
+  itb.innerWidth = 1000;
+  itb.innerHeight = 800;
+  itb.prep({ sourceWidth: 2000, sourceHeight: 1000});
+  itb.requestWidthViaPercentage(50);
+
+  // Then
+  assert.equal(itb.attributeWidth(), 500);
+
+});
+
+QUnit.test("Request width via percentage checks", function(assert) {
+
+  // Given
+  var itb = imageTagBuilder({});
+
+  var testSets = [
+
+    // srcW | srcH | innerW | innerH | dpr | reqPctW | attW | attH | callW | callH 
+
+    // Basic 1 DPR via % of innerWidth
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+    
+    //  2 DPR Basic via %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+
+    //  Request via % and ensure integers
+      "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
+      "1600 | 1200 | 1024   | 768    | 2   | 51      | 522  | 391  | 1044  | 782   ",
+
+    // Make sure down sizing works 
+      "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
+      "800  | 600  | 1024   | 768    | 2   | 50      | 400  | 300  | 800   | 600   ",
+
+  ];
+
+  for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
+
+  	var params = testSets[testIndex].split(/ \| /);
+    
+    // When
+    itb.prep({ sourceWidth: params[0], sourceHeight: parseInt(params[1], 10)});
+    itb.innerWidth = parseInt(params[2], 10);
+    itb.innerHeight = parseInt(params[3], 10);
+    itb.dpr = parseInt(params[4], 10);
+
+    itb.requestWidthViaPercentage(params[5]);
+    
+    assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
+    assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
+    assert.equal(itb.callWidth(), parseInt(params[8], 10), "callWidth");
+    assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
+  }
+
+});
 //////////
 
-/*
-
-    Scenarios: 1 DPR Basic via width %
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
-
-    Scenarios: 2 DPR Basic via %
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
-
-    Scenarios: 1 DPR Basic via % ensure integers
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
-    | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
-
-    Scenarios: Make sure down sizing works 
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
-    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
-*/
 
 /*
 
