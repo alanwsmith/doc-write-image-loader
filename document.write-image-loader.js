@@ -5,7 +5,7 @@ var imageTagBuilder = function() {
 
   o.innerWidth = window.innerWidth;
   o.innerHeight = window.innerHeight;
-  o.dpr = window.devicePixelRatio;
+  o.dpr = 'devicePixelRatio' in window ? window.devicePixelRatio : 1;
 
   o.attributeHeight = function() {
     return parseInt( attributeWidth * o.sourceHeight / o.sourceWidth , 10);
