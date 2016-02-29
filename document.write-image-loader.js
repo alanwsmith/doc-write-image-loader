@@ -1,5 +1,10 @@
 var imageTagBuilder = function() {
 
+  // TODO:
+  // - Refactor to use `that.sourceWidth` and
+  //   `that.sourceHeight` directly instead of thru functions.
+  // - Minify.
+
 	// Initialize
   var that = {};
   var attributeWidth, sourceWidth, sourceHeight;
