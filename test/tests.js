@@ -69,8 +69,8 @@ QUnit.test("Set source dimensions", function(assert) {
   itb.setSourceHeight(1000);
 
   // Then
-  assert.equal(itb.sourceWidth(), 1600, "Source width");
-  assert.equal(itb.sourceHeight(), 1000, "Source height");
+  assert.equal(itb.sourceWidthPx, 1600, "Source width");
+  assert.equal(itb.sourceHeightPx, 1000, "Source height");
 
 });
 
@@ -100,8 +100,8 @@ QUnit.test("Parse `sourceWidth` and `sourceHeight`  params", function(assert) {
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
 
   // Then 
-  assert.equal(itb.sourceWidth(), 1600, "Source width");
-  assert.equal(itb.sourceHeight(), 1000, "Source height");
+  assert.equal(itb.sourceWidthPx, 1600, "Source width");
+  assert.equal(itb.sourceHeightPx, 1000, "Source height");
 
 });
 
