@@ -65,12 +65,12 @@ QUnit.test("Set source dimensions", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1000);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1000;
 
   // Then
-  assert.equal(itb.sourceWidth(), 1600, "Source width");
-  assert.equal(itb.sourceHeight(), 1000, "Source height");
+  assert.equal(itb.sourceWidth, 1600, "Source width");
+  assert.equal(itb.sourceHeight, 1000, "Source height");
 
 });
 
@@ -81,8 +81,8 @@ QUnit.test("Verify attribute height", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1000);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1000;
   itb.requestWidthViaPixels(800);
 
   // Then 
@@ -100,8 +100,8 @@ QUnit.test("Parse `sourceWidth` and `sourceHeight`  params", function(assert) {
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
 
   // Then 
-  assert.equal(itb.sourceWidth(), 1600, "Source width");
-  assert.equal(itb.sourceHeight(), 1000, "Source height");
+  assert.equal(itb.sourceWidth, 1600, "Source width");
+  assert.equal(itb.sourceHeight, 1000, "Source height");
 
 });
 
@@ -113,8 +113,8 @@ QUnit.test("Check call width and height", function(assert) {
 
   // When 
   itb.dpr = 2;
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1200);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1200;
   itb.setAttributeWidth(800);
 
   // Then
@@ -155,7 +155,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
     // - make sure 'callHeight' at 1.3 DPR is in integer. 
     // - make sure 'reqeustWidth' is converted to integer with 1.3 DPR.
 
-        // srcW | srcH | innerW | innerH | dpr | reqPxW | attW | attH | callW | callH 
+        // srcW | srcH | innerW | innerH | dpr | reqW | attW | attH | callW | callH 
 
         // Basic 1 DPR tests
           "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
