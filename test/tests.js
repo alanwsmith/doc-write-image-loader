@@ -309,14 +309,9 @@ QUnit.test("Request via percentage of innerHeight", function(assert) {
     // 1 DPR via height % that reduces because of viewport width
       "1000 | 1000 | 500    | 1000   | 1   | 100     | 500  | 500  | 500   | 500   ",
 
+    // 2 DPR via height % that reduces because of viewport width
+      "1000 | 1000 | 500    | 1000  | 2    | 100     | 500  | 500  | 1000  | 1000  ",
 
-
-/*
-
-    Scenarios: 2 DPR via height % that reduces because of viewport width
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 1000x1000 | 500x1000 |   2 |           100 |   500 |   500 |   1000 |   1000 |
- */
   ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
