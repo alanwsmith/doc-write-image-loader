@@ -34,30 +34,29 @@ var imageTagBuilder = function() {
 
   that.requestHeightViaPercentage = function(pct) {
     that.setAttributeWidth(that.innerHeight * pct / 100 * that.sourceWidth / that.sourceHeight);
-  }
+  };
 
   that.requestWidthViaPercentage = function(pct) {
     that.setAttributeWidth(that.innerWidth * pct / 100);
-  }
+  };
 
   that.requestWidthViaPixels = function(width) {
   	that.setAttributeWidth(width);
   };
 
   that.setAttributeWidth= function(width) {
-    // Returns the smalles of: requested with, source adjusted for dpr or the window width.
     attributeWidth = parseInt(Math.min(width, (that.sourceWidth / that.dpr), that.innerWidth), 10);
   };
   
   that.setSourceHeight = function(height) {
   	that.sourceHeight = height;
-  }
+  };
 
   that.setSourceWidth = function(width) {
     that.sourceWidth = width;
-  }
+  };
 
   return that;
 
-}
+};
 
