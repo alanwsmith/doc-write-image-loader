@@ -1,4 +1,3 @@
-
 QUnit.test("Check environmental variables", function(assert) {
 
   // Given 
