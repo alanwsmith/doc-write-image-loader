@@ -264,34 +264,6 @@ QUnit.test("Request width via percentage checks", function(assert) {
 //////////
 
 
-/*
-
-    Scenarios: 1 DPR via height %
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
-    | 1000x4000 |  800x800 |   1 |            50 |   100 |   400 |    100 |    400 |
-
-    Scenarios: 1 DPR via height % and downsized   
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 100x200   |  800x800 |   1 |            50 |   100 |   200 |    100 |    200 |
-
-    Scenarios: 2 DPR via height %
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
-    | 1000x4000 |  800x800 |   2 |            50 |   100 |   400 |    200 |    800 |
-
-    Scenarios: 2 DPR via height % and downsized   
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 100x200   |  800x800 |   2 |            50 |    50 |   100 |    100 |    200 |
-
-    Scenarios: 1 DPR via height % that reduces because of viewport width
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 1000x1000 | 500x1000 |   1 |           100 |   500 |   500 |    500 |    500 |
-
-    Scenarios: 2 DPR via height % that reduces because of viewport width
-    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
-    | 1000x1000 | 500x1000 |   2 |           100 |   500 |   500 |   1000 |   1000 |
- */
 
 QUnit.test("Set attribute width via `requestHeightViaPercentage`", function(assert) {
   
@@ -307,5 +279,64 @@ QUnit.test("Set attribute width via `requestHeightViaPercentage`", function(asse
   // Then
   assert.equal(itb.attributeHeight(), 200);
   assert.equal(itb.attributeWidth(), 400);
+
+});
+
+
+QUnit.test("Request via percentage of innerHeight", function(assert) {
+
+  // Given
+  var itb = imageTagBuilder({});
+
+  var testSets = [
+
+    // srcW | srcH | innerW | innerH | dpr | reqPctH | attW | attH | callW | callH 
+
+    // 1 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+      "1000 | 4000 | 800    | 800    | 1   | 50      | 100  | 400  | 100   | 400   ",
+
+    // 1 DPR via height % and downsized   
+      "100  | 200  | 800    | 800    | 1   | 50      | 100  | 200  | 100   | 200   ",
+
+    // 2 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+      "1000 | 4000 | 800    | 800    | 2   | 50      | 100  | 400  | 200   | 800   ",
+
+
+/*
+
+
+    Scenarios: 2 DPR via height % and downsized   
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 100x200   |  800x800 |   2 |            50 |    50 |   100 |    100 |    200 |
+
+    Scenarios: 1 DPR via height % that reduces because of viewport width
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1000x1000 | 500x1000 |   1 |           100 |   500 |   500 |    500 |    500 |
+
+    Scenarios: 2 DPR via height % that reduces because of viewport width
+    | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+    | 1000x1000 | 500x1000 |   2 |           100 |   500 |   500 |   1000 |   1000 |
+ */
+  ];
+
+  for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
+
+  	var params = testSets[testIndex].split(/ \| /);
+    
+    // When
+    itb.prep({ sourceWidth: params[0], sourceHeight: parseInt(params[1], 10)});
+    itb.innerWidth = parseInt(params[2], 10);
+    itb.innerHeight = parseInt(params[3], 10);
+    itb.dpr = parseInt(params[4], 10);
+
+    itb.requestHeightViaPercentage(params[5]);
+    
+    assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
+    assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
+    assert.equal(itb.callWidth(), parseInt(params[8], 10), "callWidth");
+    assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
+  }
 
 });
