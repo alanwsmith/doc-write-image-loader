@@ -51,7 +51,8 @@ var imageTagBuilder = function() {
   };
 
   that.setAttributeWidth= function(width) {
-    attributeWidth = parseInt(Math.min(width, (sourceWidth / that.dpr)), 10);
+    // Returns the smalles of: requested with, source adjusted for dpr or the window width.
+    attributeWidth = parseInt(Math.min(width, (sourceWidth / that.dpr), that.innerWidth), 10);
   };
   
   that.setSourceHeight = function(height) {
