@@ -1,5 +1,10 @@
 var imageTagBuilder = function() {
 
+  // TODO:
+  // - Refactor to use `that.sourceWidth` and
+  //   `that.sourceHeight` directly instead of thru functions.
+  // - Minify.
+
 	// Initialize
   var that = {};
   var attributeWidth, sourceWidth, sourceHeight;
@@ -38,6 +43,10 @@ var imageTagBuilder = function() {
    	that.setSourceHeight(params["sourceHeight"]);
   };
 
+  that.requestHeightViaPercentage = function(pct) {
+    that.setAttributeWidth(that.innerHeight * pct / 100 * that.sourceWidth() / that.sourceHeight());
+  }
+
   that.requestWidthViaPercentage = function(pct) {
     that.setAttributeWidth(that.innerWidth * pct / 100);
   }
@@ -47,7 +56,8 @@ var imageTagBuilder = function() {
   };
 
   that.setAttributeWidth= function(width) {
-    attributeWidth = parseInt(Math.min(width, (sourceWidth / that.dpr)), 10);
+    // Returns the smalles of: requested with, source adjusted for dpr or the window width.
+    attributeWidth = parseInt(Math.min(width, (sourceWidth / that.dpr), that.innerWidth), 10);
   };
   
   that.setSourceHeight = function(height) {
