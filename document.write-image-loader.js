@@ -47,7 +47,7 @@ var imageTagBuilder = function() {
   };
 
   that.setAttributeWidth= function(width) {
-    attributeWidth = width;
+    attributeWidth = parseInt(width, 10);
   };
   
   that.setSourceHeight = function(height) {

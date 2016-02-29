@@ -225,6 +225,23 @@ QUnit.test("Request width via percentage checks", function(assert) {
 
     // Basic 1 DPR via % of innerWidth
       "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+    
+    //  2 DPR Basic via %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+
+    //  Request via % and ensure integers
+      "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
+
+    // | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
+/*
+
+
+
+    Scenarios: Make sure down sizing works 
+    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
+    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
+*/
   ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
@@ -248,23 +265,6 @@ QUnit.test("Request width via percentage checks", function(assert) {
 });
 //////////
 
-/*
-
-
-    Scenarios: 2 DPR Basic via %
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
-
-    Scenarios: 1 DPR Basic via % ensure integers
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
-    | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
-
-    Scenarios: Make sure down sizing works 
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
-    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
-*/
 
 /*
 
