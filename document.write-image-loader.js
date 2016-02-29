@@ -1,19 +1,14 @@
 var imageTagBuilder = function() {
 
-	// Initialize
   var that = {};
   var attributeWidth;
 
-  // Set defaults
   that.innerWidth = window.innerWidth;
   that.innerHeight = window.innerHeight;
   that.dpr = window.devicePixelRatio;
 
-
-  // Define methods
-
   that.attributeHeight = function() {
-    return parseInt( attributeWidth * that.sourceHeightPx / that.sourceWidthPx , 10);
+    return parseInt( attributeWidth * that.sourceHeight / that.sourceWidth , 10);
   };
 
   that.attributeWidth = function() {
@@ -38,7 +33,7 @@ var imageTagBuilder = function() {
   };
 
   that.requestHeightViaPercentage = function(pct) {
-    that.setAttributeWidth(that.innerHeight * pct / 100 * that.sourceWidthPx / that.sourceHeightPx);
+    that.setAttributeWidth(that.innerHeight * pct / 100 * that.sourceWidth / that.sourceHeight);
   }
 
   that.requestWidthViaPercentage = function(pct) {
@@ -51,17 +46,18 @@ var imageTagBuilder = function() {
 
   that.setAttributeWidth= function(width) {
     // Returns the smalles of: requested with, source adjusted for dpr or the window width.
-    attributeWidth = parseInt(Math.min(width, (that.sourceWidthPx / that.dpr), that.innerWidth), 10);
+    attributeWidth = parseInt(Math.min(width, (that.sourceWidth / that.dpr), that.innerWidth), 10);
   };
   
   that.setSourceHeight = function(height) {
-  	that.sourceHeightPx = height;
+  	that.sourceHeight = height;
   }
 
   that.setSourceWidth = function(width) {
-    that.sourceWidthPx = width;
+    that.sourceWidth = width;
   }
 
   return that;
+
 }
 
