@@ -65,8 +65,8 @@ QUnit.test("Set source dimensions", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1000);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1000;
 
   // Then
   assert.equal(itb.sourceWidth, 1600, "Source width");
@@ -81,8 +81,8 @@ QUnit.test("Verify attribute height", function(assert) {
   var itb = imageTagBuilder({});
 
   // When
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1000);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1000;
   itb.requestWidthViaPixels(800);
 
   // Then 
@@ -113,8 +113,8 @@ QUnit.test("Check call width and height", function(assert) {
 
   // When 
   itb.dpr = 2;
-  itb.setSourceWidth(1600);
-  itb.setSourceHeight(1200);
+  itb.sourceWidth = 1600;
+  itb.sourceHeight = 1200;
   itb.setAttributeWidth(800);
 
   // Then
