@@ -39,11 +39,11 @@ var imageTagBuilder = function() {
   };
 
   that.requestWidthViaPercentage = function(pct) {
-    that.setAttributeWidth(Math.min((that.innerWidth * pct / 100), (sourceWidth / that.dpr)));
+    that.setAttributeWidth(that.innerWidth * pct / 100);
   }
 
   that.requestWidthViaPixels = function(width) {
-  	that.setAttributeWidth(Math.min(width, sourceWidth / that.dpr));
+  	that.setAttributeWidth(width);
   };
 
   that.setAttributeWidth= function(width) {
