@@ -237,11 +237,6 @@ QUnit.test("Request width via percentage checks", function(assert) {
       "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
       "800  | 600  | 1024   | 768    | 2   | 50      | 400  | 300  | 800   | 600   ",
 
-/*
-
-
-
-*/
   ];
 
   for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
