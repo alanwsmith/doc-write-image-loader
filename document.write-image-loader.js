@@ -38,6 +38,10 @@ var imageTagBuilder = function() {
    	that.setSourceHeight(params["sourceHeight"]);
   };
 
+  that.requestHeightViaPercentage = function(pct) {
+    that.setAttributeWidth(400);
+  }
+
   that.requestWidthViaPercentage = function(pct) {
     that.setAttributeWidth(that.innerWidth * pct / 100);
   }
