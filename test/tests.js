@@ -26,6 +26,7 @@ QUnit.test("Verify variable override", function(assert) {
 
 });
 
+
 QUnit.test("Target test", function(assert) {
 
   // Given 
@@ -73,6 +74,7 @@ QUnit.test("Set source dimensions", function(assert) {
 
 });
 
+
 QUnit.test("Verify attribute height", function(assert) {
 
   // Given 
@@ -89,7 +91,7 @@ QUnit.test("Verify attribute height", function(assert) {
 });
 
 
-QUnit.test("Parse `maxSize` param", function(assert) {
+QUnit.test("Parse `sourceWidth` and `sourceHeight`  params", function(assert) {
 
   // Given 
   var itb = imageTagBuilder({});
@@ -137,6 +139,7 @@ QUnit.test("Make sure image isn't larger than the source", function(assert) {
   assert.equal(itb.attributeHeight(), 400, "Reduced height");
 
 });
+
 
 QUnit.test("Request width via pixel checks", function(assert) {
 
@@ -212,6 +215,7 @@ QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(asser
   assert.equal(itb.attributeWidth(), 500);
 
 });
+
 
 QUnit.test("Request width via percentage checks", function(assert) {
 
