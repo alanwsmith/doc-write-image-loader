@@ -235,8 +235,8 @@ QUnit.test("Request width via percentage checks", function(assert) {
 
     // Make sure down sizing works 
       "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
+      "800  | 600  | 1024   | 768    | 2   | 50      | 400  | 300  | 800   | 600   ",
 
-//     |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
 /*
 
 
