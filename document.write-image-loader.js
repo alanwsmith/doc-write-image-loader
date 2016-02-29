@@ -19,7 +19,7 @@ var imageTagBuilder = function() {
   // Define methods
 
   that.attributeHeight = function() {
-    return parseInt( attributeWidth * that.sourceHeight() / that.sourceWidth() , 10);
+    return parseInt( attributeWidth * that.sourceHeightPx / that.sourceWidthPx , 10);
   };
 
   that.attributeWidth = function() {
@@ -61,10 +61,12 @@ var imageTagBuilder = function() {
   };
   
   that.setSourceHeight = function(height) {
+  	that.sourceHeightPx = height;
   	sourceHeight = height;
   }
 
   that.setSourceWidth = function(width) {
+    that.sourceWidthPx = width;
     sourceWidth = width;
   }
 
