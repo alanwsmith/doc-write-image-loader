@@ -214,13 +214,42 @@ QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(asser
 
 });
 
+QUnit.test("Request width via percentage checks", function(assert) {
+
+  // Given
+  var itb = imageTagBuilder({});
+
+  var testSets = [
+
+    // srcW | srcH | innerW | innerH | dpr | reqPctW | attW | attH | callW | callH 
+
+    // Basic 1 DPR via % of innerWidth
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+  ];
+
+  for (var testIndex = 0, lastIndex = testSets.length; testIndex < lastIndex; testIndex = testIndex +1) {
+
+  	var params = testSets[testIndex].split(/ \| /);
+    
+    // When
+    itb.prep({ sourceWidth: params[0], sourceHeight: parseInt(params[1], 10)});
+    itb.innerWidth = parseInt(params[2], 10);
+    itb.innerHeight = parseInt(params[3], 10);
+    itb.dpr = parseInt(params[4], 10);
+
+    itb.requestWidthViaPercentage(params[5]);
+    
+    assert.equal(itb.attributeWidth(), parseInt(params[6], 10), "attributeWidth");
+    assert.equal(itb.attributeHeight(), parseInt(params[7], 10), "attributeHeight");
+    assert.equal(itb.callWidth(), parseInt(params[8], 10), "callWidth");
+    assert.equal(itb.callHeight(), parseInt(params[9], 10), "callHeight");
+  }
+
+});
 //////////
 
 /*
 
-    Scenarios: 1 DPR Basic via width %
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
 
     Scenarios: 2 DPR Basic via %
     | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
