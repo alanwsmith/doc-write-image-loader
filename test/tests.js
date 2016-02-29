@@ -205,11 +205,13 @@ QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(asser
   var itb = imageTagBuilder({});
 
   // When
-  itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
+  itb.innerWidth = 1000;
+  itb.innerHeight = 800;
+  itb.prep({ sourceWidth: 2000, sourceHeight: 1000});
   itb.requestWidthViaPercentage(50);
 
   // Then
-  assert.equal(itb.attributeWidth(), 800);
+  assert.equal(itb.attributeWidth(), 500);
 
 });
 
