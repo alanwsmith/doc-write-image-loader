@@ -233,14 +233,14 @@ QUnit.test("Request width via percentage checks", function(assert) {
       "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
       "1600 | 1200 | 1024   | 768    | 2   | 51      | 522  | 391  | 1044  | 782   ",
 
+    // Make sure down sizing works 
+      "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
+
+//     |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
 /*
 
 
 
-    Scenarios: Make sure down sizing works 
-    | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
-    |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
-    |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
 */
   ];
 
