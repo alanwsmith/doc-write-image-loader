@@ -112,9 +112,9 @@ QUnit.test("Check call width and height", function(assert) {
 
   // When 
   itb.dpr = 2;
-  itb.setAttributeWidth(800);
   itb.setSourceWidth(1600);
   itb.setSourceHeight(1200);
+  itb.setAttributeWidth(800);
 
   // Then
   assert.equal(itb.callWidth(), 1600);
