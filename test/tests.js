@@ -333,3 +333,20 @@ QUnit.test("Request via percentage of innerHeight", function(assert) {
   }
 
 });
+
+
+QUnit.test("Target test", function(assert) {
+
+  // Given 
+  var itb = imageTagBuilder({
+  	
+  });
+
+
+  // When
+  itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
+
+  // Then
+  expect(0);
+});
+
