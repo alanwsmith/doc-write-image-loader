@@ -71,7 +71,10 @@ var imageTagBuilder = function(config) {
  
   o.url = function() {
     var urlString = config["urlTemplate"];
-        urlString = 'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/' + o.image;   
+        urlString = urlString.replace("CALLWIDTH", o.callWidth());
+        urlString = urlString.replace("CALLHEIGHT", o.callHeight());
+        urlString = urlString.replace("IMAGENAME", o.image);
+        urlString = urlString.replace("QUALITY", "85");
     return urlString;
   }
 
