@@ -1,4 +1,4 @@
-var imageTagBuilder = function() {
+var imageTagBuilder = function(config) {
 
   var o = {};
   var attributeWidth;
@@ -24,7 +24,7 @@ var imageTagBuilder = function() {
   };
   
   o.imageTag = function() {
-    return '<img alt="' + o.altText + '" class="' + o.style + '" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/' + o.image + '">';
+    return '<img alt="' + o.altText + '" class="' + o.style + '" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="' + o.url() + '">';
   };
 
   o.init_alt = function(alt) {
@@ -69,6 +69,12 @@ var imageTagBuilder = function() {
     attributeWidth = parseInt(Math.min(width, (o.sourceWidth / o.dpr), o.innerWidth), 10);
   };
  
+  o.url = function() {
+    var urlString = config["urlTemplate"];
+        urlString = 'http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/' + o.image;   
+    return urlString;
+  }
+
   return o;
 
 };

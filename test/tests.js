@@ -30,7 +30,9 @@ QUnit.test("Verify variable override", function(assert) {
 QUnit.test("Target test", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder({
+    urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME"
+  });
 
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
