@@ -27,7 +27,31 @@ var imageTagBuilder = function() {
     return '<img alt="some horses" class="basic" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/horses.jpg">';
   };
 
+  o.init_alt = function(alt) {
+
+  };
+
+  o.init_image = function(image) {
+
+  };
+
+  o.init_sourceHeight = function(height) {
+
+  };
+
+  o.init_sourceWidth = function(width) {
+
+  };
+
+  o.init_style = function(style) {
+
+  };
+
+
   o.prep = function(params) {
+  	for (var param in params) {
+    	console.log(param + "Init");
+    }
   	o.sourceWidthInit(params["sourceWidth"]);
   	o.sourceHeightInit(params["sourceHeight"]);
   };
