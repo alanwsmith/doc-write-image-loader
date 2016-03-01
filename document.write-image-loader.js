@@ -36,24 +36,21 @@ var imageTagBuilder = function() {
   };
 
   o.init_sourceHeight = function(height) {
-
+  	o.sourceHeight = height;
   };
 
   o.init_sourceWidth = function(width) {
-
+  	o.sourceWidth = width;
   };
 
   o.init_style = function(style) {
 
   };
 
-
   o.prep = function(params) {
   	for (var param in params) {
-    	console.log(param + "Init");
+  		o["init_" + param](params[param]);
     }
-  	o.sourceWidthInit(params["sourceWidth"]);
-  	o.sourceHeightInit(params["sourceHeight"]);
   };
 
   o.requestHeightViaPercentage = function(pct) {
@@ -72,14 +69,6 @@ var imageTagBuilder = function() {
     attributeWidth = parseInt(Math.min(width, (o.sourceWidth / o.dpr), o.innerWidth), 10);
   };
  
-  o.sourceHeightInit = function(height) {
-  	o.sourceHeight = height;
-  };
-
-  o.sourceWidthInit = function(width) {
-  	o.sourceWidth = width;
-  };
-
   return o;
 
 };
