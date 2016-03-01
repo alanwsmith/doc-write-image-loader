@@ -31,7 +31,12 @@ QUnit.test("Target test", function(assert) {
 
   // Given 
   var itb = imageTagBuilder({
-    urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME"
+    urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME",
+    styles: {
+    	"basic": [
+
+    	]
+    }
   });
 
   // When
