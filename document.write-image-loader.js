@@ -24,15 +24,15 @@ var imageTagBuilder = function() {
   };
   
   o.imageTag = function() {
-    return '<img alt="some horses" class="basic" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/horses.jpg">';
+    return '<img alt="' + o.altText + '" class="' + o.style + '" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/' + o.image + '">';
   };
 
   o.init_alt = function(alt) {
-
+    o.altText = alt;
   };
 
   o.init_image = function(image) {
-
+    o.image = image;
   };
 
   o.init_sourceHeight = function(height) {
@@ -44,7 +44,7 @@ var imageTagBuilder = function() {
   };
 
   o.init_style = function(style) {
-
+    o.style = style;
   };
 
   o.prep = function(params) {
