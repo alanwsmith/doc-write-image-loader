@@ -11,7 +11,7 @@ var config1 = {
 QUnit.test("Check environmental variables", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // Then
   assert.equal(itb.innerWidth, window.innerWidth, "Load innerWidth");
@@ -24,7 +24,7 @@ QUnit.test("Check environmental variables", function(assert) {
 QUnit.test("Verify variable override", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
   itb.innerWidth = 4000;
   itb.innerHeight = 5000;
   itb.dpr = 9;
@@ -54,7 +54,7 @@ QUnit.test("Target test", function(assert) {
 QUnit.test("Set attribute width via `requestWidthViaPixels`", function(assert) {
   
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
@@ -69,7 +69,7 @@ QUnit.test("Set attribute width via `requestWidthViaPixels`", function(assert) {
 QUnit.test("Set source dimensions", function(assert) {
   
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.sourceWidth = 1600;
@@ -85,7 +85,7 @@ QUnit.test("Set source dimensions", function(assert) {
 QUnit.test("Verify attribute height", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.sourceWidth = 1600;
@@ -101,7 +101,7 @@ QUnit.test("Verify attribute height", function(assert) {
 QUnit.test("Parse `sourceWidth` and `sourceHeight`  params", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.prep({ sourceWidth: 1600, sourceHeight: 1000});
@@ -116,7 +116,7 @@ QUnit.test("Parse `sourceWidth` and `sourceHeight`  params", function(assert) {
 QUnit.test("Check call width and height", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When 
   itb.dpr = 2;
@@ -134,7 +134,7 @@ QUnit.test("Check call width and height", function(assert) {
 QUnit.test("Make sure image isn't larger than the source", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.dpr = 1;
@@ -151,7 +151,7 @@ QUnit.test("Make sure image isn't larger than the source", function(assert) {
 QUnit.test("Request width via pixel checks", function(assert) {
 
   // Given
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   var testSets = [
 
@@ -210,7 +210,7 @@ QUnit.test("Request width via pixel checks", function(assert) {
 QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(assert) {
   
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.innerWidth = 1000;
@@ -227,7 +227,7 @@ QUnit.test("Set attribute width via `requestWidthViaPercentage`", function(asser
 QUnit.test("Request width via percentage checks", function(assert) {
 
   // Given
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   var testSets = [
 
@@ -275,7 +275,7 @@ QUnit.test("Request width via percentage checks", function(assert) {
 QUnit.test("Set attribute width via `requestHeightViaPercentage`", function(assert) {
   
   // Given 
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.innerWidth = 1000;
@@ -293,7 +293,7 @@ QUnit.test("Set attribute width via `requestHeightViaPercentage`", function(asse
 QUnit.test("Request via percentage of innerHeight", function(assert) {
 
   // Given
-  var itb = imageTagBuilder({});
+  var itb = imageTagBuilder(config1);
 
   var testSets = [
 
