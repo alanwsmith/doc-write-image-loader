@@ -28,8 +28,8 @@ var imageTagBuilder = function() {
   };
 
   o.prep = function(params) {
-  	o.sourceWidth = params["sourceWidth"];
-  	o.sourceHeight = params["sourceHeight"];
+  	o.sourceWidthInit(params["sourceWidth"]);
+  	o.sourceHeightInit(params["sourceHeight"]);
   };
 
   o.requestHeightViaPercentage = function(pct) {
@@ -44,10 +44,18 @@ var imageTagBuilder = function() {
   	o.setAttributeWidth(width);
   };
 
-  o.setAttributeWidth= function(width) {
+  o.setAttributeWidth = function(width) {
     attributeWidth = parseInt(Math.min(width, (o.sourceWidth / o.dpr), o.innerWidth), 10);
   };
-  
+ 
+  o.sourceHeightInit = function(height) {
+  	o.sourceHeight = height;
+  };
+
+  o.sourceWidthInit = function(width) {
+  	o.sourceWidth = width;
+  };
+
   return o;
 
 };
