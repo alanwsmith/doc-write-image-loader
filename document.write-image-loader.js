@@ -70,12 +70,7 @@ var imageTagBuilder = function(config) {
   };
  
   o.url = function() {
-    var urlString = config["urlTemplate"];
-        urlString = urlString.replace("CALLWIDTH", o.callWidth());
-        urlString = urlString.replace("CALLHEIGHT", o.callHeight());
-        urlString = urlString.replace("IMAGENAME", o.image);
-        urlString = urlString.replace("QUALITY", "85");
-    return urlString;
+    return config["urlTemplate"].replace("QUALITY", "85").replace("CALLWIDTH", o.callWidth()).replace("CALLHEIGHT", o.callHeight()).replace("IMAGENAME", o.image);
   }
 
   return o;
