@@ -34,16 +34,13 @@ QUnit.test("Target test", function(assert) {
     urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME",
     styles: {
     	"basic": [
-
+        { breakpoint: 0, imageWidth: 800, quality: 85 }
     	]
     }
   });
 
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
-
-  // TODO: Move requestWidthViaPixels into style processing 
-  itb.requestWidthViaPixels(800);
 
   // Then
   assert.equal(itb.imageTag(),'<img alt="some horses" class="basic" width="800" height="500" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_1600,h_1000/horses.jpg">', "Target `img` tag."); 

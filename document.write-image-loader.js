@@ -51,6 +51,7 @@ var imageTagBuilder = function(config) {
   	for (var param in params) {
   		o["init_" + param](params[param]);
     }
+    o.requestWidthViaPixels(800);
   };
 
   o.requestHeightViaPercentage = function(pct) {
