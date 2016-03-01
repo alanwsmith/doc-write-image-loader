@@ -1,3 +1,13 @@
+var config1 = {
+
+  urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME",
+  styles: {
+    "basic": [
+      { breakpoint: 0, imageWidth: 800, quality: 85 }
+    ]
+  }
+};
+
 QUnit.test("Check environmental variables", function(assert) {
 
   // Given 
@@ -30,14 +40,7 @@ QUnit.test("Verify variable override", function(assert) {
 QUnit.test("Target test", function(assert) {
 
   // Given 
-  var itb = imageTagBuilder({
-    urlTemplate: "http://res.cloudinary.com/demo/image/upload/c_fill,q_QUALITY,w_CALLWIDTH,h_CALLHEIGHT/IMAGENAME",
-    styles: {
-    	"basic": [
-        { breakpoint: 0, imageWidth: 800, quality: 85 }
-    	]
-    }
-  });
+  var itb = imageTagBuilder(config1);
 
   // When
   itb.prep({ image: "horses.jpg", style: "basic", alt: "some horses", sourceWidth: 1600, sourceHeight: 1000}); 
