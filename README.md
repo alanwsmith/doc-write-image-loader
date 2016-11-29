@@ -82,6 +82,8 @@ Roadmap TODOs
 - Test to check for empty alt text and make sure it returns properly. 
 - Test to check default quality value. 
 - Test 1 and 1.3 devicePixelRatios. 
+- Investigate using WebP if the browser supports it.
+
 
 
 
