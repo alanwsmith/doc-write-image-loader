@@ -3,6 +3,8 @@ var imageTagBuilder = function(config) {
   var o = {};
   var attributeWidth;
 
+  o.config = config;
+
   o.innerWidth = window.innerWidth;
   o.innerHeight = window.innerHeight;
   o.dpr = 'devicePixelRatio' in window ? window.devicePixelRatio : 1;
@@ -51,6 +53,8 @@ var imageTagBuilder = function(config) {
   	for (var param in params) {
   		o["init_" + param](params[param]);
     }
+
+//    o.requestWidthViaPixels(o.config["styles"]["basic"][0]["imageWidth"]);
     o.requestWidthViaPixels(800);
   };
 
