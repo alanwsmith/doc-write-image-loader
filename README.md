@@ -8,7 +8,7 @@ Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://
 Overview
 --------
 
-Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it doesn't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
+Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it won't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
 
 That's the hypothesis. We'll see if it holds up.
 
@@ -30,7 +30,7 @@ Concepts
 
 - The area the image will occupy is defined explicitly. There's no need to redraw the page or resize the image. It's effectively the same as if a server side process had provided a custom page based on the browsers parameters. Instead of relying on the server to do that work, it's pushed back to the client via the document.write call. Because it blocks, it effectively happens at the initial load. The hypothesis is that JavaScript in modern browsers is fast enough to make this a minimal performance hit and hopefully less than other options. 
 - The object pulls the viewport and devicePixelRatio into local variables. This is done so that QUnit can override them for testing differnet sizes and ratios on a single device/page.
-
+- The prototype used specific pixels sizes and breakpoints. This refined version simply uses percentages of screen size. While, that won't work for every application (e.g. designs with very specific alignments), it covers the basic image viewing use case. 
 
 
 Serving Images
@@ -61,7 +61,8 @@ The second way avoids the HTTP call. It's the original approach I had in mind.
 `<noscript>` Fallback 
 ---------------------
 
-This approach sacrafices the ability to display images if JavaScript is turned off. While that only impacts a small number of poeple, a fallback should be provided to maintain as universal a page as possible. The recommended approach is to add a `<noscript>` with a static version of the `<img>` tag behind each embedded `<script>` call.  
+This approach sacrafices the ability to display images if JavaScript is turned off. While that only impacts a small number of poeple, a fallback should be provided to maintain as universal a page as possible. The recommended approach is to add a `<noscript>` with a static version of the `<img>` tag behind each embedded `<script>` call. Bonus points for using `srcset`, `picture`, or other responsive fallbacks. 
+
 
 Less Blinking
 -------------
@@ -85,7 +86,6 @@ Roadmap TODOs
 
 
 
-
 Possible Future Features
 ------------------------
 
@@ -95,7 +95,7 @@ Possible Future Features
 - Ability to limit image size so it fits in the `winner.innerHeight` as well. 
 - Minified version of the script.
 - Comparison test pages with other ways to call images to test against.
-- Breakpoint config generator tool.
+- Breakpoint config generator tool. (maybe not if only percentages are used)
 
 
 
