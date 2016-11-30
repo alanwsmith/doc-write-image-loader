@@ -19,6 +19,7 @@ ImageLoader.prototype.load_params = function(params) {
   this._percent_of_viewport_width = params["percent_of_viewport_width"];
   this._raw_height = params["raw_height"];
   this._raw_width = params["raw_width"];
+  this._url_template = params["url_template"];
 };
 
 ImageLoader.prototype.render_height = function() {
