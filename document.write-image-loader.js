@@ -43,5 +43,6 @@ TODO:
 
 - Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
 - Add ability to restrict to max pixel size? (Could just use the raw_width for this, though, that's a bit of a hack)
+- Maybe set default dpr to 1 if no value is avaialble.  
 
 */
