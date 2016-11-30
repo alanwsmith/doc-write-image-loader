@@ -15,7 +15,6 @@ ImageLoader.prototype.load_params = function(params) {
 	// Convience methods will be used in production, but they will all communicate
 	// load_params. 
 
-  console.log(params); 
   this._dpr = params["dpr"];
   this._image_name = params["image_name"];
   this._viewport_height = params["viewport_height"];
