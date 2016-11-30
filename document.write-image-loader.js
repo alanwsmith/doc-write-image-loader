@@ -35,3 +35,12 @@ ImageLoader.prototype.url_request_height = function() {
 ImageLoader.prototype.url_request_width = function() {
   return this.render_width(); 
 };
+
+
+/*
+TODO:
+
+- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
+- Add ability to restrict to max pixel size? (Could just use the raw_width for this, though, that's a bit of a hack)
+
+*/
