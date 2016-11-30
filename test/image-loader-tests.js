@@ -1,8 +1,9 @@
 QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
+  // Given:
 	var imageLoader = new ImageLoader(); 
 
-  // Given 
+  // When:
   imageLoader.load_params(
     {
     	dpr: 2,
@@ -17,19 +18,18 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
     }
   );
 
-  // Verify instance variables.
-  assert.equal(imageLoader._dpr, 2, "Device pixel resolution") 
+  // Then:  Verify instance variables.
+  assert.equal(imageLoader._dpr, 2, "Device pixel resolution"); 
   assert.equal(imageLoader._image_name, "horses.jpg", "Image name"); 
-  assert.equal(imageLoader._raw_height, 1067, "Raw image height") 
-  assert.equal(imageLoader._raw_width, 1600, "Raw image width") 
-  assert.equal(imageLoader._percent_of_viewport_width, 50, "Percent of viewport width") 
+  assert.equal(imageLoader._raw_height, 1067, "Raw image height"); 
+  assert.equal(imageLoader._raw_width, 1600, "Raw image width");
+  assert.equal(imageLoader._percent_of_viewport_width, 50, "Percent of viewport width"); 
   assert.equal(imageLoader._quality, 80, "Quality level");
-  assert.equal(imageLoader._viewport_height, 680, "Viewport height") 
-  assert.equal(imageLoader._viewport_width, 1024, "Viewport width") 
+  assert.equal(imageLoader._viewport_height, 680, "Viewport height");
+  assert.equal(imageLoader._viewport_width, 1024, "Viewport width");
   assert.equal(imageLoader._url_template, "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]", "URL Template");
 
-
-  // Verify functions
+  // And: Verify functions
   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
   assert.equal(imageLoader.render_height(), 341, "Render height");
   assert.equal(imageLoader.render_width(), 512, "Render width");
@@ -37,8 +37,9 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
   assert.equal(imageLoader.img_tag(), '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">', "Image tag");
 
-
 });
+
+
 
 
 /*
