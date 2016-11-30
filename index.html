@@ -12,25 +12,6 @@
   -->
   <script src="document.write-image-loader.js"></script>
 
-
-  <!-- One time configuration for the page -->
-  <!--
-  <script type="text/javascript">
-    var imageBuilder = new ImgTagBuilder(
-      { 
-        styles: { 
-          main: { 
-            breakPoints: [ 
-              { minViewportWidth: 0, maxImageDisplayWidth: 200, quality: 80 },
-              { minViewportWidth: 500, maxImageDisplayWidth: 300, quality: 80 }, 
-              { minViewportWidth: 900, maxImageDisplayWidth: 400, quality: 80 }
-            ]
-          } 
-        } 
-      });
-  </script>
--->
-
   <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
     img.main { border: 2px solid black; }
@@ -48,78 +29,27 @@
   <hr>
 
   <h1>document.write Image Loader</h1>
-<!--
-  <div>
-    <script type="text/javascript">
-      imageBuilder.prep({ image: "horses.jpg", alt: "Grazing Horses",  style: "main", maxWidth: 1600, maxHeight: 1000 }).place();
-    </script>
-    <noscript>A fallback &lt;img&gt; would go here in a production web page.</noscript>
-  </div>
--->
   <hr> 
+  <h2>Example</h2>
+  <script>
+    document.write(window.innerWidth);
+    document.write('<br>');
+    document.write(window.innerHeight);
+  </script>
+
+  <br>
+  <img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg" width="512" height="314">
 
   <h3>Notes</h3>
-
-  <p>Dynamically generated &lt;img&gt; tag:</p>
-<!--
-  <div id="theImgTag"></div>
-  <script type="text/javascript">
-    document.getElementById("theImgTag").innerHTML = imageBuilder.imgTag().replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;');
-  </script>
-  
-  <p>
-    The innerWidth and innerHeight for this page are:<br>
-    <div id="theDimensions"></div>
-    <script type="text/javascript">
-      document.getElementById("theDimensions").innerHTML = window.innerWidth.toString() + " x " + window.innerHeight.toString();
-    </script>
-  </p>
-
-  <p>
-    The devicePixelRatio for this page is:<br>
-    <div id="theRatio"></div>
-    <script type="text/javascript">
-      document.getElementById("theRatio").innerHTML = window.devicePixelRatio.toString();
-    </script>
--->
 
   <p>Resize the browser and refresh the page to generate a different size.</p>
 
   <hr>
 
   <p>
-    <table class="table">
-      <tr>
-        <th colspan="3">Image Size Rendering Chart</th>
-      </tr>
-      <tr>
-        <td><strong>window.innerWidth</strong></td>
-        <td><strong>1x and Visual Width</strong></td>
-        <td><strong>2x DevicePixelRatio Width</strong></td>
-      </tr>
-      <tr>
-        <td>0-499 px</td>
-        <td class="center">200 px</td>
-        <td class="center">400 px</td>
-      </tr>
-      <tr>
-        <td>500-899 px</td>
-        <td class="center">300 px</td>
-        <td class="center">600 px</td>
-      </tr>
-      <tr>
-        <td>900+ px</td>
-        <td class="center">400 px</td>
-        <td class="center">800 px</td>
-      </tr>
-    </table>
-  </p>
-
-  <p>
     Original Image:<br>
-    <a href="http://res.cloudinary.com/demo/image/upload/horses.jpg">http://res.cloudinary.com/demo/image/upload/horses.jpg</a><br>
+    <a href="http://res.cloudinary.com/demo/image/upload/horses.jpg">http://res.cloudinary.com/demo/image/upload/horses.jpg</a> (1600x1067)<br>
   </p>
-
 
 </body>
 </html>

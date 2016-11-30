@@ -1,75 +1,31 @@
-var imageTagBuilder = function() {
+var ImageLoader = function() {
 
-  var o = {};
-  var attributeWidth;
+}
 
-  o.innerWidth = window.innerWidth;
-  o.innerHeight = window.innerHeight;
-  o.dpr = 'devicePixelRatio' in window ? window.devicePixelRatio : 1;
-
-  o.attributeHeight = function() {
-    return parseInt( attributeWidth * o.sourceHeight / o.sourceWidth , 10);
-  };
-
-  o.attributeWidth = function() {
-  	return attributeWidth;
-  };
-
-  o.callHeight= function() {
-    return o.attributeHeight() * o.dpr;
-  };
-  
-  o.callWidth = function() {
-    return o.attributeWidth() * o.dpr;
-  };
-  
-  o.imageTag = function() {
-    return '<img alt="' + o.altText + '" class="' + o.style + '" width="' + o.attributeWidth() + '" height="' + o.attributeHeight() + '" src="http://res.cloudinary.com/demo/image/upload/c_fill,q_85,w_' + o.callWidth() + ',h_' + o.callHeight() +'/' + o.image + '">';
-  };
-
-  o.init_alt = function(alt) {
-    o.altText = alt;
-  };
-
-  o.init_image = function(image) {
-    o.image = image;
-  };
-
-  o.init_sourceHeight = function(height) {
-  	o.sourceHeight = height;
-  };
-
-  o.init_sourceWidth = function(width) {
-  	o.sourceWidth = width;
-  };
-
-  o.init_style = function(style) {
-    o.style = style;
-  };
-
-  o.prep = function(params) {
-  	for (var param in params) {
-  		o["init_" + param](params[param]);
-    }
-  };
-
-  o.requestHeightViaPercentage = function(pct) {
-    o.setAttributeWidth(o.innerHeight * pct / 100 * o.sourceWidth / o.sourceHeight);
-  };
-
-  o.requestWidthViaPercentage = function(pct) {
-    o.setAttributeWidth(o.innerWidth * pct / 100);
-  };
-
-  o.requestWidthViaPixels = function(width) {
-  	o.setAttributeWidth(width);
-  };
-
-  o.setAttributeWidth = function(width) {
-    attributeWidth = parseInt(Math.min(width, (o.sourceWidth / o.dpr), o.innerWidth), 10);
-  };
- 
-  return o;
-
+ImageLoader.prototype.url_to_call = function() {
+  return "http://res.cloudinary.com/demo/image/upload/w_" + this.url_request_width() + ",h_" + this.url_request_height() + "/horses.jpg"; 
 };
 
+ImageLoader.prototype.load_params = function(params) {
+  console.log(params); 
+  this._viewport_width = params["viewport_width"];
+  this._percent_of_viewport = params["percent_of_viewport"];
+  this._raw_height = params["original_height"];
+  this._raw_width = params["original_width"];
+};
+
+ImageLoader.prototype.render_height = function() {
+	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
+};
+
+ImageLoader.prototype.render_width = function() {
+  return this._percent_of_viewport * .01 * this._viewport_width;
+};
+
+ImageLoader.prototype.url_request_height = function() {
+  return this.render_height(); 
+};
+
+ImageLoader.prototype.url_request_width = function() {
+  return this.render_width(); 
+};
