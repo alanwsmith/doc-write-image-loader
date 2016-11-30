@@ -30,7 +30,7 @@
 
   <h1>document.write Image Loader</h1>
   <hr> 
-  <h2>Example</h2>
+  <h2>Basic Example</h2>
   <script>
     var imageLoader = new ImageLoader;
     
@@ -65,6 +65,43 @@
     );
 
   </script>
+  <hr>
+  <h2>Fixed Max Width Example</h2>
+
+  <script>
+    imageLoader.load_params(
+      {
+    	  dpr: 2,
+    	  image_name: "horses.jpg",
+    	  max_render_width: 200,
+        percent_of_viewport_width: 50,
+        quality: 80,
+        raw_height: 1067,
+        raw_width: 1600,
+        viewport_height: window.innerHeight,
+        viewport_width: window.innerWidth,
+        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+      }
+    );
+    
+    document.write(imageLoader.img_tag());
+    document.write(
+      '<table>' +
+      '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
+      '<tr><td>% of viewport width:</td><td>' + imageLoader._percent_of_viewport_width + '</td></tr>' +
+      '<tr><td>Max Render Width:</td><td>' + imageLoader._max_render_width + '</td></tr>' +
+      '</table>' + 
+      '<table>' +
+      '<tr><th></th><th>Width</th><th>Height</th>' +
+      '<tr><td>Raw (original)</td><td>' + imageLoader._raw_width + '</td><td>' + imageLoader._raw_height + '</td></tr>' +
+      '<tr><td>Viewport</td><td>' + imageLoader._viewport_width + '</td><td>' + imageLoader._viewport_height + '</td></tr>' +
+      '<tr><td>Render</td><td>' + imageLoader.render_width() + '</td><td>' + imageLoader.render_height() + '</td></tr>' +
+      '<tr><td>URL Request</td><td>' + imageLoader.url_request_width() + '</td><td>' + imageLoader.url_request_height() + '</td></tr>' +
+      '</table>'
+    );
+  </script>
+
+
 
 
   <hr>
