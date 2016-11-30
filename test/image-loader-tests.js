@@ -40,8 +40,6 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
 });
 
-
-
 QUnit.test("2x DPR stright to load_params with max width enforced", function(assert) {
 
   // Given
@@ -72,6 +70,35 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
 
 });
 
+
+QUnit.test("Verify defaults", function(assert) {
+
+  // Given
+  var imageLoader = new ImageLoader();
+
+  // When
+  imageLoader.load_params(
+    {
+/*
+      dpr: 2,
+      image_name: "horses.jpg",
+      percent_of_viewport_width: 50,
+      quality: 80,
+      raw_height: 1067,
+      raw_width: 1600,
+      max_render_width: 200,
+      viewport_height: 680,
+      viewport_width: 1024,
+      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+*/
+    }
+  );
+
+  // Then:
+  // assert.equal(imageLoader._max_render_width, 200, "Max render width");
+  assert.equal(imageLoader._dpr, 1, "Device Pixel Ratio");
+
+});
 
 
 /*
