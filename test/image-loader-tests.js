@@ -2,7 +2,7 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
 
 	var imageLoader = new ImageLoader(); 
 
-  // When
+  // Given 
   imageLoader.load_params(
     {
       original_height: 1067,
@@ -14,35 +14,17 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
   );
 
   // Then
-  assert.equal(
-    imageLoader.url_to_call(), 
-    "http://res.cloudinary.com/demo/image/upload/w_512,h_341/horses.jpg",
-    "Final URL"
-  );
+  assert.equal(imageLoader._raw_height, 1067, "Raw image height") 
 
-  assert.equal(
-    imageLoader.render_height(), 
-    341,
-    "Render height"
-  );
+  assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_512,h_341/horses.jpg", "Final URL");
 
-  assert.equal(
-    imageLoader.render_width(), 
-    512,
-    "Render width"
-  );
+  assert.equal(imageLoader.render_height(), 341, "Render height");
 
-  assert.equal(
-    imageLoader.url_request_height(), 
-    341,
-    "Request height"
-  );
+  assert.equal(imageLoader.render_width(), 512, "Render width");
 
-  assert.equal(
-    imageLoader.url_request_width(), 
-    512,
-    "Request width"
-  );
+  assert.equal(imageLoader.url_request_height(), 341, "Request height");
+
+  assert.equal(imageLoader.url_request_width(), 512, "Request width");
 
 });
 
