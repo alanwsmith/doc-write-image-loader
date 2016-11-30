@@ -35,11 +35,11 @@ ImageLoader.prototype.render_width = function() {
 };
 
 ImageLoader.prototype.url_request_height = function() {
-  return this.render_height(); 
+  return this.render_height() * this._dpr; 
 };
 
 ImageLoader.prototype.url_request_width = function() {
-  return this.render_width(); 
+  return this.render_width() * this._dpr; 
 };
 
 
