@@ -15,7 +15,7 @@ ImageLoader.prototype.load_params = function(params) {
   this._dpr = params["dpr"];
   this._viewport_height = params["viewport_height"];
   this._viewport_width = params["viewport_width"];
-  this._percent_of_viewport = params["percent_of_viewport"];
+  this._percent_of_viewport_width = params["percent_of_viewport_width"];
   this._raw_height = params["raw_height"];
   this._raw_width = params["raw_width"];
 };
@@ -25,7 +25,7 @@ ImageLoader.prototype.render_height = function() {
 };
 
 ImageLoader.prototype.render_width = function() {
-  return this._percent_of_viewport * .01 * this._viewport_width;
+  return this._percent_of_viewport_width * .01 * this._viewport_width;
 };
 
 ImageLoader.prototype.url_request_height = function() {
