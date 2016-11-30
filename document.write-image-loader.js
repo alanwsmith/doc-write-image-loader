@@ -13,6 +13,7 @@ ImageLoader.prototype.load_params = function(params) {
 
   console.log(params); 
   this._dpr = params["dpr"];
+  this._image_name = params["image_name"];
   this._viewport_height = params["viewport_height"];
   this._viewport_width = params["viewport_width"];
   this._percent_of_viewport_width = params["percent_of_viewport_width"];
