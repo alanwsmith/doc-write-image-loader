@@ -1,4 +1,4 @@
-QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
+QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
 	var imageLoader = new ImageLoader(); 
 
