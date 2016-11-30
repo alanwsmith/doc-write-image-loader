@@ -41,3 +41,16 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 });
 
 
+/*
+TODO:
+
+- Make sure width is always returned as an integer. 
+- Make sure height is always returned as an integer. 
+- Make sure any half pixel results are truncated properly. 
+- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
+- Add ability to restrict to max pixel size? (Could just use the raw_width for this, though, that's a bit of a hack)
+- Maybe set default dpr to 1 if no value is avaialble.  
+- Make sure to check odd width and height at different dprs. 
+- Test 1.3 dpr. 
+- Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
+*/
