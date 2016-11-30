@@ -83,6 +83,7 @@ Roadmap TODOs
 - Test to check for empty alt text and make sure it returns properly. 
 - Test to check default quality value. 
 - Test 1 and 1.3 devicePixelRatios. 
+- Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
 
 
 
