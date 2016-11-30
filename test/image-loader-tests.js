@@ -5,6 +5,7 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
   // Given 
   imageLoader.load_params(
     {
+    	dpr: 1,
       percent_of_viewport: 50,
       raw_height: 1067,
       raw_width: 1600,
@@ -14,11 +15,13 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
   );
 
   // Verify instance variables.
+  assert.equal(imageLoader._dpr, 1, "Device pixel resolution") 
   assert.equal(imageLoader._raw_height, 1067, "Raw image height") 
   assert.equal(imageLoader._raw_width, 1600, "Raw image width") 
   assert.equal(imageLoader._percent_of_viewport, 50, "Percent of viewport") 
   assert.equal(imageLoader._viewport_height, 680, "Viewport height") 
   assert.equal(imageLoader._viewport_width, 1024, "Viewport width") 
+
 
   // Verify functions
   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_512,h_341/horses.jpg", "Final URL");
