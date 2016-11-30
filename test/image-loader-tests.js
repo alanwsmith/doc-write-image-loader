@@ -19,7 +19,7 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
 
   // Verify instance variables.
   assert.equal(imageLoader._dpr, 2, "Device pixel resolution") 
-  assert.equal(imageLoader._image_name, "horses.jpg"); 
+  assert.equal(imageLoader._image_name, "horses.jpg", "Image name"); 
   assert.equal(imageLoader._raw_height, 1067, "Raw image height") 
   assert.equal(imageLoader._raw_width, 1600, "Raw image width") 
   assert.equal(imageLoader._percent_of_viewport_width, 50, "Percent of viewport width") 
