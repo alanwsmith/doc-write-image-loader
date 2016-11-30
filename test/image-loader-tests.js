@@ -65,7 +65,9 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
   // Then:
   assert.equal(imageLoader._max_render_width, 200, "Max render width");
   assert.equal(imageLoader.render_width(), 200, "Verify render_width == max_render_width");
-
+  assert.equal(imageLoader.render_height(), 133, "Verify render_width == max_render_width");
+  assert.equal(imageLoader.url_request_width(), 400, "Request width");
+  assert.equal(imageLoader.url_request_height(), 266, "Request height");
 
 });
 
