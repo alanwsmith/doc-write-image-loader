@@ -55,6 +55,7 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
       quality: 80,
       raw_height: 1067,
       raw_width: 1600,
+      max_render_width: 200,
       viewport_height: 680,
       viewport_width: 1024,
       url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
@@ -62,7 +63,8 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
   );
 
   // Then:
-  assert.equal(1,1);
+  assert.equal(imageLoader._max_render_width, 200, "Max render width");
+  assert.equal(imageLoader.render_width(), 200, "Verify render_width == max_render_width");
 
 
 });
@@ -72,6 +74,8 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
 /*
 TODO:
 
+- Make sure max_render_width is optional 
+- Make max_render_width == raw_width if it's not already set.
 - Make sure width is always returned as an integer. 
 - Make sure height is always returned as an integer. 
 - Make sure any half pixel results are truncated properly. 
