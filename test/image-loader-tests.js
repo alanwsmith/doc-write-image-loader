@@ -9,6 +9,15 @@ QUnit.test("1x DPR Basic call", function(assert) {
 	// Given
 
   // When
+  imageLoader.load_params(
+    {
+      max_height: 1067,
+      max_width: 1600,
+      width_percentage: 50,
+      window_inner_height: 680,
+      window_inner_width: 1024
+    }
+  );
 
   // Then
   assert.equal(
