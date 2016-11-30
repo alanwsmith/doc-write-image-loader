@@ -15,7 +15,7 @@ QUnit.test("1x DPR Basic call", function(assert) {
       original_width: 1600,
       width_percentage: 50,
 //      window_inner_height: 680,
-      window_inner_width: 1024
+      viewport_width: 1024
     }
   );
 

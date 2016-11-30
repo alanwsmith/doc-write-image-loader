@@ -8,7 +8,7 @@ ImageLoader.prototype.url_to_call = function() {
 
 ImageLoader.prototype.load_params = function(params) {
   console.log(params); 
-  this._window_inner_width = params["window_inner_width"];
+  this._viewport_width = params["viewport_width"];
   this._width_percentage = params["width_percentage"];
   this._original_height = params["original_height"];
   this._original_width = params["original_width"];
@@ -19,5 +19,5 @@ ImageLoader.prototype.tag_height = function() {
 };
 
 ImageLoader.prototype.tag_width = function() {
-  return this._width_percentage * .01 * this._window_inner_width;
+  return this._width_percentage * .01 * this._viewport_width;
 };
