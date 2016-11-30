@@ -3,10 +3,11 @@ var ImageLoader = function() {
 };
 
 ImageLoader.prototype.url_to_call = function() {
-	
-	  return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
-	
-//   return "http://res.cloudinary.com/demo/image/upload/w_" + this.url_request_width() + ",h_" + this.url_request_height() + ",q_80/horses.jpg"; 
+	return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
+};
+
+ImageLoader.prototype.img_tag = function() {
+	return '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">';
 };
 
 ImageLoader.prototype.load_params = function(params) {
