@@ -96,7 +96,9 @@ QUnit.test("Verify defaults", function(assert) {
 
   // Then:
   // assert.equal(imageLoader._max_render_width, 200, "Max render width");
-  assert.equal(imageLoader._dpr, 1, "Device Pixel Ratio");
+  assert.equal(imageLoader._dpr, 1, "Device pixel ratio default");
+  assert.equal(imageLoader._percent_of_viewport_width, 100, "Percent of viewport width default");
+  assert.equal(imageLoader._quality, 80, "Quality default");
 
 });
 
@@ -104,6 +106,7 @@ QUnit.test("Verify defaults", function(assert) {
 /*
 TODO:
 
+- Maybe output console messages if the minimum required params aren't provided
 - Set default % of viewport width to 100%
 - Make sure width is always returned as an integer. 
 - Make sure height is always returned as an integer. 
