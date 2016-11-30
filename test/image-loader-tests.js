@@ -111,7 +111,7 @@ TODO:
 - Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
 - Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
 - Could add a flag to allow for upsizing of smaller images. 
-
+- See if there's a way to automatically pull the width value of the parent container to use that for the base width.
 
 
 */
