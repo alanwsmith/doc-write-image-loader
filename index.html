@@ -48,7 +48,21 @@
       }
     );
     
+  
     document.write(imageLoader.img_tag());
+    document.write(
+      '<table>' +
+      '<tr><td>Device Pixel Resolution:</td><td>' + imageLoader._dpr + 'x</td></tr>' +
+      '<tr><td>Raw Height:</td><td>' + imageLoader._raw_height + '</td></tr>' +
+      '<tr><td>Raw Width:</td><td>' + imageLoader._raw_width + '</td></tr>' +
+      '<tr><td>Render Height:</td><td>' + imageLoader.render_height() + '</td></tr>' +
+      '<tr><td>Render Width:</td><td>' + imageLoader.render_width() + '</td></tr>' +
+      '<tr><td>URL Request Height:</td><td>' + imageLoader.url_request_height() + '</td></tr>' +
+      '<tr><td>URL Request Width:</td><td>' + imageLoader.url_request_width() + '</td></tr>' +
+      '<tr><td>Viewport Height:</td><td>' + imageLoader._viewport_height + '</td></tr>' +
+      '<tr><td>Viewport Width:</td><td>' + imageLoader._viewport_width + '</td></tr>' +
+      '</table>'
+    );
 
   </script>
 
