@@ -21,7 +21,6 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
   // Then - Verify instance variables.
   assert.equal(imageLoader._dpr, 2, "Device pixel resolution"); 
   assert.equal(imageLoader._image_name, "horses.jpg", "Image name"); 
-  assert.equal(imageLoader._max_render_width, 1600, "Default Max Render Width == Raw Width"); 
   assert.equal(imageLoader._raw_height, 1067, "Raw image height"); 
   assert.equal(imageLoader._raw_width, 1600, "Raw image width");
   assert.equal(imageLoader._percent_of_viewport_width, 50, "Percent of viewport width"); 
@@ -79,23 +78,17 @@ QUnit.test("Verify defaults", function(assert) {
   // When
   imageLoader.load_params(
     {
-/*
-      dpr: 2,
       image_name: "horses.jpg",
-      percent_of_viewport_width: 50,
-      quality: 80,
       raw_height: 1067,
       raw_width: 1600,
-      max_render_width: 200,
       viewport_height: 680,
       viewport_width: 1024,
       url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-*/
     }
   );
 
   // Then:
-  // assert.equal(imageLoader._max_render_width, 200, "Max render width");
+  assert.equal(imageLoader._max_render_width, 1600, "Default Max Render Width == Raw Width"); 
   assert.equal(imageLoader._dpr, 1, "Device pixel ratio default");
   assert.equal(imageLoader._percent_of_viewport_width, 100, "Percent of viewport width default");
   assert.equal(imageLoader._quality, 80, "Quality default");
