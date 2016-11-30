@@ -19,8 +19,7 @@ ImageLoader.prototype.load_params = function(params) {
   this._image_name = params["image_name"];
   this._viewport_height = params["viewport_height"];
   this._viewport_width = params["viewport_width"];
-  // TODO: Set default _max_render_width appropriately. 
-  this._max_render_width = params["max_render_width"] ? params["max_render_width"] : 900000;
+  this._max_render_width = params["max_render_width"] ? params["max_render_width"] : params["raw_width"];
   this._percent_of_viewport_width = params["percent_of_viewport_width"];
   this._quality = params["quality"];
   this._raw_height = params["raw_height"];

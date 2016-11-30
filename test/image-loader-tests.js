@@ -21,6 +21,7 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
   // Then - Verify instance variables.
   assert.equal(imageLoader._dpr, 2, "Device pixel resolution"); 
   assert.equal(imageLoader._image_name, "horses.jpg", "Image name"); 
+  assert.equal(imageLoader._max_render_width, 1600, "Default Max Render Width == Raw Width"); 
   assert.equal(imageLoader._raw_height, 1067, "Raw image height"); 
   assert.equal(imageLoader._raw_width, 1600, "Raw image width");
   assert.equal(imageLoader._percent_of_viewport_width, 50, "Percent of viewport width"); 
@@ -76,16 +77,18 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
 /*
 TODO:
 
-- Make sure max_render_width is optional 
-- Make max_render_width == raw_width if it's not already set.
+- Set default % of viewport width to 100%
 - Make sure width is always returned as an integer. 
 - Make sure height is always returned as an integer. 
 - Make sure any half pixel results are truncated properly. 
 - Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
-- Add ability to restrict to max pixel size? (Could just use the raw_width for this, though, that's a bit of a hack)
 - Maybe set default dpr to 1 if no value is avaialble.  
 - Make sure to check odd width and height at different dprs. 
 - Test 1.3 dpr. 
 - Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
+- Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
+- Could add a flag to allow for upsizing of smaller images. 
+
+
 
 */
