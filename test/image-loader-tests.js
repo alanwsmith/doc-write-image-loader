@@ -35,4 +35,14 @@ QUnit.test("1x DPR Basic call", function(assert) {
     512
   );
 
+  assert.equal(
+    imageLoader.url_request_height(), 
+    341 
+  );
+
+  assert.equal(
+    imageLoader.url_request_width(), 
+    512
+  );
+
 });
