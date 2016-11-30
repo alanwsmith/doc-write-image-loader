@@ -14,8 +14,8 @@ ImageLoader.prototype.load_params = function(params) {
   console.log(params); 
   this._viewport_width = params["viewport_width"];
   this._percent_of_viewport = params["percent_of_viewport"];
-  this._raw_height = params["original_height"];
-  this._raw_width = params["original_width"];
+  this._raw_height = params["raw_height"];
+  this._raw_width = params["raw_width"];
 };
 
 ImageLoader.prototype.render_height = function() {

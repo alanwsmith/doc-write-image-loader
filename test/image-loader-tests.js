@@ -5,8 +5,8 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
   // Given 
   imageLoader.load_params(
     {
-      original_height: 1067,
-      original_width: 1600,
+      raw_height: 1067,
+      raw_width: 1600,
       percent_of_viewport: 50,
 //      window_inner_height: 680,
       viewport_width: 1024
