@@ -16,12 +16,7 @@ That's the hypothesis. We'll see if it holds up.
 A Work in Progress
 ------------------
 
-This project isn't ready for prime time. For example, 
-
-- There are several hard coded development stubs. 
-- There are missing features. 
-- It's not optimized. 
-- etc...
+This project isn't ready for prime time.  
 
 That said, the conceptual framework is in place. There's enough to use as a starting point if you'd like to experiment as well. 
 
@@ -29,7 +24,6 @@ Concepts
 --------
 
 - The area the image will occupy is defined explicitly. There's no need to redraw the page or resize the image. It's effectively the same as if a server side process had provided a custom page based on the browsers parameters. Instead of relying on the server to do that work, it's pushed back to the client via the document.write call. Because it blocks, it effectively happens at the initial load. The hypothesis is that JavaScript in modern browsers is fast enough to make this a minimal performance hit and hopefully less than other options. 
-- The object pulls the viewport and devicePixelRatio into local variables. This is done so that QUnit can override them for testing differnet sizes and ratios on a single device/page.
 - The prototype used specific pixels sizes and breakpoints. This refined version simply uses percentages of screen size. While, that won't work for every application (e.g. designs with very specific alignments), it covers the basic image viewing use case. 
 
 
