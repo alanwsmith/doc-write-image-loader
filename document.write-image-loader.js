@@ -7,7 +7,7 @@ ImageLoader.prototype.url_to_call = function() {
 };
 
 ImageLoader.prototype.img_tag = function() {
-	return '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">';
+	return '<img src="' + this.url_to_call() + '" width="' + this.render_width() + '" height="' + this.render_height() + '">'
 };
 
 ImageLoader.prototype.load_params = function(params) {
