@@ -3,10 +3,11 @@ var ImageLoader = function() {
 };
 
 ImageLoader.prototype.url_to_call = function() {
-	
-	  return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
-	
-//   return "http://res.cloudinary.com/demo/image/upload/w_" + this.url_request_width() + ",h_" + this.url_request_height() + ",q_80/horses.jpg"; 
+	return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
+};
+
+ImageLoader.prototype.img_tag = function() {
+	return '<img src="' + this.url_to_call() + '" width="' + this.render_width() + '" height="' + this.render_height() + '">'
 };
 
 ImageLoader.prototype.load_params = function(params) {
@@ -14,7 +15,6 @@ ImageLoader.prototype.load_params = function(params) {
 	// Convience methods will be used in production, but they will all communicate
 	// load_params. 
 
-  console.log(params); 
   this._dpr = params["dpr"];
   this._image_name = params["image_name"];
   this._viewport_height = params["viewport_height"];
@@ -43,14 +43,3 @@ ImageLoader.prototype.url_request_width = function() {
 };
 
 
-/*
-TODO:
-
-- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
-- Add ability to restrict to max pixel size? (Could just use the raw_width for this, though, that's a bit of a hack)
-- Maybe set default dpr to 1 if no value is avaialble.  
-- Make sure to check odd width and height at different dprs. 
-- Test 1.3 dpr. 
-
-
-*/
