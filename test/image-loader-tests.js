@@ -13,7 +13,7 @@ QUnit.test("1x DPR Basic call", function(assert) {
     {
       original_height: 1067,
       original_width: 1600,
-      width_percentage: 50,
+      percent_of_viewport: 50,
 //      window_inner_height: 680,
       viewport_width: 1024
     }
@@ -26,12 +26,12 @@ QUnit.test("1x DPR Basic call", function(assert) {
   );
 
   assert.equal(
-    imageLoader.tag_height(), 
+    imageLoader.render_height(), 
     341 
   );
 
   assert.equal(
-    imageLoader.tag_width(), 
+    imageLoader.render_width(), 
     512
   );
 
