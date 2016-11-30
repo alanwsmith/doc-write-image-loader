@@ -31,13 +31,9 @@ QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
 
   // Verify functions
   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
-
   assert.equal(imageLoader.render_height(), 341, "Render height");
-
   assert.equal(imageLoader.render_width(), 512, "Render width");
-
   assert.equal(imageLoader.url_request_height(), 682, "Request height");
-
   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
 
 });
