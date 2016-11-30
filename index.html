@@ -51,9 +51,10 @@
   
     document.write(imageLoader.img_tag());
     document.write(
-      '<p>Device Pixel Resolution: ' + imageLoader._dpr + 'x<br>' + 
-      '% of viewport width: ' + imageLoader._percent_of_viewport_width + '</p>' +
-
+      '<table>' +
+      '<tr><td>Device Pixel Resolution:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
+      '<tr><td>% of viewport width:</td><td>' + imageLoader._percent_of_viewport_width + '</td></tr>' +
+      '</table>' + 
       '<table>' +
       '<tr><th></th><th>Width</th><th>Height</th>' +
       '<tr><td>Raw (original)</td><td>' + imageLoader._raw_width + '</td><td>' + imageLoader._raw_height + '</td></tr>' +
