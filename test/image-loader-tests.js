@@ -1,12 +1,6 @@
-QUnit.test("Sanity check", function(assert) {
-  assert.equal(1, 1, "Make sure tests work");
-});
-
-QUnit.test("1x DPR Basic call", function(assert) {
+QUnit.test("1x DPR Basic call stright to load_params", function(assert) {
 
 	var imageLoader = new ImageLoader(); 
-
-	// Given
 
   // When
   imageLoader.load_params(
@@ -22,31 +16,35 @@ QUnit.test("1x DPR Basic call", function(assert) {
   // Then
   assert.equal(
     imageLoader.url_to_call(), 
-    "http://res.cloudinary.com/demo/image/upload/w_512,h_341/horses.jpg"
+    "http://res.cloudinary.com/demo/image/upload/w_512,h_341/horses.jpg",
+    "Final URL"
   );
 
   assert.equal(
     imageLoader.render_height(), 
-    341 
+    341,
+    "Render height"
   );
 
   assert.equal(
     imageLoader.render_width(), 
-    512
+    512,
+    "Render width"
   );
 
   assert.equal(
     imageLoader.url_request_height(), 
-    341 
+    341,
+    "Request height"
   );
 
   assert.equal(
     imageLoader.url_request_width(), 
-    512
+    512,
+    "Request width"
   );
 
 });
-
 
 
 

@@ -7,6 +7,10 @@ ImageLoader.prototype.url_to_call = function() {
 };
 
 ImageLoader.prototype.load_params = function(params) {
+	// This is the core funciton that takes all possible inputs.
+	// Convience methods will be used in production, but they will all communicate
+	// load_params. 
+
   console.log(params); 
   this._viewport_width = params["viewport_width"];
   this._percent_of_viewport = params["percent_of_viewport"];
