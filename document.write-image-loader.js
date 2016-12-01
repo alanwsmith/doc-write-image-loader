@@ -15,15 +15,19 @@ ImageLoader.prototype.load_params = function(params) {
 	// Convience methods will be used in production, but they will all communicate
 	// load_params. 
 
-  this._dpr = params["dpr"];
+  // Required
   this._image_name = params["image_name"];
   this._viewport_height = params["viewport_height"];
   this._viewport_width = params["viewport_width"];
-  this._percent_of_viewport_width = params["percent_of_viewport_width"];
-  this._quality = params["quality"];
   this._raw_height = params["raw_height"];
   this._raw_width = params["raw_width"];
   this._url_template = params["url_template"];
+
+  // Optional 
+  this._dpr = params["dpr"] ? params["dpr"] : 1;
+  this._max_render_width = params["max_render_width"] ? params["max_render_width"] : params["raw_width"];
+  this._percent_of_viewport_width = params["percent_of_viewport_width"] ? params["percent_of_viewport_width"] : 100;
+  this._quality = params["quality"] ? params["quality"] : 80;
 };
 
 ImageLoader.prototype.render_height = function() {
@@ -31,7 +35,7 @@ ImageLoader.prototype.render_height = function() {
 };
 
 ImageLoader.prototype.render_width = function() {
-  return this._percent_of_viewport_width * .01 * this._viewport_width;
+	return Math.floor(Math.min(this._max_render_width, (this._percent_of_viewport_width * .01 * this._viewport_width)));
 };
 
 ImageLoader.prototype.url_request_height = function() {

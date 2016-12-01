@@ -63,6 +63,13 @@ Less Blinking
 
 Early resuts show there images don't flash/blink in some browsers with this approach they way they do with other JavaScript loaders.
 
+Max Render Width
+----------------
+
+An optional max_render_width can be set. Useful for making sure images don't show up wider than the column they are designed to fit in. 
+
+If no max width is set, then the raw image sized is used. This prevents images from being enlarged and losing quality. While that means the raw image size can be used as a limiter, it's unadvisable. As higher resolution devices come up raw size demands go up. If old images are updated with higher resolution versions to accomodate, problems can occur.  
+
 
 Roadmap TODOs
 -------------
