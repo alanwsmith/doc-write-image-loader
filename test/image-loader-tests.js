@@ -118,9 +118,9 @@ QUnit.test("Ensure values are integers", function(assert) {
 
   // Then:
   assert.equal(imageLoader.render_height(), 170, "Render height");
-  assert.equal(imageLoader.render_width(), 255, "Render width");
+  assert.equal(imageLoader.render_width(), 255, "Render width is 255 and not 255.25");
   assert.equal(imageLoader.url_request_height(), 340, "Request height");
-  assert.equal(imageLoader.url_request_width(), 510, "Request width");
+  assert.equal(imageLoader.url_request_width(), 510, "Request width is 510 and not 510.5");
 
 });
 
