@@ -35,7 +35,7 @@ ImageLoader.prototype.render_height = function() {
 };
 
 ImageLoader.prototype.render_width = function() {
-	return Math.min(this._max_render_width, (this._percent_of_viewport_width * .01 * this._viewport_width)  )
+	return Math.floor(Math.min(this._max_render_width, (this._percent_of_viewport_width * .01 * this._viewport_width)));
 };
 
 ImageLoader.prototype.url_request_height = function() {

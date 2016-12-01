@@ -96,6 +96,37 @@ QUnit.test("Verify defaults", function(assert) {
 });
 
 
+
+QUnit.test("Ensure values are integers", function(assert) {
+  
+  // Given
+  var imageLoader = new ImageLoader();
+
+  // When
+  imageLoader.load_params(
+    {
+    	dpr: 2,
+      image_name: "horses.jpg",
+      percent_of_viewport_width: 25,
+      raw_height: 1067,
+      raw_width: 1600,
+      viewport_height: 680,
+      viewport_width: 1021,
+      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+    }
+  );
+
+  // Then:
+  assert.equal(imageLoader.render_height(), 170, "Render height");
+  assert.equal(imageLoader.render_width(), 255, "Render width");
+  assert.equal(imageLoader.url_request_height(), 340, "Request height");
+  assert.equal(imageLoader.url_request_width(), 510, "Request width");
+
+});
+
+
+
+
 /*
 TODO:
 
