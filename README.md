@@ -71,6 +71,14 @@ An optional max_render_width can be set. Useful for making sure images don't sho
 If no max width is set, then the raw image sized is used. This prevents images from being enlarged and losing quality. While that means the raw image size can be used as a limiter, it's unadvisable. As higher resolution devices come up raw size demands go up. If old images are updated with higher resolution versions to accomodate, problems can occur.  
 
 
+Notes
+-----
+
+- `percent_of_viewport_height` is optional. If it's called, it does a calculate to make a new `_percent_of_viewport_width` value. All the actual math is based off that. 
+
+
+
+
 Roadmap TODOs
 -------------
 

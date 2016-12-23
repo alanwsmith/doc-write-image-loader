@@ -125,6 +125,30 @@ QUnit.test("Ensure values are integers", function(assert) {
 });
 
 
+QUnit.test("Restrict height", function(assert) {
+
+  // Given
+  var imageLoader = new ImageLoader();
+
+  // When
+  imageLoader.load_params(
+    {
+    	dpr: 1,
+      image_name: "horses.jpg",
+      percent_of_viewport_height: 90,
+      raw_height: 2000,
+      raw_width: 2200,
+      viewport_height: 1000,
+      viewport_width: 1800,
+      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+    }
+  );
+  
+  assert.equal(imageLoader.render_height(), 900, "Render height");
+  
+
+});
+
 
 
 /*
@@ -148,6 +172,7 @@ TODO:
 - Add fallback for not getting innerWidth and innerHeight.
 - Maybe throw an error if extra params are sent. 
 - Figure out how to handle image loading if both width and height are restricted. 
+- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
 
 
 
