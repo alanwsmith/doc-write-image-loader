@@ -29,22 +29,9 @@ ImageLoader.prototype.load_params = function(params) {
   this._percent_of_viewport_width = params["percent_of_viewport_width"] ? params["percent_of_viewport_width"] : 100;
   this._quality = params["quality"] ? params["quality"] : 80;
   
-  // If `percent_of_viewport_height` is called, figure out how to translate that into `_percent_of_viewport_width`. 
+  // If `percent_of_viewport_height` is called, translate it into `_percent_of_viewport_width`.
   if("percent_of_viewport_height" in params) {
-    console.log("origial _percent_of_viewport_width: " + this._percent_of_viewport_width);
-    console.log("percent_of_viewport_height: " + params["percent_of_viewport_height"]);
-    console.log("_raw_height: " + this._raw_height);
-    console.log("_raw_width: " + this._raw_width);
-    console.log("_viewport_height: " + this._viewport_height);
-    console.log("_viewport_width: " + this._viewport_width);
-    var target_height = this._viewport_height * params["percent_of_viewport_height"] / 100;
-    var target_width =  target_height * this._raw_width / this._raw_height
-    var target_percent_of_viewport_width = Math.floor(target_width / this._viewport_width * 100);
-    
-    console.log("target height: " + target_height);
-    console.log("target width: " + target_width);
-    console.log("target _percent_of_viewport_width: " + target_percent_of_viewport_width);
-    this._percent_of_viewport_width = target_percent_of_viewport_width;
+    this._percent_of_viewport_width = Math.floor(((this._viewport_height * params["percent_of_viewport_height"] / 100) * this._raw_width / this._raw_height) / this._viewport_width * 100);
   }
   
 };
