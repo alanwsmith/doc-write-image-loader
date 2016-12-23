@@ -31,7 +31,7 @@ ImageLoader.prototype.load_params = function(params) {
   
   // If `percent_of_viewport_height` is called, translate it into `_percent_of_viewport_width`.
   if("percent_of_viewport_height" in params) {
-    this._percent_of_viewport_width = Math.floor(((this._viewport_height * params["percent_of_viewport_height"] / 100) * this._raw_width / this._raw_height) / this._viewport_width * 100);
+    this._percent_of_viewport_width = Math.floor(this._viewport_height * params["percent_of_viewport_height"] * this._raw_width / this._raw_height / this._viewport_width);
   }
   
 };
