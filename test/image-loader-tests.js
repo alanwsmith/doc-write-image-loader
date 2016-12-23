@@ -130,6 +130,8 @@ QUnit.test("Ensure values are integers", function(assert) {
 /*
 TODO:
 
+- Add ability to apply `class` (and maybe `id`) attributes
+- Add ability to pass `alt` and `title` attributes.
 - Maybe output console messages if the minimum required params aren't provided
 - Set default % of viewport width to 100%
 - Make sure width is always returned as an integer. 
@@ -143,6 +145,8 @@ TODO:
 - Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
 - Could add a flag to allow for upsizing of smaller images. 
 - See if there's a way to automatically pull the width value of the parent container to use that for the base width.
+- Add fallback for not getting innerWidth and innerHeight.
+- Maybe throw an error if extra params are sent. 
 
 
 */
