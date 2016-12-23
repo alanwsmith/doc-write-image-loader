@@ -118,18 +118,44 @@ QUnit.test("Ensure values are integers", function(assert) {
 
   // Then:
   assert.equal(imageLoader.render_height(), 170, "Render height");
-  assert.equal(imageLoader.render_width(), 255, "Render width");
+  assert.equal(imageLoader.render_width(), 255, "Render width is 255 and not 255.25");
   assert.equal(imageLoader.url_request_height(), 340, "Request height");
-  assert.equal(imageLoader.url_request_width(), 510, "Request width");
+  assert.equal(imageLoader.url_request_width(), 510, "Request width is 510 and not 510.5");
 
 });
 
+
+QUnit.test("Restrict height", function(assert) {
+
+  // Given
+  var imageLoader = new ImageLoader();
+
+  // When
+  imageLoader.load_params(
+    {
+    	dpr: 1,
+      image_name: "horses.jpg",
+      percent_of_viewport_height: 90,
+      raw_height: 2000,
+      raw_width: 2200,
+      viewport_height: 1000,
+      viewport_width: 1800,
+      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+    }
+  );
+  
+  assert.equal(imageLoader.render_height(), 900, "Render height");
+  
+
+});
 
 
 
 /*
 TODO:
 
+- Add ability to apply `class` (and maybe `id`) attributes
+- Add ability to pass `alt` and `title` attributes.
 - Maybe output console messages if the minimum required params aren't provided
 - Set default % of viewport width to 100%
 - Make sure width is always returned as an integer. 
@@ -143,6 +169,11 @@ TODO:
 - Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
 - Could add a flag to allow for upsizing of smaller images. 
 - See if there's a way to automatically pull the width value of the parent container to use that for the base width.
+- Add fallback for not getting innerWidth and innerHeight.
+- Maybe throw an error if extra params are sent. 
+- Figure out how to handle image loading if both width and height are restricted. 
+- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
+
 
 
 */
