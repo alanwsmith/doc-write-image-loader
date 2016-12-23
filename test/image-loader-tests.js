@@ -147,6 +147,8 @@ TODO:
 - See if there's a way to automatically pull the width value of the parent container to use that for the base width.
 - Add fallback for not getting innerWidth and innerHeight.
 - Maybe throw an error if extra params are sent. 
+- Figure out how to handle image loading if both width and height are restricted. 
+
 
 
 */
