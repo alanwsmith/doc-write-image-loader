@@ -1,7 +1,9 @@
 QUnit.test("Make sure there is a version number", function(assert) {
 
+    // TODO: Move version number to a string up here.  
+
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
@@ -18,7 +20,7 @@ QUnit.test("Make sure there is a version number", function(assert) {
   // This is hard coded both here and in the actual funciton. 
   // I'm sure there are better ways to do that that can be 
   // looked up. 
-  assert.equal(imageLoader.version_number(), "0.1.0", "Make sure the version number is right."); 
+  assert.equal(imageLoader.version_number(), "0.2.0", "Make sure the version number is right."); 
 
 });
 
@@ -26,7 +28,7 @@ QUnit.test("Make sure there is a version number", function(assert) {
 QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
@@ -67,7 +69,7 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 QUnit.test("2x DPR stright to load_params with max width enforced", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -98,7 +100,7 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
 QUnit.test("Verify defaults", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -125,7 +127,7 @@ QUnit.test("Verify defaults", function(assert) {
 QUnit.test("Ensure values are integers", function(assert) {
   
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -153,7 +155,7 @@ QUnit.test("Ensure values are integers", function(assert) {
 QUnit.test("Restrict height", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -181,7 +183,7 @@ QUnit.test("Restrict height", function(assert) {
 QUnit.test("NEW TEST EXAMPLE TEMPLATE", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
