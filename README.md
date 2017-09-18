@@ -13,6 +13,18 @@ Every approach I've seen for loading responsive images feels rough. This is an a
 That's the hypothesis. We'll see if it holds up.
 
 
+Repo Checkout Procedure
+-----------------------
+
+- Since this project is using GitHub Pages, `gh-pages` is used in place of the `master` branch. 
+- First step is to checkout a branch from `gh-pages` with the target version number (e.g. `0.4.0-dev`).
+- No work sould be done on the branches with the semantic version numbers. 
+- Instead, checkout a dev/working branch from the semantic versoin number version and work on it. 
+- Rinse/repeat combining back into the semver branch until it's ready. 
+- When it's ready, merge it back into `gh-pages` and add a tag with the version number.
+
+
+
 A Work in Progress
 ------------------
 
@@ -24,8 +36,7 @@ That said, the conceptual framework is in place. There's enough to use as a star
 Versioning
 ----------
 
-- Experimented with adding `-#-#-#` to the filename, but there's no need. Changing the class name is all that's required (i.e. stuff will break because of that, there's no need to add the extra tripwire of the filename.)  
-
+- The primary `.js` file name is always the same, but each version is stored in its own numbered directory to ease testing/qa/deployment. This also makes it possible to transition from one version to the next in stages instead of a Big Bang change.
 - The primary class's name contains a semantic version number. 
 - The major and minor veresions are always defined. 
 - The patch version is always `x`. 
