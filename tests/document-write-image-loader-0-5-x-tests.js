@@ -25,6 +25,7 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
 
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
+    imageLoader.load_environment();
     
     // When 
     var image_params = {

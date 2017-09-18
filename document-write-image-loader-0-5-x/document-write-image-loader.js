@@ -7,10 +7,15 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 };
 
 
+ImageLoader_0_5_x.prototype.load_environment = function() {
+
+};
+
 ImageLoader_0_5_x.prototype.image_string_from_params = function() {
     return '<img alt="image description" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
 };
 
+// TODO: Delete this funciton
 ImageLoader_0_5_x.prototype.load_environmental_params = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 };
