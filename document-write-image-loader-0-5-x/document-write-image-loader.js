@@ -8,7 +8,7 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function() {
-    return '<img src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852,q_80/horses.jpg" width="640" height="426">';
+    return '<img alt="image description" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852,q_80/horses.jpg" width="640" height="426">';
 };
 
 ImageLoader_0_5_x.prototype.load_environmental_params = function() {
