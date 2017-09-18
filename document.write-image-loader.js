@@ -2,6 +2,10 @@ var ImageLoader = function() {
 
 };
 
+ImageLoader.prototype.version_number = function() {
+    return true;
+};
+
 ImageLoader.prototype.url_to_call = function() {
 	return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
 };

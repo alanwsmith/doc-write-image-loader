@@ -1,3 +1,25 @@
+QUnit.test("Make sure there is a version number", function(assert) {
+
+  // Given
+	var imageLoader = new ImageLoader(); 
+
+  // When
+  imageLoader.load_params(
+    {
+      dpr: 2,
+      image_name: "horses.jpg",
+      percent_of_viewport_width: 50, quality: 80,
+      raw_height: 1067, raw_width: 1600,
+      viewport_height: 680, viewport_width: 1024,
+      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+    }
+  );
+
+  assert.equal(imageLoader.version_number(), true, "EXAMPLE ASSERTION FOR NEW TEST TEMPLTE"); 
+
+});
+
+
 QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
   // Given
