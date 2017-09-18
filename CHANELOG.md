@@ -8,10 +8,8 @@ Version: next
 
 
 
-
-
-September 17, 2017
-------------------
+Version: Pre-History 
+--------------------
 
 - Unforunately, no Changelog notes were kept prior to this point.
 
