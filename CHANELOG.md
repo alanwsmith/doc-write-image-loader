@@ -1,10 +1,11 @@
 Changelog
 =========
 
-Version: next
+Version: 0.4.0 
 --------------
 
 - TKTKTK
+
 
 Version: 0.3.0
 --------------
