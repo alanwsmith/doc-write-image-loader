@@ -33,6 +33,5 @@ Version: Pre-History
 
 - Unforunately, no Changelog notes were kept prior to this point.
 
-    Gotta lock at the Git Logs and parse thru those. 
-
+    You'll have to look at the Git logs and parse thru those to see specific changes.  
 
