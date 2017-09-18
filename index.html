@@ -49,8 +49,10 @@
       }
     );
     
-  
+    // Primary output 
     document.write(imageLoader.img_tag());
+
+    // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
@@ -87,7 +89,10 @@
     );
     
   
+    // Primary output
     document.write(imageLoader.img_tag());
+
+    // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
@@ -122,7 +127,10 @@
     );
     
   
+    // Primary output
     document.write(imageLoader.img_tag());
+
+    // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
@@ -159,7 +167,10 @@
       }
     );
     
+    // Primary output
     document.write(imageLoader.img_tag());
+
+    // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
@@ -181,8 +192,8 @@
   <script>
     imageLoader.load_params(
       {
-    	  dpr: 2,
-    	  image_name: "horses.jpg",
+    	dpr: 2,
+    	image_name: "horses.jpg",
         percent_of_viewport_height: 50,
         quality: 80,
         raw_height: 1067,
@@ -192,8 +203,11 @@
         url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
       }
     );
-    
+   
+    // Primary output 
     document.write(imageLoader.img_tag());
+
+    // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
@@ -209,9 +223,6 @@
       '</table>'
     );
   </script>
-
-
-
 
   <hr>
   <p>Resize the browser and refresh the page to generate a different size.</p>
