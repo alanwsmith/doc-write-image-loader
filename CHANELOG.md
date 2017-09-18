@@ -4,6 +4,9 @@ Changelog
 Version: next
 -------------
 
+Version: 0.1.0 
+--------------
+
 - Added `.version_number()` method/function.
 - Added this Changelog.
 
