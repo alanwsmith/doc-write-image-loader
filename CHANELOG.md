@@ -10,12 +10,12 @@ Version: 0.5.0
 - Remove `q_` quality parameter from base output.
 - Pending: Removed `dpr` from `load_params()` calls.
 
+
 Version: 0.4.1 
 --------------
 
 - Added documentation usage example in the README. 
 - Moved primary TODO list into the README file.
-
 
 
 Version: 0.4.0 
