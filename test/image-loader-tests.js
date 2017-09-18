@@ -1,7 +1,7 @@
 QUnit.test("Make sure there is a version number", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
@@ -26,7 +26,7 @@ QUnit.test("Make sure there is a version number", function(assert) {
 QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
@@ -67,7 +67,7 @@ QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 QUnit.test("2x DPR stright to load_params with max width enforced", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -98,7 +98,7 @@ QUnit.test("2x DPR stright to load_params with max width enforced", function(ass
 QUnit.test("Verify defaults", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -125,7 +125,7 @@ QUnit.test("Verify defaults", function(assert) {
 QUnit.test("Ensure values are integers", function(assert) {
   
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -153,7 +153,7 @@ QUnit.test("Ensure values are integers", function(assert) {
 QUnit.test("Restrict height", function(assert) {
 
   // Given
-  var imageLoader = new ImageLoader();
+  var imageLoader = new ImageLoader_0_2_x();
 
   // When
   imageLoader.load_params(
@@ -181,7 +181,7 @@ QUnit.test("Restrict height", function(assert) {
 QUnit.test("NEW TEST EXAMPLE TEMPLATE", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader(); 
+	var imageLoader = new ImageLoader_0_2_x(); 
 
   // When
   imageLoader.load_params(
