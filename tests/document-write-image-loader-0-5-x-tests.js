@@ -11,6 +11,24 @@ QUnit.test("Make sure the version number is accurate", function(assert) {
 
 });
 
+QUnit.test("Integration Test: Make sure Device Pixel Resolution is captured on setup", function(assert) {
+
+  // NOTE: Since this is an integration test. It captures the
+  // device pixel resolution form whatever browser is running it. 
+  // Not sure how that would work in a headless test. For now, 
+  // all test runs are done in a browser.  
+  
+  // Given 
+  var target_dpr = window.devicePixelRatio;
+
+  // When
+  var imageLoader = new ImageLoader_0_5_x(); 
+
+  // Then
+  assert.equal(imageLoader._dpr, target_dpr);
+
+});
+
 
 QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 
