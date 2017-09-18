@@ -4,7 +4,9 @@ Changelog
 Version: 0.4.0 
 --------------
 
-- TKTKTK
+- Added note on versioning checkout procedures to the README.
+- TKTKTKTKT
+
 
 
 Version: 0.3.0
