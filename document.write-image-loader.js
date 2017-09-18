@@ -3,7 +3,7 @@ var ImageLoader = function() {
 };
 
 ImageLoader.prototype.version_number = function() {
-    return true;
+    return "0.1.0";
 };
 
 ImageLoader.prototype.url_to_call = function() {

@@ -15,7 +15,10 @@ QUnit.test("Make sure there is a version number", function(assert) {
     }
   );
 
-  assert.equal(imageLoader.version_number(), true, "EXAMPLE ASSERTION FOR NEW TEST TEMPLTE"); 
+  // This is hard coded both here and in the actual funciton. 
+  // I'm sure there are better ways to do that that can be 
+  // looked up. 
+  assert.equal(imageLoader.version_number(), "0.1.0", "Make sure the version number is right."); 
 
 });
 
