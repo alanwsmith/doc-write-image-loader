@@ -20,32 +20,26 @@ Usage
 
 Either place a call to the script in the `<head>` of the HTML with:
 
-    <script src="document-write-image-loader-#-#-x/document-write-image-loader.js"></script>
+    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+    var imageLoader = new ImageLoader_0_5_x;
+    imageLoader.load_environmental_param();
 
 Or, copy the contents of the `.js` file into the `<head>` of HTML directly. 
 
 **Calling**
 
-Here's an example of the current call structure. (The version number in this documentation is currently adjusted manually. It may get out of sync. Check it to make sure it's accurate when implementing.) 
+NOTE: This is the desired structure for the minimum number of parameters that can be used for the call. Making it happen is still a work in progress.
 
-    var imageLoader = new ImageLoader_0_4_x;
-    
-    imageLoader.load_params(
-      {
-    	dpr: 2,
-    	image_name: "horses.jpg",
-        percent_of_viewport_width: 50,
-        quality: 80,
-        raw_height: 1067,
-        raw_width: 1600,
-        viewport_height: window.innerHeight,
-        viewport_width: window.innerWidth,
-        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-      }
-    );
-    
-  
-    document.write(imageLoader.img_tag());
+    imageLoader.load_image( { 
+        filename: "horses.jpg", 
+        alt_text: "Photo of Horses",
+        source_width: 1600,
+        source_height: 1067
+    });
+
+The idea here is that the image will max out to the viewport width. 
+
+TODO: Update so the image goes to 100% of the width of whatever container it's in. 
 
 
 
