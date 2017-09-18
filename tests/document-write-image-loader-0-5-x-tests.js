@@ -20,15 +20,26 @@ QUnit.test("Make sure the version number is accurate", function(assert) {
 
 QUnit.test("Integration Test: Basic call verification", function(assert) {
 
+    // Preflight
     var target_string = '<img alt="image description" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852,q_80/horses.jpg">';
 
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
+    
+    // When 
+    var image_params = {
+        filename: "horses.jpg", 
+        alt_text: "Photo of Horses",
+        source_width: 1600,
+        source_height: 1067
+    };
 
-    // TODO: Add environmental param override to standardize output.
+    var result_string = imageLoader.image_string_from_params(image_params);
+
+    // TODO: Add environmental param override to standardize output independent of browser.
 
     // Then
-    assert.equal(imageLoader.image_string_from_params( { } ), target_string);
+    assert.equal(result_string, target_string);
 
 
 });
