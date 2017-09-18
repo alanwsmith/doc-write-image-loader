@@ -21,7 +21,7 @@ QUnit.test("Make sure the version number is accurate", function(assert) {
 QUnit.test("Integration Test: Basic call verification", function(assert) {
 
     // Preflight
-    var target_string = '<img alt="image description" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    var target_string = '<img alt="Photo of Hourses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
 
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
