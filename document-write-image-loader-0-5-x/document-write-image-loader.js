@@ -1,5 +1,8 @@
 var ImageLoader_0_5_x = function() { };
 
+// Capture device pixel ration
+ImageLoader_0_5_x.prototype._dpr = window.devicePixelRatio;
+
 ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };

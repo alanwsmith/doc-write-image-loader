@@ -1,6 +1,10 @@
 Changelog
 =========
 
+Version: 0.5.0
+--------------
+
+- Capturing Device Pixel Resolution (`dpr`) directly instead of passing it as a param (which was done for initial testing).
 Version: 0.4.1 
 --------------
 
