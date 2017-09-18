@@ -11,6 +11,22 @@ QUnit.test("Make sure the version number is accurate", function(assert) {
 
 });
 
+
+QUnit.test("Integration Test: Basic call verification", function(assert) {
+
+    var target_string = '<img src="">';
+
+    // Given
+    var imageLoader = new ImageLoader_0_5_x(); 
+
+    // Then
+    assert.equal(imageLoader.image_string_from_params( { } ), target_string);
+
+
+});
+
+
+
 QUnit.test("Integration Test: Verify environmental parameters load", function(assert) {
 
     // It's a little weird to tests these params, but I 

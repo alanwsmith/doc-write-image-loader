@@ -6,6 +6,11 @@ ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };
 
+
+ImageLoader_0_5_x.prototype.image_string_from_params = function() {
+    return '<img src="">'; 
+};
+
 ImageLoader_0_5_x.prototype.load_environmental_params = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 };
