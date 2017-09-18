@@ -135,7 +135,7 @@ Notes
 Roadmap TODOs
 -------------
 
-- Setup so a single call with minimal params can be made (e.g. should not have to idnetify `dpr` for Device Pixel Resolution.
+- Set a default quality 
 - (all the TODOs in the code comments)
 - Make sure all dimensions are converted to integers. 
 - Slice off extra pixels when division doesn't results in an integer.
