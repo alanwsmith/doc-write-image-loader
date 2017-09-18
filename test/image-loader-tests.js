@@ -182,26 +182,28 @@ QUnit.test("NEW TEST EXAMPLE TEMPLATE", function(assert) {
 /***********************************************************\
  * TODO List
  *
+ * - Define required parameters and make sure they are
+ *   called. 
  *
-
-- Add ability to apply `class` (and maybe `id`) attributes
-- Add ability to pass `alt` and `title` attributes.
-- Maybe output console messages if the minimum required params aren't provided
-- Set default % of viewport width to 100%
-- Make sure width is always returned as an integer. 
-- Make sure height is always returned as an integer. 
-- Make sure any half pixel results are truncated properly. 
-- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
-- Maybe set default dpr to 1 if no value is avaialble.  
-- Make sure to check odd width and height at different dprs. 
-- Test 1.3 dpr. 
-- Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
-- Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
-- Could add a flag to allow for upsizing of smaller images. 
-- See if there's a way to automatically pull the width value of the parent container to use that for the base width.
-- Add fallback for not getting innerWidth and innerHeight.
-- Maybe throw an error if extra params are sent. 
-- Figure out how to handle image loading if both width and height are restricted. 
-- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
-
+ * - Add ability to apply `class` (and maybe `id`) attributes
+ * - Add ability to pass `alt` and `title` attributes.
+ * - Maybe output console messages if the minimum required params aren't provided
+ * - Set default % of viewport width to 100%
+ * - Make sure width is always returned as an integer. 
+ * - Make sure height is always returned as an integer. 
+ * - Make sure any half pixel results are truncated properly. 
+ * - Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
+ * - Maybe set default dpr to 1 if no value is avaialble.  
+ * - Make sure to check odd width and height at different dprs. 
+ * - Test 1.3 dpr. 
+ * - Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
+ * - Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
+ * - Could add a flag to allow for upsizing of smaller images. 
+ * - See if there's a way to automatically pull the width value of the parent container to use that for the base width.
+ * - Add fallback for not getting innerWidth and innerHeight.
+ * - Maybe throw an error if extra params are sent. 
+ * - Figure out how to handle image loading if both width and height are restricted. 
+ * - Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
+ *
 \***********************************************************/
+
