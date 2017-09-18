@@ -19,6 +19,8 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
 
+    // TODO: Add environmental param override to standardize output.
+
     // Then
     assert.equal(imageLoader.image_string_from_params( { } ), target_string);
 
