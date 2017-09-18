@@ -1,6 +1,14 @@
 Changelog
 =========
 
+Version: 0.4.1 
+--------------
+
+- Added documentation usage example in the README. 
+- Moved primary TODO list into the README file.
+
+
+
 Version: 0.4.0 
 --------------
 
