@@ -6,6 +6,7 @@ Version: 0.4.0
 
 - Added note on versioning checkout procedures to the README.
 - Created the first in a series of version specific directories to ease deployment. 
+- Changed base filename to `document-write-image-loader.js`.
 
 
 Version: 0.3.0
