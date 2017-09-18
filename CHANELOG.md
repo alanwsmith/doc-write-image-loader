@@ -5,7 +5,7 @@ Version: 0.4.0
 --------------
 
 - Added note on versioning checkout procedures to the README.
-- Added major/minor version number back to file name `-0-4-x.js`. Decided that it'll help deployment versioning. 
+- Created the first in a series of version specific directories to ease deployment. 
 
 
 Version: 0.3.0
