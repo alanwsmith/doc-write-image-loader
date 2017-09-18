@@ -1,7 +1,7 @@
 QUnit.test("Make sure there is a version number", function(assert) {
 
   // SET VERSION NUMBER:
-    var version_number = "0.4.0";
+    var version_number = "0.4.1";
 
   // Given
 	var imageLoader = new ImageLoader_0_4_x(); 
