@@ -13,6 +13,42 @@ Every approach I've seen for loading responsive images feels rough. This is an a
 That's the hypothesis. We'll see if it holds up.
 
 
+Usage
+-----
+
+**Setup**
+
+Either place a call to the script in the `<head>` of the HTML with:
+
+    <script src="document-write-image-loader-#-#-x/document-write-image-loader.js"></script>
+
+Or, copy the contents of the `.js` file into the `<head>` of HTML directly. 
+
+**Calling**
+
+Here's an example of the current call structure. (The version number in this documentation is currently adjusted manually. It may get out of sync. Check it to make sure it's accurate when implementing.) 
+
+    var imageLoader = new ImageLoader_0_4_x;
+    
+    imageLoader.load_params(
+      {
+    	dpr: 2,
+    	image_name: "horses.jpg",
+        percent_of_viewport_width: 50,
+        quality: 80,
+        raw_height: 1067,
+        raw_width: 1600,
+        viewport_height: window.innerHeight,
+        viewport_width: window.innerWidth,
+        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+      }
+    );
+    
+  
+    document.write(imageLoader.img_tag());
+
+
+
 Repo Checkout Procedure
 -----------------------
 
@@ -105,6 +141,7 @@ Notes
 Roadmap TODOs
 -------------
 
+- Setup so a single call with minimal params can be made (e.g. should not have to idnetify `dpr` for Device Pixel Resolution.
 - (all the TODOs in the code comments)
 - Make sure all dimensions are converted to integers. 
 - Slice off extra pixels when division doesn't results in an integer.
@@ -116,6 +153,27 @@ Roadmap TODOs
 - Test to check default quality value. 
 - Test 1 and 1.3 devicePixelRatios. 
 - Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
+- Setup a process to update version number strings in documentation automatcially.
+- Define required parameters and make sure they are called. 
+- Add ability to apply `class` (and maybe `id`) attributes
+- Add ability to pass `alt` and `title` attributes.
+- Maybe output console messages if the minimum required params aren't provided
+- Set default % of viewport width to 100%
+- Make sure width is always returned as an integer. 
+- Make sure height is always returned as an integer. 
+- Make sure any half pixel results are truncated properly. 
+- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
+- Maybe set default dpr to 1 if no value is avaialble.  
+- Make sure to check odd width and height at different dprs. 
+- Test 1.3 dpr. 
+- Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
+- Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
+- Could add a flag to allow for upsizing of smaller images. 
+- See if there's a way to automatically pull the width value of the parent container to use that for the base width.
+- Add fallback for not getting innerWidth and innerHeight.
+- Maybe throw an error if extra params are sent. 
+- Figure out how to handle image loading if both width and height are restricted. 
+- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
 
 
 
