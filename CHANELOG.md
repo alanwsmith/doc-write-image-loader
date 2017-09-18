@@ -1,11 +1,11 @@
-Change Log
-==========
+Changelog
+=========
 
 Version: next
 -------------
 
 - Added `.version_number()` method/function.
-
+- Added this Changelog.
 
 
 Version: Pre-History 
