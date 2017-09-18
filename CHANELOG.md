@@ -8,6 +8,8 @@ Version: 0.4.0
 - Created the first in a series of version specific directories to ease deployment. 
 - Changed base filename to `document-write-image-loader.js`.
 - Renamaed `test` directory to `tests`.
+- Setup so there's a specific test file for each version.
+- Moved version number in the test file into a variable to make it easier to see/change.
 
 
 Version: 0.3.0
