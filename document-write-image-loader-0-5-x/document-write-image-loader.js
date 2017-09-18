@@ -1,13 +1,13 @@
 var ImageLoader_0_5_x = function() { };
 
-// Capture device pixel ration
-// TODO: Figure out how to test default for dpr
-ImageLoader_0_5_x.prototype._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
-
 // TODO: Capture viewport_width and viewport_height on initialiaztion.
 
 ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
+};
+
+ImageLoader_0_5_x.prototype.load_environmental_params = function() {
+
 };
 
 ImageLoader_0_5_x.prototype.url_to_call = function() {
