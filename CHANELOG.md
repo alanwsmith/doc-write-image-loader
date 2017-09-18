@@ -6,6 +6,7 @@ Version: 0.5.0
 
 - Setup `image_string_from_params()` method as core integration point. 
 - Setup `load_environmental_params()` method to pull in `dpr`, `viewport_height`, etc...
+- Remove `q_` quality parameter from base output.
 - Pending: Removed `dpr` from `load_params()` calls.
 
 Version: 0.4.1 
