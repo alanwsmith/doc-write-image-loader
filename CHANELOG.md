@@ -4,7 +4,8 @@ Change Log
 Version: next
 -------------
 
-- Notes for the next version to go here. 
+- Added `.version_number()` method/function.
+
 
 
 
