@@ -13,6 +13,20 @@ Every approach I've seen for loading responsive images feels rough. This is an a
 That's the hypothesis. We'll see if it holds up.
 
 
+Repo Checkout Procedure
+-----------------------
+
+- Since this project is using GitHub Pages, `gh-pages` is used in place of the `master` branch. 
+- First step is to checkout a branch from `gh-pages` with the target version number (e.g. `0.4.0`).
+- No work sould be done on the branches with the semantic version numbers. 
+- Instead, checkout a dev/working branch from the semantic versoin number version and work on it. 
+- Rinse/repeat combining back into the semver branch until it's ready. 
+- When it's ready, merge it back into `gh-pages` and add a tag with the version number.
+
+
+
+
+
 A Work in Progress
 ------------------
 
