@@ -27,7 +27,6 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
     var imageLoader = new ImageLoader_0_5_x(); 
     imageLoader.load_environment();
     
-    // When 
     var image_params = {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
@@ -35,13 +34,13 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
         source_height: 1067
     };
 
-    var result_string = imageLoader.image_string_from_params(image_params);
-
     // TODO: Add environmental param override to standardize output independent of browser.
+
+    // When 
+    var result_string = imageLoader.image_string_from_params(image_params);
 
     // Then
     assert.equal(result_string, target_string);
-
 
 });
 
