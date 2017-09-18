@@ -4,8 +4,10 @@ Changelog
 Version: 0.5.0
 --------------
 
-- Capturing Device Pixel Resolution (`dpr`) directly instead of passing it as a param (which was done for initial testing).
 - Setup `image_string_from_params()` method as core integration point. 
+- Setup `load_environmental_params()` method to pull in `dpr`, `viewport_height`, etc...
+- Pending: Removed `dpr` from `load_params()` calls.
+
 Version: 0.4.1 
 --------------
 
