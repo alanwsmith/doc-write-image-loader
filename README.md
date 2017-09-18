@@ -24,6 +24,8 @@ That said, the conceptual framework is in place. There's enough to use as a star
 Versioning
 ----------
 
+- Experimented with adding `-#-#-#` to the filename, but there's no need. Changing the class name is all that's required (i.e. stuff will break because of that, there's no need to add the extra tripwire of the filename.)  
+
 - The primary class's name contains a semantic version number. 
 - The major and minor veresions are always defined. 
 - The patch version is always `x`. 
