@@ -26,6 +26,7 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
     imageLoader.load_environment();
+    imageLoader.set_url_template();
     
     var image_params = {
         filename: "horses.jpg", 

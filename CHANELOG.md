@@ -4,6 +4,7 @@ Changelog
 Version: 0.5.0
 --------------
 
+- Added `set_url_template()`.
 - Setup `image_string_from_params()` method as core integration point. 
 - Setup `load_environment()` method to pull in `dpr`, `viewport_height`, etc...
 - Remove `q_` quality parameter from base output.

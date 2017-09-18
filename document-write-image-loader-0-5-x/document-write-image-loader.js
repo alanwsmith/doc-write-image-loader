@@ -7,6 +7,12 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 };
 
 
+
+ImageLoader_0_5_x.prototype.set_url_template= function() {
+
+}
+
+
 ImageLoader_0_5_x.prototype.load_environment = function() {
 
 };
