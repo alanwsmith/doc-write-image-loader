@@ -4,6 +4,9 @@ Changelog
 Version: next
 -------------
 
+- Changed class name so it includes a major/minor version number with `x` patch level. 
+- Chaned the `.js` filename to include the version number.
+
 Version: 0.1.0 
 --------------
 
