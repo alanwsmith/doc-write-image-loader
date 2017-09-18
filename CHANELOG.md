@@ -2,7 +2,18 @@ Changelog
 =========
 
 Version: next
--------------
+--------------
+
+- TKTKTK
+
+Version: 0.3.0
+--------------
+
+- Removed the version number from the `.js` file name since the class name change is all that's needed to line things up.
+
+
+Version: 0.2.0 
+--------------
 
 - Changed class name so it includes a major/minor version number with `x` patch level. 
 - Chaned the `.js` filename to include the version number.
