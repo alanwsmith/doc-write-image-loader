@@ -207,32 +207,3 @@ QUnit.test("Restrict height", function(assert) {
 });
 
 
-/***********************************************************\
- * START: New Test Template
-
-QUnit.test("NEW TEST EXAMPLE TEMPLATE", function(assert) {
-
-  // Given
-	var imageLoader = new ImageLoader_0_4_x(); 
-
-  // When
-  imageLoader.load_params(
-    {
-      dpr: 2,
-      image_name: "horses.jpg",
-      percent_of_viewport_width: 50, quality: 80,
-      raw_height: 1067, raw_width: 1600,
-      viewport_height: 680, viewport_width: 1024,
-      url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-    }
-  );
-
-  // Then - Verify instance variables.
-  assert.equal(imageLoader.stub_function(), true, "EXAMPLE ASSERTION FOR NEW TEST TEMPLTE"); 
-
-});
-
- * END: New Test Template
-\***********************************************************/
-
-
