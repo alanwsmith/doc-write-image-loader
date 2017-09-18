@@ -1,6 +1,4 @@
-var ImageLoader_0_4_x = function() {
-
-};
+var ImageLoader_0_4_x = function() { };
 
 ImageLoader_0_4_x.prototype.version_number = function() {
     return "0.4.1";
