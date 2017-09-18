@@ -13,6 +13,42 @@ Every approach I've seen for loading responsive images feels rough. This is an a
 That's the hypothesis. We'll see if it holds up.
 
 
+Usage
+-----
+
+**Setup**
+
+Either place a call to the script in the `<head>` of the HTML with:
+
+    <script src="document-write-image-loader-#-#-x/document-write-image-loader.js"></script>
+
+Or, copy the contents of the `.js` file into the `<head>` of HTML directly. 
+
+**Calling**
+
+Here's an example of the current call structure. (The version number in this documentation is currently adjusted manually. It may get out of sync. Check it to make sure it's accurate when implementing.) 
+
+    var imageLoader = new ImageLoader_0_4_x;
+    
+    imageLoader.load_params(
+      {
+    	dpr: 2,
+    	image_name: "horses.jpg",
+        percent_of_viewport_width: 50,
+        quality: 80,
+        raw_height: 1067,
+        raw_width: 1600,
+        viewport_height: window.innerHeight,
+        viewport_width: window.innerWidth,
+        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+      }
+    );
+    
+  
+    document.write(imageLoader.img_tag());
+
+
+
 Repo Checkout Procedure
 -----------------------
 

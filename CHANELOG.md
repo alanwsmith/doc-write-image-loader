@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Version: 0.4.1 
+--------------
+
+- Added documentation usage example in the README. 
+
+
+
 Version: 0.4.0 
 --------------
 
