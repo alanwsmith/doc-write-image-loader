@@ -20,6 +20,16 @@ This project isn't ready for prime time.
 
 That said, the conceptual framework is in place. There's enough to use as a starting point if you'd like to experiment as well. 
 
+
+Versioning
+----------
+
+- The primary class's name contains a semantic version number. 
+- The major and minor veresions are always defined. 
+- The patch version is always `x`. 
+- The expectation is that any actual patch number for any specific major+minor version will pass the same tests.
+
+
 Concepts
 --------
 
