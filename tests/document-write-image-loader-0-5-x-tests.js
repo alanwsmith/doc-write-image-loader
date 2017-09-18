@@ -1,15 +1,13 @@
-QUnit.test("Make sure there is a version number", function(assert) {
-
-  // SET VERSION NUMBER:
-    var version_number = "0.5.0";
+QUnit.test("Make sure the version number is accurate", function(assert) {
 
   // Given
-	var imageLoader = new ImageLoader_0_5_x(); 
+  var required_version_number = "0.5.0";
 
-  // This is hard coded both here and in the actual funciton. 
-  // I'm sure there are better ways to do that that can be 
-  // looked up. 
-  assert.equal(imageLoader.version_number(), version_number, "Make sure the version number is right."); 
+  // When 
+  var imageLoader = new ImageLoader_0_5_x(); 
+
+  // Then
+  assert.equal(imageLoader.version_number(), required_version_number); 
 
 });
 
