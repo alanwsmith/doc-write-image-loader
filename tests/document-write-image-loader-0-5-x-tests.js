@@ -17,7 +17,7 @@ QUnit.test("Integration Test: Verify environmental parameters load", function(as
     // want to make sure they work for integration purposes. 
 
     // Given
-    var target_dpr = window.devicePixelRatio;
+    var target_dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 
     // When
     var imageLoader = new ImageLoader_0_5_x(); 
