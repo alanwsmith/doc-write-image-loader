@@ -58,7 +58,11 @@ ImageLoader_0_5_x.prototype.calculate_visual_width = function(params) {
 	// Previous logic:
     // return Math.floor(Math.min(this._max_render_width, (this._percent_of_viewport_width * .01 * this._viewport_width)));
 
-	return_value = Math.floor(Math.min(params['max_render_width'], 10000000));
+	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
+	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
+
+	// TODO: Make sure this value is an integer before returning it. 
+	return_value = Math.floor(Math.min(params['max_render_width'], viewport_based_max));
 
     return return_value;
 };
