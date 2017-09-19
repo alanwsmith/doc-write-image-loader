@@ -9,12 +9,17 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 
 ImageLoader_0_5_x.prototype.set_url_template= function() {
-
+    // TODO: Take in a parameter and set the instance variable
+    //       `_url_template` so that it can be set one time
+    //       and isn't required for every call.
 }
 
 
 ImageLoader_0_5_x.prototype.load_environment = function() {
-
+    // TODO: Setup an initilization type call the 
+    //       pulls in and the environmental parameters 
+    //       from the browser a single time so they can
+    //       be used across multiple uses.
 };
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function() {
