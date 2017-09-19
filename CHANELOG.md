@@ -13,6 +13,7 @@ Version: 0.5.0
 - Added `.set_url_template()` 
 - Setup a template for the final `<img>` output instead of assembling it by adding strings together.
 - Added default `_max_width_of_window_percentage` of 94 so it's not necessary to send that value down for every call.
+- Added `.calculate_visual_width()` to figure out the width to set for the canvas size for the image.
 
 
 
