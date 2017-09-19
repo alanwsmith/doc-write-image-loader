@@ -11,6 +11,7 @@ Version: 0.5.0
 - Setup `.image_string_from_params()` method as core integration point. 
 - Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatcially. 
 - Added `.set_url_template()` 
+- Setup a template for the final `<img>` output instead of assembling it by adding strings together.
 
 
 
