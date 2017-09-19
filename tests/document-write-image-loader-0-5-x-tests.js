@@ -17,7 +17,7 @@ QUnit.test("Confirm version number has been updated.", function(assert) {
 });
 
 
-QUnit.test("Integration Test: Basic call verification", function(assert) {
+QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
 
     // TODO:
     // - Add environmental overrides so it doesn't matter what browser is being tested. 
