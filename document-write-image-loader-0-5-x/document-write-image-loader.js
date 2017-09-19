@@ -57,9 +57,9 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 ImageLoader_0_5_x.prototype.calculate_visual_width = function(params) {
 	// Previous logic:
     // return Math.floor(Math.min(this._max_render_width, (this._percent_of_viewport_width * .01 * this._viewport_width)));
-    console.log(params['max_render_width']);
 
-    return_value = params['max_render_width'];
+	return_value = Math.floor(Math.min(params['max_render_width'], 10000000));
+
     return return_value;
 };
 
