@@ -4,6 +4,7 @@ ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };
 
+ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     
     // TODO: Make a function to build the display width
