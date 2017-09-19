@@ -18,8 +18,12 @@ ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94;
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     
-    // TODO: Make a function to build the display width
-    var _stub_width = 640; 
+    // TODO: Migrate to using non-stubbed values. 
+    var _stub_width = this.calculate_visual_width({
+        max_render_width: 640,
+        percent_of_viewport_width: 94,
+        viewport_width: 1028
+	}); 
 
     // TODO: Make a function to build the display height 
     var _stub_height = 436;
