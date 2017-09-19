@@ -28,6 +28,7 @@
     date_string += (seconds < 10 ? '0' : '');
 	date_string += seconds; 
 
+	// TODO: Find a better way to do cache busting.
 	var script_call = '';
 	script_call += '<script src="';
 	script_call += '../document-write-image-loader-0-5-x/document-write-image-loader.js';

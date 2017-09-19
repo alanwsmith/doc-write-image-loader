@@ -14,7 +14,7 @@ Version: 0.5.0
 - Setup a template for the final `<img>` output instead of assembling it by adding strings together.
 - Added default `_max_width_of_window_percentage` of 94 so it's not necessary to send that value down for every call.
 - Added `.calculate_visual_width()` to figure out the width to set for the canvas size for the image.
-
+- Added cache buster to main script call attempting to make Live Reload work properly every time.
 
 
 Version: 0.4.1 
