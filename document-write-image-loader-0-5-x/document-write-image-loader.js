@@ -1,11 +1,27 @@
-var ImageLoader_0_5_x = function() { };
-
-// TODO: Capture viewport_width and viewport_height on initialiaztion.
+var ImageLoader_0_5_x = function() {};
 
 ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };
 
+ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
+    console.log(params);
+    var _width = 640;  // TODO: make a function to build this.
+    var _height = 436; // TODO: make a function to build this.
+    var _stub_render_width = 1280; // TODO: make a function to build this.
+    var _stub_render_height = 852;  // TODO: make a function to build this.
+    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _width + '" height="' +  _height + '" src="http://res.cloudinary.com/demo/image/upload/w_' + _stub_render_width + ',h_' + _stub_render_height + '/' + params['filename'] + '">';
+    return output_string;
+};
+
+
+/**********************************************************\
+ * NOTE
+ *
+ * The functions below are deprecated and no longer tested
+ * they will be removed when this refactor is complete.
+ *
+\**********************************************************/
 
 
 ImageLoader_0_5_x.prototype.set_url_template= function() {
@@ -20,16 +36,6 @@ ImageLoader_0_5_x.prototype.load_environment = function() {
     //       pulls in and the environmental parameters 
     //       from the browser a single time so they can
     //       be used across multiple uses.
-};
-
-ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
-    console.log(params);
-    var _width = 640;  // TODO: make a function to build this.
-    var _height = 436; // TODO: make a function to build this.
-    var _stub_render_width = 1280; // TODO: make a function to build this.
-    var _stub_render_height = 852;  // TODO: make a function to build this.
-    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _width + '" height="' +  _height + '" src="http://res.cloudinary.com/demo/image/upload/w_' + _stub_render_width + ',h_' + _stub_render_height + '/' + params['filename'] + '">';
-    return output_string;
 };
 
 // TODO: Delete this funciton and move its contents into `load_environment`

@@ -4,11 +4,11 @@ Changelog
 Version: 0.5.0
 --------------
 
-- Added `set_url_template()`.
+- This is effectively the start of a rewrite. 
+- All prior test code has been commented out. 
+- New tests will be added for a new set of functions that will rely on parameters being passed instead of direct use of instance vairables.
+- When the refactor is copmlete, the lack of tests for a function will indicate that it's not in the mix which will make them easier to identify for remaval.
 - Setup `image_string_from_params()` method as core integration point. 
-- Setup `load_environment()` method to pull in `dpr`, `viewport_height`, etc...
-- Remove `q_` quality parameter from base output.
-- Pending: Removed `dpr` from `load_params()` calls.
 
 
 Version: 0.4.1 
