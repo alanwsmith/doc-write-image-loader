@@ -73,7 +73,7 @@ QUnit.test("Unit Test: calculate_visual_width", function(assert) {
 
     // When 
     var result = this.image_loader.calculate_visual_width({
-        max_render_width: 640,
+        max_physical_width: 640,
         percent_of_viewport_width: 94,
         viewport_width: 1028
     });
