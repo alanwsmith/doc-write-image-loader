@@ -20,25 +20,24 @@ QUnit.test("Make sure the version number is accurate", function(assert) {
 
 QUnit.test("Integration Test: Basic call verification", function(assert) {
 
-    // Preflight
+    // TODO:
+    // - Add environmental overrides so it doesn't matter what browser is being tested. 
+    // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
+    // - Add something like `imageLoader.set_url_template()` to Given for the standard setup 
+
+    // Preflight 
     var target_string = '<img alt="Photo of Horses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
 
     // Given
     var imageLoader = new ImageLoader_0_5_x(); 
-    // imageLoader.load_environment();
-    // imageLoader.set_url_template();
     
-    var image_params = {
+    // When 
+    var result_string = imageLoader.image_string_from_params( {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
         source_width: 1600,
         source_height: 1067
-    };
-
-    // TODO: Add environmental param override to standardize output independent of browser.
-
-    // When 
-    var result_string = imageLoader.image_string_from_params(image_params);
+    });
 
     // Then
     assert.equal(result_string, target_string);
@@ -46,6 +45,15 @@ QUnit.test("Integration Test: Basic call verification", function(assert) {
 });
 
 
+/******************************************************\
+ * DEPRECATED TESTS
+ *
+ * The tests below are for the prior versoin. They 
+ * are being kept temporarirly to make sure new 
+ * versions testing the same things are completed 
+ * before they are removed. 
+ *
+/******************************************************/
 
 // QUnit.test("Integration Test: Verify environmental parameters load", function(assert) {
 // 
