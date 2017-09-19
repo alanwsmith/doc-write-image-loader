@@ -3,17 +3,16 @@
 // - See if there is a setup feature so the version number only has 
 //   to be changed in one place. 
 
+QUnit.test("Confirm version number has been updated.", function(assert) {
 
-QUnit.test("Make sure the version number is accurate", function(assert) {
+    // Given 
+    var imageLoader = new ImageLoader_0_5_x(); 
 
-  // Given
-  var required_version_number = "0.5.0";
-
-  // When 
-  var imageLoader = new ImageLoader_0_5_x(); 
-
-  // Then
-  assert.equal(imageLoader.version_number(), required_version_number); 
+    // Then
+    assert.equal(
+        "0.5.0",
+        imageLoader.version_number()
+    ); 
 
 });
 
