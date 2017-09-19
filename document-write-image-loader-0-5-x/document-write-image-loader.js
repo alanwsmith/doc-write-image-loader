@@ -4,7 +4,18 @@ ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };
 
+
+/************************************************************\
+ * Defaults 
+\************************************************************/
+
 ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+
+
+/************************************************************\
+ * Integrated Functions
+\************************************************************/
+
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     
     // TODO: Make a function to build the display width
@@ -37,6 +48,11 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 
     return output_string;
 };
+
+
+/************************************************************\
+ * Unit Functions
+\************************************************************/
 
 ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
     // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
