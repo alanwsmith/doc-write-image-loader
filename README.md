@@ -18,6 +18,15 @@ Usage
 
 **Setup**
 
+
+
+
+--- 
+
+_Old Notes_
+
+**Setup**
+
 Either place a call to the script in the `<head>` of the HTML with:
 
     <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
