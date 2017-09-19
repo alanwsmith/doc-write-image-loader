@@ -5,6 +5,7 @@ QUnit.module("Loader Factory", {
     }
 });
 
+
 QUnit.test("Confirm version number has been updated.", function(assert) {
     assert.equal(
         "0.5.0",
@@ -14,7 +15,6 @@ QUnit.test("Confirm version number has been updated.", function(assert) {
 
 
 QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
-
     // TODO:
     // - Add environmental overrides so it doesn't matter what browser is being tested. 
     // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
@@ -36,13 +36,10 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
     // Then
     assert.equal(result_string, target_string);
-
 });
 
 
-
 QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
-
     // Given
     var target_string = 'http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]';
     this.image_loader.set_url_template(target_string);
@@ -50,7 +47,6 @@ QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
     // Then
     var result_string = this.image_loader._url_template;
     assert.equal(result_string, target_string);
-
 });
 
 
