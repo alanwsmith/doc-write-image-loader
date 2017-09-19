@@ -1,5 +1,8 @@
 var ImageLoader_0_5_x = function() {};
 
+// TODO: Add function that can be called one time to load 
+//       environmental parameters.
+
 ImageLoader_0_5_x.prototype.version_number = function() {
     return "0.5.0";
 };
@@ -82,14 +85,6 @@ ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
  * they will be removed when this refactor is complete.
  *
 \**********************************************************/
-
-
-// ImageLoader_0_5_x.prototype.load_environment = function() {
-//     // TODO: Setup an initilization type call the 
-//     //       pulls in and the environmental parameters 
-//     //       from the browser a single time so they can
-//     //       be used across multiple uses.
-// };
 
 
 // TODO: Delete this funciton and move its contents into `load_environment`
