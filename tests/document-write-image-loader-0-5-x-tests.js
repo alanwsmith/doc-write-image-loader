@@ -7,10 +7,9 @@ QUnit.module("Loader Factory", {
 
 
 QUnit.test("Confirm version number has been updated.", function(assert) {
-    // VERSION NUMBER TEST
     assert.equal(
         "0.5.0",
-        imageLoader.version_number()
+        this.image_loader.version_number()
     ); 
 });
 
