@@ -23,7 +23,9 @@ ImageLoader_0_5_x.prototype.load_environment = function() {
 };
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function() {
-    return '<img alt="Photo of Hourses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    var _width = 640;
+    var output_string = '<img alt="Photo of Hourses" width="' + _width + '" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    return output_string;
 };
 
 // TODO: Delete this funciton and move its contents into `load_environment`
