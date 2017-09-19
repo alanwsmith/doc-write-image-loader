@@ -10,8 +10,12 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     var _stub_render_width = 1280; // TODO: make a function to build this.
     var _stub_render_height = 852;  // TODO: make a function to build this.
 
+    // TODO: Move URL string creation to its own function.
+    var output_url = this._url_template.replace('[WIDTH]', _stub_render_width);
+    output_url = output_url.replace('[HEIGHT]', _stub_render_height);
+    output_url = output_url.replace('[FILENAME]', params['filename']); 
 
-    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _stub_width + '" height="' +  _stub_height + '" src="//res.cloudinary.com/demo/image/upload/w_' + _stub_render_width + ',h_' + _stub_render_height + '/' + params['filename'] + '">';
+    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _stub_width + '" height="' +  _stub_height + '" src="' + output_url + '">';
     return output_string;
 };
 
