@@ -1,37 +1,31 @@
-// TODO:
-//
-// - See if there is a setup feature so the version number only has 
-//   to be changed in one place. 
+QUnit.module("Loader Factory", {
+    beforeEach: function() {
+        console.log("Creating new test object");
+        this.image_loader = new ImageLoader_0_5_x();
+    }
+});
+
 
 QUnit.test("Confirm version number has been updated.", function(assert) {
-
-    // Given 
-    var imageLoader = new ImageLoader_0_5_x(); 
-
-    // Then
     assert.equal(
         "0.5.0",
-        imageLoader.version_number()
+        this.image_loader.version_number()
     ); 
-
 });
 
 
 QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
-
     // TODO:
     // - Add environmental overrides so it doesn't matter what browser is being tested. 
     // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
-    // - Add something like `imageLoader.set_url_template()` to Given for the standard setup 
 
-    // Preflight 
-    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
-
-    // Given
-    var imageLoader = new ImageLoader_0_5_x(); 
+    // Given 
+    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
     
     // When 
-    var result_string = imageLoader.image_string_from_params( {
+    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+
+    var result_string = this.image_loader.image_string_from_params( {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
         source_width: 1600,
@@ -40,8 +34,21 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
     // Then
     assert.equal(result_string, target_string);
-
 });
+
+
+QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
+    // Given
+    var target_string = '//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]';
+
+    // When
+    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+    var result_string = this.image_loader._url_template;
+
+    // Then
+    assert.equal(result_string, target_string);
+});
+
 
 
 /******************************************************\

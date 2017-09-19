@@ -5,13 +5,41 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 };
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
-    console.log(params);
-    var _width = 640;  // TODO: make a function to build this.
-    var _height = 436; // TODO: make a function to build this.
-    var _stub_render_width = 1280; // TODO: make a function to build this.
-    var _stub_render_height = 852;  // TODO: make a function to build this.
-    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _width + '" height="' +  _height + '" src="http://res.cloudinary.com/demo/image/upload/w_' + _stub_render_width + ',h_' + _stub_render_height + '/' + params['filename'] + '">';
+    
+    // TODO: Make a function to build the display width
+    var _stub_width = 640; 
+
+    // TODO: Make a function to build the display height 
+    var _stub_height = 436;
+
+    // TODO: Make a function to build the URL call width
+    var _stub_render_width = 1280;
+
+    // TODO: Make a function to build the URL call height
+    var _stub_render_height = 852; 
+
+
+    // TODO: Move URL string creation to its own function.
+    var output_url = this._url_template;
+    output_url = output_url.replace('[WIDTH]', _stub_render_width);
+    output_url = output_url.replace('[HEIGHT]', _stub_render_height);
+    output_url = output_url.replace('[FILENAME]', params['filename']); 
+
+
+    // Define the template for the output string. 
+    // TODO: Move this to its own function.
+    var output_string = '<img alt="[ALT_TEXT]" width="[DISPLAY_WIDTH]" height="[DISPLAY_HEIGHT]" src="[URL]">';
+    output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
+    output_string = output_string.replace('[DISPLAY_WIDTH]', _stub_width);
+    output_string = output_string.replace('[DISPLAY_HEIGHT]', _stub_height);
+    output_string = output_string.replace('[URL]', output_url);
+
     return output_string;
+};
+
+ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
+    // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
+    this._url_template = url_template;
 };
 
 
@@ -24,19 +52,13 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 \**********************************************************/
 
 
-ImageLoader_0_5_x.prototype.set_url_template= function() {
-    // TODO: Take in a parameter and set the instance variable
-    //       `_url_template` so that it can be set one time
-    //       and isn't required for every call.
-}
+// ImageLoader_0_5_x.prototype.load_environment = function() {
+//     // TODO: Setup an initilization type call the 
+//     //       pulls in and the environmental parameters 
+//     //       from the browser a single time so they can
+//     //       be used across multiple uses.
+// };
 
-
-ImageLoader_0_5_x.prototype.load_environment = function() {
-    // TODO: Setup an initilization type call the 
-    //       pulls in and the environmental parameters 
-    //       from the browser a single time so they can
-    //       be used across multiple uses.
-};
 
 // TODO: Delete this funciton and move its contents into `load_environment`
 ImageLoader_0_5_x.prototype.load_environmental_params = function() {
