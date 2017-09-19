@@ -21,9 +21,11 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // - Add something like `imageLoader.set_url_template()` to Given for the standard setup 
 
     // Given 
-    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+
     
     // When 
+    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+
     var result_string = this.image_loader.image_string_from_params( {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
