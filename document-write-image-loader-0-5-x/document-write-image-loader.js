@@ -20,7 +20,8 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 
 
     // TODO: Move URL string creation to its own function.
-    var output_url = this._url_template.replace('[WIDTH]', _stub_render_width);
+    var output_url = this._url_template;
+    output_url = output_url.replace('[WIDTH]', _stub_render_width);
     output_url = output_url.replace('[HEIGHT]', _stub_render_height);
     output_url = output_url.replace('[FILENAME]', params['filename']); 
 
