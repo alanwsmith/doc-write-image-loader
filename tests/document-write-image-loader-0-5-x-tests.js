@@ -41,7 +41,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 });
 
 
-QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
+QUnit.test("Unit Test: set_url_template()", function(assert) {
     // Given
     var target_string = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
 
