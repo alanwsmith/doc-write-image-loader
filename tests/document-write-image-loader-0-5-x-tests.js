@@ -1,30 +1,17 @@
-// TODO:
-//
-// - See if there is a setup feature so the version number only has 
-//   to be changed in one place. 
-//
-//
-
-
 QUnit.module("Loader Factory", {
     beforeEach: function() {
         console.log("Creating new test object");
+        this.image_loader = new ImageLoader_0_5_x();
     }
 });
 
 
-
 QUnit.test("Confirm version number has been updated.", function(assert) {
-
-    // Given 
-    var imageLoader = new ImageLoader_0_5_x(); 
-
-    // Then
+    // VERSION NUMBER TEST
     assert.equal(
         "0.5.0",
         imageLoader.version_number()
     ); 
-
 });
 
 
