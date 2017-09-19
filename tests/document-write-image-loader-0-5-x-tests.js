@@ -63,6 +63,16 @@ QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
 
 
 
+QUnit.test("Unit Test: calculate_visual_width", function(assert) {
+
+    // When 
+    var result = this.image_loader.calculate_visual_width({});
+
+
+    // Then
+    assert.equal(1, 1);
+
+});
 
 
 

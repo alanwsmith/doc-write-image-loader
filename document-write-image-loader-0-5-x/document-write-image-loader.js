@@ -54,6 +54,11 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
  * Unit Functions
 \************************************************************/
 
+ImageLoader_0_5_x.prototype.calculate_visual_width = function(url_template) {
+
+};
+
+
 ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
     // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
     this._url_template = url_template;
