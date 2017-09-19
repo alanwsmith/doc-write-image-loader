@@ -25,7 +25,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
     
     // When 
-    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="http://res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
 
     var result_string = this.image_loader.image_string_from_params( {
         filename: "horses.jpg", 
@@ -41,11 +41,13 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
 QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
     // Given
-    var target_string = 'http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]';
-    this.image_loader.set_url_template(target_string);
+    var target_string = '//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]';
+
+    // When
+    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+    var result_string = this.image_loader._url_template;
 
     // Then
-    var result_string = this.image_loader._url_template;
     assert.equal(result_string, target_string);
 });
 
