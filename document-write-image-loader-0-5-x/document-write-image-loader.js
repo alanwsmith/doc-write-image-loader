@@ -37,17 +37,17 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 
     // TODO: Move URL string creation to its own function.
     var output_url = this._url_template;
-    output_url = output_url.replace('[WIDTH]', _physical_width);
-    output_url = output_url.replace('[HEIGHT]', _physical_height);
+    output_url = output_url.replace('[PHYSICAL_WIDTH]', _physical_width);
+    output_url = output_url.replace('[PHYSICAL_HEIGHT]', _physical_height);
     output_url = output_url.replace('[FILENAME]', params['filename']); 
 
 
     // Define the template for the output string. 
     // TODO: Move this to its own function.
-    var output_string = '<img alt="[ALT_TEXT]" width="[LOGICALWIDTH]" height="[LOGICALHEIGHT]" src="[URL]">';
+    var output_string = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[URL]">';
     output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
-    output_string = output_string.replace('[LOGICALWIDTH]', _logical_width);
-    output_string = output_string.replace('[LOGICALHEIGHT]', _logical_height);
+    output_string = output_string.replace('[LOGICAL_WIDTH]', _logical_width);
+    output_string = output_string.replace('[LOGICAL_HEIGHT]', _logical_height);
     output_string = output_string.replace('[URL]', output_url);
 
     return output_string;
