@@ -19,26 +19,26 @@ ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94;
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     
     // TODO: Migrate to using non-stubbed values. 
-    var _stub_width = this.calculate_visual_width({
+    var _logical_width = this.calculate_visual_width({
         max_render_width: 640,
         percent_of_viewport_width: 94,
         viewport_width: 1028
 	}); 
 
     // TODO: Make a function to build the display height 
-    var _stub_height = 436;
+    var _logical_height = 436;
 
     // TODO: Make a function to build the URL call width
-    var _stub_render_width = 1280;
+    var _physical_width = 1280;
 
     // TODO: Make a function to build the URL call height
-    var _stub_render_height = 852; 
+    var _physical_height = 852; 
 
 
     // TODO: Move URL string creation to its own function.
     var output_url = this._url_template;
-    output_url = output_url.replace('[WIDTH]', _stub_render_width);
-    output_url = output_url.replace('[HEIGHT]', _stub_render_height);
+    output_url = output_url.replace('[WIDTH]', _physical_width);
+    output_url = output_url.replace('[HEIGHT]', _physical_height);
     output_url = output_url.replace('[FILENAME]', params['filename']); 
 
 
@@ -46,8 +46,8 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     // TODO: Move this to its own function.
     var output_string = '<img alt="[ALT_TEXT]" width="[DISPLAY_WIDTH]" height="[DISPLAY_HEIGHT]" src="[URL]">';
     output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
-    output_string = output_string.replace('[DISPLAY_WIDTH]', _stub_width);
-    output_string = output_string.replace('[DISPLAY_HEIGHT]', _stub_height);
+    output_string = output_string.replace('[DISPLAY_WIDTH]', _logical_width);
+    output_string = output_string.replace('[DISPLAY_HEIGHT]', _logical_height);
     output_string = output_string.replace('[URL]', output_url);
 
     return output_string;

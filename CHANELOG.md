@@ -15,6 +15,8 @@ Version: 0.5.0
 - Added default `_max_width_of_window_percentage` of 94 so it's not necessary to send that value down for every call.
 - Added `.calculate_visual_width()` to figure out the width to set for the canvas size for the image.
 - Added cache buster to main script call attempting to make Live Reload work properly every time.
+- Switching to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call).
+
 
 
 Version: 0.4.1 

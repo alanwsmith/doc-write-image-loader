@@ -31,6 +31,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     var result_string = this.image_loader.image_string_from_params( {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
+		// TODO: Rename these to `max_physical_width` and `max_physical_height`.
         source_width: 1600,
         source_height: 1067
     });
