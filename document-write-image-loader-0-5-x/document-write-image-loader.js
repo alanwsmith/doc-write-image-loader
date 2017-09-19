@@ -44,10 +44,10 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 
     // Define the template for the output string. 
     // TODO: Move this to its own function.
-    var output_string = '<img alt="[ALT_TEXT]" width="[DISPLAY_WIDTH]" height="[DISPLAY_HEIGHT]" src="[URL]">';
+    var output_string = '<img alt="[ALT_TEXT]" width="[LOGICALWIDTH]" height="[LOGICALHEIGHT]" src="[URL]">';
     output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
-    output_string = output_string.replace('[DISPLAY_WIDTH]', _logical_width);
-    output_string = output_string.replace('[DISPLAY_HEIGHT]', _logical_height);
+    output_string = output_string.replace('[LOGICALWIDTH]', _logical_width);
+    output_string = output_string.replace('[LOGICALHEIGHT]', _logical_height);
     output_string = output_string.replace('[URL]', output_url);
 
     return output_string;
