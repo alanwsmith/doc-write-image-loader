@@ -50,6 +50,25 @@ QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
 });
 
 
+QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
+    // Given 
+    var target_default_max_percentage_width_of_window = 94;
+
+    // When 
+
+    // TODO: Setup the script to have a default to fix this.
+    var result = this.image_loader._max_width_of_window_percentage; 
+
+    assert.equal(
+        target_default_max_percentage_width_of_window,
+        result
+    )
+});
+
+
+
+
+
 
 /******************************************************\
  * DEPRECATED TESTS
