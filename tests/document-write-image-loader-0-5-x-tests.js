@@ -18,11 +18,9 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // TODO:
     // - Add environmental overrides so it doesn't matter what browser is being tested. 
     // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
-    // - Add something like `imageLoader.set_url_template()` to Given for the standard setup 
 
     // Given 
     this.image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
-
     
     // When 
     var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
