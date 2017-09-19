@@ -25,7 +25,15 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     output_url = output_url.replace('[HEIGHT]', _stub_render_height);
     output_url = output_url.replace('[FILENAME]', params['filename']); 
 
-    var output_string = '<img alt="' + params['alt_text'] + '" width="' + _stub_width + '" height="' +  _stub_height + '" src="' + output_url + '">';
+
+    // Define the template for the output string. 
+    // TODO: Move this to its own function.
+    var output_string = '<img alt="[ALT_TEXT]" width="[DISPLAY_WIDTH]" height="[DISPLAY_HEIGHT]" src="[URL]">';
+    output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
+    output_string = output_string.replace('[DISPLAY_WIDTH]', _stub_width);
+    output_string = output_string.replace('[DISPLAY_HEIGHT]', _stub_height);
+    output_string = output_string.replace('[URL]', output_url);
+
     return output_string;
 };
 
