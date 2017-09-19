@@ -1,4 +1,7 @@
 QUnit.module("Loader Factory", {
+	// TODO: Add function that runs before suite to show date
+	//		 to make it easier to see when the browser automatically 
+	//       refreshes in the background.
     beforeEach: function() {
         console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
@@ -20,7 +23,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
 
     // Given 
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
     
     // When 
     var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
@@ -28,6 +31,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     var result_string = this.image_loader.image_string_from_params( {
         filename: "horses.jpg", 
         alt_text: "Photo of Horses",
+		// TODO: Rename these to `max_physical_width` and `max_physical_height`.
         source_width: 1600,
         source_height: 1067
     });
@@ -39,14 +43,44 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
 QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
     // Given
-    var target_string = '//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]';
+    var target_string = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
 
     // When
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
     var result_string = this.image_loader._url_template;
 
     // Then
     assert.equal(result_string, target_string);
+});
+
+
+QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
+    // Given 
+    var target_default_max_percentage_width_of_window = 94;
+
+    // When
+    var result = this.image_loader._max_width_of_window_percentage; 
+
+    // Then
+    assert.equal(result, target_default_max_percentage_width_of_window)
+});
+
+
+QUnit.test("Unit Test: calculate_visual_width", function(assert) {
+
+    // Given 
+    var target = 640; 
+
+    // When 
+    var result = this.image_loader.calculate_visual_width({
+        max_physical_width: 640,
+        percent_of_viewport_width: 94,
+        viewport_width: 1028
+    });
+
+    // Then
+    assert.equal(result, target);
+
 });
 
 

@@ -1,12 +1,23 @@
 document.write Image Loader
 ===========================
 
+Work In Progress
+----------------
+
+The project isn't ready for prime time. It's still a work in progress. 
+
+It's stability varies and should not be used in production at this point.
+
+This README is a work in progress too. It's not necessarily representative of the state of the project at this time. (It's more of a dumping ground while I work to edit thing down.)
+
+
+Overview
+--------
+
 A plain-old JavaScript, resolution aware, responsive image loader. 
 
 Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://alanwsmith.github.io/document.write-image-loader/)
 
-Overview
---------
 
 Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it won't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
 
@@ -27,9 +38,16 @@ Place a call to the script in the `<head>` of the HTML and call initial setup fu
 
 NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. 
 
- 
 
 
+URL Template Parameters
+-----------------------
+
+- [PHYSICAL_WIDTH]
+- [PHYSICAL_HEIGHT]
+- [FILENAME]
+- TODO: Quality parameter
+- TODO: Free form entry to pass arbitrary parameters.
 
 
 
@@ -75,13 +93,6 @@ Repo Checkout Procedure
 - When it's ready, merge it back into `gh-pages` and add a tag with the version number.
 
 
-
-A Work in Progress
-------------------
-
-This project isn't ready for prime time.  
-
-That said, the conceptual framework is in place. There's enough to use as a starting point if you'd like to experiment as well. 
 
 
 Versioning
