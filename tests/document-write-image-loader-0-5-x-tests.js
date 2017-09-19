@@ -2,6 +2,17 @@
 //
 // - See if there is a setup feature so the version number only has 
 //   to be changed in one place. 
+//
+//
+
+
+QUnit.module("Loader Factory", {
+    beforeEach: function() {
+        console.log("Creating new test object");
+    }
+});
+
+
 
 QUnit.test("Confirm version number has been updated.", function(assert) {
 

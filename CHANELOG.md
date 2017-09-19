@@ -9,6 +9,8 @@ Version: 0.5.0
 - New tests will be added for a new set of functions that will rely on parameters being passed instead of direct use of instance vairables.
 - When the refactor is copmlete, the lack of tests for a function will indicate that it's not in the mix which will make them easier to identify for remaval.
 - Setup `image_string_from_params()` method as core integration point. 
+- Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatcially. 
+
 
 
 Version: 0.4.1 
