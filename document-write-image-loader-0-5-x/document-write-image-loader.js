@@ -14,6 +14,10 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     return output_string;
 };
 
+ImageLoader_0_5_x.prototype.set_url_template= function() {
+
+};
+
 
 /**********************************************************\
  * NOTE

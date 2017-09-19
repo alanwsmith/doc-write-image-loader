@@ -21,6 +21,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // - Add something like `imageLoader.set_url_template()` to Given for the standard setup 
 
     // Given 
+    this.image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
 
     
     // When 

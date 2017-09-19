@@ -18,6 +18,18 @@ Usage
 
 **Setup**
 
+Place a call to the script in the `<head>` of the HTML and call initial setup functions:
+
+    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+    var image_loader = new ImageLoader_0_5_x;
+    image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+
+
+NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. 
+
+ 
+
+
 
 
 

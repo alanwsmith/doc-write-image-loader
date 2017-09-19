@@ -10,6 +10,7 @@ Version: 0.5.0
 - When the refactor is copmlete, the lack of tests for a function will indicate that it's not in the mix which will make them easier to identify for remaval.
 - Setup `.image_string_from_params()` method as core integration point. 
 - Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatcially. 
+- Added `.set_url_template()` 
 
 
 
