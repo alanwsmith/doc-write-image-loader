@@ -8,6 +8,7 @@ The project isn't ready for prime time. It's still a work in progress.
 
 It's stability varies and should not be used in production at this point.
 
+This README is a work in progress too. It's not necessarily representative of the state of the project at this time. (It's more of a dumping ground while I work to edit thing down.)
 
 
 Overview
