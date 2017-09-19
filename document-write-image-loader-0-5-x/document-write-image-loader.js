@@ -5,10 +5,19 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 };
 
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
-    var _stub_width = 640;  // TODO: make a function to build this.
-    var _stub_height = 436; // TODO: make a function to build this.
-    var _stub_render_width = 1280; // TODO: make a function to build this.
-    var _stub_render_height = 852;  // TODO: make a function to build this.
+    
+    // TODO: Make a function to build the display width
+    var _stub_width = 640; 
+
+    // TODO: Make a function to build the display height 
+    var _stub_height = 436;
+
+    // TODO: Make a function to build the URL call width
+    var _stub_render_width = 1280;
+
+    // TODO: Make a function to build the URL call height
+    var _stub_render_height = 852; 
+
 
     // TODO: Move URL string creation to its own function.
     var output_url = this._url_template.replace('[WIDTH]', _stub_render_width);
