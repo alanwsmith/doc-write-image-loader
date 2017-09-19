@@ -15,6 +15,7 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 };
 
 ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
+    // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
     this._url_template = url_template;
 };
 
@@ -26,13 +27,6 @@ ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
  * they will be removed when this refactor is complete.
  *
 \**********************************************************/
-
-
-// ImageLoader_0_5_x.prototype.set_url_template= function() {
-//     // TODO: Take in a parameter and set the instance variable
-//     //       `_url_template` so that it can be set one time
-//     //       and isn't required for every call.
-// }
 
 
 // ImageLoader_0_5_x.prototype.load_environment = function() {
