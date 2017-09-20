@@ -42,9 +42,10 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 
-    var img_string_template = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    var img_string_template = '<img alt="[ALT_TEXT]" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
     
     var return_value = img_string_template;
+    return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
     return return_value;
 }
 
