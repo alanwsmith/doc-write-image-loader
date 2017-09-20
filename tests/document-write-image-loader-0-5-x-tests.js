@@ -93,7 +93,10 @@ QUnit.test("Default Settings Test: Ensure default max width is set.", function(a
 
 QUnit.test("Unit Test: assembled_url()", function(assert) {
     // Preflight
-    var target = '//res.cloudinary';
+    var target = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+
+    // Given 
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
 
     // When
     var result = this.image_loader.assembled_url();

@@ -156,7 +156,7 @@ ImageLoader_0_5_x.prototype.load_environmental_params = function() {
 };
 
 ImageLoader_0_5_x.prototype.assembled_url = function() {
-    var return_value = '//res.cloudinary';
+    var return_value = this._url_template;
     return return_value;
 };
 
