@@ -53,12 +53,10 @@ URL Template Parameters
 Instance Variables
 ------------------
 
-- Instance variables are prefixed with `_instance_`
-- They are set thru `._set_VARIABLE_NAME()`
-- They are accessed with: `._VARIABLE_NAME()`
-- This is done to act as a pseudo "strict" mode so it's less likely typos will slip by.
-
-
+- Instance variables are prefixed with `_`
+- They are set directly (e.g. `this.image_loader._source_file_width = 1000`)
+- They are accessed with a method that matches the name minus the leading `_` (e.g. `.source_file_width()`)
+- This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
 
 
 

@@ -98,10 +98,13 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
     // Prior logic
 	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 
-    // SAFETY VALVE - To get back to green quickly if necessary
 
     // TKTKTKTKTK - Pick back up here.
     var return_value = this._source_file_width();
+        // return_value = this._logical_width();
+
+
+    // SAFETY VALVE - To get back to green quickly if necessary
     // return_value = 436;
 
     return return_value;
