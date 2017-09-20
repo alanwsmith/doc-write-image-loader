@@ -31,6 +31,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     
     // When 
     var result =  '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    result = this.image_loader.img_tag_string();
 
 //      var result_string = this.image_loader.image_string_from_params( {
 //          filename: "horses.jpg", 
