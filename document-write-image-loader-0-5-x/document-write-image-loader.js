@@ -4,7 +4,6 @@ var ImageLoader_0_5_x = function() {};
 //       environmental parameters.
 
 
-
 /************************************************************\
  * Instance Variable Defaults 
 \************************************************************/
@@ -17,11 +16,13 @@ ImageLoader_0_5_x.prototype._version_number = "0.5.0";
  * Instance Variable Access Methods 
 \************************************************************/
 
-
 ImageLoader_0_5_x.prototype.version_number = function() {
     return this._version_number;
 };
 
+ImageLoader_0_5_x.prototype.max_width_of_window_percentage = function() {
+    return this._version_number;
+};
 
 
 
