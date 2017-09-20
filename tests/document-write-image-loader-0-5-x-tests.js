@@ -1,11 +1,11 @@
 QUnit.module("Loader Factory", {
-	// TODO: Add function that runs before suite to show date
-	//		 to make it easier to see when the browser automatically 
-	//       refreshes in the background.
     beforeEach: function() {
         console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
     }
+	// TODO: Add function that runs before suite to show date
+	//		 to make it easier to see when the browser automatically 
+	//       refreshes in the background.
 });
 
 
