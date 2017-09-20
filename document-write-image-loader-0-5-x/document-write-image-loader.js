@@ -62,6 +62,22 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 \************************************************************/
 
 
+/************************************************************\
+ * Prior logic
+ImageLoader_0_5_x.prototype.render_height = function() {
+	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
+};
+
+ImageLoader_0_5_x.prototype.url_request_height = function() {
+  return this.render_height() * this._dpr; 
+};
+
+ImageLoader_0_5_x.prototype.url_request_width = function() {
+  return this.render_width() * this._dpr; 
+};
+\************************************************************/
+
+
 ImageLoader_0_5_x.prototype.calculate_logical_height = function(params) {
 
     var return_value = 436;
