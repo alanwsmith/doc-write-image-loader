@@ -22,7 +22,7 @@ ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94;
 ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
     
     // TODO: Migrate to using non-stubbed values. 
-    var _logical_width = this.calculate_visual_width({
+    var _logical_width = this.calculate_logical_width({
         max_physical_width: 640,
         percent_of_viewport_width: 94,
         viewport_width: 1028
@@ -61,7 +61,7 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
  * Unit Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.calculate_visual_width = function(params) {
+ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
 	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
 

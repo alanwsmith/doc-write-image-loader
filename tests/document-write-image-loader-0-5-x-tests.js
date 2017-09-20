@@ -66,13 +66,13 @@ QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
 });
 
 
-QUnit.test("Unit Test: calculate_visual_width(params)", function(assert) {
+QUnit.test("Unit Test: calculate_logical_width(params)", function(assert) {
 
     // Given 
     var target = 640; 
 
     // When 
-    var result = this.image_loader.calculate_visual_width({
+    var result = this.image_loader.calculate_logical_width({
         max_physical_width: 640,
         percent_of_viewport_width: 94,
         viewport_width: 1028
