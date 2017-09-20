@@ -28,7 +28,6 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
     // Given 
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
     
     // When 
     var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
@@ -65,20 +64,6 @@ QUnit.test("Instance Variable Test: _source_file_width()", function(assert) {
 });
 
 
-// TODO: Change this to use a method to get the value
-QUnit.test("Instance Variable Test: _url_template()", function(assert) {
-    // Given
-    var target_string = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
-
-    // When
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
-    var result_string = this.image_loader._url_template;
-
-    // Then
-    assert.equal(result_string, target_string);
-});
-
- 
 
 /************************************************************\
  * Unit Tests 

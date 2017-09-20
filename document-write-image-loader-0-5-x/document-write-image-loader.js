@@ -139,10 +139,6 @@ ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 };
 
 
-ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
-    // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
-    this._url_template = url_template;
-};
 
 
 /**********************************************************\
