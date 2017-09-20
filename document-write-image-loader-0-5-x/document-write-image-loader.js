@@ -114,10 +114,10 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
 	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 
 
-    // TKTKTKTKTK - Pick back up here.
     var return_value = this.source_file_width();
-        // return_value = this._logical_width();
 
+    // TKTKTKTKTK - Pick back up here.
+    return_value = this.logical_width();
 
     // SAFETY VALVE - To get back to green quickly if necessary
     // return_value = 436;
@@ -125,6 +125,14 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
     return return_value;
 
 };
+
+
+// This is stubbed to get logicl_height working. 
+// Migrate the contents of calculate_logical_width here and make sure it's tested.
+ImageLoader_0_5_x.prototype.logical_width = function(params) {
+    return 436;
+};
+
 
 ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
