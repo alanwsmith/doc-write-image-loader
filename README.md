@@ -50,6 +50,18 @@ URL Template Parameters
 - TODO: Free form entry to pass arbitrary parameters.
 
 
+Instance Variables
+------------------
+
+- Instance variables are prefixed with `_instance_`
+- They are set thru `._set_VARIABLE_NAME()`
+- They are accessed with: `._VARIABLE_NAME()`
+- This is done to act as a pseudo "strict" mode so it's less likely typos will slip by.
+
+
+
+
+
 
 --- 
 
