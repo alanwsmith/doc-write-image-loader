@@ -10,6 +10,7 @@ Version: 0.5.0
 - Created a new set of tests for the new code
 - Switched to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call).
 - Added cache buster to both the main and test script calls attempting to make Live Reload work properly every time.
+- Added a `before` call that prints a random number to the console to make it easy to tell with multiple passing test runs trigger.
 - Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatically
 - Added default template for `<img>` output string
 - Added default for `_max_width_of_window_percentage`
