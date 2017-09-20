@@ -54,42 +54,42 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 }
 
 
-ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
-    
-    // TODO: Migrate to using non-stubbed values. 
-    var _logical_width = this.calculate_logical_width({
-        max_physical_width: 640,
-        percent_of_viewport_width: 94,
-        viewport_width: 1028
-	}); 
-
-    // TODO: Make a function to build the display height 
-    var _logical_height = 436;
-
-    // TODO: Make a function to build the URL call width
-    var _physical_width = 1280;
-
-    // TODO: Make a function to build the URL call height
-    var _physical_height = 852; 
-
-
-    // TODO: Move URL string creation to its own function.
-    var output_url = this._url_template;
-    output_url = output_url.replace('[PHYSICAL_WIDTH]', _physical_width);
-    output_url = output_url.replace('[PHYSICAL_HEIGHT]', _physical_height);
-    output_url = output_url.replace('[FILENAME]', params['filename']); 
-
-
-    // Define the template for the output string. 
-    // TODO: Move this to its own function.
-    var output_string = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[URL]">';
-    output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
-    output_string = output_string.replace('[LOGICAL_WIDTH]', _logical_width);
-    output_string = output_string.replace('[LOGICAL_HEIGHT]', _logical_height);
-    output_string = output_string.replace('[URL]', output_url);
-
-    return output_string;
-};
+// ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
+//     
+//     // TODO: Migrate to using non-stubbed values. 
+//     var _logical_width = this.calculate_logical_width({
+//         max_physical_width: 640,
+//         percent_of_viewport_width: 94,
+//         viewport_width: 1028
+// 	}); 
+// 
+//     // TODO: Make a function to build the display height 
+//     var _logical_height = 436;
+// 
+//     // TODO: Make a function to build the URL call width
+//     var _physical_width = 1280;
+// 
+//     // TODO: Make a function to build the URL call height
+//     var _physical_height = 852; 
+// 
+// 
+//     // TODO: Move URL string creation to its own function.
+//     var output_url = this._url_template;
+//     output_url = output_url.replace('[PHYSICAL_WIDTH]', _physical_width);
+//     output_url = output_url.replace('[PHYSICAL_HEIGHT]', _physical_height);
+//     output_url = output_url.replace('[FILENAME]', params['filename']); 
+// 
+// 
+//     // Define the template for the output string. 
+//     // TODO: Move this to its own function.
+//     var output_string = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[URL]">';
+//     output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
+//     output_string = output_string.replace('[LOGICAL_WIDTH]', _logical_width);
+//     output_string = output_string.replace('[LOGICAL_HEIGHT]', _logical_height);
+//     output_string = output_string.replace('[URL]', output_url);
+// 
+//     return output_string;
+// };
 
 
 /************************************************************\
