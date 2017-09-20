@@ -37,6 +37,18 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     assert.equal(result_string, target_string);
 });
 
+QUnit.test("Instance Variable Test: _source_file_width()", function(assert) {
+
+    // Given
+    var target = 436;
+
+    // When
+    var result = this.image_loader._source_file_width();
+
+    // Then
+    assert.equal(result, target);
+});
+ 
 
 QUnit.test("Unit Test: set_url_template()", function(assert) {
     // Given

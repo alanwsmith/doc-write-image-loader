@@ -58,6 +58,18 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 
 
 /************************************************************\
+ * Instance Variable Functions
+\************************************************************/
+
+ImageLoader_0_5_x.prototype._source_file_width = function() {
+
+    return 436;
+};
+
+
+
+
+/************************************************************\
  * Unit Functions
 \************************************************************/
 
@@ -84,6 +96,8 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
 	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 
     // SAFETY VALVE - To get back to green quickly if necessary
+
+    // TKTKTKTKTK - Pick back up here.
     return_value = 436;
 
     return return_value;
