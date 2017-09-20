@@ -88,7 +88,9 @@ QUnit.test("Unit Test: calculate_logical_height(params)", function(assert) {
     var target = 436;
 
     // When
-    var result = 436;
+    var result = this.image_loader.calculate_logical_height({
+            
+    });
 
     // Then
     assert.equal(result, target);

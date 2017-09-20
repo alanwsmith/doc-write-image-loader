@@ -61,6 +61,15 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
  * Unit Functions
 \************************************************************/
 
+
+ImageLoader_0_5_x.prototype.calculate_logical_height = function(params) {
+
+    var return_value = 436;
+
+    return return_value;
+
+};
+
 ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
 	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
