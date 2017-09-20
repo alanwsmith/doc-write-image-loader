@@ -15,6 +15,12 @@ QUnit.test("Confirm version number has been updated.", function(assert) {
 });
 
 
+
+/************************************************************\
+ * Integration Tests 
+\************************************************************/
+
+
 QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
     // TODO:
     // - Add environmental overrides so it doesn't matter what browser is being tested. 
@@ -36,6 +42,12 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // Then
     assert.equal(result_string, target_string);
 });
+
+
+/************************************************************\
+ * Instance Variable Tests 
+\************************************************************/
+
 
 QUnit.test("Instance Variable Test: _source_file_width()", function(assert) {
     // Preflight

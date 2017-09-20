@@ -3,16 +3,27 @@ var ImageLoader_0_5_x = function() {};
 // TODO: Add function that can be called one time to load 
 //       environmental parameters.
 
-ImageLoader_0_5_x.prototype.version_number = function() {
-    return "0.5.0";
-};
 
 
 /************************************************************\
- * Defaults 
+ * Instance Variable Defaults 
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
+
+
+/************************************************************\
+ * Instance Variable Access Methods 
+\************************************************************/
+
+
+ImageLoader_0_5_x.prototype.version_number = function() {
+    return this._version_number;
+};
+
+
+
 
 
 /************************************************************\
