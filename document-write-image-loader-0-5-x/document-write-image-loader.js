@@ -21,6 +21,10 @@ ImageLoader_0_5_x.prototype.max_width_of_window_percentage = function() {
     return this._version_number;
 };
 
+ImageLoader_0_5_x.prototype.source_file_width = function() {
+    return this._source_file_width;
+};
+
 ImageLoader_0_5_x.prototype.url_template = function() {
     return this._url_template;
 };
@@ -78,13 +82,7 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
  * Instance Variable Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype._set_source_file_width = function(integer) {
-    this._instance_source_file_width = integer;
-};
 
-ImageLoader_0_5_x.prototype._source_file_width = function() {
-    return this._instance_source_file_width;
-};
 
 
 
@@ -117,7 +115,7 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
 
 
     // TKTKTKTKTK - Pick back up here.
-    var return_value = this._source_file_width();
+    var return_value = this.source_file_width();
         // return_value = this._logical_width();
 
 
@@ -137,7 +135,6 @@ ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 
     return return_value;
 };
-
 
 
 
