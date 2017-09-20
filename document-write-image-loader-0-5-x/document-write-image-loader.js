@@ -62,7 +62,12 @@ ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._source_file_width = function() {
-    return 436;
+    return this._instance_source_file_width;
+};
+
+ImageLoader_0_5_x.prototype._set_source_file_width = function() {
+    this._instance_source_file_width = 436;
+
 };
 
 
