@@ -9,7 +9,7 @@ var ImageLoader_0_5_x = function() {};
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
-ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+ImageLoader_0_5_x.prototype._url_template = undefined; 
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
 
@@ -17,11 +17,15 @@ ImageLoader_0_5_x.prototype._version_number = "0.5.0";
  * Instance Variable Access Methods 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.version_number = function() {
+ImageLoader_0_5_x.prototype.max_width_of_window_percentage = function() {
     return this._version_number;
 };
 
-ImageLoader_0_5_x.prototype.max_width_of_window_percentage = function() {
+ImageLoader_0_5_x.prototype.url_template = function() {
+    return this._url_template;
+};
+
+ImageLoader_0_5_x.prototype.version_number = function() {
     return this._version_number;
 };
 
@@ -156,7 +160,7 @@ ImageLoader_0_5_x.prototype.load_environmental_params = function() {
 };
 
 ImageLoader_0_5_x.prototype.assembled_url = function() {
-    var return_value = this._url_template;
+    var return_value = this.url_template();
     return return_value;
 };
 
