@@ -4,19 +4,19 @@ Changelog
 Version: 0.5.0
 --------------
 
-- This is effectively the start of a rewrite. 
-- All prior test code has been commented out. 
-- Removed `0.4.0` from the live repo.
-- New tests will be added for a new set of functions that will rely on parameters being passed instead of direct use of instance vairables.
-- When the refactor is copmlete, the lack of tests for a function will indicate that it's not in the mix which will make them easier to identify for remaval.
-- Setup `.image_string_from_params()` method as core integration point. 
-- Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatcially. 
-- Added `.set_url_template()` 
-- Setup a template for the final `<img>` output instead of assembling it by adding strings together.
-- Added default `_max_width_of_window_percentage` of 94 so it's not necessary to send that value down for every call.
-- Added `.calculate_logical_width()` to figure out the width to set for the canvas size for the image.
+- This is effectively the start of a rewrite
+- All prior test code has been commented out
+- Removed `0.4.0` from the live repo
+- Created a new set of tests for the new code
+- Switched to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call).
 - Added cache buster to both the main and test script calls attempting to make Live Reload work properly every time.
-- Switching to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call).
+- Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatically
+- Added default template for `<img>` output string
+- Added default for `_max_width_of_window_percentage`
+- Setup `.image_string_from_params()` method as core integration point
+- Added `.set_url_template()`
+- Added `.calculate_logical_width()`
+- Added `.calculate_logical_height()`
 
 
 
