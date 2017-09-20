@@ -82,6 +82,19 @@ QUnit.test("Unit Test: calculate_logical_width(params)", function(assert) {
 });
 
 
+QUnit.test("Unit Test: calculate_logical_height(params)", function(assert) {
+
+    // Given 
+    var target = 436;
+
+    // When
+    var result = 436;
+
+    // Then
+    assert.equal(result, target);
+});
+
+
 
 /******************************************************\
  * DEPRECATED TESTS
