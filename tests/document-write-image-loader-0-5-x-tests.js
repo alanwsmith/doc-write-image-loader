@@ -38,9 +38,13 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 });
 
 QUnit.test("Instance Variable Test: _source_file_width()", function(assert) {
+    // Preflight
     var target = 436;
+    // Given
     this.image_loader._set_source_file_width(436);
+    // When
     var result = this.image_loader._source_file_width();
+    // Then
     assert.equal(result, target);
 });
  
