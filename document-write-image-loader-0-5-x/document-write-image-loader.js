@@ -83,7 +83,10 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function(params) {
     // Prior logic
 	// Math.floor(this._raw_height * this.render_width() / this._raw_width );
 
-    var return_value = Math.floor(436);
+    var return_value = Math.floor(params['max_source_height']);
+
+    // SAFETY VALVE - To get back to green quickly if necessary
+    // return_value = 436;
 
     return return_value;
 

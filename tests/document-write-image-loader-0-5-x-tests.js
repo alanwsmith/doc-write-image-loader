@@ -1,14 +1,11 @@
 QUnit.module("Loader Factory", {
     before: function() {
         console.log("Kickoff: " + Math.random());
-
     },
     beforeEach: function() {
         console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
     }
-	//		 to make it easier to see when the browser automatically 
-	//       refreshes in the background.
 });
 
 
@@ -92,7 +89,7 @@ QUnit.test("Unit Test: calculate_logical_height(params)", function(assert) {
 
     // When
     var result = this.image_loader.calculate_logical_height({
-            
+        max_source_height: 436 
     });
 
     // Then
