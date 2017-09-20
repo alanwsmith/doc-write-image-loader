@@ -93,9 +93,11 @@ QUnit.test("Unit Test: calculate_logical_width(params)", function(assert) {
 
 
 QUnit.test("Unit Test: calculate_logical_height(params)", function(assert) {
+    // Preflight
+    var target = 436;
 
     // Given 
-    var target = 436;
+    this.image_loader._set_source_file_width(436);
 
     // When
     var result = this.image_loader.calculate_logical_height();

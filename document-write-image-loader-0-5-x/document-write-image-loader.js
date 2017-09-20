@@ -101,7 +101,8 @@ ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
     // SAFETY VALVE - To get back to green quickly if necessary
 
     // TKTKTKTKTK - Pick back up here.
-    return_value = 436;
+    var return_value = this._source_file_width();
+    // return_value = 436;
 
     return return_value;
 
