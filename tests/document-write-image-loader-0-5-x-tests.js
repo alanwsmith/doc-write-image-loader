@@ -27,6 +27,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
 
     // Given 
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
     this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
     
     // When 
@@ -79,11 +80,28 @@ QUnit.test("Instance Variable Test: _url_template()", function(assert) {
 
  
 
+/************************************************************\
+ * Unit Tests 
+\************************************************************/
+
 QUnit.test("Default Settings Test: Ensure default max width is set.", function(assert) {
     var target_default_max_percentage_width_of_window = 94;
     var result = this.image_loader._max_width_of_window_percentage; 
     assert.equal(result, target_default_max_percentage_width_of_window)
 });
+
+
+QUnit.test("Unit Test: assembled_url()", function(assert) {
+    // Preflight
+    var target = '//res.cloudinary';
+
+    // When
+    var result = this.image_loader.assembled_url();
+
+    // Then
+    assert.equal(target, result);
+});
+
 
 
 QUnit.test("Unit Test: calculate_logical_width(params)", function(assert) {

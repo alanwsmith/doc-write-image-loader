@@ -17,6 +17,7 @@ Version: 0.5.0
 - Setup `.image_string_from_params()` method as core integration point
 - Added `.calculate_logical_width()`
 - Added `.calculate_logical_height()`
+- Added `.assembled_url()` which takes `_url_template` and applies all the replacements to it.
 
 
 

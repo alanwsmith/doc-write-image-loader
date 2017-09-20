@@ -9,6 +9,7 @@ var ImageLoader_0_5_x = function() {};
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
 
@@ -154,6 +155,13 @@ ImageLoader_0_5_x.prototype.load_environmental_params = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 };
 
+ImageLoader_0_5_x.prototype.assembled_url = function() {
+    var return_value = '//res.cloudinary';
+    return return_value;
+};
+
+
+// TODO: Migrate calls from `.url_to_call()` to `.assembled_url`.
 ImageLoader_0_5_x.prototype.url_to_call = function() {
 	return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
 };
