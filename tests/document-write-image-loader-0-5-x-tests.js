@@ -50,9 +50,10 @@ QUnit.test("Instance Variable Test: _source_file_width()", function(assert) {
     // Then
     assert.equal(result, target);
 });
- 
 
-QUnit.test("Unit Test: set_url_template()", function(assert) {
+
+// TODO: Change this to use a method to get the value
+QUnit.test("Instance Variable Test: _url_template()", function(assert) {
     // Given
     var target_string = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
 
@@ -64,6 +65,7 @@ QUnit.test("Unit Test: set_url_template()", function(assert) {
     assert.equal(result_string, target_string);
 });
 
+ 
 
 QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
     // Given 
