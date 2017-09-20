@@ -67,7 +67,7 @@ QUnit.test("Instance Variable Test: _url_template()", function(assert) {
 
  
 
-QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
+QUnit.test("Default Settings Test: Ensure default max width is set.", function(assert) {
     // Given 
     var target_default_max_percentage_width_of_window = 94;
 
