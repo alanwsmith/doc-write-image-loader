@@ -69,6 +69,12 @@ It tests both the height and width of the source image in relation to the Device
 That width is then used as the central reference point for the rest of the sizing calculation functions. 
 
 
+Logic Note: Math.floor() Usage
+------------------------------
+
+`Math.floor()` is used for several functions. It ensures that all pixel dimensions are integers and that rounding doesn't cause an image size to jump up a pixel. 
+
+
 
 
 --- 

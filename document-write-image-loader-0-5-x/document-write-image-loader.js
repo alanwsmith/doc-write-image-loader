@@ -98,10 +98,7 @@ ImageLoader_0_5_x.prototype.logical_height = function() {
     return 341;
 };
 
-
 ImageLoader_0_5_x.prototype.logical_width = function() {
-    // TODO: Make sure to account for images where raw_souce_height
-    //       is the limiting factor.
     var return_value = Math.min(
         this.raw_source_dpr_max_logical_width(), 
         this.viewport_percentage_max_logical_width() 
@@ -110,7 +107,6 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
 };
 
 ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
-    // `Math.floor` ensures result is an integer that doesn't enlarge.
     var return_value = Math.floor(
         this.raw_source_width() / this.dpr()
     );
