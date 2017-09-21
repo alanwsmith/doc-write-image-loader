@@ -99,12 +99,17 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
 
     var return_value = Math.floor(
         Math.min(
+            // TODO: Replace this with `this.raw_source_dpr_max_logical_width` 
             raw_source_dpr_max_logical_width, 
             this.viewport_percentage_max_logical_width() 
         )
     );
 
     return return_value;
+};
+
+ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
+    return 400;
 };
 
 ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
