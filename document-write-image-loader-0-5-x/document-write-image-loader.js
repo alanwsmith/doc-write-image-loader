@@ -83,7 +83,6 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     return_value = return_value.replace('[LOGICAL_WIDTH_FOR_ATTRIBUTE]', this.logical_width()); 
     return_value = return_value.replace('[LOGICAL_HEIGHT_FOR_ATTRIBUTE]', this.logical_height()); 
     return_value = return_value.replace('[SOURCE_URL]', this.url_string());
-
     return return_value;
 }
 
