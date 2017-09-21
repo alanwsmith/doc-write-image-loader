@@ -113,6 +113,24 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 });
 
 
+QUnit.test("Integration Test 2: Loop thru varison scenarios", function(assert) {
+    // Preflight
+    
+    var scenarios = [];
+
+    // FOR EACH scenarios 
+        // Given
+        var target = ""; 
+    
+        // When
+        var result = "";
+
+        // Then
+        assert.equal(result, target);
+    
+});
+
+
 /************************************************************\
  * Unit Tests 
 \************************************************************/
