@@ -177,6 +177,20 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
     assert.equal(result, target);
 });
 
+QUnit.test("Unit Test: .physical_height()", function(assert) {
+    // Preflight
+    var target = 628;
+
+    // Given
+    // TKTKTK
+
+    // When
+    var result = this.image_loader.physical_height();
+
+    // Then
+    assert.equal(result, target);
+});
+
 
 QUnit.test("Unit Test: .physical_width()", function(assert) {
     // NOTE: This test doesn't exercise the `Math.floor` portion
