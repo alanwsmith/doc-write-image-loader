@@ -50,6 +50,16 @@ URL Template Parameters
 - TODO: Free form entry to pass arbitrary parameters.
 
 
+Instance Variables
+------------------
+
+- Instance variables are prefixed with `_`
+- They are set directly (e.g. `this.image_loader._source_file_width = 1000`)
+- They are accessed with a method that matches the name minus the leading `_` (e.g. `.source_file_width()`)
+- This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
+
+
+
 
 --- 
 

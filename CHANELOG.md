@@ -4,18 +4,22 @@ Changelog
 Version: 0.5.0
 --------------
 
-- This is effectively the start of a rewrite. 
-- All prior test code has been commented out. 
-- New tests will be added for a new set of functions that will rely on parameters being passed instead of direct use of instance vairables.
-- When the refactor is copmlete, the lack of tests for a function will indicate that it's not in the mix which will make them easier to identify for remaval.
-- Setup `.image_string_from_params()` method as core integration point. 
-- Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatcially. 
-- Added `.set_url_template()` 
-- Setup a template for the final `<img>` output instead of assembling it by adding strings together.
-- Added default `_max_width_of_window_percentage` of 94 so it's not necessary to send that value down for every call.
-- Added `.calculate_visual_width()` to figure out the width to set for the canvas size for the image.
-- Added cache buster to main script call attempting to make Live Reload work properly every time.
-- Switching to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call).
+- This is effectively the start of a rewrite
+- All prior test code has been commented out and is in the process of being removed
+- Removed `0.4.0` from the live repo
+- Created a new set of tests for the new code
+- Switched to using `logical_` and `physical_` prefaces for dimensions (logical being the perceived display, physical being what's used for the URL call)
+- Added cache buster to both the main and test script calls attempting to make Live Reload work properly every time
+- Added a `before` call that prints a random number to the console to make it easy to tell with multiple passing test runs trigger
+- Added a `beforeEach` call in `QUnit.module` to initialize the objected under test automatically
+- Added default placeholders for instance variables and verified their getter methods
+- Set explicit default for `.img_tag_template()`
+- Set explicit default of `94` for `.percent_of_viewport_width()`
+- Stubbed the primary `.img_tag_string()` method that is the main integration point.
+- Added `.logical_width()`
+- Added `.raw_source_dpr_max_logical_width()`
+- Added `.viewport_percentage_max_logical_width()`
+
 
 
 

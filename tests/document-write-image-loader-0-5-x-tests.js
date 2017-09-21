@@ -1,7 +1,7 @@
 QUnit.module("Loader Factory", {
-	// TODO: Add function that runs before suite to show date
-	//		 to make it easier to see when the browser automatically 
-	//       refreshes in the background.
+    before: function() {
+        console.log("Kickoff: " + Math.random());
+    },
     beforeEach: function() {
         console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
@@ -9,79 +9,176 @@ QUnit.module("Loader Factory", {
 });
 
 
-QUnit.test("Confirm version number has been updated.", function(assert) {
-    assert.equal(
-        "0.5.0",
-        this.image_loader.version_number()
-    ); 
+/************************************************************\
+ * Set Defaults and Version Number 
+\************************************************************/
+
+QUnit.test("Confirm version number", function(assert) {
+    var target_version = "0.5.0";
+    assert.equal(target_version, this.image_loader.version_number()); 
 });
+
+///
+
+QUnit.test("Confirm default for .dpr()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.dpr(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .filename()", function(assert) {
+    var target = "";
+    var result = this.image_loader.filename(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .img_tag_template()", function(assert) {
+    var target = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">';
+    var result = this.image_loader.img_tag_template(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .percent_of_viewport_width()", function(assert) {
+    var target = 94;
+    var result = this.image_loader.percent_of_viewport_width(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .raw_source_heigth()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.raw_source_height(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .raw_source_width()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.raw_source_width(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .url_template()", function(assert) {
+    var target = "";
+    var result = this.image_loader.url_template(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .viewport_height()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.viewport_height(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .viewport_width()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.viewport_width(); 
+    assert.equal(result, target);
+});
+
+
+/************************************************************\
+ * Integration Tests 
+\************************************************************/
 
 
 QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
-    // TODO:
-    // - Add environmental overrides so it doesn't matter what browser is being tested. 
-    // - Add something like `imageLoader.load_environment()` to Given for the standard setup 
+
+    // Preflight
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg" width="512" height="341" alt="Photo of Horses">';
 
     // Given 
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
+    this.image_loader._alt_text = "Photo of Horses";
+    this.image_loader._filename = "horses.jpg";
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_height = 1067;
+    this.image_loader._raw_source_width = 1600;
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+
+    // Force environmental variables for testing consistency
+    this.image_loader._dpr = 2;
+    this.image_loader._viewport_height = 680;
+    this.image_loader._viewport_width = 1024;
+
+    // When 
+    var result = this.image_loader.img_tag_string();
     
-    // When 
-    var target_string = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
-
-    var result_string = this.image_loader.image_string_from_params( {
-        filename: "horses.jpg", 
-        alt_text: "Photo of Horses",
-		// TODO: Rename these to `max_physical_width` and `max_physical_height`.
-        source_width: 1600,
-        source_height: 1067
-    });
-
     // Then
-    assert.equal(result_string, target_string);
+    assert.equal(target, result);
+
 });
 
 
-QUnit.test("Unit Test: Ensure URL template is set properly.", function(assert) {
+/************************************************************\
+ * Unit Tests 
+\************************************************************/
+
+
+QUnit.test("Unit Test: .logical_width() - when .drp() == 1 and .percent_of_viewport_width() calculation is returned", function(assert) {
+    // Preflight
+    var target = 512;
+
     // Given
-    var target_string = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+    this.image_loader._dpr = 1;
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_width = 1600;
+    this.image_loader._viewport_width = 1024;
 
     // When
-    this.image_loader.set_url_template('//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]');
-    var result_string = this.image_loader._url_template;
-
-    // Then
-    assert.equal(result_string, target_string);
-});
-
-
-QUnit.test("Unit Test: Ensure default max width is set.", function(assert) {
-    // Given 
-    var target_default_max_percentage_width_of_window = 94;
-
-    // When
-    var result = this.image_loader._max_width_of_window_percentage; 
-
-    // Then
-    assert.equal(result, target_default_max_percentage_width_of_window)
-});
-
-
-QUnit.test("Unit Test: calculate_visual_width", function(assert) {
-
-    // Given 
-    var target = 640; 
-
-    // When 
-    var result = this.image_loader.calculate_visual_width({
-        max_physical_width: 640,
-        percent_of_viewport_width: 94,
-        viewport_width: 1028
-    });
+    var result = this.image_loader.logical_width(); 
 
     // Then
     assert.equal(result, target);
-
 });
+
+
+QUnit.test("Unit Test: .logical_width() - when .dpr() == 1 and .raw_source_width() is returned", function(assert) {
+    // Preflight
+    var target = 800;
+
+    // Given
+    this.image_loader._dpr = 1;
+    this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._raw_source_width = 800;
+    this.image_loader._viewport_width = 1024;
+    
+    // When
+    var result = this.image_loader.logical_width();
+
+    // Then
+    assert.equal(result, target);
+});
+
+
+QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
+    // Preflight
+    var target = 87;
+
+    // Given
+    this.image_loader._dpr = 2;
+    this.image_loader._raw_source_width = 175;
+
+    // When
+    var result = this.image_loader.raw_source_dpr_max_logical_width();
+
+    // Then
+    assert.equal(result, target);
+});
+
+
+QUnit.test("Unit Test: .viewport_percentage_max_logical_width()", function(assert) {
+    // Preflight
+    var target = 819;
+
+    // Given
+    this.image_loader._percent_of_viewport_width = 80;
+    this.image_loader._viewport_width = 1024;
+
+    // When
+    var result = this.image_loader.viewport_percentage_max_logical_width();
+
+    // Then
+    assert.equal(result, target);
+}); 
+
 
 
 
@@ -95,24 +192,6 @@ QUnit.test("Unit Test: calculate_visual_width", function(assert) {
  *
 /******************************************************/
 
-// QUnit.test("Integration Test: Verify environmental parameters load", function(assert) {
-// 
-//     // It's a little weird to tests these params, but I 
-//     // want to make sure they work for integration purposes. 
-// 
-//     // Given
-//     var target_dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
-// 
-//     // When
-//     var imageLoader = new ImageLoader_0_5_x(); 
-//     imageLoader.load_environmental_params();
-// 
-//     // Then
-//     assert.equal(imageLoader._dpr, target_dpr);
-// 
-// });
-// 
-// 
 // QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 // 
 //   // Given

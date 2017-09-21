@@ -37,11 +37,20 @@
 	script_call += '">';
 	script_call += '</';
 	script_call += 'script>';
-
 	document.writeln(script_call);
+
+	var tests_call = '';
+	tests_call += '<script src="';
+	tests_call += 'document-write-image-loader-0-5-x-tests.js';
+	tests_call += '?cache_buster=';
+	tests_call += date_string;
+	tests_call += '">';
+	tests_call += '</';
+	tests_call += 'script>';
+	document.writeln(tests_call);
+
   </script>
 
-  <script src="document-write-image-loader-0-5-x-tests.js"></script>
 
   <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }

@@ -1,64 +1,131 @@
 var ImageLoader_0_5_x = function() {};
 
-ImageLoader_0_5_x.prototype.version_number = function() {
-    return "0.5.0";
-};
+// TODO: Add function that can be called one time to load 
+//       environmental parameters.
 
 
 /************************************************************\
- * Defaults 
+ * Instance Variable Defaults 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
+
+ImageLoader_0_5_x.prototype._dpr = 0; 
+ImageLoader_0_5_x.prototype._filename= ""; 
+ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">'; 
+ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
+ImageLoader_0_5_x.prototype._raw_source_height = 0; 
+ImageLoader_0_5_x.prototype._raw_source_width = 0; 
+ImageLoader_0_5_x.prototype._url_template = ""; 
+ImageLoader_0_5_x.prototype._viewport_height = 0; 
+ImageLoader_0_5_x.prototype._viewport_width = 0; 
+
+
+/************************************************************\
+ * Instance Variable Access Methods 
+\************************************************************/
+
+ImageLoader_0_5_x.prototype.version_number = function() {
+    return this._version_number;
+};
+
+///
+
+ImageLoader_0_5_x.prototype.dpr= function() {
+    return this._dpr;
+};
+
+ImageLoader_0_5_x.prototype.filename = function() {
+    return this._filename;
+};
+
+ImageLoader_0_5_x.prototype.img_tag_template = function() {
+    return this._img_tag_template;
+};
+
+ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
+    return this._percent_of_viewport_width;
+};
+
+ImageLoader_0_5_x.prototype.raw_source_height = function() {
+    return this._raw_source_height;
+};
+
+ImageLoader_0_5_x.prototype.raw_source_width = function() {
+    return this._raw_source_width;
+};
+
+ImageLoader_0_5_x.prototype.url_template = function() {
+    return this._url_template;
+};
+
+ImageLoader_0_5_x.prototype.viewport_height = function() {
+    return this._viewport_height;
+};
+
+ImageLoader_0_5_x.prototype.viewport_width = function() {
+    return this._viewport_width;
+};
+
 
 
 /************************************************************\
  * Integrated Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.image_string_from_params = function(params) {
-    
-    // TODO: Migrate to using non-stubbed values. 
-    var _logical_width = this.calculate_visual_width({
-        max_physical_width: 640,
-        percent_of_viewport_width: 94,
-        viewport_width: 1028
-	}); 
+ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
-    // TODO: Make a function to build the display height 
-    var _logical_height = 436;
+    var source_url = this.url_template();
+    source_url = source_url.replace('[FILENAME]', this.filename());
+    source_url = source_url.replace('[PHYSICAL_WIDTH]', 1024);
+    source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
-    // TODO: Make a function to build the URL call width
-    var _physical_width = 1280;
+    var return_value = this.img_tag_template();
+    return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
+    return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
+    return_value = return_value.replace('[LOGICAL_HEIGHT]', 341); 
+    return_value = return_value.replace('[SOURCE_URL]', source_url);
 
-    // TODO: Make a function to build the URL call height
-    var _physical_height = 852; 
-
-
-    // TODO: Move URL string creation to its own function.
-    var output_url = this._url_template;
-    output_url = output_url.replace('[PHYSICAL_WIDTH]', _physical_width);
-    output_url = output_url.replace('[PHYSICAL_HEIGHT]', _physical_height);
-    output_url = output_url.replace('[FILENAME]', params['filename']); 
-
-
-    // Define the template for the output string. 
-    // TODO: Move this to its own function.
-    var output_string = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[URL]">';
-    output_string = output_string.replace('[ALT_TEXT]', params['alt_text']);
-    output_string = output_string.replace('[LOGICAL_WIDTH]', _logical_width);
-    output_string = output_string.replace('[LOGICAL_HEIGHT]', _logical_height);
-    output_string = output_string.replace('[URL]', output_url);
-
-    return output_string;
-};
+    return return_value;
+}
 
 
 /************************************************************\
  * Unit Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.calculate_visual_width = function(params) {
+ImageLoader_0_5_x.prototype.logical_width = function() {
+    var return_value = Math.min(
+        this.raw_source_dpr_max_logical_width(), 
+        this.viewport_percentage_max_logical_width() 
+    );
+    return return_value;
+};
+
+ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
+    // `Math.floor` ensures result is an integer that doesn't enlarge.
+    var return_value = Math.floor(
+        this.raw_source_width() / this.dpr()
+    );
+    return return_value;
+};
+
+ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
+    // `Math.floor` ensures result is an integer that doesn't enlarge.
+    var return_value = Math.floor(
+        this.percent_of_viewport_width() * .01 * this.viewport_width()
+    );
+    return return_value;
+};
+
+
+
+/************************************************************\
+ * Prior logic
+
+prior: 
+
+ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
 	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
 	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
 
@@ -68,11 +135,25 @@ ImageLoader_0_5_x.prototype.calculate_visual_width = function(params) {
     return return_value;
 };
 
-
-ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
-    // TODO: Add check to make sure first two characters are `//` so `http` or `https` is used automatically
-    this._url_template = url_template;
+ImageLoader_0_5_x.prototype.render_height = function() {
+	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
+	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 };
+
+ImageLoader_0_5_x.prototype.url_request_height = function() {
+  return this.render_height() * this._dpr; 
+};
+
+ImageLoader_0_5_x.prototype.url_request_width = function() {
+  return this.render_width() * this._dpr; 
+};
+\************************************************************/
+
+
+
+
+
+
 
 
 /**********************************************************\
@@ -84,19 +165,14 @@ ImageLoader_0_5_x.prototype.set_url_template= function(url_template) {
 \**********************************************************/
 
 
-// ImageLoader_0_5_x.prototype.load_environment = function() {
-//     // TODO: Setup an initilization type call the 
-//     //       pulls in and the environmental parameters 
-//     //       from the browser a single time so they can
-//     //       be used across multiple uses.
-// };
-
-
 // TODO: Delete this funciton and move its contents into `load_environment`
 ImageLoader_0_5_x.prototype.load_environmental_params = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 };
 
+
+
+// TODO: Migrate calls from `.url_to_call()` to `.assembled_url`.
 ImageLoader_0_5_x.prototype.url_to_call = function() {
 	return this._url_template.replace('[WIDTH]', this.url_request_width()).replace('[HEIGHT]', this.url_request_height()).replace('[QUALITY]', this._quality).replace('[IMAGE_NAME]', this._image_name) 
 };
