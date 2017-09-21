@@ -3,7 +3,7 @@ QUnit.module("Loader Factory", {
         console.log("Kickoff: " + Math.random());
     },
     beforeEach: function() {
-        console.log("Creating new test object");
+        // console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
     }
 });
@@ -114,7 +114,6 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 QUnit.test("Unit Test: .logical_height()", function(assert) {
 
 });
-
 
 
 // TODO:
