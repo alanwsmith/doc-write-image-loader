@@ -4,7 +4,8 @@ Changelog
 Version: 0.5.1
 --------------
 
-- Added `.logical_height()`
+- Added `.logical_height_for_attribute()`
+- Changed `.logical_width()` to `.logical_width_for_attribute()`
 - Added `._alt_text` and `.alt_text() tests
 - Added `.physical_height_to_call()`
 - Added `.physical_width_to_call()`

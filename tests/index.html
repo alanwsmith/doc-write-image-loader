@@ -65,25 +65,25 @@
     var imageLoader = new ImageLoader_0_5_x;
 
     imageLoader._dpr = 2;
-    imageLoader._viewport_width = 640;
-    imageLoader._viewport_height = 480;
+    imageLoader._viewport_logical_width = 640;
+    imageLoader._viewport_logical_height = 480;
 
     imageLoader._alt_text = "Photo of Horses";
     imageLoader._filename = "horses.jpg";
-    imageLoader._percent_of_viewport_width = 20;
-    imageLoader._raw_source_height = 107;
-    imageLoader._raw_source_width = 160;
-    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+    imageLoader._max_percent_of_viewport_logical_width = 20;
+    imageLoader._raw_source_physical_height = 107;
+    imageLoader._raw_source_physical_width = 160;
+    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     var function_names = [
-        'viewport_width',
-        'viewport_height',
-        'percent_of_viewport_width',
+        'viewport_logical_width',
+        'viewport_logical_height',
+        'max_percent_of_viewport_logical_width',
         'raw_source_dpr_max_logical_width',  
-        'raw_source_width',
+        'raw_source_physical_width',
         'logical_width',  
         'physical_width_to_call',  
-        'raw_source_height',
+        'raw_source_physical_height',
         'logical_height',  
         'physical_height_to_call',  
     ];
