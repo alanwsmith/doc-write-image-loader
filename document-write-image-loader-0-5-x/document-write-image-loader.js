@@ -43,7 +43,11 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 
 
-    var source_url = '//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg';
+    var source_url = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/horses.jpg';
+
+    source_url = source_url.replace('[PHYSICAL_WIDTH]', 1280);
+    source_url = source_url.replace('[PHYSICAL_HEIGHT]', 852);
+
     var img_string_template = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[SOURCE_URL]">';
     
     var return_value = img_string_template;
