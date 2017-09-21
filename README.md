@@ -11,6 +11,22 @@ It's stability varies and should not be used in production at this point.
 This README is a work in progress too. It's not necessarily representative of the state of the project at this time. (It's more of a dumping ground while I work to edit thing down.)
 
 
+
+Using `raw_source_physical_` Dimensions to Limit Full Size
+----------------------------------------------------------
+
+My original prototype had a feature to limit the max width of the image even if the % of viewport width was larger than desired and there was raw image avaialbe (e.g. if the image was 4000x3000, but you wanted to limit it to just 1000 pixels wide)
+
+I'm not doing that for now. Instead, I'll just limit the raw image size itself. (and or, do the reduction math before making the all). 
+
+If raw images of the max size are what's hosted, that problem solves itself. 
+
+If, on the other hand, raw images are bigger, remember to do the ratio conversion for the height if you decided to do the downsizing that way. 
+
+While, I can see how it would make things a little easier to implement if the max width in pixels could be set independently, it adds more complexity and overhead here than I want to tackle. (The idea being that this would mean you could just look at the raw height and width and copy them in directly than having to the math to reduce both width in height in proportion in order to downsize via the script.)
+
+
+
 Overview
 --------
 
