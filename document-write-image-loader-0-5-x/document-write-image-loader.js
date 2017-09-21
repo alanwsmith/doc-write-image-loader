@@ -107,14 +107,14 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
     return return_value;
 };
 
-ImageLoader_0_5_x.prototype.physical_height = function() {
+ImageLoader_0_5_x.prototype.physical_height_to_call = function() {
     var return_value = Math.floor(
         this.logical_height() * this.dpr()
     );
     return return_value;
 };
 
-ImageLoader_0_5_x.prototype.physical_width = function() {
+ImageLoader_0_5_x.prototype.physical_width_to_call = function() {
 	var return_value = Math.floor(
         this.logical_width() * this.dpr()
     );
@@ -130,8 +130,8 @@ ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
 
 ImageLoader_0_5_x.prototype.url_string = function() {
     var return_value = this.url_template();
-    return_value = return_value.replace('[PHYSICAL_WIDTH]', this.physical_width());
-    return_value = return_value.replace('[PHYSICAL_HEIGHT]', this.physical_height());
+    return_value = return_value.replace('[PHYSICAL_WIDTH]', this.physical_width_to_call());
+    return_value = return_value.replace('[PHYSICAL_HEIGHT]', this.physical_height_to_call());
     return_value = return_value.replace('[FILENAME]', this.filename());
     return return_value;
 };

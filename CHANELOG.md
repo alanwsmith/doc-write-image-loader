@@ -6,8 +6,8 @@ Version: 0.5.1
 
 - Added `.logical_height()`
 - Added `._alt_text` and `.alt_text() tests
-- Added `.physical_height()`
-- Added `.physical_width()`
+- Added `.physical_height_to_call()`
+- Added `.physical_width_to_call()`
 - Added `.url_string()`
 - Put example output on test page for experimentation
 

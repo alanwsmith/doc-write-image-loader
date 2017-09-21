@@ -197,7 +197,7 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
     assert.equal(result, target);
 });
 
-QUnit.test("Unit Test: .physical_height()", function(assert) {
+QUnit.test("Unit Test: .physical_height_to_call()", function(assert) {
     // Preflight
     var target = 600;
 
@@ -209,14 +209,14 @@ QUnit.test("Unit Test: .physical_height()", function(assert) {
     this.image_loader._viewport_width = 1024;
 
     // When
-    var result = this.image_loader.physical_height();
+    var result = this.image_loader.physical_height_to_call();
 
     // Then
     assert.equal(result, target);
 });
 
 
-QUnit.test("Unit Test: .physical_width()", function(assert) {
+QUnit.test("Unit Test: .physical_width_to_call()", function(assert) {
     // NOTE: This test doesn't exercise the `Math.floor` portion
     // of the function. I'm not sure if it's necessary for the funciton, 
     // but it's been added for safety. TODO: look into this to see
@@ -234,7 +234,7 @@ QUnit.test("Unit Test: .physical_width()", function(assert) {
     this.image_loader._viewport_width = 1024;
 
     // When
-    var result = this.image_loader.physical_width();
+    var result = this.image_loader.physical_width_to_call();
 
     // Then
     assert.equal(result, target);
