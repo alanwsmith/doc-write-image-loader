@@ -141,24 +141,6 @@ QUnit.test("Unit Test: .logical_width()", function(assert) {
  *
 /******************************************************/
 
-// QUnit.test("Integration Test: Verify environmental parameters load", function(assert) {
-// 
-//     // It's a little weird to tests these params, but I 
-//     // want to make sure they work for integration purposes. 
-// 
-//     // Given
-//     var target_dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
-// 
-//     // When
-//     var imageLoader = new ImageLoader_0_5_x(); 
-//     imageLoader.load_environmental_params();
-// 
-//     // Then
-//     assert.equal(imageLoader._dpr, target_dpr);
-// 
-// });
-// 
-// 
 // QUnit.test("2x DPR Basic call stright to load_params", function(assert) {
 // 
 //   // Given
