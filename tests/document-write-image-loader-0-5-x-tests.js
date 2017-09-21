@@ -86,24 +86,34 @@ QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
 \************************************************************/
 
 
-QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
+QUnit.test("Integration Test 1: Base functionality with minimal call", function(assert) {
+    // Remember: There should be no need to test different iterations of limiting 
+    // either by physical dimension or viewport percentage. All that math should be 
+    // tested at the unit level. As long as a single pass through here works for 
+    // the minimum set of values, the unit tests are responsible for handling 
+    // everything else. (It may be worth setting up a run thru multiple just
+    // as an exercise, but for dev, just use it and let that experience determine
+    // if you need to add more and if so where.) 
+    //
+    // There should also be no need to do another version with a custom setting
+    // for `max_percetage_of_viewport_logical_width`. That is already being 
+    // exercies here with a value of `94` and setting a custom value would 
+    // just push the new value through the exact same logic/formula. 
 
     // Preflight
-    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg" width="512" height="341" alt="Photo of Horses">';
-
-    // Given 
-    this.image_loader._alt_text = "Photo of Horses";
-    this.image_loader._filename = "horses.jpg";
-    // TODO: Remove this since there is a default set so it's not required for the minimal call. 
-    this.image_loader._max_percent_of_viewport_logical_width = 50;
-    this.image_loader._raw_source_physical_height = 1067;
-    this.image_loader._raw_source_physical_width = 1600;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1600,h_1066/horses.jpg" width="800" height="533" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
     this.image_loader._dpr = 2;
     this.image_loader._viewport_logical_height = 680;
     this.image_loader._viewport_logical_width = 1024;
+
+    // Given 
+    this.image_loader._alt_text = "Photo of Horses";
+    this.image_loader._filename = "horses.jpg";
+    this.image_loader._raw_source_physical_height = 1067;
+    this.image_loader._raw_source_physical_width = 1600;
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
     var result = this.image_loader.img_tag_string();
