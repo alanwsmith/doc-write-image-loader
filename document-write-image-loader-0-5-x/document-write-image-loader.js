@@ -83,7 +83,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
-    return_value = return_value.replace('[LOGICAL_HEIGHT]', 341); 
+    return_value = return_value.replace('[LOGICAL_HEIGHT]', this.logical_height()); 
     return_value = return_value.replace('[SOURCE_URL]', source_url);
 
     return return_value;
@@ -95,7 +95,10 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.logical_height = function() {
-    return 341;
+    var return_value = Math.floor(
+        this.raw_source_height() * this.logical_width() / this.raw_source_width()
+    );
+    return return_value;
 };
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
@@ -127,10 +130,6 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
 
 prior: 
 
-ImageLoader_0_5_x.prototype.render_height = function() {
-	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
-	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
-};
 
 ImageLoader_0_5_x.prototype.url_request_height = function() {
   return this.render_height() * this._dpr; 

@@ -116,14 +116,17 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
     var target = 341;
 
     // Given
-    // TKTKD
+    this.image_loader._dpr = 2;
+    this.image_loader._raw_source_height = 1067;
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_width = 1600;
+    this.image_loader._viewport_width = 1024;
      
     // When
     var result = this.image_loader.logical_height();
 
     // Then
     assert.equal(result, target);
-
 });
 
 
