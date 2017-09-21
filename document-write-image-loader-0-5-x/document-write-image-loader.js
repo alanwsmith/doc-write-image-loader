@@ -8,15 +8,22 @@ var ImageLoader_0_5_x = function() {};
  * Instance Variable Defaults 
 \************************************************************/
 
+ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
+
 ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
 ImageLoader_0_5_x.prototype._source_file_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
-ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
 
 /************************************************************\
  * Instance Variable Access Methods 
 \************************************************************/
+
+ImageLoader_0_5_x.prototype.version_number = function() {
+    return this._version_number;
+};
+
+///
 
 ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
     return this._percent_of_viewport_width;
@@ -30,15 +37,9 @@ ImageLoader_0_5_x.prototype.url_template = function() {
     return this._url_template;
 };
 
-ImageLoader_0_5_x.prototype.version_number = function() {
-    return this._version_number;
-};
-
 ImageLoader_0_5_x.prototype.viewport_width = function() {
     return this._viewport_width;
 };
-
-
 
 
 
