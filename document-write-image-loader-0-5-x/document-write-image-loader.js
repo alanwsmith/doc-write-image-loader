@@ -14,6 +14,7 @@ ImageLoader_0_5_x.prototype._dpr = 0;
 ImageLoader_0_5_x.prototype._filename= ""; 
 ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">'; 
 ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
+ImageLoader_0_5_x.prototype._raw_source_height = 0; 
 ImageLoader_0_5_x.prototype._raw_source_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
 ImageLoader_0_5_x.prototype._viewport_height = 0; 
@@ -44,6 +45,10 @@ ImageLoader_0_5_x.prototype.img_tag_template = function() {
 
 ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
     return this._percent_of_viewport_width;
+};
+
+ImageLoader_0_5_x.prototype.raw_source_height = function() {
+    return this._raw_source_height;
 };
 
 ImageLoader_0_5_x.prototype.raw_source_width = function() {
