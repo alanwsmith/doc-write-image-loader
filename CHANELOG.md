@@ -9,6 +9,7 @@ Version: 0.5.1
 - Added `.physical_height()`
 - Added `.physical_width()`
 - Added `.url_string()`
+- Put example output on test page for experimentation
 
 
 

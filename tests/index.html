@@ -60,6 +60,26 @@
   <p><strong><a href="../">Example</a> &middot; QUnit Test Results &middot; <a href="https://github.com/alanwsmith/doc-write-image-loader">Documentation and GitHub Repo</a></strong></p>
   <hr>
   <h1>document.write Image Loader - Tests</h1>
+
+  <script type="text/javascript">
+    var imageLoader = new ImageLoader_0_5_x;
+
+    imageLoader._dpr = 2;
+    imageLoader._viewport_height = 680;
+    imageLoader._viewport_width = 1024;
+
+    imageLoader._alt_text = "Photo of Horses";
+    imageLoader._filename = "horses.jpg";
+    imageLoader._percent_of_viewport_width = 10;
+    imageLoader._raw_source_height = 1067;
+    imageLoader._raw_source_width = 1600;
+    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+
+    var result = imageLoader.img_tag_string();
+    document.write(result);
+
+  </script>
+
   <div id="qunit"></div>
 </body>
 </html>
