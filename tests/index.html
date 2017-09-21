@@ -64,29 +64,40 @@
   <script type="text/javascript">
     var imageLoader = new ImageLoader_0_5_x;
 
-    imageLoader._dpr = 1;
-    imageLoader._viewport_height = 680;
-    imageLoader._viewport_width = 1024;
+    imageLoader._dpr = 2;
+    imageLoader._viewport_width = 640;
+    imageLoader._viewport_height = 480;
 
     imageLoader._alt_text = "Photo of Horses";
     imageLoader._filename = "horses.jpg";
-    imageLoader._percent_of_viewport_width = 10;
+    imageLoader._percent_of_viewport_width = 20;
     imageLoader._raw_source_height = 107;
     imageLoader._raw_source_width = 160;
     imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
 
-    document.writeln('<pre>');
     var function_names = [
+        'viewport_width',
+        'viewport_height',
+        'percent_of_viewport_width',
         'raw_source_dpr_max_logical_width',  
+        'raw_source_width',
         'logical_width',  
+        'physical_width',  
+        'raw_source_height',
         'logical_height',  
+        'physical_height',  
     ];
 
     for (var i = 0, len = function_names.length; i < len; i = i + 1) {
-        document.writeln(function_names[i] + ": " + imageLoader[function_names[i]]()); 
+        console.log(function_names[i] + ": " + imageLoader[function_names[i]]()); 
     }
 
-    document.writeln('</pre>');
+    console.log(
+        "raw_physical_max_width > physical_width_to_call"
+        +
+        " ? TKTKTKTK"
+    );
+
 
     var result = imageLoader.img_tag_string();
     document.write(result);
