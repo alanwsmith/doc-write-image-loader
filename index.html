@@ -33,74 +33,50 @@
   <hr> 
   <h2>Basic Example</h2>
   <script>
+    // Create a new object and set the url_template
     var imageLoader = new ImageLoader_0_5_x;
-    
-    imageLoader.load_params(
-      {
-    	dpr: 2,
-    	image_name: "horses.jpg",
-        percent_of_viewport_width: 50,
-        quality: 80,
-        raw_height: 1067,
-        raw_width: 1600,
-        viewport_height: window.innerHeight,
-        viewport_width: window.innerWidth,
-        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-      }
-    );
-    
+    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    // TODO: Make this a method instead of 
+
+    imageLoader._dpr = window.devicePixelRatio;
+    imageLoader._viewport_logical_width = window.innerWidth;
+    imageLoader._viewport_logical_height = window.innerHeight;
+
+    imageLoader._alt_text = "Photo of Horses";
+    imageLoader._filename = "horses.jpg";
+    imageLoader._raw_source_physical_width = 300;
+    imageLoader._raw_source_physical_height = 100;
+
     // Primary output 
-    document.write(imageLoader.img_tag());
+    document.write(imageLoader.img_tag_string());
 
+
+    var function_names = [
+        'viewport_logical_width',
+        'viewport_logical_height',
+        'max_percent_of_viewport_logical_width',
+        'raw_source_dpr_max_logical_width',  
+        'logical_width',  
+        'raw_source_physical_width',
+        'physical_width_to_call',  
+        'logical_height',  
+        'raw_source_physical_height',
+        'physical_height_to_call',  
+    ];
+
+    for (var i = 0, len = function_names.length; i < len; i = i + 1) {
+        console.log(function_names[i] + ": " + imageLoader[function_names[i]]()); 
+    }
+    
     // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
       '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
-      '<tr><td>% of viewport width:</td><td>' + imageLoader._percent_of_viewport_width + '</td></tr>' +
+      '<tr><td>Max % of viewport logical width:</td><td>' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
       '</table>' + 
       '<table>' +
       '<tr><th></th><th>Width</th><th>Height</th>' +
-      '<tr><td>Raw (original)</td><td>' + imageLoader._raw_width + '</td><td>' + imageLoader._raw_height + '</td></tr>' +
-      '<tr><td>Viewport</td><td>' + imageLoader._viewport_width + '</td><td>' + imageLoader._viewport_height + '</td></tr>' +
-      '<tr><td>Render</td><td>' + imageLoader.render_width() + '</td><td>' + imageLoader.render_height() + '</td></tr>' +
-      '<tr><td>URL Request</td><td>' + imageLoader.url_request_width() + '</td><td>' + imageLoader.url_request_height() + '</td></tr>' +
-      '</table>'
-    );
-
-  </script>
-  <hr>
-
-
-
-  <hr>
-  <h2>Minimum Details Call</h2>
-  <script>
-    var imageLoader = new ImageLoader_0_5_x;
-    
-    imageLoader.load_params(
-      {
-    	image_name: "horses.jpg",
-        raw_height: 1067,
-        raw_width: 1600,
-        viewport_height: window.innerHeight,
-        viewport_width: window.innerWidth,
-        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-      }
-    );
-    
-  
-    // Primary output
-    document.write(imageLoader.img_tag());
-
-    // Reporting details for demonstation purposes. 
-    document.write(
-      '<table>' +
-      '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
-      '<tr><td>% of viewport width:</td><td>' + imageLoader._percent_of_viewport_width + '</td></tr>' +
-      '</table>' + 
-      '<table>' +
-      '<tr><th></th><th>Width</th><th>Height</th>' +
-      '<tr><td>Raw (original)</td><td>' + imageLoader._raw_width + '</td><td>' + imageLoader._raw_height + '</td></tr>' +
+      '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
       '<tr><td>Viewport</td><td>' + imageLoader._viewport_width + '</td><td>' + imageLoader._viewport_height + '</td></tr>' +
       '<tr><td>Render</td><td>' + imageLoader.render_width() + '</td><td>' + imageLoader.render_height() + '</td></tr>' +
       '<tr><td>URL Request</td><td>' + imageLoader.url_request_width() + '</td><td>' + imageLoader.url_request_height() + '</td></tr>' +
