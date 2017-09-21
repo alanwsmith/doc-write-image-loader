@@ -9,6 +9,7 @@ var ImageLoader_0_5_x = function() {};
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._percentage_of_viewport_width = 94; 
+ImageLoader_0_5_x.prototype._source_file_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 

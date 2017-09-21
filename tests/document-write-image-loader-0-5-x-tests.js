@@ -24,6 +24,12 @@ QUnit.test("Confirm default for .percentage_of_viewport_width()", function(asser
     assert.equal(result, target);
 });
 
+QUnit.test("Confirm default for .source_file_width()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.source_file_width(); 
+    assert.equal(result, target);
+});
+
 QUnit.test("Confirm default for ._url_template()", function(assert) {
     var target = "";
     var result = this.image_loader.url_template(); 
