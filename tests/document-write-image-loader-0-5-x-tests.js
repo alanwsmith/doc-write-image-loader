@@ -71,7 +71,7 @@ QUnit.test("Confirm default for .viewport_width()", function(assert) {
 QUnit.test("Integration Test 1: Base functionality using the minimum setup and call", function(assert) {
 
     // Preflight
-    var target = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg" width="512" height="341" alt="Photo of Horses">';
 
     // Given 
     this.image_loader._alt_text = "Photo of Horses";
@@ -92,15 +92,6 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // Then
     assert.equal(target, result);
 
-    // TODO: 
-    // Assemble all of these into the values to check in the string. 
-    //
-//   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
-//   assert.equal(imageLoader.render_height(), 341, "Render height");
-//   assert.equal(imageLoader.render_width(), 512, "Render width");
-//   assert.equal(imageLoader.url_request_height(), 682, "Request height");
-//   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
-//   assert.equal(imageLoader.img_tag(), '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">', "Image tag");
 });
 
 

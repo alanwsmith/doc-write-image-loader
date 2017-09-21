@@ -63,21 +63,19 @@ ImageLoader_0_5_x.prototype.viewport_width = function() {
  * Integrated Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
+ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
     var source_url = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/horses.jpg';
-    source_url = source_url.replace('[PHYSICAL_WIDTH]', 1280);
-    source_url = source_url.replace('[PHYSICAL_HEIGHT]', 852);
+    source_url = source_url.replace('[PHYSICAL_WIDTH]', 1024);
+    source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
     // TODO: Move string_template to an instance variable.
-    var img_string_template = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[SOURCE_URL]">';
+    var img_string_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">';
     
     var return_value = img_string_template;
     return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
-    // I think the logic for `LOGICAL_WIDTH` is the first step in the chain.
-    // TODO: Change this to `.logical_width()` when it's ready.
-    return_value = return_value.replace('[LOGICAL_WIDTH]', 640); 
-    return_value = return_value.replace('[LOGICAL_HEIGHT]', 436); 
+    return_value = return_value.replace('[LOGICAL_WIDTH]', 512); 
+    return_value = return_value.replace('[LOGICAL_HEIGHT]', 341); 
     return_value = return_value.replace('[SOURCE_URL]', source_url);
 
     return return_value;
