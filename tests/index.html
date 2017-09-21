@@ -6,8 +6,51 @@
   <link rel="stylesheet" href="qunit-2.0.1.css">
   <script src="qunit-2.0.1.js"></script>
 
-  <script src="../document-write-image-loader-0-4-x/document-write-image-loader.js"></script>
-  <script src="document-write-image-loader-0-4-x-tests.js"></script>
+  <script type="text/javascript">
+
+    var d = new Date();
+    var mon = d.getMonth() + 1;
+    var day = d.getDate();
+	var hours = d.getHours();
+	var minutes = d.getMinutes();
+	var seconds = d.getSeconds();
+    
+    var date_string = ""
+    date_string += d.getFullYear();
+    date_string += (mon < 10 ? '0' : ''); 
+    date_string += mon;
+    date_string += (day < 10 ? '0' : '');
+    date_string += day;
+    date_string += (hours < 10 ? '0' : '');
+	date_string += hours; 
+    date_string += (minutes < 10 ? '0' : '');
+	date_string += minutes; 
+    date_string += (seconds < 10 ? '0' : '');
+	date_string += seconds; 
+
+	// TODO: Find a better way to do cache busting.
+	var script_call = '';
+	script_call += '<script src="';
+	script_call += '../document-write-image-loader-0-5-x/document-write-image-loader.js';
+	script_call += '?cache_buster=';
+	script_call += date_string;
+	script_call += '">';
+	script_call += '</';
+	script_call += 'script>';
+	document.writeln(script_call);
+
+	var tests_call = '';
+	tests_call += '<script src="';
+	tests_call += 'document-write-image-loader-0-5-x-tests.js';
+	tests_call += '?cache_buster=';
+	tests_call += date_string;
+	tests_call += '">';
+	tests_call += '</';
+	tests_call += 'script>';
+	document.writeln(tests_call);
+
+  </script>
+
 
   <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }

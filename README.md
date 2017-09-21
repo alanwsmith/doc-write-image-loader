@@ -1,12 +1,23 @@
 document.write Image Loader
 ===========================
 
+Work In Progress
+----------------
+
+The project isn't ready for prime time. It's still a work in progress. 
+
+It's stability varies and should not be used in production at this point.
+
+This README is a work in progress too. It's not necessarily representative of the state of the project at this time. (It's more of a dumping ground while I work to edit thing down.)
+
+
+Overview
+--------
+
 A plain-old JavaScript, resolution aware, responsive image loader. 
 
 Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://alanwsmith.github.io/document.write-image-loader/)
 
-Overview
---------
 
 Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it won't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
 
@@ -18,34 +29,66 @@ Usage
 
 **Setup**
 
+Place a call to the script in the `<head>` of the HTML and call initial setup functions:
+
+    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+    var image_loader = new ImageLoader_0_5_x;
+    image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+
+
+NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. 
+
+
+
+URL Template Parameters
+-----------------------
+
+- [PHYSICAL_WIDTH]
+- [PHYSICAL_HEIGHT]
+- [FILENAME]
+- TODO: Quality parameter
+- TODO: Free form entry to pass arbitrary parameters.
+
+
+Instance Variables
+------------------
+
+- Instance variables are prefixed with `_`
+- They are set directly (e.g. `this.image_loader._source_file_width = 1000`)
+- They are accessed with a method that matches the name minus the leading `_` (e.g. `.source_file_width()`)
+- This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
+
+
+
+
+--- 
+
+_Old Notes_
+
+**Setup**
+
 Either place a call to the script in the `<head>` of the HTML with:
 
-    <script src="document-write-image-loader-#-#-x/document-write-image-loader.js"></script>
+    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+    var imageLoader = new ImageLoader_0_5_x;
+    imageLoader.load_environmental_param();
 
 Or, copy the contents of the `.js` file into the `<head>` of HTML directly. 
 
 **Calling**
 
-Here's an example of the current call structure. (The version number in this documentation is currently adjusted manually. It may get out of sync. Check it to make sure it's accurate when implementing.) 
+NOTE: This is the desired structure for the minimum number of parameters that can be used for the call. Making it happen is still a work in progress.
 
-    var imageLoader = new ImageLoader_0_4_x;
-    
-    imageLoader.load_params(
-      {
-    	dpr: 2,
-    	image_name: "horses.jpg",
-        percent_of_viewport_width: 50,
-        quality: 80,
-        raw_height: 1067,
-        raw_width: 1600,
-        viewport_height: window.innerHeight,
-        viewport_width: window.innerWidth,
-        url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-      }
-    );
-    
-  
-    document.write(imageLoader.img_tag());
+    imageLoader.load_image( { 
+        filename: "horses.jpg", 
+        alt_text: "Photo of Horses",
+        source_width: 1600,
+        source_height: 1067
+    });
+
+The idea here is that the image will max out to the viewport width. 
+
+TODO: Update so the image goes to 100% of the width of whatever container it's in. 
 
 
 
@@ -60,13 +103,6 @@ Repo Checkout Procedure
 - When it's ready, merge it back into `gh-pages` and add a tag with the version number.
 
 
-
-A Work in Progress
-------------------
-
-This project isn't ready for prime time.  
-
-That said, the conceptual framework is in place. There's enough to use as a starting point if you'd like to experiment as well. 
 
 
 Versioning
@@ -141,7 +177,7 @@ Notes
 Roadmap TODOs
 -------------
 
-- Setup so a single call with minimal params can be made (e.g. should not have to idnetify `dpr` for Device Pixel Resolution.
+- Set a default quality 
 - (all the TODOs in the code comments)
 - Make sure all dimensions are converted to integers. 
 - Slice off extra pixels when division doesn't results in an integer.
