@@ -59,6 +59,16 @@ Instance Variables
 - This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
 
 
+Calculations Start with `.logical_width()`
+------------------------------------------
+
+The key sizing logic is contained inside `.logical_width()`. 
+
+It tests both the height and width of the source image in relation to the Device Pixel Ration (`.dpr()`) and the percentage of the logical viewport width to determine the largest width possible. 
+
+That width is then used as the central reference point for the rest of the sizing calculation functions. 
+
+
 
 
 --- 
