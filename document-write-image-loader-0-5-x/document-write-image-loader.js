@@ -8,7 +8,7 @@ var ImageLoader_0_5_x = function() {};
  * Instance Variable Defaults 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype._max_width_of_window_percentage = 94; 
+ImageLoader_0_5_x.prototype._percentage_of_viewport_width = 94; 
 ImageLoader_0_5_x.prototype._url_template = undefined; 
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
@@ -17,7 +17,7 @@ ImageLoader_0_5_x.prototype._version_number = "0.5.0";
  * Instance Variable Access Methods 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.max_width_of_window_percentage = function() {
+ImageLoader_0_5_x.prototype.percentage_of_viewport_width = function() {
     return this._version_number;
 };
 

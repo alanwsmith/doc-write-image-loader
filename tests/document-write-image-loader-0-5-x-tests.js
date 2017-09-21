@@ -9,11 +9,26 @@ QUnit.module("Loader Factory", {
 });
 
 
-QUnit.test("Confirm version number has been updated.", function(assert) {
+/************************************************************\
+ * Set Defaults and Version Number 
+\************************************************************/
+
+QUnit.test("Confirm version number", function(assert) {
     var target_version = "0.5.0";
     assert.equal(target_version, this.image_loader.version_number()); 
 });
 
+QUnit.test("Confirm default for .percentage_of_viewport_width()", function(assert) {
+    var target = 94;
+    var result = this.image_loader._percentage_of_viewport_width; 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for ._url_template()", function(assert) {
+    var target = undefined;
+    var result = this.image_loader.url_template(); 
+    assert.equal(result, target);
+});
 
 
 /************************************************************\
@@ -49,11 +64,6 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
  * Unit Tests 
 \************************************************************/
 
-QUnit.test("Default Settings Test: Ensure default max width is set.", function(assert) {
-    var target_default_max_percentage_width_of_window = 94;
-    var result = this.image_loader._max_width_of_window_percentage; 
-    assert.equal(result, target_default_max_percentage_width_of_window)
-});
 
 
 QUnit.test("Unit Test: assembled_url()", function(assert) {
