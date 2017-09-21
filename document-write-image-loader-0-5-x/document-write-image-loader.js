@@ -95,20 +95,25 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
-    var viewport_dpr_based_max_logical_width = (this.percent_of_viewport_width() * .01 * this.viewport_width());
-
     var raw_source_dpr_max_logical_width = this.raw_source_width();
 
     var return_value = Math.floor(
         Math.min(
             raw_source_dpr_max_logical_width, 
-            viewport_dpr_based_max_logical_width
+            this.viewport_based_logical_width() 
         )
     );
 
     return return_value;
 };
 
+ImageLoader_0_5_x.prototype.viewport_based_logical_width = function() {
+    // Using `Math.floor` to ensure the returned value is an integer that doesn't enlarge.
+    var return_value = Math.floor(
+        this.percent_of_viewport_width() * .01 * this.viewport_width()
+    );
+    return return_value;
+};
 
 
 
