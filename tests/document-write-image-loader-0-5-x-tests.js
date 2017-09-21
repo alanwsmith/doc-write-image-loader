@@ -179,10 +179,14 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
 
 QUnit.test("Unit Test: .physical_height()", function(assert) {
     // Preflight
-    var target = 628;
+    var target = 600;
 
     // Given
-    // TKTKTK
+    this.image_loader._dpr = 2;
+    this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._raw_source_height = 600;
+    this.image_loader._raw_source_width = 800;
+    this.image_loader._viewport_width = 1024;
 
     // When
     var result = this.image_loader.physical_height();

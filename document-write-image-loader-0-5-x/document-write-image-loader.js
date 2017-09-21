@@ -82,7 +82,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     var source_url = this.url_template();
     source_url = source_url.replace('[FILENAME]', this.filename());
     source_url = source_url.replace('[PHYSICAL_WIDTH]', this.physical_width());
-    source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
+    source_url = source_url.replace('[PHYSICAL_HEIGHT]', this.physical_height());
 
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
@@ -113,13 +113,19 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
     return return_value;
 };
 
+ImageLoader_0_5_x.prototype.physical_height = function() {
+    var return_value = Math.floor(
+        this.logical_height() * this.dpr()
+    );
+    return return_value;
+};
+
 ImageLoader_0_5_x.prototype.physical_width = function() {
 	var return_value = Math.floor(
         this.logical_width() * this.dpr()
     );
 	return return_value;
 };
-
 
 ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
     var return_value = Math.floor(
@@ -134,25 +140,6 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
     );
     return return_value;
 };
-
-
-
-/************************************************************\
- * Prior logic
-
-prior: 
-
-
-ImageLoader_0_5_x.prototype.url_request_height = function() {
-  return this.render_height() * this._dpr; 
-};
-
-\************************************************************/
-
-
-
-
-
 
 
 
