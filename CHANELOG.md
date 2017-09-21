@@ -4,7 +4,8 @@ Changelog
 Version: 0.5.1
 --------------
 
-- Added `.logical_height`
+- Added `.logical_height()`
+- Added `._alt_text` and `.alt_text() tests
 
 
 

@@ -20,6 +20,12 @@ QUnit.test("Confirm version number", function(assert) {
 
 ///
 
+QUnit.test("Confirm default for .alt_text()", function(assert) {
+    var target = "";
+    var result = this.image_loader.alt_text();
+    assert.equal(result, target);
+});
+
 QUnit.test("Confirm default for .dpr()", function(assert) {
     var target = 0;
     var result = this.image_loader.dpr(); 

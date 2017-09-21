@@ -10,6 +10,7 @@ var ImageLoader_0_5_x = function() {};
 
 ImageLoader_0_5_x.prototype._version_number = "0.5.1"; 
 
+ImageLoader_0_5_x.prototype._alt_text = "";
 ImageLoader_0_5_x.prototype._dpr = 0; 
 ImageLoader_0_5_x.prototype._filename= ""; 
 ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">'; 
@@ -31,7 +32,11 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 ///
 
-ImageLoader_0_5_x.prototype.dpr= function() {
+ImageLoader_0_5_x.prototype.alt_text = function() {
+    return this._alt_text;
+};
+
+ImageLoader_0_5_x.prototype.dpr = function() {
     return this._dpr;
 };
 
@@ -68,7 +73,6 @@ ImageLoader_0_5_x.prototype.viewport_width = function() {
 };
 
 
-
 /************************************************************\
  * Integrated Functions
 \************************************************************/
@@ -81,7 +85,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
     var return_value = this.img_tag_template();
-    return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
+    return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
     return_value = return_value.replace('[LOGICAL_HEIGHT]', this.logical_height()); 
     return_value = return_value.replace('[SOURCE_URL]', source_url);
