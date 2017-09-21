@@ -74,29 +74,20 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     var target = '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
 
     // Given 
+    this.image_loader._alt_text = "Photo of Horses";
+    this.image_loader._filename = "horses.jpg";
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_height = 1067;
+    this.image_loader._raw_source_width = 1600;
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
-    
-    // TODO: Update params to this
-//     	dpr: 2,
-//     	image_name: "horses.jpg",
-//       percent_of_viewport_width: 50,
-//       raw_height: 1067,
-//       raw_width: 1600,
-//       viewport_height: 680,
-//       viewport_width: 1024,
-//       url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
 
+    // Force environmental variables for testing consistency
+    this.image_loader._dpr = 2;
+    this.image_loader._viewport_height = 680;
+    this.image_loader._viewport_width = 1024;
 
     // When 
-    var result =  '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
-    result = this.image_loader.img_tag_string();
-
-//      var result_string = this.image_loader.image_string_from_params( {
-//          filename: "horses.jpg", 
-//          alt_text: "Photo of Horses",
-//          source_file_width: 1600,
-//          source_file_height: 1067
-//      });
+    var result = this.image_loader.img_tag_string();
     
     // Then
     assert.equal(target, result);
