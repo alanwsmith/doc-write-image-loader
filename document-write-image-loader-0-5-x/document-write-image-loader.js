@@ -78,7 +78,6 @@ ImageLoader_0_5_x.prototype.viewport_width = function() {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.img_tag_string = function() {
-
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
