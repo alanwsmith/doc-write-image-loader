@@ -112,6 +112,17 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 \************************************************************/
 
 QUnit.test("Unit Test: .logical_height()", function(assert) {
+    // Preflight
+    var target = 341;
+
+    // Given
+    // TKTKD
+     
+    // When
+    var result = this.image_loader.logical_height();
+
+    // Then
+    assert.equal(result, target);
 
 });
 

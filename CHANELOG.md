@@ -4,6 +4,7 @@ Changelog
 Version: 0.5.1
 --------------
 
+- Added `.logical_height`
 
 
 
