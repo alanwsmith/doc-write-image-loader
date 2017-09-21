@@ -8,7 +8,7 @@ var ImageLoader_0_5_x = function() {};
  * Instance Variable Defaults 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
+ImageLoader_0_5_x.prototype._version_number = "0.5.1"; 
 
 ImageLoader_0_5_x.prototype._dpr = 0; 
 ImageLoader_0_5_x.prototype._filename= ""; 

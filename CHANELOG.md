@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version: 0.5.1
+--------------
+
+
+
+
 Version: 0.5.0
 --------------
 
@@ -19,7 +25,6 @@ Version: 0.5.0
 - Added `.logical_width()`
 - Added `.raw_source_dpr_max_logical_width()`
 - Added `.viewport_percentage_max_logical_width()`
-
 
 
 
@@ -67,4 +72,3 @@ Version: Pre-History
 - Unforunately, no Changelog notes were kept prior to this point.
 
     You'll have to look at the Git logs and parse thru those to see specific changes.  
-
