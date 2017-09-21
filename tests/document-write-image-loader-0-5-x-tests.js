@@ -109,7 +109,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 
 QUnit.test("Unit Test: .logical_width()", function(assert) {
     // Preflight
-    var target = 640;
+    var target = 512;
 
 //   assert.equal(imageLoader.render_width(), 512, "Render width");
 
