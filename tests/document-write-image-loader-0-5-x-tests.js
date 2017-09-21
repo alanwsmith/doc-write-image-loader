@@ -123,8 +123,8 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
 
     // Given
     this.image_loader._dpr = 2;
-    this.image_loader._raw_source_height = 1067;
     this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_height = 1067;
     this.image_loader._raw_source_width = 1600;
     this.image_loader._viewport_width = 1024;
      
@@ -149,6 +149,7 @@ QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_
     // Given
     this.image_loader._dpr = 2;
     this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_height = 1067;
     this.image_loader._raw_source_width = 1600;
     this.image_loader._viewport_width = 1024;
 
@@ -167,6 +168,7 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
     // Given
     this.image_loader._dpr = 2;
     this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._raw_source_height = 600;
     this.image_loader._raw_source_width = 800;
     this.image_loader._viewport_width = 1024;
     
@@ -209,6 +211,7 @@ QUnit.test("Unit Test: .physical_width()", function(assert) {
     // Given
     this.image_loader._dpr = 2;
     this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._raw_source_height = 600;
     this.image_loader._raw_source_width = 800;
     this.image_loader._viewport_width = 1024;
 
