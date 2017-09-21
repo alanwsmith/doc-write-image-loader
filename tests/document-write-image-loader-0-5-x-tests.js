@@ -129,6 +129,11 @@ QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_
     assert.equal(result, target);
 });
 
+QUnit.test("Unit Test: .logical_height()", function(assert) {
+
+
+});
+
 
 QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width() is returned", function(assert) {
     // Preflight
