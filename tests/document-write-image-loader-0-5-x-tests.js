@@ -32,6 +32,12 @@ QUnit.test("Confirm default for .filename()", function(assert) {
     assert.equal(result, target);
 });
 
+QUnit.test("Confirm default for .img_tag_template()", function(assert) {
+    var target = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">';
+    var result = this.image_loader.img_tag_template(); 
+    assert.equal(result, target);
+});
+
 QUnit.test("Confirm default for .percent_of_viewport_width()", function(assert) {
     var target = 94;
     var result = this.image_loader.percent_of_viewport_width(); 
