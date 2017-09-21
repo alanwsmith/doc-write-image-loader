@@ -191,6 +191,21 @@ Notes
 Cases to Test
 --------------
 
+- NOTE: For Split tests between ones where `viewport_logical_height` is used and ones where it's not. (Starting with the ones where it's not since it's a secondary case)
+
+
+To Test:
+
+- Case where raw_source_width is the limiting factor.
+- Case where raw_source_height is the limiting factor.
+- Case where viewport_logical_width is the limiting factor.
+- Case where viewport_logical_height is the limiting factor (this can wait until phase II)
+
+
+
+
+__Prior Test Cases from Prototypes to Review__
+
 
 These are the test cases used for the prototype.
 
