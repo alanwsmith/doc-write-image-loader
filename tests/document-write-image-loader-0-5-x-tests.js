@@ -70,6 +70,17 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // Given 
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
     
+    // TODO: Update params to this
+//     	dpr: 2,
+//     	image_name: "horses.jpg",
+//       percent_of_viewport_width: 50,
+//       raw_height: 1067,
+//       raw_width: 1600,
+//       viewport_height: 680,
+//       viewport_width: 1024,
+//       url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
+
+
     // When 
     var result =  '<img alt="Photo of Horses" width="640" height="436" src="//res.cloudinary.com/demo/image/upload/w_1280,h_852/horses.jpg">';
     result = this.image_loader.img_tag_string();
@@ -83,28 +94,22 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     
     // Then
     assert.equal(target, result);
+
+    // TODO: 
+    // Assemble all of these into the values to check in the string. 
+    //
+//   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
+//   assert.equal(imageLoader.render_height(), 341, "Render height");
+//   assert.equal(imageLoader.render_width(), 512, "Render width");
+//   assert.equal(imageLoader.url_request_height(), 682, "Request height");
+//   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
+//   assert.equal(imageLoader.img_tag(), '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">', "Image tag");
 });
 
 
 /************************************************************\
  * Unit Tests 
 \************************************************************/
-
-//     	dpr: 2,
-//     	image_name: "horses.jpg",
-//       percent_of_viewport_width: 50,
-//       quality: 80,
-//       raw_height: 1067,
-//       raw_width: 1600,
-//       viewport_height: 680,
-//       viewport_width: 1024,
-//       url_template: "http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT],q_[QUALITY]/[IMAGE_NAME]"
-//
-//   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
-//   assert.equal(imageLoader.render_height(), 341, "Render height");
-//   assert.equal(imageLoader.url_request_height(), 682, "Request height");
-//   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
-//   assert.equal(imageLoader.img_tag(), '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">', "Image tag");
 
 
 QUnit.test("Unit Test: .logical_width()", function(assert) {
