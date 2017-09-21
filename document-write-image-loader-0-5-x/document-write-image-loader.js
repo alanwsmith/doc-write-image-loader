@@ -34,8 +34,6 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 };
 
 
-
-
 /************************************************************\
  * Integrated Functions
 \************************************************************/
@@ -95,14 +93,6 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 // 
 //     return output_string;
 // };
-
-
-/************************************************************\
- * Instance Variable Functions
-\************************************************************/
-
-
-
 
 
 
