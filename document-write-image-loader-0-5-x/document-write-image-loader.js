@@ -114,7 +114,6 @@ ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
 };
 
 ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
-    // `Math.floor` ensures result is an integer that doesn't enlarge.
     var return_value = Math.floor(
         this.percent_of_viewport_width() * .01 * this.viewport_width()
     );
