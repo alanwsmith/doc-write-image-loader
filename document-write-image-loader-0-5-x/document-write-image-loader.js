@@ -63,7 +63,13 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.logical_width = function(params) {
-    return 436;
+    // Straight comparison between:
+    // 1. What the width for the given percentage of the window width it
+    // 2. The source image's raw width.
+
+
+    // TODO: Make sure it always returns an integer.
+    return 640;
 };
 
 
