@@ -94,11 +94,10 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
 	// var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
 	// return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
 
+    var viewport_based_max_logical_width = (this.percent_of_viewport_width() * .01 * this.viewport_width());
+    console.log(viewport_based_max_logical_width); 
 
-    var viewport_based_max_logical = this.viewport_width();
-	// var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
-
-    var return_value = Math.floor(Math.min(640, 640));
+    var return_value = Math.floor(Math.min(640, viewport_based_max_logical_width ));
 
     return return_value;
 

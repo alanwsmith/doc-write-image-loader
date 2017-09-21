@@ -102,22 +102,26 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 //
 //   assert.equal(imageLoader.url_to_call(), "http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg", "Final URL");
 //   assert.equal(imageLoader.render_height(), 341, "Render height");
-//   assert.equal(imageLoader.render_width(), 512, "Render width");
 //   assert.equal(imageLoader.url_request_height(), 682, "Request height");
 //   assert.equal(imageLoader.url_request_width(), 1024, "Request width");
 //   assert.equal(imageLoader.img_tag(), '<img src="http://res.cloudinary.com/demo/image/upload/w_1024,h_682,q_80/horses.jpg" width="512" height="341">', "Image tag");
+
 
 QUnit.test("Unit Test: .logical_width()", function(assert) {
     // Preflight
     var target = 640;
 
+//   assert.equal(imageLoader.render_width(), 512, "Render width");
+
     // Given
-//       percent_of_viewport_width: 50,
-//       raw_width: 1600,
-//       viewport_width: 1024,
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._source_file_width = 1600;
+    this.image_loader._viewport_width = 1024;
 
     // When
     var result = this.image_loader.logical_width(); 
+
+    // Then
     assert.equal(result, target);
 });
 
