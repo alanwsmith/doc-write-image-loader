@@ -239,6 +239,20 @@ QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
     assert.equal(result, target);
 });
 
+QUnit.test("Unit Test: .url_string()", function(assert) {
+    // Preflight
+    var target = '//res.cloudinary.';
+
+    // Given
+    // TKTKTKT
+    
+    // When
+    var result = this.image_loader.url_string();
+
+    // Then
+    assert.equal(result, target);
+
+});
 
 QUnit.test("Unit Test: .viewport_percentage_max_logical_width()", function(assert) {
     // Preflight
