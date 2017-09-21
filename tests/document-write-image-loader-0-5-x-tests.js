@@ -72,38 +72,6 @@ QUnit.test("Unit Test: assembled_url()", function(assert) {
 
 
 
-QUnit.test("Unit Test: calculate_logical_width(params)", function(assert) {
-
-    // Given 
-    var target = 640; 
-
-    // When 
-    var result = this.image_loader.calculate_logical_width({
-        max_physical_width: 640,
-        percent_of_viewport_width: 94,
-        viewport_width: 1028
-    });
-
-    // Then
-    assert.equal(result, target);
-
-});
-
-
-QUnit.test("Unit Test: calculate_logical_height(params)", function(assert) {
-    // Preflight
-    var target = 436;
-
-    // Given 
-    this.image_loader._source_file_width = 436;
-
-    // When
-    var result = this.image_loader.calculate_logical_height();
-
-    // Then
-    assert.equal(result, target);
-});
-
 
 
 /******************************************************\

@@ -113,8 +113,22 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 
 /************************************************************\
  * Prior logic
+
+prior: 
+
+ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
+	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
+	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
+
+	// TODO: Make sure this value is an integer before returning it. 
+	return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
+
+    return return_value;
+};
+
 ImageLoader_0_5_x.prototype.render_height = function() {
 	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
+	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 };
 
 ImageLoader_0_5_x.prototype.url_request_height = function() {
@@ -127,41 +141,13 @@ ImageLoader_0_5_x.prototype.url_request_width = function() {
 \************************************************************/
 
 
-ImageLoader_0_5_x.prototype.calculate_logical_height = function() {
-
-    // Prior logic
-	// Math.floor([source_file_height] * [logical_width] / [source_file_width]);
 
 
-    var return_value = this.source_file_width();
-
-    // TKTKTKTKTK - Pick back up here.
-    return_value = this.logical_width();
-
-    // SAFETY VALVE - To get back to green quickly if necessary
-    // return_value = 436;
-
-    return return_value;
-
-};
-
-
-// This is stubbed to get logicl_height working. 
-// Migrate the contents of calculate_logical_width here and make sure it's tested.
 ImageLoader_0_5_x.prototype.logical_width = function(params) {
     return 436;
 };
 
 
-ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
-	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
-	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
-
-	// TODO: Make sure this value is an integer before returning it. 
-	return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
-
-    return return_value;
-};
 
 
 
