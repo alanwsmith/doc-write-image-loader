@@ -150,11 +150,11 @@ QUnit.test("Unit Test: .logical_width() - when .dpr() == 1 and .raw_source_width
 
 QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
     // Preflight
-    var target = 400;
+    var target = 87;
 
     // Given
     this.image_loader._dpr = 2;
-    this.image_loader._raw_source_width = 800;
+    this.image_loader._raw_source_width = 175;
 
     // When
     var result = this.image_loader.raw_source_dpr_max_logical_width();

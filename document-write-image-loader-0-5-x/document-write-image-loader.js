@@ -95,25 +95,23 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
-    var raw_source_dpr_max_logical_width = this.raw_source_width();
-
-    var return_value = Math.floor(
-        Math.min(
-            // TODO: Replace this with `this.raw_source_dpr_max_logical_width` 
-            raw_source_dpr_max_logical_width, 
-            this.viewport_percentage_max_logical_width() 
-        )
+    var return_value = Math.min(
+        this.raw_source_dpr_max_logical_width(), 
+        this.viewport_percentage_max_logical_width() 
     );
-
     return return_value;
 };
 
 ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
-    return 400;
+    // `Math.floor` ensures result is an integer that doesn't enlarge.
+    var return_value = Math.floor(
+        this.raw_source_width() / this.dpr()
+    );
+    return return_value;
 };
 
 ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
-    // Using `Math.floor` to ensure the returned value is an integer that doesn't enlarge.
+    // `Math.floor` ensures result is an integer that doesn't enlarge.
     var return_value = Math.floor(
         this.percent_of_viewport_width() * .01 * this.viewport_width()
     );
