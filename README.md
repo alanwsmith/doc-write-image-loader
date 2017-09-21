@@ -220,6 +220,7 @@ Roadmap TODOs
 - Maybe throw an error if extra params are sent. 
 - Figure out how to handle image loading if both width and height are restricted. 
 - Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
+- Add an option to make sure the image stays with some percentage of the viewport_height as well as the viewport_width. (i.e. if you want to make sure you can always see all the image)
 
 
 
