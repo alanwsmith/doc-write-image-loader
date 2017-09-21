@@ -33,6 +33,13 @@ ImageLoader_0_5_x.prototype.version_number = function() {
     return this._version_number;
 };
 
+ImageLoader_0_5_x.prototype.viewport_width = function() {
+    return this._viewport_width;
+};
+
+
+
+
 
 /************************************************************\
  * Integrated Functions
@@ -66,9 +73,20 @@ ImageLoader_0_5_x.prototype.logical_width = function(params) {
 
     var return_value = 640;
 
+    this._viewport_width = 1024; 
+    var new_value = this.viewport_width();
+
+
+    console.log(new_value);
+
     // Straight comparison between:
     // 1. What the width for the given percentage of the window width it
     // 2. The source image's raw width.
+
+    // PRIOR LOGIC
+	// var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
+	// return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
+
 
 
     // TODO: Make sure it always returns an integer.
