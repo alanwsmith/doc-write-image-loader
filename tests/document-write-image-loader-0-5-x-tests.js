@@ -26,6 +26,12 @@ QUnit.test("Confirm default for .dpr()", function(assert) {
     assert.equal(result, target);
 });
 
+QUnit.test("Confirm default for .filename()", function(assert) {
+    var target = "";
+    var result = this.image_loader.filename(); 
+    assert.equal(result, target);
+});
+
 QUnit.test("Confirm default for .percent_of_viewport_width()", function(assert) {
     var target = 94;
     var result = this.image_loader.percent_of_viewport_width(); 

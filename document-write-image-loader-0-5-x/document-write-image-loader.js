@@ -11,6 +11,7 @@ var ImageLoader_0_5_x = function() {};
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
 ImageLoader_0_5_x.prototype._dpr = 0; 
+ImageLoader_0_5_x.prototype._filename= ""; 
 ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
 ImageLoader_0_5_x.prototype._source_file_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
@@ -30,6 +31,10 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 ImageLoader_0_5_x.prototype.dpr= function() {
     return this._dpr;
+};
+
+ImageLoader_0_5_x.prototype.filename = function() {
+    return this._filename;
 };
 
 ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
@@ -85,7 +90,6 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
 
-
     // Straight comparison between:
     // 1. What the width for the given percentage of the window width it
     // 2. The source image's raw width.
@@ -97,6 +101,7 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
     var viewport_based_max_logical_width = (this.percent_of_viewport_width() * .01 * this.viewport_width());
     console.log(viewport_based_max_logical_width); 
 
+    // TKTKTKTKTKT
     var return_value = Math.floor(Math.min(640, viewport_based_max_logical_width ));
 
     return return_value;
@@ -105,6 +110,8 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
     // TODO: Test run that ends up choosing the raw_image_size
     // TODO: Test run that uses the % of window calculation. 
 };
+
+
 
 
 /************************************************************\
