@@ -100,6 +100,8 @@ ImageLoader_0_5_x.prototype.logical_height = function() {
 
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
+    // TODO: Make sure to account for images where raw_souce_height
+    //       is the limiting factor.
     var return_value = Math.min(
         this.raw_source_dpr_max_logical_width(), 
         this.viewport_percentage_max_logical_width() 
@@ -129,16 +131,6 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
  * Prior logic
 
 prior: 
-
-ImageLoader_0_5_x.prototype.calculate_logical_width = function(params) {
-	// TODO: This can probably be moved to its own function (which should make sure it returns an integer) 
-	var viewport_based_max = params['percent_of_viewport_width'] * .01 * params['viewport_width'] ;
-
-	// TODO: Make sure this value is an integer before returning it. 
-	return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
-
-    return return_value;
-};
 
 ImageLoader_0_5_x.prototype.render_height = function() {
 	return  Math.floor(this._raw_height * this.render_width() / this._raw_width );
