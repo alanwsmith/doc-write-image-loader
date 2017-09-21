@@ -82,7 +82,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
-    return_value = return_value.replace('[LOGICAL_WIDTH]', 512); 
+    return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
     return_value = return_value.replace('[LOGICAL_HEIGHT]', 341); 
     return_value = return_value.replace('[SOURCE_URL]', source_url);
 
