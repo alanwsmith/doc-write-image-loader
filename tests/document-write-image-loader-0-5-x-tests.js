@@ -94,6 +94,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
     // Given 
     this.image_loader._alt_text = "Photo of Horses";
     this.image_loader._filename = "horses.jpg";
+    // TODO: Remove this since there is a default set so it's not required for the minimal call. 
     this.image_loader._max_percent_of_viewport_logical_width = 50;
     this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._raw_source_physical_width = 1600;
