@@ -14,7 +14,6 @@ Version: 0.5.0
 - Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatically
 - Added default template for `<img>` output string
 - Added default for `_max_width_of_window_percentage`
-- Setup `.image_string_from_params()` method as core integration point
 - Added `.assembled_url()` which takes `_url_template` and applies all the replacements to it.
 
 
