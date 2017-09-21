@@ -79,11 +79,6 @@ ImageLoader_0_5_x.prototype.viewport_width = function() {
 
 ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
-    var source_url = this.url_template();
-    source_url = source_url.replace('[FILENAME]', this.filename());
-    source_url = source_url.replace('[PHYSICAL_WIDTH]', this.physical_width());
-    source_url = source_url.replace('[PHYSICAL_HEIGHT]', this.physical_height());
-
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
@@ -141,7 +136,6 @@ ImageLoader_0_5_x.prototype.url_string = function() {
     return_value = return_value.replace('[FILENAME]', this.filename());
     return return_value;
 };
-
 
 ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
     var return_value = Math.floor(
