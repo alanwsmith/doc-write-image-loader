@@ -148,7 +148,7 @@ QUnit.test("Unit Test: .logical_width() - when .dpr() == 1 and .raw_source_width
 });
 
 
-QUnit.test("Unit Test: .viewport_based_max_logical_width()", function(assert) {
+QUnit.test("Unit Test: .viewport_percentage_max_logical_width()", function(assert) {
     // Preflight
     var target = 819;
 
@@ -157,7 +157,7 @@ QUnit.test("Unit Test: .viewport_based_max_logical_width()", function(assert) {
     this.image_loader._viewport_width = 1024;
 
     // When
-    var result = this.image_loader.viewport_based_logical_width();
+    var result = this.image_loader.viewport_percentage_max_logical_width();
 
     // Then
     assert.equal(result, target);
