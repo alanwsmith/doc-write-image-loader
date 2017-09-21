@@ -194,33 +194,6 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
 });
 
 
-// TODO:
-QUnit.test("Unit Test: .logical_width() - when `.raw_source_physical_height()` is the limiting factor instead of `.raw_soruce_physical_width()", function(assert) {
-    // Preflight
-    var target_physical_height_to_call = 500;
-
-    // Given
-    this.image_loader._dpr = 2;
-    this.image_loader._viewport_logical_width = 640;
-    this.image_loader._viewport_logical_height = 480;
-
-    this.image_loader._alt_text = "Photo of Horses";
-    this.image_loader._filename = "horses.jpg";
-    this.image_loader._max_percent_of_viewport_logical_width = 80;
-    this.image_loader._raw_source_physical_width = 300;
-    this.image_loader._raw_source_physical_height = 200;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
-
-    // When 
-    var result = this.image_loader.physical_height_to_call();
-
-    // Then
-    assert.equal(result, target_physical_height_to_call);
-
-});
-
-
-
 QUnit.test("Unit Test: .physical_height_to_call()", function(assert) {
     // Preflight
     var target = 600;

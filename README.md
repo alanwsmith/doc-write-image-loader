@@ -191,20 +191,25 @@ Notes
 Cases to Test
 --------------
 
-- NOTE: For Split tests between ones where `viewport_logical_height` is used and ones where it's not. (Starting with the ones where it's not since it's a secondary case)
-
-
 To Test:
 
-- Case where raw_source_width is the limiting factor.
-- Case where raw_source_height is the limiting factor.
-- Case where viewport_logical_width is the limiting factor.
+- Case where raw_source_width is the limiting factor - DONE.
+- Case where raw_source_height is the limiting factor (this isn't a thing right now since everything is based off % width. it would have to be a new feature where you explitily defined pixel height, or a percentage of the viewport height)
+- Case where viewport_logical_width is the limiting factor - DONE.
 - Case where viewport_logical_height is the limiting factor (this can wait until phase II)
 
 
 
 
+
+
+
 __Prior Test Cases from Prototypes to Review__
+
+
+NOTE: Right now, I don't think these are necessary. With the basic case of just using % of viewport width, either, there is enough raw image to call that size or there's not. There isn't height logic involved. 
+
+Leaving these here for consideration of adding height based limitations, but these will likely be removed.
 
 
 These are the test cases used for the prototype.
