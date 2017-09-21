@@ -65,7 +65,8 @@ ImageLoader_0_5_x.prototype.viewport_width = function() {
 
 ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
-    var source_url = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/horses.jpg';
+    var source_url = this.url_template();
+    source_url = source_url.replace('[FILENAME]', this.filename());
     source_url = source_url.replace('[PHYSICAL_WIDTH]', 1024);
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
