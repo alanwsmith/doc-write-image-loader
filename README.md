@@ -188,6 +188,74 @@ Notes
 - `percent_of_viewport_height` is optional. If it's called, it does a calculate to make a new `_percent_of_viewport_width` value. All the actual math is based off that. 
 
 
+Cases to Test
+--------------
+
+
+These are the test cases used for the prototype.
+
+
+    // raw_source_width | raw_source_height | viewport_logic_width | viewport_logical_height | dpr | percent_of_viewport_width | logical_width | logical_height | physical_width | physical_height
+
+    // Basic 1 DPR tests
+      "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
+      "1600 | 1200 | 1024   | 768    | 1   | 400    | 400  | 300  | 400   | 300   ",
+
+    // Dowsize image if request is too big.
+      "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
+      
+    // 1 DPR Make sure height stays an integer
+      "1600 | 1200 | 1024   | 768    | 1   | 350    | 350  | 262  | 350   | 262   ",
+
+    // Basic 2 DPR tests
+      "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
+      "1600 | 1200 | 1024   | 768    | 2   | 400    | 400  | 300  | 800   | 600   ",
+
+    // 2 DPR Downsize
+      "800  | 600  | 1024   | 768    | 2   | 800    | 400  | 300  | 800   | 600  ", 
+
+    // 2 DPR Make sure height stays an integer. 
+      "1600 | 1200 | 1024   | 768    | 2   | 350    | 350  | 262  | 700   | 524  ",
+
+
+    // Basic 1 DPR via % of innerWidth
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+    
+    //  2 DPR Basic via %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+
+    //  Request via % and ensure integers
+      "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
+      "1600 | 1200 | 1024   | 768    | 2   | 51      | 522  | 391  | 1044  | 782   ",
+
+    // Make sure down sizing works 
+      "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
+      "800  | 600  | 1024   | 768    | 2   | 50      | 400  | 300  | 800   | 600   ",
+
+
+
+    // 1 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+      "1000 | 4000 | 800    | 800    | 1   | 50      | 100  | 400  | 100   | 400   ",
+
+    // 1 DPR via height % and downsized   
+      "100  | 200  | 800    | 800    | 1   | 50      | 100  | 200  | 100   | 200   ",
+
+    // 2 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+      "1000 | 4000 | 800    | 800    | 2   | 50      | 100  | 400  | 200   | 800   ",
+
+    // 2 DPR via height % and downsized   
+      "100  | 200  | 800    | 800    | 2   | 50      | 50   | 100  | 100   | 200   ",
+
+    // 1 DPR via height % that reduces because of viewport width
+      "1000 | 1000 | 500    | 1000   | 1   | 100     | 500  | 500  | 500   | 500   ",
+
+    // 2 DPR via height % that reduces because of viewport width
+      "1000 | 1000 | 500    | 1000  | 2    | 100     | 500  | 500  | 1000  | 1000  ",
+
+
+
 
 
 Roadmap TODOs
