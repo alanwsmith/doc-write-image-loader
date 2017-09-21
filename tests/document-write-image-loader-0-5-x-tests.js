@@ -118,7 +118,7 @@ QUnit.test("Unit Test: .logical_width() - when .percent_of_viewport_width() is r
 
     // Given
     this.image_loader._percent_of_viewport_width = 50;
-    this.image_loader._source_file_width = 1600;
+    this.image_loader._raw_source_width = 1600;
     this.image_loader._viewport_width = 1024;
 
     // When
@@ -137,9 +137,8 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_width() is returned",
     // Given
     this.image_loader._dpr = 1;
     this.image_loader._percent_of_viewport_width = 100;
-    this.image_loader._source_file_width = 800;
+    this.image_loader._raw_source_width = 800;
     this.image_loader._viewport_width = 1024;
-
     
     // When
     var result = this.image_loader.logical_width();

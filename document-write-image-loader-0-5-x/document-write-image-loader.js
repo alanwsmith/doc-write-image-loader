@@ -95,27 +95,19 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
-
-    // Straight comparison between:
-    // 1. What the width for the given percentage of the window width it
-    // 2. The source image's raw width.
-
-    // PRIOR LOGIC
-	// return_value = Math.floor(Math.min(params['max_physical_width'], viewport_based_max));
-
     var viewport_based_max_logical_width = (this.percent_of_viewport_width() * .01 * this.viewport_width());
 
-    // var raw_source_dpr_max_logical_width = [raw_source_width] / dpr ;
+    // TODO: Divide this by `.dpr()` to ensure the raw width takes that into account
+    var raw_source_dpr_max_logical_width = this.raw_source_width();
 
-
-    // TKTKTKTKTKT
-    var return_value = Math.floor(Math.min(800, viewport_based_max_logical_width ));
+    var return_value = Math.floor(
+        Math.min(
+            raw_source_dpr_max_logical_width, 
+            viewport_based_max_logical_width
+        )
+    );
 
     return return_value;
-
-    // TODO: Make sure it always returns an integer.
-    // TODO: Test run that ends up choosing the raw_image_size
-    // TODO: Test run that uses the % of window calculation. 
 };
 
 
