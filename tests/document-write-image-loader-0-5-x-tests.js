@@ -112,7 +112,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 \************************************************************/
 
 
-QUnit.test("Unit Test: .logical_width()", function(assert) {
+QUnit.test("Unit Test: .logical_width() - when .percent_of_viewport_width() is returned", function(assert) {
     // Preflight
     var target = 512;
 
@@ -123,6 +123,26 @@ QUnit.test("Unit Test: .logical_width()", function(assert) {
 
     // When
     var result = this.image_loader.logical_width(); 
+
+    // Then
+    assert.equal(result, target);
+});
+
+
+
+QUnit.test("Unit Test: .logical_width() - when .raw_source_width() is returned", function(assert) {
+    // Preflight
+    var target = 800;
+
+    // Given
+    this.image_loader._dpr = 1;
+    this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._source_file_width = 800;
+    this.image_loader._viewport_width = 1024;
+
+    
+    // When
+    var result = this.image_loader.logical_width();
 
     // Then
     assert.equal(result, target);
