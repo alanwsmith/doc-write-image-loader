@@ -72,6 +72,8 @@ ImageLoader_0_5_x.prototype.logical_width = function(params) {
 
 
     // TODO: Make sure it always returns an integer.
+    // TODO: Test run that ends up choosing the raw_image_size
+    // TODO: Test run that uses the % of window calculation. 
     return return_value;
 };
 
