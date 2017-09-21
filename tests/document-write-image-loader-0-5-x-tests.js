@@ -178,6 +178,19 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
 });
 
 
+QUnit.test("Unit Test: .physical_width()", function(assert) {
+    // Preflight
+    var target = 1024;
+
+    // Given
+    // TKTKTK
+
+    // When
+    var result = this.image_loader.physical_width();
+
+    // Then
+    assert.equal(result, target);
+});
 
 
 
