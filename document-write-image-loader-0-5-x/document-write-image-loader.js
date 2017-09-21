@@ -44,6 +44,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
     source_url = source_url.replace('[PHYSICAL_WIDTH]', 1280);
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 852);
 
+    // TODO: Move string_template to an instance variable.
     var img_string_template = '<img alt="[ALT_TEXT]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" src="[SOURCE_URL]">';
     
     var return_value = img_string_template;
@@ -57,12 +58,13 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 }
 
 
-
-
-
 /************************************************************\
  * Unit Functions
 \************************************************************/
+
+ImageLoader_0_5_x.prototype.logical_width = function(params) {
+    return 436;
+};
 
 
 /************************************************************\
@@ -96,10 +98,6 @@ ImageLoader_0_5_x.prototype.url_request_width = function() {
 
 
 
-
-ImageLoader_0_5_x.prototype.logical_width = function(params) {
-    return 436;
-};
 
 
 
