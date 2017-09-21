@@ -81,7 +81,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
     var source_url = this.url_template();
     source_url = source_url.replace('[FILENAME]', this.filename());
-    source_url = source_url.replace('[PHYSICAL_WIDTH]', 1024);
+    source_url = source_url.replace('[PHYSICAL_WIDTH]', this.physical_width());
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
     var return_value = this.img_tag_template();
@@ -114,8 +114,10 @@ ImageLoader_0_5_x.prototype.logical_width = function() {
 };
 
 ImageLoader_0_5_x.prototype.physical_width = function() {
-	
-	return 1024;
+	var return_value = Math.floor(
+        this.logical_width() * this.dpr()
+    );
+	return return_value;
 };
 
 
@@ -145,9 +147,6 @@ ImageLoader_0_5_x.prototype.url_request_height = function() {
   return this.render_height() * this._dpr; 
 };
 
-ImageLoader_0_5_x.prototype.url_request_width = function() {
-  return this.render_width() * this._dpr; 
-};
 \************************************************************/
 
 

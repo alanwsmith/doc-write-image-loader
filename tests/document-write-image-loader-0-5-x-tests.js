@@ -179,11 +179,20 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
 
 
 QUnit.test("Unit Test: .physical_width()", function(assert) {
+    // NOTE: This test doesn't exercise the `Math.floor` portion
+    // of the function. I'm not sure if it's necessary for the funciton, 
+    // but it's been added for safety. TODO: look into this to see
+    // if it's necessary and if so, design a test to verify it. 
+    
+
     // Preflight
-    var target = 1024;
+    var target = 800;
 
     // Given
-    // TKTKTK
+    this.image_loader._dpr = 2;
+    this.image_loader._percent_of_viewport_width = 100;
+    this.image_loader._raw_source_width = 800;
+    this.image_loader._viewport_width = 1024;
 
     // When
     var result = this.image_loader.physical_width();
