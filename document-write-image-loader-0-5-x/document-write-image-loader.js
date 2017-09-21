@@ -42,9 +42,7 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
 
-
     var source_url = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/horses.jpg';
-
     source_url = source_url.replace('[PHYSICAL_WIDTH]', 1280);
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 852);
 
@@ -52,6 +50,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function(params) {
     
     var return_value = img_string_template;
     return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
+    // I think the logic for `LOGICAL_WIDTH` is the first step in the chain.
     return_value = return_value.replace('[LOGICAL_WIDTH]', 640); 
     return_value = return_value.replace('[LOGICAL_HEIGHT]', 436); 
     return_value = return_value.replace('[SOURCE_URL]', source_url);
