@@ -111,6 +111,17 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
  * Unit Tests 
 \************************************************************/
 
+QUnit.test("Unit Test: .logical_height()", function(assert) {
+
+});
+
+
+
+// TODO:
+// QUnit.test("Unit Test: .logical_width() - when `.raw_souce_height()` is the limiting factor instead of `.raw_souce_width()", function(assert) {
+// 
+// });
+
 
 QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
     // Preflight
@@ -127,11 +138,6 @@ QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_
 
     // Then
     assert.equal(result, target);
-});
-
-QUnit.test("Unit Test: .logical_height()", function(assert) {
-
-
 });
 
 
@@ -151,6 +157,9 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
     // Then
     assert.equal(result, target);
 });
+
+
+
 
 
 QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
