@@ -116,8 +116,6 @@ QUnit.test("Unit Test: .logical_width()", function(assert) {
     // Preflight
     var target = 512;
 
-//   assert.equal(imageLoader.render_width(), 512, "Render width");
-
     // Given
     this.image_loader._percent_of_viewport_width = 50;
     this.image_loader._source_file_width = 1600;
