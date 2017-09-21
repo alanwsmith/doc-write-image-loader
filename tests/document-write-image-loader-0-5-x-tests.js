@@ -241,10 +241,20 @@ QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
 
 QUnit.test("Unit Test: .url_string()", function(assert) {
     // Preflight
-    var target = '//res.cloudinary.';
+    var target = '//res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg';
 
     // Given
-    // TKTKTKT
+    // this.image_loader._alt_text = "Photo of Horses";
+    this.image_loader._filename = "horses.jpg";
+    this.image_loader._percent_of_viewport_width = 50;
+    this.image_loader._raw_source_height = 1067;
+    this.image_loader._raw_source_width = 1600;
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
+
+    // Force environmental variables for testing consistency
+    this.image_loader._dpr = 2;
+    this.image_loader._viewport_height = 680;
+    this.image_loader._viewport_width = 1024;
     
     // When
     var result = this.image_loader.url_string();

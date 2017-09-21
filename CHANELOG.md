@@ -8,6 +8,7 @@ Version: 0.5.1
 - Added `._alt_text` and `.alt_text() tests
 - Added `.physical_height()`
 - Added `.physical_width()`
+- Added `.url_string()`
 
 
 

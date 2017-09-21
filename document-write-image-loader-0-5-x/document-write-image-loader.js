@@ -88,9 +88,7 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', this.logical_width()); 
     return_value = return_value.replace('[LOGICAL_HEIGHT]', this.logical_height()); 
-    return_value = return_value.replace('[SOURCE_URL]', source_url);
-    // TKTKTKTK
-    // return_value = return_value.replace('[SOURCE_URL]', this.url_string());
+    return_value = return_value.replace('[SOURCE_URL]', this.url_string());
 
     return return_value;
 }
@@ -137,9 +135,11 @@ ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function() {
 };
 
 ImageLoader_0_5_x.prototype.url_string = function() {
-    var return_value = '//res.cloudinary.';
-    console.log(return_value);
-    return '//res.cloudinary.';
+    var return_value = this.url_template();
+    return_value = return_value.replace('[PHYSICAL_WIDTH]', this.physical_width());
+    return_value = return_value.replace('[PHYSICAL_HEIGHT]', this.physical_height());
+    return_value = return_value.replace('[FILENAME]', this.filename());
+    return return_value;
 };
 
 
