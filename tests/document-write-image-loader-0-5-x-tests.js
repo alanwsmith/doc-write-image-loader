@@ -20,7 +20,7 @@ QUnit.test("Confirm version number", function(assert) {
 
 QUnit.test("Confirm default for .percentage_of_viewport_width()", function(assert) {
     var target = 94;
-    var result = this.image_loader._percentage_of_viewport_width; 
+    var result = this.image_loader.percentage_of_viewport_width(); 
     assert.equal(result, target);
 });
 

@@ -19,7 +19,7 @@ ImageLoader_0_5_x.prototype._version_number = "0.5.0";
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.percentage_of_viewport_width = function() {
-    return this._version_number;
+    return this._percentage_of_viewport_width;
 };
 
 ImageLoader_0_5_x.prototype.source_file_width = function() {
