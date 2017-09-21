@@ -91,21 +91,7 @@ QUnit.test("Integration Test 1: Base functionality using the minimum setup and c
 \************************************************************/
 
 
-
-QUnit.test("Unit Test: assembled_url()", function(assert) {
-    // Preflight
-    var target = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
-
-    // Given 
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH],h_[PHYSICAL_HEIGHT]/[FILENAME]';
-
-    // When
-    var result = this.image_loader.assembled_url();
-
-    // Then
-    assert.equal(target, result);
 });
-
 
 
 

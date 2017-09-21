@@ -159,10 +159,6 @@ ImageLoader_0_5_x.prototype.load_environmental_params = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
 };
 
-ImageLoader_0_5_x.prototype.assembled_url = function() {
-    var return_value = this.url_template();
-    return return_value;
-};
 
 
 // TODO: Migrate calls from `.url_to_call()` to `.assembled_url`.
