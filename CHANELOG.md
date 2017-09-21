@@ -13,7 +13,7 @@ Version: 0.5.0
 - Added a `before` call that prints a random number to the console to make it easy to tell with multiple passing test runs trigger.
 - Added a `beforeEach` call in `QUnit.module` to setup each test with an object automatically
 - Added default template for `<img>` output string
-- Added default for `percent_of_viewport_width`
+- Added defaults for key instance variables.
 
 
 

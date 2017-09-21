@@ -10,9 +10,12 @@ var ImageLoader_0_5_x = function() {};
 
 ImageLoader_0_5_x.prototype._version_number = "0.5.0"; 
 
+ImageLoader_0_5_x.prototype._dpr = 0; 
 ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
 ImageLoader_0_5_x.prototype._source_file_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
+ImageLoader_0_5_x.prototype._viewport_height = 0; 
+ImageLoader_0_5_x.prototype._viewport_width = 0; 
 
 
 /************************************************************\
@@ -25,6 +28,10 @@ ImageLoader_0_5_x.prototype.version_number = function() {
 
 ///
 
+ImageLoader_0_5_x.prototype.dpr= function() {
+    return this._dpr;
+};
+
 ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
     return this._percent_of_viewport_width;
 };
@@ -35,6 +42,10 @@ ImageLoader_0_5_x.prototype.source_file_width = function() {
 
 ImageLoader_0_5_x.prototype.url_template = function() {
     return this._url_template;
+};
+
+ImageLoader_0_5_x.prototype.viewport_height = function() {
+    return this._viewport_height;
 };
 
 ImageLoader_0_5_x.prototype.viewport_width = function() {

@@ -18,6 +18,14 @@ QUnit.test("Confirm version number", function(assert) {
     assert.equal(target_version, this.image_loader.version_number()); 
 });
 
+///
+
+QUnit.test("Confirm default for .dpr()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.dpr(); 
+    assert.equal(result, target);
+});
+
 QUnit.test("Confirm default for .percent_of_viewport_width()", function(assert) {
     var target = 94;
     var result = this.image_loader.percent_of_viewport_width(); 
@@ -30,9 +38,21 @@ QUnit.test("Confirm default for .source_file_width()", function(assert) {
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for ._url_template()", function(assert) {
+QUnit.test("Confirm default for .url_template()", function(assert) {
     var target = "";
     var result = this.image_loader.url_template(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .viewport_height()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.viewport_height(); 
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .viewport_width()", function(assert) {
+    var target = 0;
+    var result = this.image_loader.viewport_width(); 
     assert.equal(result, target);
 });
 
