@@ -14,7 +14,7 @@ ImageLoader_0_5_x.prototype._dpr = 0;
 ImageLoader_0_5_x.prototype._filename= ""; 
 ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">'; 
 ImageLoader_0_5_x.prototype._percent_of_viewport_width = 94; 
-ImageLoader_0_5_x.prototype._source_file_width = 0; 
+ImageLoader_0_5_x.prototype._raw_source_width = 0; 
 ImageLoader_0_5_x.prototype._url_template = ""; 
 ImageLoader_0_5_x.prototype._viewport_height = 0; 
 ImageLoader_0_5_x.prototype._viewport_width = 0; 
@@ -46,8 +46,8 @@ ImageLoader_0_5_x.prototype.percent_of_viewport_width = function() {
     return this._percent_of_viewport_width;
 };
 
-ImageLoader_0_5_x.prototype.source_file_width = function() {
-    return this._source_file_width;
+ImageLoader_0_5_x.prototype.raw_source_width = function() {
+    return this._raw_source_width;
 };
 
 ImageLoader_0_5_x.prototype.url_template = function() {
@@ -75,9 +75,6 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
     source_url = source_url.replace('[PHYSICAL_WIDTH]', 1024);
     source_url = source_url.replace('[PHYSICAL_HEIGHT]', 682);
 
-    // TODO: Move string_template to an instance variable.
-    var img_string_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH]" height="[LOGICAL_HEIGHT]" alt="[ALT_TEXT]">';
-    
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', "Photo of Horses"); 
     return_value = return_value.replace('[LOGICAL_WIDTH]', 512); 
