@@ -70,9 +70,9 @@
 
     imageLoader._alt_text = "Photo of Horses";
     imageLoader._filename = "horses.jpg";
-    imageLoader._max_percent_of_viewport_logical_width = 20;
-    imageLoader._raw_source_physical_height = 107;
-    imageLoader._raw_source_physical_width = 160;
+    imageLoader._max_percent_of_viewport_logical_width = 80;
+    imageLoader._raw_source_physical_width = 300;
+    imageLoader._raw_source_physical_height = 200;
     imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     var function_names = [
@@ -80,11 +80,11 @@
         'viewport_logical_height',
         'max_percent_of_viewport_logical_width',
         'raw_source_dpr_max_logical_width',  
-        'raw_source_physical_width',
         'logical_width',  
+        'raw_source_physical_width',
         'physical_width_to_call',  
-        'raw_source_physical_height',
         'logical_height',  
+        'raw_source_physical_height',
         'physical_height_to_call',  
     ];
 
@@ -95,7 +95,13 @@
     console.log(
         "raw_physical_max_width > physical_width_to_call_to_call"
         +
-        " ? TKTKTKTK"
+        " ? " + (imageLoader.raw_source_physical_width > imageLoader.physical_width_to_call)
+    );
+
+    console.log(
+        "raw_physical_max_height > physical_height_to_call_to_call"
+        +
+        " ? " + (imageLoader.raw_source_physical_height > imageLoader.physical_height_to_call)
     );
 
 
