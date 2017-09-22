@@ -133,18 +133,22 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
 
 
 QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
+    // NOTE: This function loads dynamic variables from the environment.
+    // Confirmation is done by comparing the same env variables pulled
+    // dynamically during testing execution. Seems like the simpelest way
+    // to verify things are loaded. Not sure what would happen if testing 
+    // is done in a headless environment. Will cross that bridge if it
+    // becomes necessary.  
 
     // Given
     this.image_loader.load_environment_with_url_template(
         '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
     );
-    var target = 1; 
-
-    // When
-    var result = 1; 
 
     // Then
-    assert.equal(result, target);
+    assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
+    assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
+    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
 
 });
 
