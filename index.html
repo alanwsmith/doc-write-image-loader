@@ -35,22 +35,28 @@
   <script>
     // Create a new object and set the url_template
     var imageLoader = new ImageLoader_0_5_x;
+    // TODO: Make `._url_template` a method instead of setting it directly. 
     imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
-    // TODO: Make this a method instead of 
 
+    // TODO: move these three into a single method to load the environment.  
     imageLoader._dpr = window.devicePixelRatio;
     imageLoader._viewport_logical_width = window.innerWidth;
     imageLoader._viewport_logical_height = window.innerHeight;
 
+    // This is the minim required values to set
+    // TODO: Setup single method that these get passed through and that returns `.img_tag_string()`.
     imageLoader._alt_text = "Photo of Horses";
     imageLoader._filename = "horses.jpg";
-    imageLoader._raw_source_physical_width = 300;
-    imageLoader._raw_source_physical_height = 100;
+    imageLoader._raw_source_physical_width = 1600;
+    imageLoader._raw_source_physical_height = 1066;
+
+    // Also: the optional custom setting for width of viewport. 
+    imageLoader._max_percent_of_viewport_logical_width = 50;
 
     // Primary output 
     document.write(imageLoader.img_tag_string());
 
-
+    // For debugging/investigation
     var function_names = [
         'viewport_logical_width',
         'viewport_logical_height',
@@ -71,31 +77,29 @@
     // Reporting details for demonstation purposes. 
     document.write(
       '<table>' +
-      '<tr><td>Device Pixel Ratio:</td><td>' + imageLoader._dpr + 'x</td></tr>' + 
-      '<tr><td>Max % of viewport logical width:</td><td>' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
-      '</table>' + 
-      '<table>' +
-      '<tr><th></th><th>Width</th><th>Height</th>' +
+      '<tr><th></th><th>Width</th><th>Height</th></tr>' +
       '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
-      '<tr><td>Viewport</td><td>' + imageLoader._viewport_width + '</td><td>' + imageLoader._viewport_height + '</td></tr>' +
-      '<tr><td>Render</td><td>' + imageLoader.render_width() + '</td><td>' + imageLoader.render_height() + '</td></tr>' +
-      '<tr><td>URL Request</td><td>' + imageLoader.url_request_width() + '</td><td>' + imageLoader.url_request_height() + '</td></tr>' +
+      '<tr><td>Window Logical Dimensions</td><td>' + imageLoader.viewport_logical_width() + '</td><td>' + imageLoader.viewport_logical_height() + '</td></tr>' +
+      '<tr><td>Device Pixel Ratio:</td><td colspan="2">' + imageLoader._dpr + 'x</td></tr>' + 
+      '<tr><td>Max % of window logical width:</td><td colspan="2">' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
+      '<tr><td>Logical for Attribute</td><td>' + imageLoader.logical_width() + '</td><td>' + imageLoader.logical_height() + '</td></tr>' +
+      '<tr><td>Physical to call</td><td>' + imageLoader.physical_width_to_call() + '</td><td>' + imageLoader.physical_height_to_call() + '</td></tr>' +
       '</table>'
     );
 
   </script>
-  <hr>
 
   <hr>
   <p>Resize the browser and refresh the page to generate a different size.</p>
   <hr>
 
   <h3>Notes</h3>
-  <hr>
-  <p>
-    Original Image:<br>
-    <a href="http://res.cloudinary.com/demo/image/upload/horses.jpg">http://res.cloudinary.com/demo/image/upload/horses.jpg</a> (1600x1067)<br>
-  </p>
+  <ul>
+      <li>
+        Original Image:
+        <a href="//res.cloudinary.com/demo/image/upload/horses.jpg">//res.cloudinary.com/demo/image/upload/horses.jpg</a> (1600x1067)<br>
+    </li>
+  </ul>
 
 </body>
 </html>
