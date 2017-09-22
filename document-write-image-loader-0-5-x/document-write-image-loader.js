@@ -77,7 +77,7 @@ ImageLoader_0_5_x.prototype.viewport_logical_width = function() {
  * Integrated Functions
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.img_tag_string = function() {
+ImageLoader_0_5_x.prototype.image_tag_string = function() {
     var return_value = this.img_tag_template();
     return_value = return_value.replace('[ALT_TEXT]', this.alt_text()); 
     return_value = return_value.replace('[LOGICAL_WIDTH_FOR_ATTRIBUTE]', this.logical_width()); 
@@ -98,7 +98,7 @@ ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
     this._raw_source_physical_width = params['raw_source_physical_width'];
     this._raw_source_physical_height = params['raw_source_physical_height'];
 
-    var return_value = this.img_tag_string();
+    var return_value = this.image_tag_string();
     return return_value;
 };
 
