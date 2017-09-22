@@ -11,6 +11,7 @@ Version: 0.5.1
 - Added `.url_string()`
 - Put example output on test page for experimentation
 - Rounding value returned by `.logical_width()` down to the nearest `10`. (e.g. `519` becomes `510`)
+- Added `c_fill` to the URL examples to prevent one pixel difference resizing.
 
 
 

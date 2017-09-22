@@ -36,7 +36,7 @@
     // Create a new object and set the url_template
     var imageLoader = new ImageLoader_0_5_x;
     // TODO: Make `._url_template` a method instead of setting it directly. 
-    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // TODO: move these three into a single method to load the environment.  
     imageLoader._dpr = window.devicePixelRatio;

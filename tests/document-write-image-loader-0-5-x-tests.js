@@ -249,7 +249,7 @@ QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
 
 QUnit.test("Unit Test: .url_string()", function(assert) {
     // Preflight
-    var target = '//res.cloudinary.com/demo/image/upload/w_1020,h_680/horses.jpg';
+    var target = '//res.cloudinary.com/demo/image/upload/c_fill,w_1020,h_680/horses.jpg';
 
     // Given
     // this.image_loader._alt_text = "Photo of Horses";
@@ -257,7 +257,7 @@ QUnit.test("Unit Test: .url_string()", function(assert) {
     this.image_loader._max_percent_of_viewport_logical_width = 50;
     this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._raw_source_physical_width = 1600;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // Force environmental variables for testing consistency
     this.image_loader._dpr = 2;

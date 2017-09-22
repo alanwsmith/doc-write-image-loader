@@ -88,6 +88,14 @@ The value returned by `.logical_width()` is rounded down to the nearest `10` (e.
 
 
 
+Using `c_fill`
+--------------
+
+The Cloudinary `c_fill` parameter is used in the example. It eliminates resizing the image by one pixel if the requested image size width/height are off by one pixel because the ratio can't scale directly to an integer. 
+
+
+
+
 
 Logic Note: Math.floor() Usage
 ------------------------------
