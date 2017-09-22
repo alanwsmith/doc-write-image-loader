@@ -113,14 +113,6 @@ ImageLoader_0_5_x.prototype.logical_height = function() {
     return return_value;
 };
 
-// ImageLoader_0_5_x.prototype.logical_width = function() {
-//     var return_value = Math.min(
-//         this.raw_source_dpr_max_logical_width(), 
-//         this.viewport_percentage_max_logical_width() 
-//     );
-//     return return_value;
-// };
-
 ImageLoader_0_5_x.prototype.logical_width = function() {
     var return_value = Math.min(
         this.raw_source_dpr_max_logical_width(), 
