@@ -1,6 +1,20 @@
 Changelog
 =========
 
+Version: 0.5.1
+--------------
+
+- Added `.logical_height_for_attribute()`
+- Added `._alt_text` and `.alt_text() tests
+- Added `.physical_height_to_call()`
+- Added `.physical_width_to_call()`
+- Added `.url_string()`
+- Put example output on test page for experimentation
+- Rounding value returned by `.logical_width()` down to the nearest `10`. (e.g. `519` becomes `510`)
+- Added `c_fill` to the URL examples to prevent one pixel difference resizing.
+
+
+
 Version: 0.5.0
 --------------
 
@@ -19,7 +33,6 @@ Version: 0.5.0
 - Added `.logical_width()`
 - Added `.raw_source_dpr_max_logical_width()`
 - Added `.viewport_percentage_max_logical_width()`
-
 
 
 
@@ -67,4 +80,3 @@ Version: Pre-History
 - Unforunately, no Changelog notes were kept prior to this point.
 
     You'll have to look at the Git logs and parse thru those to see specific changes.  
-

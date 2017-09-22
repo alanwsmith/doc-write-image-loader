@@ -11,6 +11,22 @@ It's stability varies and should not be used in production at this point.
 This README is a work in progress too. It's not necessarily representative of the state of the project at this time. (It's more of a dumping ground while I work to edit thing down.)
 
 
+
+Using `raw_source_physical_` Dimensions to Limit Full Size
+----------------------------------------------------------
+
+My original prototype had a feature to limit the max width of the image even if the % of viewport width was larger than desired and there was raw image avaialbe (e.g. if the image was 4000x3000, but you wanted to limit it to just 1000 pixels wide)
+
+I'm not doing that for now. Instead, I'll just limit the raw image size itself. (and or, do the reduction math before making the all). 
+
+If raw images of the max size are what's hosted, that problem solves itself. 
+
+If, on the other hand, raw images are bigger, remember to do the ratio conversion for the height if you decided to do the downsizing that way. 
+
+While, I can see how it would make things a little easier to implement if the max width in pixels could be set independently, it adds more complexity and overhead here than I want to tackle. (The idea being that this would mean you could just look at the raw height and width and copy them in directly than having to the math to reduce both width in height in proportion in order to downsize via the script.)
+
+
+
 Overview
 --------
 
@@ -57,6 +73,34 @@ Instance Variables
 - They are set directly (e.g. `this.image_loader._source_file_width = 1000`)
 - They are accessed with a method that matches the name minus the leading `_` (e.g. `.source_file_width()`)
 - This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
+
+
+Calculations Start with `.logical_width()` rounded to nearest 10
+----------------------------------------------------------------
+
+The key sizing logic is contained inside `.logical_width()`. 
+
+It tests both the height and width of the source image in relation to the Device Pixel Ration (`.dpr()`) and the percentage of the logical viewport width to determine the largest width possible. 
+
+That width is then used as the central reference point for the rest of the sizing calculation functions. 
+
+The value returned by `.logical_width()` is rounded down to the nearest `10` (e.g. `519` becomes `510`). This is done to cut down on the number of different images that get created. The reason to round down is to avoid accidentally enlarging the image beyond it's raw size. 
+
+
+
+Using `c_fill`
+--------------
+
+The Cloudinary `c_fill` parameter is used in the example. It eliminates resizing the image by one pixel if the requested image size width/height are off by one pixel because the ratio can't scale directly to an integer. 
+
+
+
+
+
+Logic Note: Math.floor() Usage
+------------------------------
+
+`Math.floor()` is used for several functions. It ensures that all pixel dimensions are integers and that rounding doesn't cause an image size to jump up a pixel. 
 
 
 
@@ -172,6 +216,214 @@ Notes
 - `percent_of_viewport_height` is optional. If it's called, it does a calculate to make a new `_percent_of_viewport_width` value. All the actual math is based off that. 
 
 
+Cases to Test
+--------------
+
+To Test:
+
+- Case where raw_source_width is the limiting factor - DONE.
+- Case where raw_source_height is the limiting factor (this isn't a thing right now since everything is based off % width. it would have to be a new feature where you explitily defined pixel height, or a percentage of the viewport height)
+- Case where viewport_logical_width is the limiting factor - DONE.
+- Case where viewport_logical_height is the limiting factor (this can wait until phase II)
+
+
+
+
+
+
+
+__Prior Test Cases from Prototypes to Review__
+
+
+NOTE: Right now, I don't think these are necessary. With the basic case of just using % of viewport width, either, there is enough raw image to call that size or there's not. There isn't height logic involved. 
+
+Leaving these here for consideration of adding height based limitations, but these will likely be removed.
+
+
+These are the test cases used for the prototype.
+
+
+    // raw_source_width | raw_source_height | viewport_logic_width | viewport_logical_height | dpr | percent_of_viewport_width | logical_width | logical_height | physical_width | physical_height
+
+    // Basic 1 DPR tests
+      "1600 | 1200 | 1024   | 768    | 1   | 800    | 800  | 600  | 800   | 600   ",
+      "1600 | 1200 | 1024   | 768    | 1   | 400    | 400  | 300  | 400   | 300   ",
+
+    // Dowsize image if request is too big.
+      "400  | 300  | 1024   | 768    | 1   | 800    | 400  | 300  | 400   | 300   ",
+      
+    // 1 DPR Make sure height stays an integer
+      "1600 | 1200 | 1024   | 768    | 1   | 350    | 350  | 262  | 350   | 262   ",
+
+    // Basic 2 DPR tests
+      "1600 | 1200 | 1024   | 768    | 2   | 800    | 800  | 600  | 1600  | 1200  ",
+      "1600 | 1200 | 1024   | 768    | 2   | 400    | 400  | 300  | 800   | 600   ",
+
+    // 2 DPR Downsize
+      "800  | 600  | 1024   | 768    | 2   | 800    | 400  | 300  | 800   | 600  ", 
+
+    // 2 DPR Make sure height stays an integer. 
+      "1600 | 1200 | 1024   | 768    | 2   | 350    | 350  | 262  | 700   | 524  ",
+
+
+    // Basic 1 DPR via % of innerWidth
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+    
+    //  2 DPR Basic via %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+
+    //  Request via % and ensure integers
+      "1600 | 1200 | 1024   | 768    | 1   | 51      | 522  | 391  | 522   | 391   ",
+      "1600 | 1200 | 1024   | 768    | 2   | 51      | 522  | 391  | 1044  | 782   ",
+
+    // Make sure down sizing works 
+      "400  | 300  | 1024   | 768    | 1   | 50      | 400  | 300  | 400   | 300   ",
+      "800  | 600  | 1024   | 768    | 2   | 50      | 400  | 300  | 800   | 600   ",
+
+
+
+    // 1 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 1   | 50      | 512  | 384  | 512   | 384   ",
+      "1000 | 4000 | 800    | 800    | 1   | 50      | 100  | 400  | 100   | 400   ",
+
+    // 1 DPR via height % and downsized   
+      "100  | 200  | 800    | 800    | 1   | 50      | 100  | 200  | 100   | 200   ",
+
+    // 2 DPR via height %
+      "1600 | 1200 | 1024   | 768    | 2   | 50      | 512  | 384  | 1024  | 768   ",
+      "1000 | 4000 | 800    | 800    | 2   | 50      | 100  | 400  | 200   | 800   ",
+
+    // 2 DPR via height % and downsized   
+      "100  | 200  | 800    | 800    | 2   | 50      | 50   | 100  | 100   | 200   ",
+
+    // 1 DPR via height % that reduces because of viewport width
+      "1000 | 1000 | 500    | 1000   | 1   | 100     | 500  | 500  | 500   | 500   ",
+
+    // 2 DPR via height % that reduces because of viewport width
+      "1000 | 1000 | 500    | 1000  | 2    | 100     | 500  | 500  | 1000  | 1000  ",
+
+
+Cucumber Tests from Prototype V2 to Consider
+--------------------------------------------
+
+
+
+    Feature: Image Tag Builder
+      The prototype for a JavaScript object to 
+      use in the document.write-image-loader.
+
+      TODO:
+
+      - Pixel requests with odd number
+      - Ppercentage request with odd number
+      - Make sure integers are always returned. 
+      - Check the proposed value against source height too.
+
+      Scenario Outline: Request Width in Pixels Tests
+        Given I have an Image Tag Builder with standard config
+        And a source image that's <source>
+        And a viewport that's <viewport>
+        And a DPR of <dpr>
+        When I request a width of <request_w_px>px 
+        Then the attribute width should be <att_w>
+        And the attribute height should be <att_h>
+        And the call width should be <call_w>
+        And the call height should be <call_h>
+
+        Scenarios: 1 DPR Basic
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   1 |          800 |   800 |   600 |    800 |    600 |
+        | 1600x1200 | 1024x768 |   1 |          400 |   400 |   300 |    400 |    300 |
+
+        Scenarios: 1 DPR Downsize
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        |   400x300 | 1024x768 |   1 |          800 |   400 |   300 |    400 |    300 |
+
+        Scenarios: 1 DPR Make sure height stays an integer. 
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   1 |          350 |   350 |   262 |    350 |    262 |
+
+        Scenarios: 2 DPR Basic
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   2 |          800 |   800 |   600 |   1600 |   1200 |
+        | 1600x1200 | 1024x768 |   2 |          400 |   400 |   300 |    800 |    600 |
+
+        Scenarios: 2 DPR Downsize
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        |   800x600 | 1024x768 |   2 |          800 |   400 |   300 |    800 |    600 |
+
+        Scenarios: 2 DPR Make sure height stays an integer. 
+        | source    | viewport | dpr | request_w_px | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   2 |          350 |   350 |   262 |    700 |    524 |
+
+      Scenario Outline: Request Width in Percentage Tests
+        Given I have an Image Tag Builder with standard config
+        And a source image that's <source>
+        And a viewport that's <viewport>
+        And a DPR of <dpr>
+        When I request a width of <request_w_pct>% 
+        Then the attribute width should be <att_w>
+        And the attribute height should be <att_h>
+        And the call width should be <call_w>
+        And the call height should be <call_h>
+
+        Scenarios: 1 DPR Basic via %
+        | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
+
+        Scenarios: 2 DPR Basic via %
+        | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
+
+        Scenarios: 1 DPR Basic via % ensure integers
+        | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   1 |            51 |   522 |   391 |    522 |    391 |
+        | 1600x1200 | 1024x768 |   2 |            51 |   522 |   391 |   1044 |    782 |
+
+        Scenarios: Make sure down sizing works 
+        | source    | viewport | dpr | request_w_pct | att_w | att_h | call_w | call_h |
+        |   400x300 | 1024x768 |   1 |            50 |   400 |   300 |    400 |    300 |
+        |   800x600 | 1024x768 |   2 |            50 |   400 |   300 |    800 |    600 |
+
+      Scenario Outline: Request Height in Percentage Tests
+        Given I have an Image Tag Builder with standard config
+        And a source image that's <source>
+        And a viewport that's <viewport>
+        And a DPR of <dpr>
+        When I request a height of <request_h_pct>% 
+        Then the attribute width should be <att_w>
+        And the attribute height should be <att_h>
+        And the call width should be <call_w>
+        And the call height should be <call_h>
+
+        Scenarios: 1 DPR via height %
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   1 |            50 |   512 |   384 |    512 |    384 |
+        | 1000x4000 |  800x800 |   1 |            50 |   100 |   400 |    100 |    400 |
+
+        Scenarios: 1 DPR via height % and downsized   
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 100x200   |  800x800 |   1 |            50 |   100 |   200 |    100 |    200 |
+
+        Scenarios: 2 DPR via height %
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 1600x1200 | 1024x768 |   2 |            50 |   512 |   384 |   1024 |    768 |
+        | 1000x4000 |  800x800 |   2 |            50 |   100 |   400 |    200 |    800 |
+
+        Scenarios: 2 DPR via height % and downsized   
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 100x200   |  800x800 |   2 |            50 |    50 |   100 |    100 |    200 |
+
+        Scenarios: 1 DPR via height % that reduces because of viewport width
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 1000x1000 | 500x1000 |   1 |           100 |   500 |   500 |    500 |    500 |
+
+        Scenarios: 2 DPR via height % that reduces because of viewport width
+        | source    | viewport | dpr | request_h_pct | att_w | att_h | call_w | call_h |
+        | 1000x1000 | 500x1000 |   2 |           100 |   500 |   500 |   1000 |   1000 |
+
+
+
 
 
 Roadmap TODOs
@@ -210,6 +462,7 @@ Roadmap TODOs
 - Maybe throw an error if extra params are sent. 
 - Figure out how to handle image loading if both width and height are restricted. 
 - Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
+- Add an option to make sure the image stays with some percentage of the viewport_height as well as the viewport_width. (i.e. if you want to make sure you can always see all the image)
 
 
 
