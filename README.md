@@ -86,6 +86,11 @@ NOTE: It's also possible to copy and paste the code directly into the `<head>` o
 Results will vary on which approach is better depending on the site.
 
 
+NOTE: If the Object Contstuctor (`(new ImageLoader_0_5_x()`) is called with a parameter object, it will load it as appropriate and then call `.load_envionrment()`. If no parameter object is passed, `.load_environment()` must be called independently before `_dpr()` and the viewport dimensions can be called.
+
+
+
+
 **Call**
 
 TKTKTKTKT

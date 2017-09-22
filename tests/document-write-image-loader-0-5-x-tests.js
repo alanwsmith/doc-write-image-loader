@@ -217,17 +217,25 @@ QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) 
 });
 
 
-
-QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
+QUnit.test("Unit Test: load_environment", function(assert) {
     // NOTE: This function loads dynamic variables from the environment.
     // Confirmation is done by comparing the same env variables pulled
     // dynamically during testing execution. Seems like the simpelest way
     // to verify things are loaded. Not sure what would happen if testing 
     // is done in a headless environment. Will cross that bridge if it
     // becomes necessary.  
-    //
-    // TODO: Figure out if there is a way to test setting a default `._dpr` if
-    // the browser doesn't support one. 
+
+    // When
+    this.image_loader.load_environment();
+
+    // Then
+    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
+    assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
+    assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
+});
+
+
+QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
 
     // Given
     var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
