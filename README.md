@@ -34,7 +34,6 @@ A plain-old JavaScript, resolution aware, responsive image loader.
 
 Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://alanwsmith.github.io/document.write-image-loader/)
 
-
 Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it won't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
 
 That's the hypothesis. We'll see if it holds up.
@@ -47,12 +46,42 @@ Usage
 
 Place a call to the script in the `<head>` of the HTML and call initial setup functions:
 
-    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
-    var image_loader = new ImageLoader_0_5_x;
-    image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+    <head>
+        <!-- ... -->
+
+        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+
+        var image_loader = new ImageLoader_0_5_x;
+        
+        imageLoader.load_environment_with_url_template(
+            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+        );
+
+    </head>
 
 
-NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. 
+
+NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. In fact, that's how the script was originally designed. It pastes a lot of code into the page, but eliminates a call across the wire. 
+
+Results will vary on which approach is better depending on the site.
+
+
+**Call**
+
+TKTKTKTKT
+
+
+Requirements
+------------
+
+Browsers must supply:
+
+- `window.innerWidth`
+- `window.innerHeight`
+
+The `window.devicePixelRatio` variable is used if it's available. Otherwise, the script considers it to be a default of `1`.
+
+
 
 
 
