@@ -18,6 +18,8 @@
     imageLoader.load_environment_with_url_template(
         '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
     );
+    // Example of setting optional size restraint 
+    imageLoader._max_percent_of_viewport_logical_width = 50;
   </script>
 
   <style type="text/css">
@@ -42,16 +44,12 @@
   <hr> 
   <h2>Basic Example</h2>
   <script>
-    // Example of setting optional size restraint 
-    imageLoader._max_percent_of_viewport_logical_width = 50;
-
-    // Primary output 
-    document.write(imageLoader.image_tag_string_from_params({
+    imageLoader.write_image({
         alt_text: "Photo of Horses",
         filename: "horses.jpg",
         raw_source_physical_width: 1600,
         raw_source_physical_height: 1067
-    }));
+    });
   </script>
 
   <!-- The below is just for demonstartion purposes -->
