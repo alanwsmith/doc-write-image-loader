@@ -14,7 +14,7 @@ QUnit.module("Loader Factory", {
 \************************************************************/
 
 QUnit.test("Confirm version number", function(assert) {
-    var target_version = "0.5.1";
+    var target_version = "0.5.2";
     assert.equal(target_version, this.image_loader.version_number()); 
 });
 
