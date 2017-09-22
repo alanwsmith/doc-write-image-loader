@@ -62,8 +62,7 @@ URL Template Parameters
 - [PHYSICAL_WIDTH]
 - [PHYSICAL_HEIGHT]
 - [FILENAME]
-- TODO: Quality parameter
-- TODO: Free form entry to pass arbitrary parameters.
+
 
 
 Instance Variables
