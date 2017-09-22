@@ -139,6 +139,9 @@ QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(as
     // to verify things are loaded. Not sure what would happen if testing 
     // is done in a headless environment. Will cross that bridge if it
     // becomes necessary.  
+    //
+    // TODO: Figure out if there is a way to test setting a default `._dpr` if
+    // the browser doesn't support one. 
 
     // Given
     var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
