@@ -101,10 +101,10 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
     // just push the new value through the exact same logic/formula. 
 
     // Preflight
-    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1600,h_1066/horses.jpg" width="800" height="533" alt="Photo of Horses">';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1539,h_1025/horses.jpg" width="962" height="641" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
-    this.image_loader._dpr = 2;
+    this.image_loader._dpr = 1.6;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
 
