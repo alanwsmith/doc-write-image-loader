@@ -27,7 +27,7 @@ QUnit.test("Confirm default for .alt_text()", function(assert) {
 });
 
 QUnit.test("Confirm default for .dpr()", function(assert) {
-    var target = 0;
+    var target = 1;
     var result = this.image_loader.dpr(); 
     assert.equal(result, target);
 });

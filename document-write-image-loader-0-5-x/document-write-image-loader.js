@@ -11,7 +11,7 @@ var ImageLoader_0_5_x = function() {};
 ImageLoader_0_5_x.prototype._version_number = "0.5.2"; 
 
 ImageLoader_0_5_x.prototype._alt_text = "";
-ImageLoader_0_5_x.prototype._dpr = 0; 
+ImageLoader_0_5_x.prototype._dpr = 1; 
 ImageLoader_0_5_x.prototype._filename= ""; 
 ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH_FOR_ATTRIBUTE]" height="[LOGICAL_HEIGHT_FOR_ATTRIBUTE]" alt="[ALT_TEXT]">'; 
 ImageLoader_0_5_x.prototype._max_percent_of_viewport_logical_width = 94; 
