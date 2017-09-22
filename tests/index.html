@@ -61,53 +61,6 @@
   <hr>
   <h1>document.write Image Loader - Tests</h1>
 
-  <script type="text/javascript">
-    var imageLoader = new ImageLoader_0_5_x;
-
-    imageLoader._dpr = 1;
-    imageLoader._viewport_logical_width = 640;
-    imageLoader._viewport_logical_height = 480;
-
-    imageLoader._alt_text = "Photo of Horses";
-    imageLoader._filename = "horses.jpg";
-    imageLoader._raw_source_physical_width = 300;
-    imageLoader._raw_source_physical_height = 100;
-    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
-
-    var function_names = [
-        'viewport_logical_width',
-        'viewport_logical_height',
-        'max_percent_of_viewport_logical_width',
-        'raw_source_dpr_max_logical_width',  
-        'logical_width',  
-        'raw_source_physical_width',
-        'physical_width_to_call',  
-        'logical_height',  
-        'raw_source_physical_height',
-        'physical_height_to_call',  
-    ];
-
-    for (var i = 0, len = function_names.length; i < len; i = i + 1) {
-        console.log(function_names[i] + ": " + imageLoader[function_names[i]]()); 
-    }
-
-    console.log(
-        "raw_physical_max_width > physical_width_to_call_to_call"
-        +
-        " ? " + (imageLoader.raw_source_physical_width() >= imageLoader.physical_width_to_call())
-    );
-
-    console.log(
-        "raw_physical_max_height > physical_height_to_call_to_call"
-        +
-        " ? " + (imageLoader.raw_source_physical_height() >= imageLoader.physical_height_to_call())
-    );
-
-
-    var result = imageLoader.img_tag_string();
-    document.write(result);
-
-  </script>
 
   <div id="qunit"></div>
 </body>
