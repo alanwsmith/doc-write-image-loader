@@ -8,6 +8,8 @@ Version: 0.5.2
 - Added `.load_environment_with_url_template(URL)`
 - Added `.image_tag_string_from_params(params)`
 - Added `.write_image(params)`
+- Setup to allow optional `{ url_template: "" }` to be passed at initialization
+
 
 
 Version: 0.5.1

@@ -1,4 +1,11 @@
-var ImageLoader_0_5_x = function() {};
+var ImageLoader_0_5_x = function(params) {
+    if (typeof params !== 'undefined') {
+        this._url_template = params['url_template'];
+    }
+    else {
+        this._url_template = "";
+    }
+};
 
 /************************************************************\
  * Instance Variable Defaults 
@@ -13,7 +20,6 @@ ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="
 ImageLoader_0_5_x.prototype._max_percent_of_viewport_logical_width = 94; 
 ImageLoader_0_5_x.prototype._raw_source_physical_height = 0; 
 ImageLoader_0_5_x.prototype._raw_source_physical_width = 0; 
-ImageLoader_0_5_x.prototype._url_template = ""; 
 ImageLoader_0_5_x.prototype._viewport_logical_height = 0; 
 ImageLoader_0_5_x.prototype._viewport_logical_width = 0; 
 

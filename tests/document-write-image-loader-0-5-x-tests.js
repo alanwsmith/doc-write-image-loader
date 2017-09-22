@@ -128,6 +128,23 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 
 });
 
+
+QUnit.test("Integration Test: Passing params during init", function(assert) {
+
+    var target = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // Given
+    var test_object = new ImageLoader_0_5_x({
+        url_template:  '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+    }); 
+
+    var result = test_object.url_template();
+
+    // Then
+    assert.equal(result, target);
+
+});
+
 // QUnit.test("Integration Test 2: Verify .output_image(params) output", function(assert) {
 //     // Preflight
 //     var target = "//res.cloudinary.com/demo/image/upload/c_fill,w_300,h_200/horses.jpg";
