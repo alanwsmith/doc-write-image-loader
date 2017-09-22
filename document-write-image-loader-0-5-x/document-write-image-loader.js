@@ -94,7 +94,16 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 
 ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
 
-    return '<img src...';
+    this._alt_text = "Photo of Horses";
+    this._filename = "horses.jpg";
+    this._raw_source_physical_width = 1600;
+    this._raw_source_physical_height = 1067;
+
+    console.log(this.alt_text());
+
+    var return_value = this.img_tag_string();
+
+    return return_value;
 
 };
 

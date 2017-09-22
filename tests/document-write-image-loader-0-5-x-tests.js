@@ -137,9 +137,15 @@ QUnit.skip("Integration Test 1: Base functionality with minimal call", function(
 
 QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) {
     // Preflight
-    var target = '<img src...';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Given
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._dpr = 1.6;
+    this.image_loader._viewport_logical_width = 1024;
+    this.image_loader._viewport_logical_height = 680;
+
+    // When
     var result = this.image_loader.image_tag_string_from_params(
 
     );
