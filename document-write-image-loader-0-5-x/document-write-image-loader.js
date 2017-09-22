@@ -74,7 +74,7 @@ ImageLoader_0_5_x.prototype.viewport_logical_width = function() {
 
 
 /************************************************************\
- * Integrated Functions
+ * Unit Functions
 \************************************************************/
 
 ImageLoader_0_5_x.prototype.image_tag_string = function() {
@@ -85,11 +85,6 @@ ImageLoader_0_5_x.prototype.image_tag_string = function() {
     return_value = return_value.replace('[SOURCE_URL]', this.url_string());
     return return_value;
 }
-
-
-/************************************************************\
- * Unit Functions
-\************************************************************/
 
 ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
     // Conveince method that builds a string from params
