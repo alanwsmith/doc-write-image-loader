@@ -105,14 +105,14 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 
     // Force environmental variables for testing consistency
     this.image_loader._dpr = 2;
-    this.image_loader._viewport_logical_height = 680;
     this.image_loader._viewport_logical_width = 1024;
+    this.image_loader._viewport_logical_height = 680;
 
     // Given 
     this.image_loader._alt_text = "Photo of Horses";
     this.image_loader._filename = "horses.jpg";
-    this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._raw_source_physical_width = 1600;
+    this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
