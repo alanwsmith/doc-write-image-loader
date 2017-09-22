@@ -98,11 +98,21 @@ ImageLoader_0_5_x.prototype.logical_height = function() {
     return return_value;
 };
 
+// ImageLoader_0_5_x.prototype.logical_width = function() {
+//     var return_value = Math.min(
+//         this.raw_source_dpr_max_logical_width(), 
+//         this.viewport_percentage_max_logical_width() 
+//     );
+//     return return_value;
+// };
+
 ImageLoader_0_5_x.prototype.logical_width = function() {
     var return_value = Math.min(
         this.raw_source_dpr_max_logical_width(), 
         this.viewport_percentage_max_logical_width() 
     );
+    // Round down to nearest ten to reduce number of versions created
+    return_value = (Math.floor(return_value / 10) * 10);
     return return_value;
 };
 

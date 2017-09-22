@@ -75,14 +75,18 @@ Instance Variables
 - This is done so that methods are used to access everything but conflicts between the names are eliminated via the `_`. 
 
 
-Calculations Start with `.logical_width()`
-------------------------------------------
+Calculations Start with `.logical_width()` rounded to nearest 10
+----------------------------------------------------------------
 
 The key sizing logic is contained inside `.logical_width()`. 
 
 It tests both the height and width of the source image in relation to the Device Pixel Ration (`.dpr()`) and the percentage of the logical viewport width to determine the largest width possible. 
 
 That width is then used as the central reference point for the rest of the sizing calculation functions. 
+
+The value returned by `.logical_width()` is rounded down to the nearest `10` (e.g. `519` becomes `510`). This is done to cut down on the number of different images that get created. The reason to round down is to avoid accidentally enlarging the image beyond it's raw size. 
+
+
 
 
 Logic Note: Math.floor() Usage

@@ -5,12 +5,12 @@ Version: 0.5.1
 --------------
 
 - Added `.logical_height_for_attribute()`
-- Changed `.logical_width()` to `.logical_width_for_attribute()`
 - Added `._alt_text` and `.alt_text() tests
 - Added `.physical_height_to_call()`
 - Added `.physical_width_to_call()`
 - Added `.url_string()`
 - Put example output on test page for experimentation
+- Rounding value returned by `.logical_width()` down to the nearest `10`. (e.g. `519` becomes `510`)
 
 
 

@@ -86,7 +86,7 @@ QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
 \************************************************************/
 
 
-QUnit.test("Integration Test 1: Base functionality with minimal call", function(assert) {
+QUnit.test ("Integration Test 1: Base functionality with minimal call", function(assert) {
     // Remember: There should be no need to test different iterations of limiting 
     // either by physical dimension or viewport percentage. All that math should be 
     // tested at the unit level. As long as a single pass through here works for 
@@ -101,7 +101,7 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
     // just push the new value through the exact same logic/formula. 
 
     // Preflight
-    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1539,h_1025/horses.jpg" width="962" height="641" alt="Photo of Horses">';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
     this.image_loader._dpr = 1.6;
@@ -119,7 +119,7 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
     var result = this.image_loader.img_tag_string();
     
     // Then
-    assert.equal(target, result);
+    assert.equal(result, target);
 
 });
 
@@ -131,7 +131,7 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 
 QUnit.test("Unit Test: .logical_height()", function(assert) {
     // Preflight
-    var target = 341;
+    var target = 340;
 
     // Given
     this.image_loader._dpr = 2;
@@ -147,19 +147,19 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
     assert.equal(result, target);
 });
 
-
-
-
 QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
+
+    // NOTE: Without rounding, the value would be `527`, but it's rounded down to `520`. 
+
     // Preflight
-    var target = 512;
+    var target = 520;
 
     // Given
     this.image_loader._dpr = 2;
-    this.image_loader._max_percent_of_viewport_logical_width = 50;
+    this.image_loader._max_percent_of_viewport_logical_width = 51;
     this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._raw_source_physical_width = 1600;
-    this.image_loader._viewport_logical_width = 1024;
+    this.image_loader._viewport_logical_width = 1035;
 
     // When
     var result = this.image_loader.logical_width(); 
@@ -167,7 +167,6 @@ QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_
     // Then
     assert.equal(result, target);
 });
-
 
 QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width() is returned", function(assert) {
     // Preflight
@@ -250,7 +249,7 @@ QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
 
 QUnit.test("Unit Test: .url_string()", function(assert) {
     // Preflight
-    var target = '//res.cloudinary.com/demo/image/upload/w_1024,h_682/horses.jpg';
+    var target = '//res.cloudinary.com/demo/image/upload/w_1020,h_680/horses.jpg';
 
     // Given
     // this.image_loader._alt_text = "Photo of Horses";
