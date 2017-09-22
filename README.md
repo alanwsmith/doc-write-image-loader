@@ -426,56 +426,22 @@ Cucumber Tests from Prototype V2 to Consider
 
 
 
-Roadmap TODOs
--------------
+Features Under Consideration
+----------------------------
 
-- Set a default quality 
 - (all the TODOs in the code comments)
-- Make sure all dimensions are converted to integers. 
-- Slice off extra pixels when division doesn't results in an integer.
-- Test hitting the max source height and refining the parameters if that happens. 
-- Test vertical images. 
-- Determine browser support and decide on extent of fallbacks.
-- Test page with lots of images calls.
-- Test to check for empty alt text and make sure it returns properly. 
-- Test to check default quality value. 
-- Test 1 and 1.3 devicePixelRatios. 
-- Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
-- Setup a process to update version number strings in documentation automatcially.
-- Define required parameters and make sure they are called. 
+- See if there's a way to automatically pull the width value of the parent container to use that for the base width
 - Add ability to apply `class` (and maybe `id`) attributes
-- Add ability to pass `alt` and `title` attributes.
-- Maybe output console messages if the minimum required params aren't provided
-- Set default % of viewport width to 100%
-- Make sure width is always returned as an integer. 
-- Make sure height is always returned as an integer. 
-- Make sure any half pixel results are truncated properly. 
-- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
-- Maybe set default dpr to 1 if no value is avaialble.  
-- Make sure to check odd width and height at different dprs. 
-- Test 1.3 dpr. 
-- Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
-- Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
-- Could add a flag to allow for upsizing of smaller images. 
-- See if there's a way to automatically pull the width value of the parent container to use that for the base width.
-- Add fallback for not getting innerWidth and innerHeight.
-- Maybe throw an error if extra params are sent. 
-- Figure out how to handle image loading if both width and height are restricted. 
-- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
-- Add an option to make sure the image stays with some percentage of the viewport_height as well as the viewport_width. (i.e. if you want to make sure you can always see all the image)
-
-
-
-Possible Future Features
-------------------------
-
+- Add ability to pass `title` attributes
+- Determine how much error handling to implement
+- Determine browser support and decide on extent of fall backs
+- Test page with lots of images calls for performance 
+- Test to check for empty alt text and make sure it returns properly
+- Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
+- Add `q_` quality parameter parsing
+- Provide a parameter to pass arbitrary, free-form arguments
 - Move example site to its own domain.
-- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
-- Dynamic image sizes based on a percentage of `window.innerWidth`.
-- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
 - Minified version of the script.
 - Comparison test pages with other ways to call images to test against.
-- Breakpoint config generator tool. (maybe not if only percentages are used)
-
 
 
