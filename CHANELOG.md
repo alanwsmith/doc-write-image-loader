@@ -5,9 +5,11 @@ Version: 0.5.2
 --------------
 
 - Update `index.html` sample to put script calls in `<head>`
-- Added `.load_environment_with_url_template(URL)`
+- Added `.load_environment()`
 - Added `.image_tag_string_from_params(params)`
 - Added `.write_image(params)`
+- Setup to allow optional `{ url_template: "" }` to be passed at initialization
+
 
 
 Version: 0.5.1

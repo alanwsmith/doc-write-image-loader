@@ -3,7 +3,6 @@ QUnit.module("Loader Factory", {
         console.log("Kickoff: " + Math.random());
     },
     beforeEach: function() {
-        // console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
     }
 });
@@ -128,20 +127,30 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 
 });
 
-// QUnit.test("Integration Test 2: Verify .output_image(params) output", function(assert) {
-//     // Preflight
-//     var target = "//res.cloudinary.com/demo/image/upload/c_fill,w_300,h_200/horses.jpg";
-// 
-//     // When
-//     // var result = document.getElementById("reference-image-container").children[0].getAttribute('src');
-//     var result = document.getElementById("reference-image-container").children[0];
-// 
-//     // Then
-//     assert.equal(result, target);
-// 
-// });
 
+QUnit.test("Integration Test: Passing params during init", function(assert) {
 
+    var target = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // Given
+    var test_object = new ImageLoader_0_5_x({
+        url_template:  '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+    }); 
+
+    var result = test_object.url_template();
+
+    // Then
+    assert.equal(result, target);
+
+});
+
+//////////////////////////////////////////////////////////////////////
+// TODO:
+//
+// - Figure out how to test the `.write_image()` function that 
+//   uses `document.write()`
+//
+//////////////////////////////////////////////////////////////////////
 
 
 /************************************************************\
@@ -200,26 +209,18 @@ QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) 
 });
 
 
-
-QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
+QUnit.test("Unit Test: load_environment", function(assert) {
     // NOTE: This function loads dynamic variables from the environment.
     // Confirmation is done by comparing the same env variables pulled
     // dynamically during testing execution. Seems like the simpelest way
     // to verify things are loaded. Not sure what would happen if testing 
     // is done in a headless environment. Will cross that bridge if it
     // becomes necessary.  
-    //
-    // TODO: Figure out if there is a way to test setting a default `._dpr` if
-    // the browser doesn't support one. 
-
-    // Given
-    var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When
-    this.image_loader.load_environment_with_url_template(target_url);
+    this.image_loader.load_environment();
 
     // Then
-    assert.equal(this.image_loader.url_template(), target_url, "URL Template");
     assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
     assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
     assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
@@ -244,8 +245,8 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
     assert.equal(result, target);
 });
 
-QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
 
+QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
     // NOTE: Without rounding, the value would be `527`, but it's rounded down to `520`. 
 
     // Preflight

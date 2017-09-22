@@ -1,4 +1,12 @@
-var ImageLoader_0_5_x = function() {};
+var ImageLoader_0_5_x = function(params) {
+    if (typeof params !== 'undefined') {
+        this._url_template = params['url_template'];
+        this.load_environment();
+    }
+    else {
+        this._url_template = "";
+    }
+};
 
 /************************************************************\
  * Instance Variable Defaults 
@@ -13,7 +21,6 @@ ImageLoader_0_5_x.prototype._img_tag_template = '<img src="[SOURCE_URL]" width="
 ImageLoader_0_5_x.prototype._max_percent_of_viewport_logical_width = 94; 
 ImageLoader_0_5_x.prototype._raw_source_physical_height = 0; 
 ImageLoader_0_5_x.prototype._raw_source_physical_width = 0; 
-ImageLoader_0_5_x.prototype._url_template = ""; 
 ImageLoader_0_5_x.prototype._viewport_logical_height = 0; 
 ImageLoader_0_5_x.prototype._viewport_logical_width = 0; 
 
@@ -49,6 +56,7 @@ ImageLoader_0_5_x.prototype.image_tag_string = function() {
     return return_value;
 }
 
+
 ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
     // Conveince method that builds a string from params
     this._alt_text = params['alt_text'];
@@ -59,8 +67,8 @@ ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
     return return_value;
 };
 
-ImageLoader_0_5_x.prototype.load_environment_with_url_template = function(url_template) {
-    this._url_template = url_template;
+
+ImageLoader_0_5_x.prototype.load_environment = function() {
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
     this._viewport_logical_width = window.innerWidth;
     this._viewport_logical_height = window.innerHeight;

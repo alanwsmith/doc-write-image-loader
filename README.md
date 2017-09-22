@@ -46,16 +46,36 @@ Usage
 
 Place a call to the script in the `<head>` of the HTML and call initial setup functions:
 
+
+_Minimum_
+
+
     <head>
         <!-- ... -->
 
         <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
-
-        var image_loader = new ImageLoader_0_5_x;
-        
+        var image_loader = new ImageLoader_0_5_x;        
         imageLoader.load_environment_with_url_template(
             '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
         );
+
+    </head>
+
+
+_Set Optional Max Width_
+
+
+    <head>
+        <!-- ... -->
+
+        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+        var image_loader = new ImageLoader_0_5_x;        
+        imageLoader.load_environment_with_url_template(
+            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+        );
+
+        // Example of setting optional size restraint
+        imageLoader._max_percent_of_viewport_logical_width = 50;
 
     </head>
 
@@ -64,6 +84,11 @@ Place a call to the script in the `<head>` of the HTML and call initial setup fu
 NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. In fact, that's how the script was originally designed. It pastes a lot of code into the page, but eliminates a call across the wire. 
 
 Results will vary on which approach is better depending on the site.
+
+
+NOTE: If the Object Contstuctor (`(new ImageLoader_0_5_x()`) is called with a parameter object, it will load it as appropriate and then call `.load_envionrment()`. If no parameter object is passed, `.load_environment()` must be called independently before `_dpr()` and the viewport dimensions can be called.
+
+
 
 
 **Call**
