@@ -42,18 +42,16 @@
   <hr> 
   <h2>Basic Example</h2>
   <script>
-    // This is the minim required values to set
-    // TODO: Setup single method that these get passed through and that returns `.img_tag_string()`.
-    imageLoader._alt_text = "Photo of Horses";
-    imageLoader._filename = "horses.jpg";
-    imageLoader._raw_source_physical_width = 1600;
-    imageLoader._raw_source_physical_height = 1066;
-
-    // Also: the optional custom setting for width of viewport. 
+    // Example of setting optional size restraint 
     imageLoader._max_percent_of_viewport_logical_width = 50;
 
     // Primary output 
-    document.write(imageLoader.img_tag_string());
+    document.write(imageLoader.image_tag_string_from_params({
+        alt_text: "Photo of Horses",
+        filename: "horses.jpg",
+        raw_source_physical_width: 1600,
+        raw_source_physical_height: 1067
+    }));
   </script>
 
   <!-- The below is just for demonstartion purposes -->
