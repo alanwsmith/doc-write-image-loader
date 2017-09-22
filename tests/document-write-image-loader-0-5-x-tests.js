@@ -104,18 +104,20 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
+    // NOTE: the normal funcation isn't used because these values would be dynamic
     this.image_loader._dpr = 1.6;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // When 
     this.image_loader._alt_text = "Photo of Horses";
     this.image_loader._filename = "horses.jpg";
     this.image_loader._raw_source_physical_width = 1600;
     this.image_loader._raw_source_physical_height = 1067;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
-    // When 
     var result = this.image_loader.img_tag_string();
     
     // Then
