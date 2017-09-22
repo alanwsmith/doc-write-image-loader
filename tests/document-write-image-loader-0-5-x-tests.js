@@ -110,7 +110,7 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
     this.image_loader._alt_text = "Photo of Horses";
