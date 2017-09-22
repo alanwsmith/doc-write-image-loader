@@ -128,6 +128,20 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 
 });
 
+// QUnit.test("Integration Test 2: Verify .output_image(params) output", function(assert) {
+//     // Preflight
+//     var target = "//res.cloudinary.com/demo/image/upload/c_fill,w_300,h_200/horses.jpg";
+// 
+//     // When
+//     // var result = document.getElementById("reference-image-container").children[0].getAttribute('src');
+//     var result = document.getElementById("reference-image-container").children[0];
+// 
+//     // Then
+//     assert.equal(result, target);
+// 
+// });
+
+
 
 
 /************************************************************\
