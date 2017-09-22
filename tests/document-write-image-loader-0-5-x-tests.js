@@ -131,6 +131,24 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
  * Unit Tests 
 \************************************************************/
 
+
+QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
+
+    // Given
+    this.image_loader.load_environment_with_url_template(
+        '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+    );
+    var target = 1; 
+
+    // When
+    var result = 1; 
+
+    // Then
+    assert.equal(result, target);
+
+});
+
+
 QUnit.test("Unit Test: .logical_height()", function(assert) {
     // Preflight
     var target = 340;

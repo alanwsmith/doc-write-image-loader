@@ -91,6 +91,11 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
  * Unit Functions
 \************************************************************/
 
+ImageLoader_0_5_x.prototype.load_environment_with_url_template = function() {
+
+};
+
+
 ImageLoader_0_5_x.prototype.logical_height = function() {
     var return_value = Math.floor(
         this.raw_source_physical_height() * this.logical_width() / this.raw_source_physical_width()
