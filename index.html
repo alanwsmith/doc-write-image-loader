@@ -42,18 +42,35 @@
   <hr> 
   <h2>Basic Example</h2>
   <script>
-    // This is the minim required values to set
-    // TODO: Setup single method that these get passed through and that returns `.img_tag_string()`.
-    imageLoader._alt_text = "Photo of Horses";
-    imageLoader._filename = "horses.jpg";
-    imageLoader._raw_source_physical_width = 1600;
-    imageLoader._raw_source_physical_height = 1066;
-
-    // Also: the optional custom setting for width of viewport. 
+    // Example of setting optional size restraint 
     imageLoader._max_percent_of_viewport_logical_width = 50;
 
     // Primary output 
-    document.write(imageLoader.img_tag_string());
+    document.write(imageLoader.image_tag_string_from_params({
+        alt_text: "Photo of Horses",
+        filename: "horses.jpg",
+        raw_source_physical_width: 1600,
+        raw_source_physical_height: 1067
+    }));
+  </script>
+
+  <!-- The below is just for demonstartion purposes -->
+  <script>
+    // Reporting details for demonstation purposes. 
+    document.write(
+      '<table>' +
+      '<tr><th></th><th>Width</th><th>Height</th></tr>' +
+      '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
+      '<tr><td>Logical Window Dimensions</td><td>' + imageLoader.viewport_logical_width() + '</td><td>' + imageLoader.viewport_logical_height() + '</td></tr>' +
+      '<tr><td>Device Pixel Ratio:</td><td colspan="2">' + imageLoader._dpr + 'x</td></tr>' + 
+      '<tr><td>Max % of window logical width:</td><td colspan="2">' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
+      '<tr><td>Logical Attribute Size</td><td>' + imageLoader.logical_width() + '</td><td>' + imageLoader.logical_height() + '</td></tr>' +
+      '<tr><td>Physical Call</td><td>' + imageLoader.physical_width_to_call() + '</td><td>' + imageLoader.physical_height_to_call() + '</td></tr>' +
+      '</table>'
+    );
+
+  </script>
+  <script>
 
     // For debugging/investigation
     var function_names = [
@@ -72,21 +89,8 @@
     for (var i = 0, len = function_names.length; i < len; i = i + 1) {
         console.log(function_names[i] + ": " + imageLoader[function_names[i]]()); 
     }
-    
-    // Reporting details for demonstation purposes. 
-    document.write(
-      '<table>' +
-      '<tr><th></th><th>Width</th><th>Height</th></tr>' +
-      '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
-      '<tr><td>Logical Window Dimensions</td><td>' + imageLoader.viewport_logical_width() + '</td><td>' + imageLoader.viewport_logical_height() + '</td></tr>' +
-      '<tr><td>Device Pixel Ratio:</td><td colspan="2">' + imageLoader._dpr + 'x</td></tr>' + 
-      '<tr><td>Max % of window logical width:</td><td colspan="2">' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
-      '<tr><td>Logical Attribute Size</td><td>' + imageLoader.logical_width() + '</td><td>' + imageLoader.logical_height() + '</td></tr>' +
-      '<tr><td>Physical Call</td><td>' + imageLoader.physical_width_to_call() + '</td><td>' + imageLoader.physical_height_to_call() + '</td></tr>' +
-      '</table>'
-    );
 
-  </script>
+    </script>
 
   <hr>
   <p>Resize the browser and refresh the page to generate a different size.</p>

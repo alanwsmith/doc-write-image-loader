@@ -86,7 +86,7 @@ QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
 \************************************************************/
 
 
-QUnit.test ("Integration Test 1: Base functionality with minimal call", function(assert) {
+QUnit.test("Integration Test 1: Base functionality with minimal call", function(assert) {
     // Remember: There should be no need to test different iterations of limiting 
     // either by physical dimension or viewport percentage. All that math should be 
     // tested at the unit level. As long as a single pass through here works for 
@@ -110,16 +110,19 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
+    // NOTE: This is normally set via `.load_environnment_with_url_template(URL)`
+    // but that won't work for the test since it pulls dynamic values
+    // from the browser environment. So, it's set manually here.
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
-    this.image_loader._alt_text = "Photo of Horses";
-    this.image_loader._filename = "horses.jpg";
-    this.image_loader._raw_source_physical_width = 1600;
-    this.image_loader._raw_source_physical_height = 1067;
+    var result = this.image_loader.image_tag_string_from_params({
+        alt_text: "Photo of Horses",
+        filename: "horses.jpg",
+        raw_source_physical_width: 1600,
+        raw_source_physical_height: 1067
+    });
 
-    var result = this.image_loader.img_tag_string();
-    
     // Then
     assert.equal(result, target);
 
@@ -130,6 +133,33 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
 /************************************************************\
  * Unit Tests 
 \************************************************************/
+
+
+QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) {
+    // Preflight
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
+
+    // Given
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._dpr = 1.6;
+    this.image_loader._viewport_logical_width = 1024;
+    this.image_loader._viewport_logical_height = 680;
+
+
+
+    // When
+    var result = this.image_loader.image_tag_string_from_params({
+        alt_text:  "Photo of Horses",
+        filename:  "horses.jpg",
+        raw_source_physical_width:  1600,
+        raw_source_physical_height:  1067
+    });
+
+    // Then
+    assert.equal(result, target);
+
+});
+
 
 
 QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {

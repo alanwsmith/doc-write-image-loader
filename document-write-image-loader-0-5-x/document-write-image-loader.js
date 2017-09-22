@@ -91,6 +91,17 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
  * Unit Functions
 \************************************************************/
 
+ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
+    // Conveince method that builds a string from params
+    this._alt_text = params['alt_text'];
+    this._filename = params['filename'];
+    this._raw_source_physical_width = params['raw_source_physical_width'];
+    this._raw_source_physical_height = params['raw_source_physical_height'];
+
+    var return_value = this.img_tag_string();
+    return return_value;
+};
+
 ImageLoader_0_5_x.prototype.load_environment_with_url_template = function(url_template) {
     this._url_template = url_template;
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
@@ -105,14 +116,6 @@ ImageLoader_0_5_x.prototype.logical_height = function() {
     );
     return return_value;
 };
-
-// ImageLoader_0_5_x.prototype.logical_width = function() {
-//     var return_value = Math.min(
-//         this.raw_source_dpr_max_logical_width(), 
-//         this.viewport_percentage_max_logical_width() 
-//     );
-//     return return_value;
-// };
 
 ImageLoader_0_5_x.prototype.logical_width = function() {
     var return_value = Math.min(
