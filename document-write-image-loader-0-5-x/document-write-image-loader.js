@@ -8,7 +8,7 @@ var ImageLoader_0_5_x = function() {};
  * Instance Variable Defaults 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype._version_number = "0.5.1"; 
+ImageLoader_0_5_x.prototype._version_number = "0.5.2"; 
 
 ImageLoader_0_5_x.prototype._alt_text = "";
 ImageLoader_0_5_x.prototype._dpr = 0; 
@@ -90,6 +90,14 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
 /************************************************************\
  * Unit Functions
 \************************************************************/
+
+ImageLoader_0_5_x.prototype.load_environment_with_url_template = function(url_template) {
+    this._url_template = url_template;
+    this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;
+    this._viewport_logical_width = window.innerWidth;
+    this._viewport_logical_height = window.innerHeight;
+};
+
 
 ImageLoader_0_5_x.prototype.logical_height = function() {
     var return_value = Math.floor(

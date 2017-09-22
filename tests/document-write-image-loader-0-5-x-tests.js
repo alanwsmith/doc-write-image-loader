@@ -14,7 +14,7 @@ QUnit.module("Loader Factory", {
 \************************************************************/
 
 QUnit.test("Confirm version number", function(assert) {
-    var target_version = "0.5.1";
+    var target_version = "0.5.2";
     assert.equal(target_version, this.image_loader.version_number()); 
 });
 
@@ -101,21 +101,23 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     // just push the new value through the exact same logic/formula. 
 
     // Preflight
-    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
+    // NOTE: the normal funcation isn't used because these values would be dynamic
     this.image_loader._dpr = 1.6;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // When 
     this.image_loader._alt_text = "Photo of Horses";
     this.image_loader._filename = "horses.jpg";
     this.image_loader._raw_source_physical_width = 1600;
     this.image_loader._raw_source_physical_height = 1067;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
-    // When 
     var result = this.image_loader.img_tag_string();
     
     // Then
@@ -128,6 +130,32 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
 /************************************************************\
  * Unit Tests 
 \************************************************************/
+
+
+QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
+    // NOTE: This function loads dynamic variables from the environment.
+    // Confirmation is done by comparing the same env variables pulled
+    // dynamically during testing execution. Seems like the simpelest way
+    // to verify things are loaded. Not sure what would happen if testing 
+    // is done in a headless environment. Will cross that bridge if it
+    // becomes necessary.  
+    //
+    // TODO: Figure out if there is a way to test setting a default `._dpr` if
+    // the browser doesn't support one. 
+
+    // Given
+    var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // When
+    this.image_loader.load_environment_with_url_template(target_url);
+
+    // Then
+    assert.equal(this.image_loader.url_template(), target_url, "URL Template");
+    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
+    assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
+    assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
+});
+
 
 QUnit.test("Unit Test: .logical_height()", function(assert) {
     // Preflight
