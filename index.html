@@ -12,6 +12,15 @@
   -->
 
   <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+  <script>
+    // Create a new object and set the url_template
+    var imageLoader = new ImageLoader_0_5_x(
+        { url_template: '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]' }
+    );
+
+    // Example of setting optional size restraint 
+    imageLoader._max_percent_of_viewport_logical_width = 50;
+  </script>
 
   <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -26,35 +35,40 @@
 </head> 
 <body>
   <p><strong>Example &middot; <a href="tests/">QUnit Test Results</a> &middot; <a href="https://github.com/alanwsmith/document.write-image-loader">Documentation and GitHub Repo</a></strong></p>
-
   <hr>
 
   <h1>document.write Image Loader</h1>
+  <p>
+    (version: <script>document.write(imageLoader.version_number())</script>)
+  </p>
   <hr> 
   <h2>Basic Example</h2>
   <script>
-    // Create a new object and set the url_template
-    var imageLoader = new ImageLoader_0_5_x;
-    // TODO: Make `._url_template` a method instead of setting it directly. 
-    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    imageLoader.write_image({
+        alt_text: "Photo of Horses",
+        filename: "horses.jpg",
+        raw_source_physical_width: 1600,
+        raw_source_physical_height: 1067
+    });
+  </script>
 
-    // TODO: move these three into a single method to load the environment.  
-    imageLoader._dpr = window.devicePixelRatio;
-    imageLoader._viewport_logical_width = window.innerWidth;
-    imageLoader._viewport_logical_height = window.innerHeight;
+  <!-- The below is just for demonstartion purposes -->
+  <script>
+    // Reporting details for demonstation purposes. 
+    document.write(
+      '<table>' +
+      '<tr><th></th><th>Width</th><th>Height</th></tr>' +
+      '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
+      '<tr><td>Logical Window Dimensions</td><td>' + imageLoader.viewport_logical_width() + '</td><td>' + imageLoader.viewport_logical_height() + '</td></tr>' +
+      '<tr><td>Device Pixel Ratio:</td><td colspan="2">' + imageLoader._dpr + 'x</td></tr>' + 
+      '<tr><td>Max % of window logical width:</td><td colspan="2">' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
+      '<tr><td>Logical Attribute Size</td><td>' + imageLoader.logical_width() + '</td><td>' + imageLoader.logical_height() + '</td></tr>' +
+      '<tr><td>Physical Call</td><td>' + imageLoader.physical_width_to_call() + '</td><td>' + imageLoader.physical_height_to_call() + '</td></tr>' +
+      '</table>'
+    );
 
-    // This is the minim required values to set
-    // TODO: Setup single method that these get passed through and that returns `.img_tag_string()`.
-    imageLoader._alt_text = "Photo of Horses";
-    imageLoader._filename = "horses.jpg";
-    imageLoader._raw_source_physical_width = 1600;
-    imageLoader._raw_source_physical_height = 1066;
-
-    // Also: the optional custom setting for width of viewport. 
-    imageLoader._max_percent_of_viewport_logical_width = 50;
-
-    // Primary output 
-    document.write(imageLoader.img_tag_string());
+  </script>
+  <script>
 
     // For debugging/investigation
     var function_names = [
@@ -73,21 +87,8 @@
     for (var i = 0, len = function_names.length; i < len; i = i + 1) {
         console.log(function_names[i] + ": " + imageLoader[function_names[i]]()); 
     }
-    
-    // Reporting details for demonstation purposes. 
-    document.write(
-      '<table>' +
-      '<tr><th></th><th>Width</th><th>Height</th></tr>' +
-      '<tr><td>Raw Source Physical</td><td>' + imageLoader.raw_source_physical_width() + '</td><td>' + imageLoader.raw_source_physical_height() + '</td></tr>' +
-      '<tr><td>Logical Window Dimensions</td><td>' + imageLoader.viewport_logical_width() + '</td><td>' + imageLoader.viewport_logical_height() + '</td></tr>' +
-      '<tr><td>Device Pixel Ratio:</td><td colspan="2">' + imageLoader._dpr + 'x</td></tr>' + 
-      '<tr><td>Max % of window logical width:</td><td colspan="2">' + imageLoader.max_percent_of_viewport_logical_width() + '</td></tr>' +
-      '<tr><td>Logical Attribute Size</td><td>' + imageLoader.logical_width() + '</td><td>' + imageLoader.logical_height() + '</td></tr>' +
-      '<tr><td>Physical Call</td><td>' + imageLoader.physical_width_to_call() + '</td><td>' + imageLoader.physical_height_to_call() + '</td></tr>' +
-      '</table>'
-    );
 
-  </script>
+    </script>
 
   <hr>
   <p>Resize the browser and refresh the page to generate a different size.</p>

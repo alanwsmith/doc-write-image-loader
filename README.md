@@ -34,7 +34,6 @@ A plain-old JavaScript, resolution aware, responsive image loader.
 
 Live example: [http://alanwsmith.github.io/document.write-image-loader/](http://alanwsmith.github.io/document.write-image-loader/)
 
-
 Every approach I've seen for loading responsive images feels rough. This is an attempt to use an old-school approach to make a better solution. It uses `document.write` to output the `<img>` tags. `document.write` blocks rendering. While that causes performance degradations in most cases, my hypothesis is that it won't here. I prefer the browser to have `width` and `height` image attributes to work with so it knows what area to set aside while the image loads. Additionally, calculating the exact size to fit the space avoids downloading unnecessarily large files only to reduce their size during display.
 
 That's the hypothesis. We'll see if it holds up.
@@ -47,12 +46,67 @@ Usage
 
 Place a call to the script in the `<head>` of the HTML and call initial setup functions:
 
-    <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
-    var image_loader = new ImageLoader_0_5_x;
-    image_loader.set_url_template('http://res.cloudinary.com/demo/image/upload/w_[WIDTH],h_[HEIGHT]/[FILENAME]');
+
+_Minimum_
 
 
-NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. 
+    <head>
+        <!-- ... -->
+
+        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+        var image_loader = new ImageLoader_0_5_x;        
+        imageLoader.load_environment_with_url_template(
+            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+        );
+
+    </head>
+
+
+_Set Optional Max Width_
+
+
+    <head>
+        <!-- ... -->
+
+        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+        var image_loader = new ImageLoader_0_5_x;        
+        imageLoader.load_environment_with_url_template(
+            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+        );
+
+        // Example of setting optional size restraint
+        imageLoader._max_percent_of_viewport_logical_width = 50;
+
+    </head>
+
+
+
+NOTE: It's also possible to copy and paste the code directly into the `<head>` of the document. In fact, that's how the script was originally designed. It pastes a lot of code into the page, but eliminates a call across the wire. 
+
+Results will vary on which approach is better depending on the site.
+
+
+NOTE: If the Object Contstuctor (`(new ImageLoader_0_5_x()`) is called with a parameter object, it will load it as appropriate and then call `.load_envionrment()`. If no parameter object is passed, `.load_environment()` must be called independently before `_dpr()` and the viewport dimensions can be called.
+
+
+
+
+**Call**
+
+TKTKTKTKT
+
+
+Requirements
+------------
+
+Browsers must supply:
+
+- `window.innerWidth`
+- `window.innerHeight`
+
+The `window.devicePixelRatio` variable is used if it's available. Otherwise, the script considers it to be a default of `1`.
+
+
 
 
 
@@ -62,8 +116,7 @@ URL Template Parameters
 - [PHYSICAL_WIDTH]
 - [PHYSICAL_HEIGHT]
 - [FILENAME]
-- TODO: Quality parameter
-- TODO: Free form entry to pass arbitrary parameters.
+
 
 
 Instance Variables
@@ -426,56 +479,22 @@ Cucumber Tests from Prototype V2 to Consider
 
 
 
-Roadmap TODOs
--------------
+Features Under Consideration
+----------------------------
 
-- Set a default quality 
 - (all the TODOs in the code comments)
-- Make sure all dimensions are converted to integers. 
-- Slice off extra pixels when division doesn't results in an integer.
-- Test hitting the max source height and refining the parameters if that happens. 
-- Test vertical images. 
-- Determine browser support and decide on extent of fallbacks.
-- Test page with lots of images calls.
-- Test to check for empty alt text and make sure it returns properly. 
-- Test to check default quality value. 
-- Test 1 and 1.3 devicePixelRatios. 
-- Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
-- Setup a process to update version number strings in documentation automatcially.
-- Define required parameters and make sure they are called. 
+- See if there's a way to automatically pull the width value of the parent container to use that for the base width
 - Add ability to apply `class` (and maybe `id`) attributes
-- Add ability to pass `alt` and `title` attributes.
-- Maybe output console messages if the minimum required params aren't provided
-- Set default % of viewport width to 100%
-- Make sure width is always returned as an integer. 
-- Make sure height is always returned as an integer. 
-- Make sure any half pixel results are truncated properly. 
-- Add ability to restrict image so it's always fully visible (e.g. reduce if it would otherwise be too tall). 
-- Maybe set default dpr to 1 if no value is avaialble.  
-- Make sure to check odd width and height at different dprs. 
-- Test 1.3 dpr. 
-- Setup so return widths are always divisible by 10 to reduce number of possible iterations. 
-- Add feature to make sure if a max_render_width is used that's bigger than the raw image, the raw image takes precedence.
-- Could add a flag to allow for upsizing of smaller images. 
-- See if there's a way to automatically pull the width value of the parent container to use that for the base width.
-- Add fallback for not getting innerWidth and innerHeight.
-- Maybe throw an error if extra params are sent. 
-- Figure out how to handle image loading if both width and height are restricted. 
-- Make sure that if `percent_of_viewport_height`, the width stays smaller than the window width. 
-- Add an option to make sure the image stays with some percentage of the viewport_height as well as the viewport_width. (i.e. if you want to make sure you can always see all the image)
-
-
-
-Possible Future Features
-------------------------
-
+- Add ability to pass `title` attributes
+- Determine how much error handling to implement
+- Determine browser support and decide on extent of fall backs
+- Test page with lots of images calls for performance 
+- Test to check for empty alt text and make sure it returns properly
+- Optional flag that make sure image stays completely viewable inside the viewport (e.g. reduce if it would be too tall)
+- Add `q_` quality parameter parsing
+- Provide a parameter to pass arbitrary, free-form arguments
 - Move example site to its own domain.
-- Flag that allows images to be enlarged if they get called at a size large than the max avaialble.
-- Dynamic image sizes based on a percentage of `window.innerWidth`.
-- Ability to limit image size so it fits in the `winner.innerHeight` as well. 
 - Minified version of the script.
 - Comparison test pages with other ways to call images to test against.
-- Breakpoint config generator tool. (maybe not if only percentages are used)
-
 
 
