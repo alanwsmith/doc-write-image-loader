@@ -3,7 +3,6 @@ QUnit.module("Loader Factory", {
         console.log("Kickoff: " + Math.random());
     },
     beforeEach: function() {
-        // console.log("Creating new test object");
         this.image_loader = new ImageLoader_0_5_x();
     }
 });
@@ -145,20 +144,13 @@ QUnit.test("Integration Test: Passing params during init", function(assert) {
 
 });
 
-// QUnit.test("Integration Test 2: Verify .output_image(params) output", function(assert) {
-//     // Preflight
-//     var target = "//res.cloudinary.com/demo/image/upload/c_fill,w_300,h_200/horses.jpg";
-// 
-//     // When
-//     // var result = document.getElementById("reference-image-container").children[0].getAttribute('src');
-//     var result = document.getElementById("reference-image-container").children[0];
-// 
-//     // Then
-//     assert.equal(result, target);
-// 
-// });
-
-
+//////////////////////////////////////////////////////////////////////
+// TODO:
+//
+// - Figure out how to test the `.write_image()` function that 
+//   uses `document.write()`
+//
+//////////////////////////////////////////////////////////////////////
 
 
 /************************************************************\
@@ -235,22 +227,6 @@ QUnit.test("Unit Test: load_environment", function(assert) {
 });
 
 
-QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
-
-    // Given
-    var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
-
-    // When
-    this.image_loader.load_environment_with_url_template(target_url);
-
-    // Then
-    assert.equal(this.image_loader.url_template(), target_url, "URL Template");
-    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
-    assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
-    assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
-});
-
-
 QUnit.test("Unit Test: .logical_height()", function(assert) {
     // Preflight
     var target = 340;
@@ -269,8 +245,8 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
     assert.equal(result, target);
 });
 
-QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
 
+QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
     // NOTE: Without rounding, the value would be `527`, but it's rounded down to `520`. 
 
     // Preflight

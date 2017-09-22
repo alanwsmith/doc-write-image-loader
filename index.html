@@ -14,10 +14,10 @@
   <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
   <script>
     // Create a new object and set the url_template
-    var imageLoader = new ImageLoader_0_5_x;
-    imageLoader.load_environment_with_url_template(
-        '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+    var imageLoader = new ImageLoader_0_5_x(
+        { url_template: '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]' }
     );
+
     // Example of setting optional size restraint 
     imageLoader._max_percent_of_viewport_logical_width = 50;
   </script>
