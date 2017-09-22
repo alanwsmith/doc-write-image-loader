@@ -141,15 +141,16 @@ QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(as
     // becomes necessary.  
 
     // Given
-    this.image_loader.load_environment_with_url_template(
-        '//res.cloudinary.com/demo/image/upload/w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
-    );
+    var target_url = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // When
+    this.image_loader.load_environment_with_url_template(target_url);
 
     // Then
+    assert.equal(this.image_loader.url_template(), target_url, "URL Template");
+    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
     assert.equal(this.image_loader.viewport_logical_width(), window.innerWidth, "Viewport Width");
     assert.equal(this.image_loader.viewport_logical_height(), window.innerHeight, "Viewport Height");
-    assert.equal(this.image_loader.dpr(), window.devicePixelRatio, "Device Pixel Ratio");
-
 });
 
 

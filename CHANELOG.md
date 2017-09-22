@@ -5,6 +5,7 @@ Version: 0.5.2
 --------------
 
 - Update `index.html` sample to put script calls in `<head>`
+- Added `.load_environment_with_url_template(URL)`
 
 
 
