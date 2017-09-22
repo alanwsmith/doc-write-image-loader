@@ -101,7 +101,7 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     // just push the new value through the exact same logic/formula. 
 
     // Preflight
-    var target = '<img src="//res.cloudinary.com/demo/image/upload/w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Force environmental variables for testing consistency
     // NOTE: the normal funcation isn't used because these values would be dynamic
