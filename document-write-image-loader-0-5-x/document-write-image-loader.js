@@ -91,20 +91,15 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
  * Unit Functions
 \************************************************************/
 
-
 ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
-
-    this._alt_text = "Photo of Horses";
-    this._filename = "horses.jpg";
-    this._raw_source_physical_width = 1600;
-    this._raw_source_physical_height = 1067;
-
-    console.log(this.alt_text());
+    // Conveince method that builds a string from params
+    this._alt_text = params['alt_text'];
+    this._filename = params['filename'];
+    this._raw_source_physical_width = params['raw_source_physical_width'];
+    this._raw_source_physical_height = params['raw_source_physical_height'];
 
     var return_value = this.img_tag_string();
-
     return return_value;
-
 };
 
 ImageLoader_0_5_x.prototype.load_environment_with_url_template = function(url_template) {
