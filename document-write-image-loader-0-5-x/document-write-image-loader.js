@@ -1,15 +1,11 @@
 var ImageLoader_0_5_x = function() {};
 
-// TODO: Add function that can be called one time to load 
-//       environmental parameters.
-
-
 /************************************************************\
  * Instance Variable Defaults 
 \************************************************************/
 
 ImageLoader_0_5_x.prototype._version_number = "0.5.2"; 
-
+///
 ImageLoader_0_5_x.prototype._alt_text = "";
 ImageLoader_0_5_x.prototype._dpr = 0; 
 ImageLoader_0_5_x.prototype._filename= ""; 
@@ -26,51 +22,18 @@ ImageLoader_0_5_x.prototype._viewport_logical_width = 0;
  * Instance Variable Access Methods 
 \************************************************************/
 
-ImageLoader_0_5_x.prototype.version_number = function() {
-    return this._version_number;
-};
-
+ImageLoader_0_5_x.prototype.version_number = function() { return this._version_number; };
 ///
-
-ImageLoader_0_5_x.prototype.alt_text = function() {
-    return this._alt_text;
-};
-
-ImageLoader_0_5_x.prototype.dpr = function() {
-    return this._dpr;
-};
-
-ImageLoader_0_5_x.prototype.filename = function() {
-    return this._filename;
-};
-
-ImageLoader_0_5_x.prototype.img_tag_template = function() {
-    return this._img_tag_template;
-};
-
-ImageLoader_0_5_x.prototype.max_percent_of_viewport_logical_width = function() {
-    return this._max_percent_of_viewport_logical_width;
-};
-
-ImageLoader_0_5_x.prototype.raw_source_physical_height = function() {
-    return this._raw_source_physical_height;
-};
-
-ImageLoader_0_5_x.prototype.raw_source_physical_width = function() {
-    return this._raw_source_physical_width;
-};
-
-ImageLoader_0_5_x.prototype.url_template = function() {
-    return this._url_template;
-};
-
-ImageLoader_0_5_x.prototype.viewport_logical_height = function() {
-    return this._viewport_logical_height;
-};
-
-ImageLoader_0_5_x.prototype.viewport_logical_width = function() {
-    return this._viewport_logical_width;
-};
+ImageLoader_0_5_x.prototype.alt_text = function() { return this._alt_text; };
+ImageLoader_0_5_x.prototype.dpr = function() { return this._dpr; };
+ImageLoader_0_5_x.prototype.filename = function() { return this._filename; };
+ImageLoader_0_5_x.prototype.img_tag_template = function() { return this._img_tag_template; };
+ImageLoader_0_5_x.prototype.max_percent_of_viewport_logical_width = function() { return this._max_percent_of_viewport_logical_width; };
+ImageLoader_0_5_x.prototype.raw_source_physical_height = function() { return this._raw_source_physical_height; };
+ImageLoader_0_5_x.prototype.raw_source_physical_width = function() { return this._raw_source_physical_width; };
+ImageLoader_0_5_x.prototype.url_template = function() { return this._url_template; };
+ImageLoader_0_5_x.prototype.viewport_logical_height = function() { return this._viewport_logical_height; };
+ImageLoader_0_5_x.prototype.viewport_logical_width = function() { return this._viewport_logical_width; };
 
 
 /************************************************************\
@@ -92,7 +55,6 @@ ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
     this._filename = params['filename'];
     this._raw_source_physical_width = params['raw_source_physical_width'];
     this._raw_source_physical_height = params['raw_source_physical_height'];
-
     var return_value = this.image_tag_string();
     return return_value;
 };
@@ -157,5 +119,4 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
     );
     return return_value;
 };
-
 
