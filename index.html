@@ -12,6 +12,17 @@
   -->
 
   <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
+  <script>
+    // Create a new object and set the url_template
+    var imageLoader = new ImageLoader_0_5_x;
+    // TODO: Make `._url_template` a method instead of setting it directly. 
+    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+
+    // TODO: move these three into a single method to load the environment.  
+    imageLoader._dpr = window.devicePixelRatio;
+    imageLoader._viewport_logical_width = window.innerWidth;
+    imageLoader._viewport_logical_height = window.innerHeight;
+  </script>
 
   <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -26,23 +37,15 @@
 </head> 
 <body>
   <p><strong>Example &middot; <a href="tests/">QUnit Test Results</a> &middot; <a href="https://github.com/alanwsmith/document.write-image-loader">Documentation and GitHub Repo</a></strong></p>
-
   <hr>
 
   <h1>document.write Image Loader</h1>
+  <p>
+    (version: <script>document.write(imageLoader.version_number())</script>)
+  </p>
   <hr> 
   <h2>Basic Example</h2>
   <script>
-    // Create a new object and set the url_template
-    var imageLoader = new ImageLoader_0_5_x;
-    // TODO: Make `._url_template` a method instead of setting it directly. 
-    imageLoader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
-
-    // TODO: move these three into a single method to load the environment.  
-    imageLoader._dpr = window.devicePixelRatio;
-    imageLoader._viewport_logical_width = window.innerWidth;
-    imageLoader._viewport_logical_height = window.innerHeight;
-
     // This is the minim required values to set
     // TODO: Setup single method that these get passed through and that returns `.img_tag_string()`.
     imageLoader._alt_text = "Photo of Horses";

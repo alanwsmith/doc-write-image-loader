@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Version: 0.5.2
+--------------
+
+- Update `index.html` sample to put script calls in `<head>`
+
+
+
 Version: 0.5.1
 --------------
 
@@ -12,7 +19,6 @@ Version: 0.5.1
 - Put example output on test page for experimentation
 - Rounding value returned by `.logical_width()` down to the nearest `10`. (e.g. `519` becomes `510`)
 - Added `c_fill` to the URL examples to prevent one pixel difference resizing.
-
 
 
 Version: 0.5.0
@@ -33,7 +39,6 @@ Version: 0.5.0
 - Added `.logical_width()`
 - Added `.raw_source_dpr_max_logical_width()`
 - Added `.viewport_percentage_max_logical_width()`
-
 
 
 Version: 0.4.1 
