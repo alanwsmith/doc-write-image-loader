@@ -91,6 +91,13 @@ ImageLoader_0_5_x.prototype.img_tag_string = function() {
  * Unit Functions
 \************************************************************/
 
+
+ImageLoader_0_5_x.prototype.image_tag_string_from_params = function(params) {
+
+    return '<img src...';
+
+};
+
 ImageLoader_0_5_x.prototype.load_environment_with_url_template = function(url_template) {
     this._url_template = url_template;
     this._dpr = window.devicePixelRatio ? window.devicePixelRatio : 1;

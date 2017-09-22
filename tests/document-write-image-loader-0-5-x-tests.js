@@ -86,7 +86,7 @@ QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
 \************************************************************/
 
 
-QUnit.test ("Integration Test 1: Base functionality with minimal call", function(assert) {
+QUnit.skip("Integration Test 1: Base functionality with minimal call", function(assert) {
     // Remember: There should be no need to test different iterations of limiting 
     // either by physical dimension or viewport percentage. All that math should be 
     // tested at the unit level. As long as a single pass through here works for 
@@ -110,6 +110,9 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
+    // NOTE: This is normally set via `.load_environnment_with_url_template(URL)`
+    // but that won't work for the test since it pulls dynamic values
+    // from the browser environment. So, it's set manually here.
     this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
@@ -130,6 +133,22 @@ QUnit.test ("Integration Test 1: Base functionality with minimal call", function
 /************************************************************\
  * Unit Tests 
 \************************************************************/
+
+
+QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) {
+    // Preflight
+    var target = '<img src...';
+
+    // Given
+    var result = this.image_loader.image_tag_string_from_params(
+
+    );
+
+    // Then
+    assert.equal(result, target);
+
+});
+
 
 
 QUnit.test("Unit Test: .load_environment_with_url_template(STRING)", function(assert) {
