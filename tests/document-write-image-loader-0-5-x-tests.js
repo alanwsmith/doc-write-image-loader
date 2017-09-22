@@ -168,6 +168,7 @@ QUnit.test("Unit Test: .image_tag_string()", function(assert) {
     // When
     var result = this.image_loader.image_tag_string();
 
+    // Then
     assert.equal(result, target);
 
 });
