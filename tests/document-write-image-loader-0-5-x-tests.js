@@ -1,8 +1,8 @@
 QUnit.module("Loader Factory", {
-    before: function() {
+    before: function () {
         console.log("Kickoff: " + Math.random());
     },
-    beforeEach: function() {
+    beforeEach: function () {
         this.image_loader = new ImageLoader_0_5_x();
     }
 });
@@ -12,14 +12,14 @@ QUnit.module("Loader Factory", {
  * Verify Defaults and Version Number 
 \************************************************************/
 
-QUnit.test("Confirm version number", function(assert) {
+QUnit.test("Confirm version number", function (assert) {
     var target_version = "0.5.4";
     assert.equal(target_version, this.image_loader.version_number()); 
 });
 
 ///
 
-QUnit.test("Confirm default for .alt_text()", function(assert) {
+QUnit.test("Confirm default for .alt_text()", function (assert) {
     var target = "";
     var result = this.image_loader.alt_text();
     assert.equal(result, target);
@@ -31,55 +31,55 @@ QUnit.test("Confirm default for .max_logical_width()", function (assert) {
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .dpr()", function(assert) {
+QUnit.test("Confirm default for .dpr()", function (assert) {
     var target = 0;
     var result = this.image_loader.dpr(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .filename()", function(assert) {
+QUnit.test("Confirm default for .filename()", function (assert) {
     var target = "";
     var result = this.image_loader.filename(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .img_tag_template()", function(assert) {
+QUnit.test("Confirm default for .img_tag_template()", function (assert) {
     var target = '<img src="[SOURCE_URL]" width="[LOGICAL_WIDTH_FOR_ATTRIBUTE]" height="[LOGICAL_HEIGHT_FOR_ATTRIBUTE]" alt="[ALT_TEXT]">';
     var result = this.image_loader.img_tag_template(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .max_percent_of_viewport_logical_width()", function(assert) {
+QUnit.test("Confirm default for .max_percent_of_viewport_logical_width()", function (assert) {
     var target = 94;
     var result = this.image_loader.max_percent_of_viewport_logical_width(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .raw_source_heigth()", function(assert) {
+QUnit.test("Confirm default for .raw_source_heigth()", function (assert) {
     var target = 0;
     var result = this.image_loader.raw_source_physical_height(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .raw_source_physical_width()", function(assert) {
+QUnit.test("Confirm default for .raw_source_physical_width()", function (assert) {
     var target = 0;
     var result = this.image_loader.raw_source_physical_width(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .url_template()", function(assert) {
+QUnit.test("Confirm default for .url_template()", function (assert) {
     var target = "";
     var result = this.image_loader.url_template(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .viewport_logical_height()", function(assert) {
+QUnit.test("Confirm default for .viewport_logical_height()", function (assert) {
     var target = 0;
     var result = this.image_loader.viewport_logical_height(); 
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
+QUnit.test("Confirm default for .viewport_logical_width()", function (assert) {
     var target = 0;
     var result = this.image_loader.viewport_logical_width(); 
     assert.equal(result, target);
@@ -91,7 +91,7 @@ QUnit.test("Confirm default for .viewport_logical_width()", function(assert) {
 \************************************************************/
 
 
-QUnit.test("Integration Test 1: Base functionality with minimal call", function(assert) {
+QUnit.test("Integration Test 1: Base functionality with minimal call", function (assert) {
     // Remember: There should be no need to test different iterations of limiting 
     // either by physical dimension or viewport percentage. All that math should be 
     // tested at the unit level. As long as a single pass through here works for 
@@ -134,7 +134,7 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function(
 });
 
 
-QUnit.test("Integration Test: Passing params during init", function(assert) {
+QUnit.test("Integration Test: Passing params during init", function (assert) {
 
     var target = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
@@ -164,7 +164,7 @@ QUnit.test("Integration Test: Passing params during init", function(assert) {
 \************************************************************/
 
 
-QUnit.test("Unit Test: .image_tag_string()", function(assert) {
+QUnit.test("Unit Test: .image_tag_string()", function (assert) {
     // Preflight
     var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
@@ -189,7 +189,7 @@ QUnit.test("Unit Test: .image_tag_string()", function(assert) {
 });
 
 
-QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) {
+QUnit.test("Unit Test: .image_tag_string_from_params(params)", function (assert) {
     // Preflight
     var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
@@ -215,7 +215,7 @@ QUnit.test("Unit Test: .image_tag_string_from_params(params)", function(assert) 
 });
 
 
-QUnit.test("Unit Test: load_environment", function(assert) {
+QUnit.test("Unit Test: load_environment", function (assert) {
     // NOTE: This function loads dynamic variables from the environment.
     // Confirmation is done by comparing the same env variables pulled
     // dynamically during testing execution. Seems like the simpelest way
@@ -233,7 +233,7 @@ QUnit.test("Unit Test: load_environment", function(assert) {
 });
 
 
-QUnit.test("Unit Test: .logical_height()", function(assert) {
+QUnit.test("Unit Test: .logical_height()", function (assert) {
     // Preflight
     var target = 340;
 
@@ -252,7 +252,7 @@ QUnit.test("Unit Test: .logical_height()", function(assert) {
 });
 
 
-QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function(assert) {
+QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_width() is returned", function (assert) {
     // NOTE: Without rounding, the value would be `527`, but it's rounded down to `520`. 
 
     // Preflight
@@ -272,7 +272,7 @@ QUnit.test("Unit Test: .logical_width() - when .viewport_percentage_max_logical_
     assert.equal(result, target);
 });
 
-QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width() is returned", function(assert) {
+QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width() is returned", function (assert) {
     // Preflight
     var target = 400;
 
@@ -291,7 +291,7 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
 });
 
 
-QUnit.test("Unit Test: .physical_height_to_call()", function(assert) {
+QUnit.test("Unit Test: .physical_height_to_call()", function (assert) {
     // Preflight
     var target = 600;
 
@@ -310,7 +310,7 @@ QUnit.test("Unit Test: .physical_height_to_call()", function(assert) {
 });
 
 
-QUnit.test("Unit Test: .physical_width_to_call()", function(assert) {
+QUnit.test("Unit Test: .physical_width_to_call()", function (assert) {
     // NOTE: This test doesn't exercise the `Math.floor` portion
     // of the function. I'm not sure if it's necessary for the funciton, 
     // but it's been added for safety. TODO: look into this to see
@@ -336,7 +336,7 @@ QUnit.test("Unit Test: .physical_width_to_call()", function(assert) {
 
 
 
-QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
+QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function (assert) {
     // Preflight
     var target = 87;
 
@@ -351,7 +351,7 @@ QUnit.test("Unit Test: .raw_source_dpr_max_logical_width()", function(assert) {
     assert.equal(result, target);
 });
 
-QUnit.test("Unit Test: .url_string()", function(assert) {
+QUnit.test("Unit Test: .url_string()", function (assert) {
     // Preflight
     var target = '//res.cloudinary.com/demo/image/upload/c_fill,w_1020,h_680/horses.jpg';
 
@@ -376,7 +376,7 @@ QUnit.test("Unit Test: .url_string()", function(assert) {
 
 });
 
-QUnit.test("Unit Test: .viewport_percentage_max_logical_width()", function(assert) {
+QUnit.test("Unit Test: .viewport_percentage_max_logical_width()", function (assert) {
     // Preflight
     var target = 819;
 
