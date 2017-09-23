@@ -150,6 +150,37 @@ QUnit.test("Integration Test: Passing params during init", function (assert) {
 
 });
 
+
+QUnit.skip("Integration Test: Verify .max_logical_width() is applied", function (assert) {
+
+    // Preflight
+    var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="800" height="640" alt="Photo of Horses">';
+
+    // Given
+    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._dpr = 1.6;
+    this.image_loader._viewport_logical_width = 1024;
+    this.image_loader._viewport_logical_height = 680;
+    this.image_loader._max_logical_width = 800;
+
+
+    // When
+    var result = this.image_loader.image_tag_string_from_params({
+        alt_text: "Photo of Horses",
+        filename: "horses.jpg",
+        raw_source_physical_width: 1600,
+        raw_source_physical_height: 1067
+    });
+
+    console.log(result),
+
+    // Then
+    assert.equal(result, target);
+
+});
+
+
+
 //////////////////////////////////////////////////////////////////////
 // TODO:
 //
@@ -289,6 +320,11 @@ QUnit.test("Unit Test: .logical_width() - when .raw_source_dpr_max_logical_width
     // Then
     assert.equal(result, target);
 });
+
+QUnit.skip("Unit Test: .logical_width() - when .max_logical_width() is returned", function (assert) {
+
+});
+
 
 
 QUnit.test("Unit Test: .physical_height_to_call()", function (assert) {
