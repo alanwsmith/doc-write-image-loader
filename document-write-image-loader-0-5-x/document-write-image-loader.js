@@ -130,7 +130,7 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function() {
 
 // TODO: Figure out a way to test this output.
 ImageLoader_0_5_x.prototype.write_image = function(params) {
-    document.write(imageLoader.image_tag_string_from_params({
+    document.write(this.image_tag_string_from_params({
         alt_text: params['alt_text'],
         filename: params['filename'],
         raw_source_physical_width: params['raw_source_physical_width'],
