@@ -9,7 +9,7 @@ QUnit.module("Loader Factory", {
 
 
 /************************************************************\
- * Set Defaults and Version Number 
+ * Verify Defaults and Version Number 
 \************************************************************/
 
 QUnit.test("Confirm version number", function(assert) {
@@ -22,6 +22,12 @@ QUnit.test("Confirm version number", function(assert) {
 QUnit.test("Confirm default for .alt_text()", function(assert) {
     var target = "";
     var result = this.image_loader.alt_text();
+    assert.equal(result, target);
+});
+
+QUnit.test("Confirm default for .max_logical_width()", function (assert) {
+    var target = 1000;
+    var result = this.image_loader.max_logical_width();
     assert.equal(result, target);
 });
 
