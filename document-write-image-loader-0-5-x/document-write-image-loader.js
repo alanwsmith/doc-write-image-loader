@@ -1,10 +1,10 @@
 var ImageLoader_0_5_x = function (params) {
     if (params !== undefined) {
-        this._url_template = params.url_template;
+        this._src_template = params.src_template;
         this.load_environment();
     }
     else {
-        this._url_template = "";
+        this._src_template = "";
     }
 };
 /************************************************************\
@@ -35,7 +35,7 @@ ImageLoader_0_5_x.prototype.max_logical_width = function () { return this._max_l
 ImageLoader_0_5_x.prototype.max_percent_of_viewport_logical_width = function () { return this._max_percent_of_viewport_logical_width; };
 ImageLoader_0_5_x.prototype.raw_source_physical_height = function () { return this._raw_source_physical_height; };
 ImageLoader_0_5_x.prototype.raw_source_physical_width = function () { return this._raw_source_physical_width; };
-ImageLoader_0_5_x.prototype.url_template = function () { return this._url_template; };
+ImageLoader_0_5_x.prototype.src_template = function () { return this._src_template; };
 ImageLoader_0_5_x.prototype.viewport_logical_height = function () { return this._viewport_logical_height; };
 ImageLoader_0_5_x.prototype.viewport_logical_width = function () { return this._viewport_logical_width; };
 /************************************************************\
@@ -98,7 +98,7 @@ ImageLoader_0_5_x.prototype.raw_source_dpr_max_logical_width = function () {
     return return_value;
 };
 ImageLoader_0_5_x.prototype.url_string = function () {
-    var return_value = this.url_template();
+    var return_value = this.src_template();
     return_value = return_value.replace("[PHYSICAL_WIDTH_TO_CALL]", this.physical_width_to_call());
     return_value = return_value.replace("[PHYSICAL_HEIGHT_TO_CALL]", this.physical_height_to_call());
     return_value = return_value.replace("[FILENAME]", this.filename());

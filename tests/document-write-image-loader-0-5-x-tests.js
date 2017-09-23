@@ -67,9 +67,9 @@ QUnit.test("Confirm default for .raw_source_physical_width()", function (assert)
     assert.equal(result, target);
 });
 
-QUnit.test("Confirm default for .url_template()", function (assert) {
+QUnit.test("Confirm default for .src_template()", function (assert) {
     var target = "";
-    var result = this.image_loader.url_template(); 
+    var result = this.image_loader.src_template(); 
     assert.equal(result, target);
 });
 
@@ -115,10 +115,10 @@ QUnit.test("Integration Test 1: Base functionality with minimal call", function 
     this.image_loader._viewport_logical_height = 680;
 
     // Given 
-    // NOTE: This is normally set via `.load_environnment_with_url_template(URL)`
+    // NOTE: This is normally set via `.load_environnment_with_src_template(URL)`
     // but that won't work for the test since it pulls dynamic values
     // from the browser environment. So, it's set manually here.
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._src_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // When 
     var result = this.image_loader.image_tag_string_from_params({
@@ -140,10 +140,10 @@ QUnit.test("Integration Test: Passing params during init", function (assert) {
 
     // Given
     var test_object = new ImageLoader_0_5_x({
-        url_template:  '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
+        src_template:  '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
     }); 
 
-    var result = test_object.url_template();
+    var result = test_object.src_template();
 
     // Then
     assert.equal(result, target);
@@ -156,7 +156,7 @@ QUnit.test("Integration Test: Verify .max_logical_width() is applied", function 
     var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_800,h_533/horses.jpg" width="800" height="533" alt="Photo of Horses">';
 
     // Given
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._src_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
     this.image_loader._dpr = 1;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
@@ -195,7 +195,7 @@ QUnit.test("Unit Test: .image_tag_string()", function (assert) {
     var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Force envifonment for consistent testing.
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._src_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
     this.image_loader._dpr = 1.6;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
@@ -220,7 +220,7 @@ QUnit.test("Unit Test: .image_tag_string_from_params(params)", function (assert)
     var target = '<img src="//res.cloudinary.com/demo/image/upload/c_fill,w_1536,h_1024/horses.jpg" width="960" height="640" alt="Photo of Horses">';
 
     // Given
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._src_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
     this.image_loader._dpr = 1.6;
     this.image_loader._viewport_logical_width = 1024;
     this.image_loader._viewport_logical_height = 680;
@@ -406,7 +406,7 @@ QUnit.test("Unit Test: .url_string()", function (assert) {
     this.image_loader._max_percent_of_viewport_logical_width = 50;
     this.image_loader._raw_source_physical_height = 1067;
     this.image_loader._raw_source_physical_width = 1600;
-    this.image_loader._url_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
+    this.image_loader._src_template = '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]';
 
     // Force environmental variables for testing consistency
     this.image_loader._dpr = 2;
