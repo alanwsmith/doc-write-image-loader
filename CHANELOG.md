@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version: 0.5.3
+--------------
+
+- Corrected bug where test object name was used in production code
+- Updated README example showing how to pass the params hash when the object is created
+
 Version: 0.5.2
 --------------
 
