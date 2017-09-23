@@ -51,13 +51,14 @@ _Minimum_
 
 
     <head>
-        <!-- ... -->
+        <!-- other header content -->
 
-        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
-        var image_loader = new ImageLoader_0_5_x;        
-        imageLoader.load_environment_with_url_template(
-            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
-        );
+        <script>
+            // Create a new object with a url_template
+            var imageLoader = new ImageLoader_0_5_x(
+                { url_template: '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]' }
+            );
+        </script>
 
     </head>
 
@@ -66,16 +67,17 @@ _Set Optional Max Width_
 
 
     <head>
-        <!-- ... -->
+        <!-- other header content -->
 
-        <script src="document-write-image-loader-0-5-x/document-write-image-loader.js"></script>
-        var image_loader = new ImageLoader_0_5_x;        
-        imageLoader.load_environment_with_url_template(
-            '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]'
-        );
+        <script>
+            // Create a new object with a url_template
+            var imageLoader = new ImageLoader_0_5_x(
+                { url_template: '//res.cloudinary.com/demo/image/upload/c_fill,w_[PHYSICAL_WIDTH_TO_CALL],h_[PHYSICAL_HEIGHT_TO_CALL]/[FILENAME]' }
+            );
 
-        // Example of setting optional size restraint
-        imageLoader._max_percent_of_viewport_logical_width = 50;
+            // Example of setting optional size restraint 
+            imageLoader._max_percent_of_viewport_logical_width = 50;
+        </script>
 
     </head>
 
@@ -90,10 +92,22 @@ NOTE: If the Object Contstuctor (`(new ImageLoader_0_5_x()`) is called with a pa
 
 
 
-
 **Call**
 
-TKTKTKTKT
+_Basic Example_
+
+    <body>
+      <!-- other body content -->
+
+      <script>
+        imageLoader.write_image({
+          alt_text: "Photo of Horses",
+          filename: "horses.jpg",
+          raw_source_physical_width: 1600,
+          raw_source_physical_height: 1067
+        });
+      </script>
+    </body>
 
 
 Requirements
