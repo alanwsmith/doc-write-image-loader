@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Version: 0.5.4
+--------------
+
+- Added `.max_logical_width()` to limit overall size of the image (i.e. to prevent it from blowing out on large desktop monitors)
+
+
+
 Version: 0.5.3
 --------------
 
