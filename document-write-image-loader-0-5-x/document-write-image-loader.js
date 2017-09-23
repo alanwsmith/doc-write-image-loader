@@ -1,5 +1,5 @@
-var ImageLoader_0_5_x = function(params) {
-    if (typeof params !== "undefined") {
+var ImageLoader_0_5_x = function (params) {
+    if (params !== undefined) {
         this._url_template = params["url_template"];
         this.load_environment();
     }
