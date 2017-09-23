@@ -1,6 +1,6 @@
 var ImageLoader_0_5_x = function (params) {
     if (params !== undefined) {
-        this._url_template = params["url_template"];
+        this._url_template = params.url_template;
         this.load_environment();
     }
     else {
@@ -46,13 +46,13 @@ ImageLoader_0_5_x.prototype.image_tag_string = function () {
     return_value = return_value.replace("[LOGICAL_HEIGHT_FOR_ATTRIBUTE]", this.logical_height());
     return_value = return_value.replace("[SOURCE_URL]", this.url_string());
     return return_value;
-}
+};
 ImageLoader_0_5_x.prototype.image_tag_string_from_params = function (params) {
     // Conveince method that builds a string from params
-    this._alt_text = params["alt_text"];
-    this._filename = params["filename"];
-    this._raw_source_physical_width = params["raw_source_physical_width"];
-    this._raw_source_physical_height = params["raw_source_physical_height"];
+    this._alt_text = params.alt_text;
+    this._filename = params.filename;
+    this._raw_source_physical_width = params.raw_source_physical_width;
+    this._raw_source_physical_height = params.raw_source_physical_height;
     var return_value = this.image_tag_string();
     return return_value;
 };
@@ -110,9 +110,9 @@ ImageLoader_0_5_x.prototype.viewport_percentage_max_logical_width = function () 
 // TODO: Figure out a way to test this output.
 ImageLoader_0_5_x.prototype.write_image = function (params) {
     document.write(this.image_tag_string_from_params({
-        alt_text: params["alt_text"],
-        filename: params["filename"],
-        raw_source_physical_width: params["raw_source_physical_width"],
-        raw_source_physical_height: params["raw_source_physical_height"]
+        alt_text: params.alt_text,
+        filename: params.filename,
+        raw_source_physical_width: params.raw_source_physical_width,
+        raw_source_physical_height: params.raw_source_physical_height
     }));
 };
